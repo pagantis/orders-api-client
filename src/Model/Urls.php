@@ -33,12 +33,11 @@ class Urls extends AbstractModel
     /**
      * @param $url
      *
-     * @return mixed
+     * @return bool
      */
-    protected function urlValidate($url)
+    public static function urlValidate($url)
     {
-        //TODO Investigate why filter_var gives PHPStorm Warning
-        return false === filter_var($url, FILTER_VALIDATE_URL);
+        return false !== filter_var($url, FILTER_VALIDATE_URL);
     }
 
     /**

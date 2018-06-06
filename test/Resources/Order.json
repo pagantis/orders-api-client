@@ -1,0 +1,87 @@
+{
+  "shopping_cart": {
+    "order_reference": "string",
+    "deprecated_order_description": "string",
+    "total_amount": 20400,
+    "promoted_amount": 0,
+    "details": {
+      "shipping_cost": 0,
+      "products": [
+        {
+          "description": "string",
+          "quantity": 2,
+          "amount": 10200
+        }
+      ]
+    }
+  },
+  "user": {
+    "full_name": "string",
+    "email": "me@email.com",
+    "dni": "string",
+    "fix_phone": "string",
+    "mobile_phone": "string",
+    "address": {
+      "full_name": "string",
+      "address": "string",
+      "city": "string",
+      "zip_code": "string",
+      "country_code": "ES"
+    },
+    "date_of_birth": "1987-01-31",
+    "billing_address": {
+      "full_name": "string",
+      "address": "string",
+      "city": "string",
+      "zip_code": "string",
+      "country_code": "ES"
+    },
+    "shipping_address": {
+      "full_name": "string",
+      "address": "string",
+      "city": "string",
+      "zip_code": "string",
+      "country_code": "ES"
+    },
+    "truncated": false,
+    "order_history": [
+      {
+        "date": "2020-01-31",
+        "amount": 0
+      }
+    ]
+  },
+  "configuration": {
+    "channel": {
+      "type": "ONLINE",
+      "assisted_sale": false
+    },
+    "urls": {
+      "ok": "https://my-store.com/order-approved",
+      "ko": "https://my-store.com/order-rejected",
+      "cancel": "https://my-store.com/order-cancelled",
+      "notification_callback": "https://my-store.com/orders/notify"
+    }
+  },
+  "grace_period": null,
+  "grace_period_month": 0,
+  "metadata": {
+    "additionalProp1": "string",
+    "additionalProp2": "string",
+    "additionalProp3": "string"
+  },
+  "id": "5b17cc0c9949ac000688776a",
+  "api_version": "v1",
+  "status": "AUTHORIZED",
+  "created_at": "2018-06-06T11:57:00",
+  "confirmed_at": null,
+  "expires_at": "2018-06-07T01:59:07",
+  "action_urls": {
+    "form": "https://form-staging.pagamastarde.com/orders/5b17cc0c9949ac000688776a",
+    "confirm": "http://docker-ext-stg.digitalorigin.com:20010/api/v1/orders/5b17cc0c9949ac000688776a/confirm",
+    "refund": "http://docker-ext-stg.digitalorigin.com:20010/api/v1/orders/5b17cc0c9949ac000688776a/refund",
+    "upsell": "http://docker-ext-stg.digitalorigin.com:20010/api/v1/orders/5b17cc0c9949ac000688776a/upsell"
+  },
+  "refunds": [],
+  "upsells": []
+}

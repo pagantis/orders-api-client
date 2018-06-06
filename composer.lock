@@ -4,8 +4,47 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa9918bc3bea1976909750d748afb0f2",
+    "content-hash": "352eb98baed5abb09df78dcf3bf6f745",
     "packages": [
+        {
+            "name": "crazycodr/standard-exceptions",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/crazycodr/standard-exceptions.git",
+                "reference": "15758c0a24a017fa3303db102d452be3ee396f68"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/crazycodr/standard-exceptions/zipball/15758c0a24a017fa3303db102d452be3ee396f68",
+                "reference": "15758c0a24a017fa3303db102d452be3ee396f68",
+                "shasum": ""
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.11",
+                "phpunit/phpunit": "^7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Exceptions\\": "Exceptions/",
+                    "Exceptions\\Helpers\\": "Helpers/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mathieu Dumoulin",
+                    "email": "thecrazycodr@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This project is aimed at providing additional standard exceptions to php. Many exceptions that are missing from the SPL are constantly being reproduced in different projects. By providing a package of high-quality, well organised exceptions, it will, in the long run, increase interoperability between projects.",
+            "time": "2018-04-30T16:25:59+00:00"
+        },
         {
             "name": "nategood/httpful",
             "version": "0.2.20",
