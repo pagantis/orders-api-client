@@ -11,6 +11,8 @@ use Exceptions\Http\Client\UnprocessableEntityException;
 use Exceptions\Http\Server\InternalServerErrorException;
 use Exceptions\Http\Server\ServerErrorException;
 use Exceptions\Http\Server\ServiceUnavailableException;
+use Httpful\Mime;
+use Httpful\Request;
 use Httpful\Response;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
 use PagaMasTarde\OrdersApiClient\Model\Order;
@@ -42,6 +44,18 @@ abstract class AbstractMethod implements MethodInterface
     public function __construct(ApiConfiguration $apiConfiguration)
     {
         $this->apiConfiguration = $apiConfiguration;
+    }
+
+    /**
+     * @return Request
+     */
+    public function getRequest()
+    {
+        return Request::init()
+            ->expects(Mime::JSON)
+            ->authenticateWithBasic($this->apiConfiguration->getPublicKey(), $this->apiConfiguration->getPrivateKey())
+            ->timeoutIn(5)
+        ;
     }
 
     /**

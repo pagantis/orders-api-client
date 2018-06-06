@@ -45,7 +45,7 @@ class GetOrderMethod extends AbstractMethod
      */
     public function call()
     {
-        $response = Request::init()
+        $response = $this->getRequest()
             ->method(Http::GET)
             ->uri(
                 $this->apiConfiguration->getBaseUri().
