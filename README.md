@@ -1,4 +1,4 @@
-# Orders Api Client <img src="https://pagamastarde.com/img/icons/logo.svg" width="100" align="right">
+# BETA ~ Orders Api Client <img src="https://pagamastarde.com/img/icons/logo.svg" width="100" align="right">
 
 [![Build Status](https://travis-ci.org/PagaMasTarde/ordersApiClient.svg?branch=master)](https://travis-ci.org/PagaMasTarde/ordersApiClient)
 [![Latest Stable Version](https://poser.pugx.org/pagamastarde/orders-api-client/v/stable)](https://packagist.org/packages/pagamastarde/orders-api-client)
