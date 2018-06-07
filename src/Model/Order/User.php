@@ -4,7 +4,9 @@ namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
 use Exceptions\Data\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
+use PagaMasTarde\OrdersApiClient\Model\Order;
 use PagaMasTarde\OrdersApiClient\Model\Order\User\Address;
+use PagaMasTarde\OrdersApiClient\Model\Order\User\OrderHistory;
 
 /**
  * Class User
@@ -53,7 +55,7 @@ class User extends AbstractModel
     protected $mobilePhone;
 
     /**
-     * @var array $orderHistory Array of previous orders [['amount' => 100 , 'date' => '2020-10-10'], ...]
+     * @var OrderHistory[] $orderHistory Array of previous orders
      */
     protected $orderHistory;
 
@@ -77,6 +79,7 @@ class User extends AbstractModel
         $this->address = new Address();
         $this->billingAddress = new Address();
         $this->shippingAddress = new Address();
+        $this->orderHistory = array();
     }
 
     /**
@@ -261,13 +264,13 @@ class User extends AbstractModel
     }
 
     /**
-     * @param array $orderHistory
+     * @param OrderHistory $orderHistory
      *
-     * @return User
+     * @return $this
      */
-    public function setOrderHistory($orderHistory)
+    public function addOrderHistory(OrderHistory $orderHistory)
     {
-        $this->orderHistory = $orderHistory;
+        $this->orderHistory[] = $orderHistory;
 
         return $this;
     }
