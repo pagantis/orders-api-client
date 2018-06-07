@@ -8,4 +8,8 @@ namespace PagaMasTarde\OrdersApiClient\Model;
  */
 interface ModelInterface
 {
+    /**
+     * @return array
+     */
+    public function export();
 }

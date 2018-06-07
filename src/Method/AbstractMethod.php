@@ -15,7 +15,6 @@ use Httpful\Mime;
 use Httpful\Request;
 use Httpful\Response;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
-use PagaMasTarde\OrdersApiClient\Model\Order;
 
 /**
  * Class AbstractMethod
@@ -71,21 +70,6 @@ abstract class AbstractMethod implements MethodInterface
     }
 
     /**
-     * @return Order | false
-     */
-    public function getOrder()
-    {
-        $response = $this->getResponse();
-        if ($response instanceof Response) {
-            $order = new Order();
-            //TODO map order from $response;
-            return $order;
-        }
-
-        return false;
-    }
-
-    /**
      * @return bool|string
      */
     public function getResponseAsJson()
@@ -118,28 +102,28 @@ abstract class AbstractMethod implements MethodInterface
     protected function parseHttpException($code)
     {
         switch ($code) {
-            case 400:
+            case BadRequestException::HTTP_CODE:
                 throw new BadRequestException();
                 break;
-            case 401:
+            case UnauthorizedException::HTTP_CODE:
                 throw new UnauthorizedException();
                 break;
-            case 403:
+            case ForbiddenException::HTTP_CODE:
                 throw new ForbiddenException();
                 break;
-            case 404:
+            case NotFoundException::HTTP_CODE:
                 throw new NotFoundException();
                 break;
-            case 405:
+            case MethodNotAllowedException::HTTP_CODE:
                 throw new MethodNotAllowedException();
                 break;
-            case 422:
+            case UnprocessableEntityException::HTTP_CODE:
                 throw new UnprocessableEntityException();
                 break;
-            case 500:
+            case InternalServerErrorException::HTTP_CODE:
                 throw new InternalServerErrorException();
                 break;
-            case 503:
+            case ServiceUnavailableException::HTTP_CODE:
                 throw new ServiceUnavailableException();
                 break;
             default:

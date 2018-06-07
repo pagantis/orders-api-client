@@ -1,8 +1,9 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model;
+namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
-use PagaMasTarde\OrdersApiClient\Exception\RefundException;
+use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
  * Class Refund
@@ -60,8 +61,6 @@ class Refund extends AbstractModel
      * @param int $promotedAmount
      *
      * @return Refund
-     *
-     * @throws RefundException
      */
     public function setPromotedAmount($promotedAmount)
     {
@@ -70,7 +69,7 @@ class Refund extends AbstractModel
             return $this;
         }
 
-        throw new RefundException('Promoted amount has to be a natural number');
+        throw new ValidationException('Promoted amount has to be a natural number');
     }
 
     /**
@@ -105,8 +104,6 @@ class Refund extends AbstractModel
      * @param int $totalAmount
      *
      * @return Refund
-     *
-     * @throws RefundException
      */
     public function setTotalAmount($totalAmount)
     {
@@ -115,6 +112,6 @@ class Refund extends AbstractModel
             return $this;
         }
 
-        throw new RefundException('Total amount has to be a non zero natural number');
+        throw new ValidationException('Total amount has to be a non zero natural number');
     }
 }

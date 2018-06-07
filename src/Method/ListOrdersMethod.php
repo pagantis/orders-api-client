@@ -8,11 +8,11 @@ use Httpful\Response;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 
 /**
- * Class GetOrderMethod
+ * Class ListOrdersMethod
  *
  * @package PagaMasTarde\OrdersApiClient\Method
  */
-class GetOrderMethod extends AbstractMethod
+class ListOrdersMethod extends AbstractMethod
 {
     /**
      * Get Order Endpoint
@@ -20,18 +20,18 @@ class GetOrderMethod extends AbstractMethod
     const ENDPOINT = 'api/v1/orders';
 
     /**
-     * @var string $orderId
+     * @var array $queryParameters
      */
-    protected $orderId;
+    protected $queryParameters;
 
     /**
-     * @param string $orderId
+     * @param array $queryParameters
      *
-     * @return GetOrderMethod
+     * @return $this
      */
-    public function setOrderId($orderId)
+    public function setQueryParameters(array $queryParameters)
     {
-        $this->orderId = $orderId;
+        $this->queryParameters = $queryParameters;
 
         return $this;
     }
@@ -51,8 +51,7 @@ class GetOrderMethod extends AbstractMethod
                 $this->apiConfiguration->getBaseUri().
                 self::SLASH.
                 self::ENDPOINT.
-                self::SLASH.
-                $this->orderId
+                $this->addGetParameters($this->queryParameters)
             )
             ->send()
         ;
@@ -66,16 +65,14 @@ class GetOrderMethod extends AbstractMethod
     }
 
     /**
-     * @return Order | false
+     * @return Order[] | false
      */
-    public function getOrder()
+    public function getOrders()
     {
         $response = $this->getResponse();
         if ($response instanceof Response) {
-            $order = new Order();
-            $order->import($this->getResponse()->body);
-            var_dump($order);die;
-            return $order;
+            //TODO map order from $response;
+            return array();
         }
 
         return false;

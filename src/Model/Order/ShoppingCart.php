@@ -1,24 +1,21 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model;
+namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
-use PagaMasTarde\OrdersApiClient\Exception\ShoppingCartException;
+use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
+use PagaMasTarde\OrdersApiClient\Model\Order\ShopingCart\Details;
 
 /**
  * Class ShoppingCart
- * @package PagaMasTarde\OrdersApiClient\Model
+ * @package PagaMasTarde\OrdersApiClient\Model\Order
  */
 class ShoppingCart extends AbstractModel
 {
     /**
-     * @var Product[]
+     * @var Details $details
      */
-    protected $products;
-
-    /**
-     * @var int $shipping_cost Shipping cost for the order
-     */
-    protected $shippingCost;
+    protected $details;
 
     /**
      * @var string $order_reference Order reference in merchant side
@@ -36,56 +33,38 @@ class ShoppingCart extends AbstractModel
     protected $totalAmount;
 
     /**
+     * Not adding setters nor getters
+     *
+     * @deprecated
+     */
+    protected $deprecatedOrderDescription;
+
+    /**
      * ShoppingCart constructor.
      */
     public function __construct()
     {
-        $this->products = array();
+        $this->details = new Details();
     }
 
     /**
-     * @return Product[]
+     * @return Details
      */
-    public function getProducts()
+    public function getDetails()
     {
-        return $this->products;
+        return $this->details;
     }
 
     /**
-     * @param Product $product
+     * @param Details $details
      *
      * @return ShoppingCart
      */
-    public function addProduct(Product $product)
+    public function setDetails($details)
     {
-        $this->products[] = $product;
+        $this->details = $details;
 
         return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getShippingCost()
-    {
-        return $this->shippingCost;
-    }
-
-    /**
-     * @param int $shippingCost
-     *
-     * @return ShoppingCart
-     *
-     * @throws ShoppingCartException
-     */
-    public function setShippingCost($shippingCost)
-    {
-        if ($shippingCost >= 0 && is_int($shippingCost)) {
-            $this->shippingCost = $shippingCost;
-            return $this;
-        }
-
-        throw new ShoppingCartException('Shipping cost has to be natural number');
     }
 
     /**
@@ -120,8 +99,6 @@ class ShoppingCart extends AbstractModel
      * @param int $promotedAmount
      *
      * @return ShoppingCart
-     *
-     * @throws ShoppingCartException
      */
     public function setPromotedAmount($promotedAmount)
     {
@@ -130,7 +107,7 @@ class ShoppingCart extends AbstractModel
             return $this;
         }
 
-        throw new ShoppingCartException('Promoted amount has to be natural number');
+        throw new ValidationException('Promoted amount has to be natural number');
     }
 
     /**
@@ -145,8 +122,6 @@ class ShoppingCart extends AbstractModel
      * @param int $totalAmount
      *
      * @return ShoppingCart
-     *
-     * @throws ShoppingCartException
      */
     public function setTotalAmount($totalAmount)
     {
@@ -155,6 +130,6 @@ class ShoppingCart extends AbstractModel
             return $this;
         }
 
-        throw new ShoppingCartException('Total amount has to be a non zero natural number');
+        throw new ValidationException('Total amount has to be a non zero natural number');
     }
 }

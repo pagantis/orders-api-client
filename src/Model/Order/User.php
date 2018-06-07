@@ -1,12 +1,14 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model;
+namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
-use PagaMasTarde\OrdersApiClient\Exception\UserException;
+use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
+use PagaMasTarde\OrdersApiClient\Model\Order\User\Address;
 
 /**
  * Class User
- * @package PagaMasTarde\OrdersApiClient\Model
+ * @package PagaMasTarde\OrdersApiClient\Model\Order
  */
 class User extends AbstractModel
 {
@@ -59,6 +61,13 @@ class User extends AbstractModel
      * @var Address $shippingAddress Shipping address of the order.
      */
     protected $shippingAddress;
+
+    /**
+     * Not adding getters nor setters
+     *
+     * @deprecated
+     */
+    protected $truncated;
 
     /**
      * Configuration constructor.
@@ -122,18 +131,16 @@ class User extends AbstractModel
      * @param string $dateOfBirth
      *
      * @return User
-     *
-     * @throws UserException
      */
     public function setDateOfBirth($dateOfBirth)
     {
-        $dateOfBirthParsed = new \DateTime(date('Y-m-d', $dateOfBirth));
+        $dateOfBirthParsed = new \DateTime(date('d-m-Y', $dateOfBirth));
         if ($dateOfBirthParsed >= strtotime('-18 years')) {
             $this->dateOfBirth = $dateOfBirth;
             return $this;
         }
 
-        throw new UserException('Date of birth error. (User cant have less than 18 years');
+        throw new ValidationException('Date of birth error. (User cant have less than 18 years');
     }
 
     /**
@@ -148,8 +155,6 @@ class User extends AbstractModel
      * @param string $dni
      *
      * @return User
-     *
-     * @throws UserException
      */
     public function setDni($dni)
     {
@@ -158,7 +163,7 @@ class User extends AbstractModel
             return $this;
         }
 
-        throw new UserException('Invalid DNI');
+        throw new ValidationException('Invalid DNI');
     }
 
     /**
@@ -173,8 +178,6 @@ class User extends AbstractModel
      * @param string $email
      *
      * @return User
-     *
-     * @throws UserException
      */
     public function setEmail($email)
     {
@@ -183,7 +186,7 @@ class User extends AbstractModel
             return $this;
         }
 
-        throw new UserException('Invalid User Email');
+        throw new ValidationException('Invalid User Email');
     }
 
     /**
@@ -218,8 +221,6 @@ class User extends AbstractModel
      * @param string $fullName
      *
      * @return User
-     *
-     * @throws UserException
      */
     public function setFullName($fullName)
     {
@@ -228,7 +229,7 @@ class User extends AbstractModel
             return $this;
         }
 
-        throw new UserException('Full name cannot be empty');
+        throw new ValidationException('Full name cannot be empty');
     }
 
     /**

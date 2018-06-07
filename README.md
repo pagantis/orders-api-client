@@ -5,6 +5,13 @@
 [![composer.lock](https://poser.pugx.org/pagamastarde/orders-api-client/composerlock)](https://packagist.org/packages/pagamastarde/orders-api-client)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c777428d857cccb6bfca/maintainability)](https://codeclimate.com/github/PagaMasTarde/ordersApiClient/maintainability)
 
+## TODO
+* Validate and double check Models
+* Test each single function
+* Add pending methods
+* OrderHistory manage correctly
+* double check refunds and upsell add from json
+
 Orders API Client offers the merchants working with Paga+Tarde a way to consume the API services without the effort of doing a complete development.
 The library provides stubs for each type of object withing the API and the method calls. Each Method supported by the API is implemented in this client and
 is documented within the code and [here](https://developer-staging.pagamastarde.com/api/)

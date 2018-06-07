@@ -1,12 +1,13 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model;
+namespace PagaMasTarde\OrdersApiClient\Model\Order\ShopingCart\Details;
 
-use PagaMasTarde\OrdersApiClient\Exception\ProductException;
+use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
  * Class Product
- * @package PagaMasTarde\OrdersApiClient\Model
+ * @package PagaMasTarde\OrdersApiClient\Model\Order\ShopingCart\Details
  */
 class Product extends AbstractModel
 {
@@ -37,8 +38,6 @@ class Product extends AbstractModel
      * @param $amount
      *
      * @return $this
-     *
-     * @throws ProductException
      */
     public function setAmount($amount)
     {
@@ -47,7 +46,7 @@ class Product extends AbstractModel
             return $this;
         }
 
-        throw new ProductException('Amount has to be non zero natural number');
+        throw new ValidationException('Amount has to be non zero natural number');
     }
 
     /**
@@ -80,8 +79,6 @@ class Product extends AbstractModel
      * @param $quantity
      *
      * @return $this
-     *
-     * @throws ProductException
      */
     public function setQuantity($quantity)
     {
@@ -90,6 +87,6 @@ class Product extends AbstractModel
             return $this;
         }
 
-        throw new ProductException('Quantity has to be non zero natural number');
+        throw new ValidationException('Quantity has to be non zero natural number');
     }
 }

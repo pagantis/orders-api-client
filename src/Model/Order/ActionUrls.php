@@ -1,11 +1,12 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model;
+namespace PagaMasTarde\OrdersApiClient\Model\Order;
+
+use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
  * Class ActionUrls
- *
- * @package PagaMasTarde\OrdersApiClient\Model
+ * @package PagaMasTarde\OrdersApiClient\Model\Order
  */
 class ActionUrls extends AbstractModel
 {

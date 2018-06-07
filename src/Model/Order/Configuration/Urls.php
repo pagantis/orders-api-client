@@ -1,12 +1,13 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model;
+namespace PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
 
-use PagaMasTarde\OrdersApiClient\Exception\UrlException;
+use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
  * Class Urls
- * @package PagaMasTarde\OrdersApiClient\Model
+ * @package PagaMasTarde\OrdersApiClient\Model\Order\Configuration
  */
 class Urls extends AbstractModel
 {
@@ -52,8 +53,6 @@ class Urls extends AbstractModel
      * @param $cancel
      *
      * @return $this
-     *
-     * @throws UrlException
      */
     public function setCancel($cancel)
     {
@@ -62,7 +61,7 @@ class Urls extends AbstractModel
             return $this;
         }
 
-        throw new UrlException('Invalid Cancel Url');
+        throw new ValidationException('Invalid Cancel Url');
     }
 
     /**
@@ -77,8 +76,6 @@ class Urls extends AbstractModel
      * @param $ko
      *
      * @return $this
-     *
-     * @throws UrlException
      */
     public function setKo($ko)
     {
@@ -87,7 +84,7 @@ class Urls extends AbstractModel
             return $this;
         }
 
-        throw new UrlException('Invalid Ko Url');
+        throw new ValidationException('Invalid Ko Url');
     }
 
     /**
@@ -102,8 +99,6 @@ class Urls extends AbstractModel
      * @param $notificationCallback
      *
      * @return $this
-     *
-     * @throws UrlException
      */
     public function setNotificationCallback($notificationCallback)
     {
@@ -112,7 +107,7 @@ class Urls extends AbstractModel
             return $this;
         }
 
-        throw new UrlException('Invalid NotificationCallback Url');
+        throw new ValidationException('Invalid NotificationCallback Url');
     }
 
     /**
@@ -127,8 +122,6 @@ class Urls extends AbstractModel
      * @param $ok
      *
      * @return $this
-     *
-     * @throws UrlException
      */
     public function setOk($ok)
     {
@@ -137,6 +130,6 @@ class Urls extends AbstractModel
             return $this;
         }
 
-        throw new UrlException('Invalid Ok Url');
+        throw new ValidationException('Invalid Ok Url');
     }
 }

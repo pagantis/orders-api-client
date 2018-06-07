@@ -1,8 +1,9 @@
 <?php
 
 namespace PagaMasTarde\OrdersApiClient\Model;
-use http\Url;
-use PagaMasTarde\OrdersApiClient\Exception\UrlException;
+
+use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Urls;
 
 /**
  * Class ApiConfiguration
@@ -93,8 +94,6 @@ class ApiConfiguration extends AbstractModel
      * @param $baseUri
      *
      * @return $this
-     *
-     * @throws UrlException
      */
     public function setBaseUri($baseUri)
     {
@@ -103,6 +102,6 @@ class ApiConfiguration extends AbstractModel
             return $this;
         }
 
-        throw new UrlException('Invalid base URL on the ApiConfiguration setter');
+        throw new ValidationException('Invalid base URL on the ApiConfiguration setter');
     }
 }

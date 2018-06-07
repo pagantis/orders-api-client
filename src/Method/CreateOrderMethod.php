@@ -4,15 +4,16 @@ namespace PagaMasTarde\OrdersApiClient\Method;
 
 use Exceptions\Http\Server\ServerErrorException;
 use Httpful\Http;
+use Httpful\Mime;
 use Httpful\Response;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 
 /**
- * Class GetOrderMethod
+ * Class CreateOrderMethod
  *
  * @package PagaMasTarde\OrdersApiClient\Method
  */
-class GetOrderMethod extends AbstractMethod
+class CreateOrderMethod extends AbstractMethod
 {
     /**
      * Get Order Endpoint
@@ -20,18 +21,18 @@ class GetOrderMethod extends AbstractMethod
     const ENDPOINT = 'api/v1/orders';
 
     /**
-     * @var string $orderId
+     * @var Order
      */
-    protected $orderId;
+    protected $order;
 
     /**
-     * @param string $orderId
+     * @param Order $order
      *
-     * @return GetOrderMethod
+     * @return $this
      */
-    public function setOrderId($orderId)
+    public function setOrder(Order $order)
     {
-        $this->orderId = $orderId;
+        $this->order = $order;
 
         return $this;
     }
@@ -46,14 +47,14 @@ class GetOrderMethod extends AbstractMethod
     public function call()
     {
         $response = $this->getRequest()
-            ->method(Http::GET)
+            ->method(Http::POST)
             ->uri(
                 $this->apiConfiguration->getBaseUri().
                 self::SLASH.
-                self::ENDPOINT.
-                self::SLASH.
-                $this->orderId
+                self::ENDPOINT
             )
+            ->sendsType(Mime::JSON)
+            ->body(json_encode($this->order->export()))
             ->send()
         ;
 
@@ -73,8 +74,7 @@ class GetOrderMethod extends AbstractMethod
         $response = $this->getResponse();
         if ($response instanceof Response) {
             $order = new Order();
-            $order->import($this->getResponse()->body);
-            var_dump($order);die;
+            //TODO map order from $response;
             return $order;
         }
 

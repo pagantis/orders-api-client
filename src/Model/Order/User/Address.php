@@ -1,12 +1,13 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model;
+namespace PagaMasTarde\OrdersApiClient\Model\Order\User;
 
-use PagaMasTarde\OrdersApiClient\Exception\AddressException;
+use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
  * Class Address
- * @package PagaMasTarde\OrdersApiClient\Model
+ * @package PagaMasTarde\OrdersApiClient\Model\Order\User
  */
 class Address extends AbstractModel
 {
@@ -104,8 +105,6 @@ class Address extends AbstractModel
      * @param $fullName
      *
      * @return $this
-     *
-     * @throws AddressException
      */
     public function setFullName($fullName)
     {
@@ -114,7 +113,7 @@ class Address extends AbstractModel
             return $this;
         }
 
-        throw new AddressException('Full name cannot be empty');
+        throw new ValidationException('Full name cannot be empty');
     }
 
     /**

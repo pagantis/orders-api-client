@@ -1,12 +1,13 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model;
+namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
-use PagaMasTarde\OrdersApiClient\Exception\UpsellException;
+use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
  * Class Upsell
- * @package PagaMasTarde\OrdersApiClient\Model
+ * @package PagaMasTarde\OrdersApiClient\Model\Order
  */
 class Upsell extends AbstractModel
 {
@@ -77,8 +78,6 @@ class Upsell extends AbstractModel
      * @param int $totalAmount
      *
      * @return Upsell
-     *
-     * @throws UpsellException
      */
     public function setTotalAmount($totalAmount)
     {
@@ -87,6 +86,6 @@ class Upsell extends AbstractModel
             return $this;
         }
 
-        throw new UpsellException('Total amount has to be a non zero natural number');
+        throw new ValidationException('Total amount has to be a non zero natural number');
     }
 }

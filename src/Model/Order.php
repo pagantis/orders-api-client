@@ -2,6 +2,14 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model;
 
+use PagaMasTarde\OrdersApiClient\Model\Order\ActionUrls;
+use PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
+use PagaMasTarde\OrdersApiClient\Model\Order\Metadata;
+use PagaMasTarde\OrdersApiClient\Model\Order\Refund;
+use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart;
+use PagaMasTarde\OrdersApiClient\Model\Order\Upsell;
+use PagaMasTarde\OrdersApiClient\Model\Order\User;
+
 /**
  * Class Order
  *
@@ -83,6 +91,20 @@ class Order extends AbstractModel
      * @var User $user
      */
     protected $user;
+
+    /**
+     * Order constructor.
+     */
+    public function __construct()
+    {
+        $this->actionUrls = new ActionUrls();
+        $this->configuration = new Configuration();
+        $this->metadata = new Metadata();
+        $this->refunds = array();
+        $this->shoppingCart = new ShoppingCart();
+        $this->upsells = array();
+        $this->user = new User();
+    }
 
     /**
      * @return ActionUrls
@@ -293,13 +315,13 @@ class Order extends AbstractModel
     }
 
     /**
-     * @param Refund[] $refunds
+     * @param Refund $refund
      *
-     * @return Order
+     * @return $this
      */
-    public function setRefunds($refunds)
+    public function addRefund(Refund $refund)
     {
-        $this->refunds = $refunds;
+        $this->refunds[] = $refund;
 
         return $this;
     }
@@ -353,13 +375,13 @@ class Order extends AbstractModel
     }
 
     /**
-     * @param Upsell[] $upsells
+     * @param Upsell $upsell
      *
-     * @return Order
+     * @return $this
      */
-    public function setUpsells($upsells)
+    public function addUpsell(Upsell $upsell)
     {
-        $this->upsells = $upsells;
+        $this->upsells[] = $upsell;
 
         return $this;
     }
