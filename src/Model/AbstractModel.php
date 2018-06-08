@@ -95,7 +95,7 @@ abstract class AbstractModel implements ModelInterface
     public function triggerSetters()
     {
         foreach ($this as $key => $value) {
-            if (method_exists($this, 'set' . ucfirst($key))) {
+            if (method_exists($this, 'set' . ucfirst($key)) && $value !== null) {
                 $this->{'set' . ucfirst($key)}($value);
             }
         }
