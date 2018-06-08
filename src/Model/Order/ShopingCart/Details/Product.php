@@ -82,11 +82,21 @@ class Product extends AbstractModel
      */
     public function setQuantity($quantity)
     {
-        if ($quantity >= 0 && is_int($quantity)) {
+        if ($quantity >= 1 && is_int($quantity)) {
             $this->quantity = $quantity;
             return $this;
         }
 
         throw new ValidationException('Quantity has to be non zero natural number');
+    }
+
+    /**
+     * Be sure to trigger setters in order to validate fields
+     *
+     * @return true|void
+     */
+    public function validate()
+    {
+        $this->triggerSetters();
     }
 }

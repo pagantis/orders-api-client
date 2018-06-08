@@ -132,4 +132,20 @@ class ShoppingCart extends AbstractModel
 
         throw new ValidationException('Total amount has to be a non zero natural number');
     }
+
+    /**
+     * Validate setters, amount total > amount promoted and details object
+     *
+     * @return bool|true
+     */
+    public function validate()
+    {
+        $this->triggerSetters();
+        $this->details->validate();
+        if (!$this->getTotalAmount() < $this->getPromotedAmount()) {
+            return true;
+        }
+
+        throw new ValidationException('Promoted amount can not be higher than total amount');
+    }
 }

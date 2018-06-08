@@ -15,14 +15,19 @@ abstract class AbstractModel implements ModelInterface
     /**
      * Export as Array the object recursively
      *
+     * @param bool $validation
+     *
      * @return array
      */
-    public function export()
+    public function export($validation = true)
     {
+        if ($validation) {
+            $this->validate();
+        }
         $result = array();
         foreach ($this as $key => $value) {
             if ($value) {
-                $result[Str::toSnakeCase($key)] = $this->parseValue($value);
+                $result[Str::toSnakeCase($key)] = $this->parseValue($value, $validation);
             }
         }
 
@@ -33,16 +38,17 @@ abstract class AbstractModel implements ModelInterface
      * Parse the value of the object depending of type.
      *
      * @param $value
+     * @param bool $validation
      *
      * @return array
      */
-    public function parseValue($value)
+    public function parseValue($value, $validation)
     {
         if (is_array($value) && !empty($value)) {
             $valueArray = array();
             foreach ($value as $subKey => $subValue) {
                 if (is_object($subValue) && $subValue instanceof AbstractModel) {
-                    $valueArray[Str::toSnakeCase($subKey)] = $subValue->export();
+                    $valueArray[Str::toSnakeCase($subKey)] = $subValue->export($validation);
                 } else {
                     $valueArray[Str::toSnakeCase($subKey)] = $subValue;
                 }
@@ -79,6 +85,18 @@ abstract class AbstractModel implements ModelInterface
                 } else {
                     throw new IntegrityException('Property ' . lcfirst(Str::toCamelCase($key)) . ' Not found');
                 }
+            }
+        }
+    }
+
+    /**
+     * Helps for validation purpose, since setters have the validation
+     */
+    public function triggerSetters()
+    {
+        foreach ($this as $key => $value) {
+            if (method_exists($this, 'set' . ucfirst($key))) {
+                $this->{'set' . ucfirst($key)}($value);
             }
         }
     }

@@ -32,12 +32,12 @@ class Channel extends AbstractModel
     protected $type;
 
     /**
-     * @var string $assistedSale
+     * @var bool $assistedSale
      */
     protected $assistedSale;
 
     /**
-     * @return string
+     * @return bool
      */
     public function getAssistedSale()
     {
@@ -51,9 +51,13 @@ class Channel extends AbstractModel
      */
     public function setAssistedSale($assistedSale)
     {
-        $this->assistedSale = $assistedSale;
+        if (is_bool($assistedSale)) {
+            $this->assistedSale = $assistedSale;
 
-        return $this;
+            return $this;
+        }
+
+        throw new ValidationException('Assisted Sale has to be boolean true|false');
     }
 
     /**
@@ -82,5 +86,19 @@ class Channel extends AbstractModel
         }
 
         throw new ValidationException('Set type from Channel::class constants');
+    }
+
+    /**
+     * @return bool|true
+     */
+    public function validate()
+    {
+        if ($this->getAssistedSale() && $this->getType() === self::INSTORE) {
+            return true;
+        }
+
+        $this->triggerSetters();
+
+        throw new ValidationException('Assisted sale is only for in-store sale');
     }
 }

@@ -46,4 +46,40 @@ class Configuration extends AbstractModel
     {
         return $this->urls;
     }
+
+    /**
+     * @param Channel $channel
+     *
+     * @return Configuration
+     */
+    public function setChannel(Channel $channel)
+    {
+        $this->channel = $channel;
+
+        return $this;
+    }
+
+    /**
+     * @param Urls $urls
+     *
+     * @return Configuration
+     */
+    public function setUrls(Urls $urls)
+    {
+        $this->urls = $urls;
+
+        return $this;
+    }
+
+    /**
+     * Both objects need to be present and validated
+     *
+     * @return true|void
+     */
+    public function validate()
+    {
+        $this->triggerSetters();
+        $this->getChannel()->validate();
+        $this->getUrls()->validate();
+    }
 }

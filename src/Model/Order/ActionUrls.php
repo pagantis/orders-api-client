@@ -159,4 +159,14 @@ class ActionUrls extends AbstractModel
 
         return $this;
     }
+
+    /**
+     * This is filled by the API
+     *
+     * @return bool|true
+     */
+    public function validate()
+    {
+        $this->triggerSetters();
+    }
 }

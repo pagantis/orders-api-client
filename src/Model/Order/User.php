@@ -4,7 +4,6 @@ namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
 use Exceptions\Data\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
-use PagaMasTarde\OrdersApiClient\Model\Order;
 use PagaMasTarde\OrdersApiClient\Model\Order\User\Address;
 use PagaMasTarde\OrdersApiClient\Model\Order\User\OrderHistory;
 
@@ -312,5 +311,27 @@ class User extends AbstractModel
         }
 
         return false;
+    }
+
+    /**
+     * Validate setters, objects and fullname + email can not be empty.
+     *
+     * @return bool|true
+     */
+    public function validate()
+    {
+        $this->triggerSetters();
+
+        foreach ($this as $key => $value) {
+            if ($value instanceof AbstractModel) {
+                $value->validate();
+            }
+        }
+
+        if (!empty($this->fullName) && !empty($this->email)) {
+            return true;
+        }
+
+        throw new ValidationException('Fullname and Email can not be null');
     }
 }

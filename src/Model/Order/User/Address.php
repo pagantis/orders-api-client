@@ -134,4 +134,14 @@ class Address extends AbstractModel
         $this->zipCode = $zipCode;
         return $this;
     }
+
+    /**
+     * Address has no validation
+     *
+     * @return bool|true
+     */
+    public function validate()
+    {
+        return true;
+    }
 }

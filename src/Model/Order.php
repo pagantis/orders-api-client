@@ -53,7 +53,7 @@ class Order extends AbstractModel
     protected $gracePeriod;
 
     /**
-     * @var string$gracePeriodMonth
+     * @var string $gracePeriodMonth
      */
     protected $gracePeriodMonth;
 
@@ -404,5 +404,21 @@ class Order extends AbstractModel
         $this->user = $user;
 
         return $this;
+    }
+
+    /**
+     * Check setters and validate the mandatory fields:
+     * User, Configuration and Shopping Cart
+     *
+     * @return true|void
+     */
+    public function validate()
+    {
+        $this->triggerSetters();
+        foreach ($this as $key => $value) {
+            if ($value instanceof AbstractModel) {
+                $value->validate();
+            }
+        }
     }
 }

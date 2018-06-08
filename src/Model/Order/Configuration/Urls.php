@@ -38,7 +38,7 @@ class Urls extends AbstractModel
      */
     public static function urlValidate($url)
     {
-        return false !== filter_var($url, FILTER_VALIDATE_URL);
+        return filter_var($url, FILTER_VALIDATE_URL) !== false;
     }
 
     /**
@@ -131,5 +131,21 @@ class Urls extends AbstractModel
         }
 
         throw new ValidationException('Invalid Ok Url');
+    }
+
+    /**
+     * Check KO and OK as mandatory, trigger setters for validation
+     *
+     * @return bool|true
+     */
+    public function validate()
+    {
+        $this->triggerSetters();
+
+        if (!empty($this->ok) && !(empty($this->ko))) {
+            return true;
+        }
+
+        throw new ValidationException('Ok and Ko URL can not be empty');
     }
 }

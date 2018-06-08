@@ -101,4 +101,24 @@ class Details extends AbstractModel
             }
         }
     }
+
+    /**
+     * Trigger setters and double check that there is at least 1 product.
+     *
+     * @return bool|true
+     */
+    public function validate()
+    {
+        $this->triggerSetters();
+
+        if (!empty($this->products)) {
+            return true;
+        }
+
+        foreach ($this->products as $product) {
+            $product->validate();
+        }
+
+        throw new ValidationException('At least 1 product is expected');
+    }
 }

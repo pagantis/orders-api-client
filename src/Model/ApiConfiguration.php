@@ -104,4 +104,14 @@ class ApiConfiguration extends AbstractModel
 
         throw new ValidationException('Invalid base URL on the ApiConfiguration setter');
     }
+
+    /**
+     * Nothing to validate
+     *
+     * @return bool|true
+     */
+    public function validate()
+    {
+        return true;
+    }
 }

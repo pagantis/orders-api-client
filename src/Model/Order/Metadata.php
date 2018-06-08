@@ -38,4 +38,14 @@ class Metadata extends AbstractModel
             $this->addMetadata($key, $value);
         }
     }
+
+    /**
+     * Nothing to validate.
+     *
+     * @return bool|true
+     */
+    public function validate()
+    {
+        return true;
+    }
 }

@@ -88,4 +88,14 @@ class Upsell extends AbstractModel
 
         throw new ValidationException('Total amount has to be a non zero natural number');
     }
+
+    /**
+     * Validation occurs on setters.
+     *
+     * @return true|void
+     */
+    public function validate()
+    {
+        $this->triggerSetters();
+    }
 }
