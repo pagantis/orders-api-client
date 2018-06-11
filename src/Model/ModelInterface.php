@@ -1,6 +1,7 @@
 <?php
 
 namespace PagaMasTarde\OrdersApiClient\Model;
+
 use Exceptions\Data\IntegrityException;
 use Exceptions\Data\ValidationException;
 

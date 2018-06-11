@@ -5,20 +5,23 @@ namespace PagaMasTarde\OrdersApiClient\Method;
 use Exceptions\Data\ValidationException;
 use Exceptions\Http\Server\ServerErrorException;
 use Httpful\Http;
+use Httpful\Mime;
 use Httpful\Response;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 
 /**
- * Class GetOrderMethod
+ * Class RefundOrderMethod
  *
  * @package PagaMasTarde\OrdersApiClient\Method
  */
-class GetOrderMethod extends AbstractMethod
+class RefundOrderMethod extends AbstractMethod
 {
     /**
      * Get Order Endpoint
      */
     const ENDPOINT = 'api/v1/orders';
+
+    const REFUND_ENDPOINT = 'refund';
 
     /**
      * @var string $orderId
@@ -26,13 +29,30 @@ class GetOrderMethod extends AbstractMethod
     protected $orderId;
 
     /**
+     * @var Order\Refund
+     */
+    protected $refund;
+
+    /**
      * @param string $orderId
      *
-     * @return GetOrderMethod
+     * @return $this
      */
     public function setOrderId($orderId)
     {
         $this->orderId = $orderId;
+
+        return $this;
+    }
+
+    /**
+     * @param Order\Refund $refund
+     *
+     * @return $this
+     */
+    public function setRefund(Order\Refund $refund)
+    {
+        $this->refund = $refund;
 
         return $this;
     }
@@ -46,39 +66,43 @@ class GetOrderMethod extends AbstractMethod
      */
     public function call()
     {
-        if (is_string($this->orderId)) {
+        if ($this->refund instanceof Order\Refund && is_string($this->orderId)) {
             $response = $this->getRequest()
-                ->method(Http::GET)
+                ->method(Http::PUT)
                 ->uri(
-                    $this->apiConfiguration->getBaseUri() .
-                    self::SLASH .
-                    self::ENDPOINT .
-                    self::SLASH .
-                    $this->orderId
+                    $this->apiConfiguration->getBaseUri().
+                    self::SLASH.
+                    self::ENDPOINT.
+                    self::SLASH.
+                    $this->orderId.
+                    self::SLASH.
+                    self::REFUND_ENDPOINT
                 )
-                ->send();
+                ->sendsType(Mime::JSON)
+                ->body(json_encode($this->refund->export()))
+                ->send()
+            ;
 
             if (!$response->hasErrors()) {
                 $this->response = $response;
-
                 return $this;
             }
 
             return $this->parseHttpException($response->code);
         }
-        throw new ValidationException('Please set OrderId');
+        throw new ValidationException('Please set Refund Object and OrderId');
     }
 
     /**
-     * @return Order | false
+     * @return Order\Refund | false
      */
-    public function getOrder()
+    public function getRefund()
     {
         $response = $this->getResponse();
         if ($response instanceof Response) {
-            $order = new Order();
-            $order->import($this->getResponse()->body);
-            return $order;
+            $refund = new Order\Refund();
+            $refund->import($this->getResponse()->body);
+            return $refund;
         }
 
         return false;

@@ -1,5 +1,5 @@
 <?php
-namespace PagaMasTarde\Test\OrdersApiClient;
+namespace Test\PagaMasTarde\OrdersApiClient;
 
 use PagaMasTarde\OrdersApiClient\Client;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
@@ -7,7 +7,7 @@ use PagaMasTarde\OrdersApiClient\Model\Order;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class OrderApiClient
+ * Class ClientTest
  * @package PagaMasTarde\Test
  */
 class ClientTest extends TestCase
@@ -77,13 +77,13 @@ class ClientTest extends TestCase
                 ->setType(Order\Configuration\Channel::ONLINE)
         ;
         $order->setConfiguration($configuration);
-        $product = new Order\ShopingCart\Details\Product();
+        $product = new Order\ShoppingCart\Details\Product();
         $product
             ->setAmount(2000)
             ->setDescription('Tonight is the night')
             ->setQuantity(5)
         ;
-        $details = new Order\ShopingCart\Details();
+        $details = new Order\ShoppingCart\Details();
         $details
             ->setShippingCost(100)
             ->addProduct($product)

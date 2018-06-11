@@ -5,7 +5,7 @@
     "type": "library",
     "require": {
         "php": ">=5.3",
-        "nategood/httpful": "*",
+        "nategood/httpful": "^0.2",
         "nayjest/str-case-converter": "^1.0",
         "crazycodr/standard-exceptions": "^2.2"
     },

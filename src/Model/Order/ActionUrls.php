@@ -168,5 +168,7 @@ class ActionUrls extends AbstractModel
     public function validate()
     {
         $this->triggerSetters();
+
+        return true;
     }
 }

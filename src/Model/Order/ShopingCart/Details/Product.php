@@ -1,13 +1,13 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model\Order\ShopingCart\Details;
+namespace PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details;
 
 use Exceptions\Data\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
  * Class Product
- * @package PagaMasTarde\OrdersApiClient\Model\Order\ShopingCart\Details
+ * @package PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details
  */
 class Product extends AbstractModel
 {

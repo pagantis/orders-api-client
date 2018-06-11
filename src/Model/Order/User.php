@@ -136,13 +136,20 @@ class User extends AbstractModel
      */
     public function setDateOfBirth($dateOfBirth)
     {
-        $dateOfBirthParsed = new \DateTime(date('d-m-Y', $dateOfBirth));
-        if ($dateOfBirthParsed >= strtotime('-18 years')) {
-            $this->dateOfBirth = $dateOfBirth;
-            return $this;
+        if (null !== $dateOfBirth) {
+            $date = date('Y-m-d', $dateOfBirth);
+            if (false !== $date) {
+                $dateOfBirthParsed = new \DateTime($date);
+                if ($dateOfBirthParsed >= strtotime('-18 years')) {
+                    $this->dateOfBirth = $dateOfBirth;
+                    return $this;
+                }
+                throw new ValidationException('Date of birth error. (User cant have less than 18 years');
+            }
+            throw new ValidationException('Wrong date format, please use YYYY-MM-DD');
         }
 
-        throw new ValidationException('Date of birth error. (User cant have less than 18 years');
+        return $this;
     }
 
     /**
@@ -314,7 +321,7 @@ class User extends AbstractModel
     }
 
     /**
-     * Validate setters, objects and fullname + email can not be empty.
+     * Validate setters, objects and full name + email can not be empty.
      *
      * @return bool|true
      */
@@ -332,6 +339,6 @@ class User extends AbstractModel
             return true;
         }
 
-        throw new ValidationException('Fullname and Email can not be null');
+        throw new ValidationException('Full name and Email can not be null');
     }
 }

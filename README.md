@@ -6,8 +6,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/c777428d857cccb6bfca/maintainability)](https://codeclimate.com/github/PagaMasTarde/ordersApiClient/maintainability)
 
 ## TODO
-* Test each single function
-* Add pending methods
+* Test a lot
 * mapping: double check refunds and upsell add from json
 
 Orders API Client offers the merchants working with Paga+Tarde a way to consume the API services without the effort of doing a complete development.

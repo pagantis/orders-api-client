@@ -4,7 +4,7 @@ namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
 use Exceptions\Data\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
-use PagaMasTarde\OrdersApiClient\Model\Order\ShopingCart\Details;
+use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details;
 
 /**
  * Class ShoppingCart

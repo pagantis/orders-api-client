@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "352eb98baed5abb09df78dcf3bf6f745",
+    "content-hash": "c667099a81380fab4b38f349f41528a5",
     "packages": [
         {
             "name": "crazycodr/standard-exceptions",

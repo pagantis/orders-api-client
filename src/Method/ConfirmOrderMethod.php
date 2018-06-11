@@ -5,35 +5,36 @@ namespace PagaMasTarde\OrdersApiClient\Method;
 use Exceptions\Data\ValidationException;
 use Exceptions\Http\Server\ServerErrorException;
 use Httpful\Http;
-use Httpful\Mime;
 use Httpful\Response;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 
 /**
- * Class CreateOrderMethod
+ * Class ConfirmOrderMethod
  *
  * @package PagaMasTarde\OrdersApiClient\Method
  */
-class CreateOrderMethod extends AbstractMethod
+class ConfirmOrderMethod extends AbstractMethod
 {
     /**
      * Get Order Endpoint
      */
     const ENDPOINT = 'api/v1/orders';
 
-    /**
-     * @var Order
-     */
-    protected $order;
+    const CONFIRM_ENDPOINT = 'confirm';
 
     /**
-     * @param Order $order
+     * @var string $orderId
+     */
+    protected $orderId;
+
+    /**
+     * @param string $orderId
      *
      * @return $this
      */
-    public function setOrder(Order $order)
+    public function setOrderId($orderId)
     {
-        $this->order = $order;
+        $this->orderId = $orderId;
 
         return $this;
     }
@@ -47,39 +48,41 @@ class CreateOrderMethod extends AbstractMethod
      */
     public function call()
     {
-        if ($this->order instanceof Order) {
+        if (is_string($this->orderId)) {
             $response = $this->getRequest()
-                ->method(Http::POST)
+                ->method(Http::PUT)
                 ->uri(
-                    $this->apiConfiguration->getBaseUri() .
-                    self::SLASH .
-                    self::ENDPOINT
+                    $this->apiConfiguration->getBaseUri().
+                    self::SLASH.
+                    self::ENDPOINT.
+                    self::SLASH.
+                    $this->orderId.
+                    self::SLASH.
+                    self::CONFIRM_ENDPOINT
                 )
-                ->sendsType(Mime::JSON)
-                ->body(json_encode($this->order->export()))
-                ->send();
+                ->send()
+            ;
 
             if (!$response->hasErrors()) {
                 $this->response = $response;
-
                 return $this;
             }
 
             return $this->parseHttpException($response->code);
         }
-        throw new ValidationException('Please Set Order');
+        throw new ValidationException('Please set OrderId');
     }
 
     /**
-     * @return Order | false
+     * @return Order\Upsell | false
      */
-    public function getOrder()
+    public function getUpsell()
     {
         $response = $this->getResponse();
         if ($response instanceof Response) {
-            $order = new Order();
-            $order->import($this->getResponse()->body);
-            return $order;
+            $upsell = new Order\Upsell();
+            $upsell->import($this->getResponse()->body);
+            return $upsell;
         }
 
         return false;

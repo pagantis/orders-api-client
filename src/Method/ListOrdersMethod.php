@@ -71,8 +71,15 @@ class ListOrdersMethod extends AbstractMethod
     {
         $response = $this->getResponse();
         if ($response instanceof Response) {
-            //TODO map order from $response;
-            return array();
+            $responseBody = $response->body;
+            $orders = array();
+            foreach ($responseBody as $responseOrder) {
+                $order = new Order();
+                $order->import($responseOrder);
+                $orders[] = $order;
+            }
+
+            return $orders;
         }
 
         return false;

@@ -1,16 +1,16 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model\Order\ShopingCart;
+namespace PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart;
 
 use Exceptions\Data\IntegrityException;
 use Exceptions\Data\ValidationException;
 use Nayjest\StrCaseConverter\Str;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
-use PagaMasTarde\OrdersApiClient\Model\Order\ShopingCart\Details\Product;
+use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details\Product;
 
 /**
  * Class Details
- * @package PagaMasTarde\OrdersApiClient\Model\Order\ShopingCart
+ * @package PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart
  */
 class Details extends AbstractModel
 {
