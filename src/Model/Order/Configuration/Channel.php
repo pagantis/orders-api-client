@@ -45,7 +45,7 @@ class Channel extends AbstractModel
     }
 
     /**
-     * @param string $assistedSale
+     * @param bool $assistedSale
      *
      * @return Channel
      */
