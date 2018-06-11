@@ -93,12 +93,12 @@ class Channel extends AbstractModel
      */
     public function validate()
     {
-        if ($this->getAssistedSale() && $this->getType() === self::INSTORE) {
-            return true;
-        }
-
         $this->triggerSetters();
 
-        throw new ValidationException('Assisted sale is only for in-store sale');
+        if ($this->getAssistedSale() && $this->getType() !== self::INSTORE) {
+            throw new ValidationException('Assisted sale is only for in-store sale');
+        }
+
+        return true;
     }
 }

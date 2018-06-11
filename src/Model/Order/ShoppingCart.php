@@ -142,7 +142,7 @@ class ShoppingCart extends AbstractModel
     {
         $this->triggerSetters();
         $this->details->validate();
-        if (!$this->getTotalAmount() < $this->getPromotedAmount()) {
+        if ($this->getTotalAmount() > $this->getPromotedAmount()) {
             return true;
         }
 
