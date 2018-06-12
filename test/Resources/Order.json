@@ -5,12 +5,22 @@
     "total_amount": 20400,
     "promoted_amount": 0,
     "details": {
-      "shipping_cost": 0,
+      "shipping_cost": 555,
       "products": [
         {
-          "description": "string",
-          "quantity": 2,
-          "amount": 10200
+          "description": "small",
+          "quantity": 5,
+          "amount": 99
+        },
+        {
+          "description": "medium",
+          "quantity": 10,
+          "amount": 999
+        },
+        {
+          "description": "huge",
+          "quantity": 100,
+          "amount": 9999
         }
       ]
     }

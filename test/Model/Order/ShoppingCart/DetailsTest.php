@@ -97,4 +97,48 @@ class DetailsTest extends TestCase
 
         $this->assertTrue($details->validate());
     }
+
+    /**
+     * testImport
+     *
+     * Fully test of import
+     */
+    public function testImport()
+    {
+        $orderJson = file_get_contents('test/Resources/Order.json');
+        $object = json_decode($orderJson);
+        $object = $object->shopping_cart->details;
+        $details = new Details();
+        $details->import($object);
+        $products = $details->getProducts();
+        $this->assertSame($object->shipping_cost, $details->getShippingCost());
+        $this->assertSame(count($object->products), count($details->getProducts()));
+
+        foreach ($object->products as $key => $product) {
+            /** @var Details\Product $detailsProduct */
+            $detailsProduct = $products[$key];
+            $this->assertSame($product->amount, $detailsProduct->getAmount());
+            $this->assertSame($product->description, $detailsProduct->getDescription());
+            $this->assertSame($product->quantity, $detailsProduct->getQuantity());
+        }
+
+        //Finally test that the result of the export == the import
+        $this->assertEquals($object, json_decode(json_encode($details->export())));
+    }
+
+
+    /**
+     * testImport
+     *
+     * @expectedException \Exceptions\Data\IntegrityException
+     */
+    public function testImportCrashForNonExistingProperty()
+    {
+        $orderJson = file_get_contents('test/Resources/Order.json');
+        $object = json_decode($orderJson);
+        $object = $object->shopping_cart->details;
+        $object->fake_property = 50;
+        $details = new Details();
+        $details->import($object);
+    }
 }
