@@ -32,6 +32,15 @@ class Refund extends AbstractModel
     protected $totalAmount;
 
     /**
+     * Refund constructor.
+     */
+    public function __construct()
+    {
+        $this->refundedAt = new \DateTime();
+        $this->promotedAmount = 0;
+    }
+
+    /**
      * @return string
      */
     public function getId()
@@ -123,10 +132,14 @@ class Refund extends AbstractModel
     public function validate()
     {
         $this->triggerSetters();
-        if (!$this->getTotalAmount() < $this->getPromotedAmount()) {
-            return true;
+
+        if (!$this->totalAmount) {
+            throw new ValidationException('Total amount can not be empty');
+        }
+        if ($this->getTotalAmount() < $this->getPromotedAmount()) {
+            throw new ValidationException('Promoted amount can not be higher than total amount');
         }
 
-        throw new ValidationException('Promoted amount can not be higher than total amount');
+        return true;
     }
 }

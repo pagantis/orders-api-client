@@ -76,6 +76,7 @@ class DetailsTest extends TestCase
 
         try {
             $details->validate();
+            $this->assertTrue(false);
         } catch (ValidationException $exception) {
             //At least 1 product is expected
             $this->assertTrue(true);
@@ -86,6 +87,7 @@ class DetailsTest extends TestCase
 
         try {
             $details->validate();
+            $this->assertTrue(false);
         } catch (ValidationException $exception) {
             //Product doesn't validate
             $this->assertTrue(true);

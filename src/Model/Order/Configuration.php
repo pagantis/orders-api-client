@@ -74,12 +74,14 @@ class Configuration extends AbstractModel
     /**
      * Both objects need to be present and validated
      *
-     * @return true|void
+     * @return bool|true
      */
     public function validate()
     {
         $this->triggerSetters();
         $this->getChannel()->validate();
         $this->getUrls()->validate();
+
+        return true;
     }
 }

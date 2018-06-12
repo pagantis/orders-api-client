@@ -2,6 +2,8 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Model\Order;
 
+use Faker\Factory;
+use PagaMasTarde\OrdersApiClient\Model\Order\ActionUrls;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -10,5 +12,16 @@ use PHPUnit\Framework\TestCase;
  */
 class ActionUrlsTest extends TestCase
 {
-
+    /**
+     * testValidate
+     */
+    public function testValidate()
+    {
+        $faker = Factory::create();
+        $actionUrls = new ActionUrls();
+        $this->assertTrue($actionUrls->validate());
+        $url = $faker->url;
+        $actionUrls->setConfirm($url);
+        $this->assertTrue($actionUrls->validate());
+    }
 }

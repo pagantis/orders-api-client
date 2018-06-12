@@ -142,10 +142,10 @@ class ShoppingCart extends AbstractModel
     {
         $this->triggerSetters();
         $this->details->validate();
-        if ($this->getTotalAmount() > $this->getPromotedAmount()) {
-            return true;
+        if ($this->getTotalAmount() < $this->getPromotedAmount()) {
+            throw new ValidationException('Promoted amount can not be higher than total amount');
         }
 
-        throw new ValidationException('Promoted amount can not be higher than total amount');
+        return true;
     }
 }

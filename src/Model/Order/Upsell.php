@@ -27,6 +27,14 @@ class Upsell extends AbstractModel
     protected $totalAmount;
 
     /**
+     * Upsell constructor.
+     */
+    public function __construct()
+    {
+        $this->upsellAt = new \DateTime();
+    }
+
+    /**
      * @return string
      */
     public function getId()
@@ -92,10 +100,16 @@ class Upsell extends AbstractModel
     /**
      * Validation occurs on setters.
      *
-     * @return true|void
+     * @return bool|true
      */
     public function validate()
     {
         $this->triggerSetters();
+
+        if (!$this->totalAmount) {
+            throw new ValidationException('Total amount can not be empty');
+        }
+
+        return true;
     }
 }

@@ -42,7 +42,7 @@ abstract class AbstractModel implements ModelInterface
      *
      * @return array
      */
-    public function parseValue($value, $validation)
+    protected function parseValue($value, $validation)
     {
         if (is_array($value) && !empty($value)) {
             $valueArray = array();
@@ -75,9 +75,11 @@ abstract class AbstractModel implements ModelInterface
                 if (property_exists($this, lcfirst(Str::toCamelCase($key)))) {
                     if (is_object($value)) {
                         $objectProperty = $this->{lcfirst(Str::toCamelCase($key))};
-
                         if ($objectProperty instanceof AbstractModel) {
                             $objectProperty->import($value);
+                        } elseif ($objectProperty instanceof \DateTime) {
+                            //TODO VALIDATE DATETIME IS CREATED CORRECTLY
+                            $this->{lcfirst(Str::toCamelCase($key))} = new \DateTime($value);
                         }
                     } else {
                         $this->{lcfirst(Str::toCamelCase($key))} = $value;

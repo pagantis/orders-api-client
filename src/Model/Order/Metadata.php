@@ -40,6 +40,28 @@ class Metadata extends AbstractModel
     }
 
     /**
+     * Metadata will not use Str::ToCamelCase because we respect the merchant naming convention.
+     *
+     * @param bool $validation
+     *
+     * @return array
+     */
+    public function export($validation = true)
+    {
+        if ($validation) {
+            $this->validate();
+        }
+        $result = array();
+        foreach ($this as $key => $value) {
+            if ($value) {
+                $result[$key] = $value;
+            }
+        }
+
+        return $result;
+    }
+
+    /**
      * Nothing to validate.
      *
      * @return bool|true

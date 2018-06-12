@@ -13,6 +13,15 @@ use PHPUnit\Framework\TestCase;
 class OrderHistoryTest extends TestCase
 {
     /**
+     * testConstructor
+     */
+    public function testConstructor()
+    {
+        $refund = new OrderHistory();
+        $this->assertInstanceOf('\DateTime', $refund->getDate());
+    }
+
+    /**
      * testSetAmount
      *
      * @expectedException \Exceptions\Data\ValidationException
