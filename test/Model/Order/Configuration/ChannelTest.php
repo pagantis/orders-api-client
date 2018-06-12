@@ -99,6 +99,8 @@ class ChannelTest extends TestCase
 
     /**
      * testConstantsNotChange
+     *
+     * @throws \ReflectionException
      */
     public function testConstantsNotChange()
     {

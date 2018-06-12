@@ -45,7 +45,7 @@ class ConfigurationTest extends TestCase
             $this->assertTrue(true);
         };
 
-        //Make the childs valid:
+        //Make the child valid:
         $configuration->getUrls()
             ->setKo($faker->url)
             ->setOk($faker->url)
