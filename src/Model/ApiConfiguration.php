@@ -14,12 +14,12 @@ class ApiConfiguration extends AbstractModel
     /**
      * Base URL for API calls
      */
-    const BASE_URI = 'http://docker-ext-stg.digitalorigin.com:20010';
+    const BASE_URI = 'https://orders-stg.pagamastarde.com';
 
     /**
      * Base URL for API calls
      */
-    const SANDBOX_BASE_URI = 'http://docker-ext-stg.digitalorigin.com:20010';
+    const SANDBOX_BASE_URI = 'https://orders-stg.pagamastarde.com';
 
     /**
      * Private key for API calls

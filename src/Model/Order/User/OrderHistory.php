@@ -67,10 +67,12 @@ class OrderHistory extends AbstractModel
     /**
      * Just trigger the setters in order to validate amount and the Datetime
      *
-     * @return true|void
+     * @return bool|true
      */
     public function validate()
     {
         $this->triggerSetters();
+
+        return true;
     }
 }

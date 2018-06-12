@@ -93,10 +93,16 @@ class Product extends AbstractModel
     /**
      * Be sure to trigger setters in order to validate fields
      *
-     * @return true|void
+     * @return bool|true
      */
     public function validate()
     {
         $this->triggerSetters();
+
+        if (!$this->getAmount() || !$this->getQuantity()) {
+            throw new ValidationException('Amount and Quantity can not be empty');
+        }
+
+        return true;
     }
 }

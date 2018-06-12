@@ -52,6 +52,7 @@ class Address extends AbstractModel
     public function setAddress($address)
     {
         $this->address = $address;
+
         return $this;
     }
 
@@ -71,6 +72,7 @@ class Address extends AbstractModel
     public function setCity($city)
     {
         $this->city = $city;
+
         return $this;
     }
 
@@ -90,6 +92,7 @@ class Address extends AbstractModel
     public function setCountryCode($countryCode)
     {
         $this->countryCode = $countryCode;
+
         return $this;
     }
 
@@ -132,6 +135,7 @@ class Address extends AbstractModel
     public function setZipCode($zipCode)
     {
         $this->zipCode = $zipCode;
+
         return $this;
     }
 
@@ -142,6 +146,8 @@ class Address extends AbstractModel
      */
     public function validate()
     {
+        $this->triggerSetters();
+
         return true;
     }
 }

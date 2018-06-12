@@ -111,14 +111,14 @@ class Details extends AbstractModel
     {
         $this->triggerSetters();
 
-        if (!empty($this->products)) {
-            return true;
+        if (empty($this->products)) {
+            throw new ValidationException('At least 1 product is expected');
         }
 
         foreach ($this->products as $product) {
             $product->validate();
         }
 
-        throw new ValidationException('At least 1 product is expected');
+        return true;
     }
 }
