@@ -92,7 +92,7 @@
   "api_version": "v1",
   "status": "CREATED",
   "created_at": "2020-01-31T11:22:12",
-  "confirmed_at": null,
+  "confirmed_at": "2020-01-31T11:25:12",
   "expires_at": "2022-01-31T11:22:12",
   "action_urls": {
     "form": "https://ppcobranded-form-staging.pagamastarde.com/orders/5b1906b4e659900006a7c623",
