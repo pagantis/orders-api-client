@@ -59,7 +59,7 @@ abstract class AbstractModel implements ModelInterface
             return $value->export();
         }
         if (is_object($value) && $value instanceof \DateTime && !empty($value)) {
-            return $value->format('Y-m-d');
+            return $value->format('Y-m-d\Th:i:s');
         }
 
         return $value;
