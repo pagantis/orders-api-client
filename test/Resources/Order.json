@@ -26,38 +26,46 @@
     }
   },
   "user": {
-    "full_name": "string",
-    "email": "me@email.com",
-    "dni": "string",
-    "fix_phone": "string",
-    "mobile_phone": "string",
+    "full_name": "Jöhn Dōė Ramirez",
+    "email": "john.doe@email.com",
+    "dni": "68178726X",
+    "fix_phone": "915556677",
+    "mobile_phone": "600123123",
     "address": {
-      "full_name": "string",
-      "address": "string",
-      "city": "string",
-      "zip_code": "string",
+      "full_name": "Jöhn Dōė Ramirez",
+      "address": "My House, in the middle of the street, 55",
+      "city": "Madrid",
+      "zip_code": "28008",
       "country_code": "ES"
     },
     "date_of_birth": "1987-01-31",
     "billing_address": {
-      "full_name": "string",
-      "address": "string",
-      "city": "string",
-      "zip_code": "string",
+      "full_name": "Jöhn Dōė Ramirez",
+      "address": "My House, in the middle of the street, 55",
+      "city": "Madrid",
+      "zip_code": "28008",
       "country_code": "ES"
     },
     "shipping_address": {
-      "full_name": "string",
-      "address": "string",
-      "city": "string",
-      "zip_code": "string",
+      "full_name": "Jöhn Dōė Ramirez",
+      "address": "My House, in the middle of the street, 55",
+      "city": "Madrid",
+      "zip_code": "28008",
       "country_code": "ES"
     },
     "truncated": false,
     "order_history": [
       {
         "date": "2020-01-31",
-        "amount": 0
+        "amount": 989
+      },
+      {
+        "date": "2022-01-31",
+        "amount": 898
+      },
+      {
+        "date": "2021-01-31",
+        "amount": 909
       }
     ]
   },

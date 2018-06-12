@@ -70,7 +70,7 @@ class User extends AbstractModel
      *
      * @deprecated
      */
-    protected $truncated;
+    protected $truncated = false;
 
     /**
      * Configuration constructor.
@@ -139,16 +139,13 @@ class User extends AbstractModel
     public function setDateOfBirth($dateOfBirth)
     {
         if (null !== $dateOfBirth) {
-            $date = date('Y-m-d', $dateOfBirth);
-            if (false !== $date) {
-                $dateOfBirthParsed = new \DateTime($date);
-                if ($dateOfBirthParsed >= strtotime('-18 years')) {
-                    $this->dateOfBirth = $dateOfBirth;
-                    return $this;
-                }
-                throw new ValidationException('Date of birth error. (User cant have less than 18 years');
+            $dateOfBirthParsed = new \DateTime($dateOfBirth);
+            $matureFilterDate = new \DateTime(date('Y-m-d', strtotime('-18 years')));
+            if ($dateOfBirthParsed <= $matureFilterDate) {
+                $this->dateOfBirth = $dateOfBirthParsed->format('Y-m-d');
+                return $this;
             }
-            throw new ValidationException('Wrong date format, please use YYYY-MM-DD');
+            throw new ValidationException('Date of birth error. User cant have less than 18 years');
         }
 
         return $this;
@@ -310,13 +307,17 @@ class User extends AbstractModel
      */
     public static function dniCheck($dni)
     {
-        $letter = substr($dni, -1);
-        $numbers = substr($dni, 0, -1);
-        if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numbers%23, 1) == $letter &&
-            strlen($letter) == 1 &&
-            strlen($numbers) == 8
-        ) {
-            return true;
+        try {
+            $letter = substr($dni, -1);
+            $numbers = substr($dni, 0, -1);
+            if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numbers%23, 1) == $letter &&
+                strlen($letter) == 1 &&
+                strlen($numbers) == 8
+            ) {
+                return true;
+            }
+        } catch (\Exception $exception) {
+            return false;
         }
 
         return false;
@@ -376,6 +377,7 @@ class User extends AbstractModel
         if (empty($this->fullName) || empty($this->email)) {
             throw new ValidationException('Full name and Email can not be null');
         }
+
         return true;
     }
 }

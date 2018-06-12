@@ -26,7 +26,7 @@ abstract class AbstractModel implements ModelInterface
         }
         $result = array();
         foreach ($this as $key => $value) {
-            if ($value) {
+            if (!is_null($value)) {
                 $result[Str::toSnakeCase($key)] = $this->parseValue($value, $validation);
             }
         }
@@ -58,6 +58,9 @@ abstract class AbstractModel implements ModelInterface
         if (is_object($value) && $value instanceof AbstractModel && !empty($value)) {
             return $value->export();
         }
+        if (is_object($value) && $value instanceof \DateTime && !empty($value)) {
+            return $value->format('Y-m-d');
+        }
 
         return $value;
     }
@@ -77,12 +80,14 @@ abstract class AbstractModel implements ModelInterface
                         $objectProperty = $this->{lcfirst(Str::toCamelCase($key))};
                         if ($objectProperty instanceof AbstractModel) {
                             $objectProperty->import($value);
-                        } elseif ($objectProperty instanceof \DateTime) {
-                            //TODO VALIDATE DATETIME IS CREATED CORRECTLY
-                            $this->{lcfirst(Str::toCamelCase($key))} = new \DateTime($value);
                         }
                     } else {
-                        $this->{lcfirst(Str::toCamelCase($key))} = $value;
+                        $objectProperty = $this->{lcfirst(Str::toCamelCase($key))};
+                        if ($objectProperty instanceof \DateTime) {
+                            $this->{lcfirst(Str::toCamelCase($key))} = new \DateTime($value);
+                        } else {
+                            $this->{lcfirst(Str::toCamelCase($key))} = $value;
+                        }
                     }
                 } else {
                     throw new IntegrityException('Property ' . lcfirst(Str::toCamelCase($key)) . ' Not found');
