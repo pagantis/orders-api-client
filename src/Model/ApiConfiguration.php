@@ -112,6 +112,13 @@ class ApiConfiguration extends AbstractModel
      */
     public function validate()
     {
+        if (empty($this->publicKey) || empty($this->privateKey)) {
+            throw new ValidationException('Public Key and Private Key can not be empty');
+        }
+        if (!Urls::urlValidate($this->getBaseUri())) {
+            throw new ValidationException('Invalid Base URL');
+        }
+
         return true;
     }
 }
