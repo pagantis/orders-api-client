@@ -22,6 +22,14 @@ class AbstractModelTest extends TestCase
         $order = new Order();
         $order->import($object);
         $orderExport = json_decode(json_encode($order->export()));
+        $orderExportJson = json_encode(
+            $order->export(),
+            JSON_UNESCAPED_UNICODE |
+            JSON_PRETTY_PRINT |
+            JSON_UNESCAPED_SLASHES
+        );
         $this->assertEquals($object, $orderExport);
+        var_dump($orderExportJson);die;
+        $this->assertEquals($orderJson, $orderExportJson);
     }
 }

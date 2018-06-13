@@ -90,7 +90,7 @@
   },
   "id": "5b1906b4e659900006a7c623",
   "api_version": "v1",
-  "status": "CREATED",
+  "status": "AUTHORIZED",
   "created_at": "2020-01-31T11:22:12",
   "confirmed_at": "2020-01-31T11:25:12",
   "expires_at": "2022-01-31T11:22:12",
@@ -100,6 +100,30 @@
     "refund": "http://docker-ext-stg.digitalorigin.com:20010/api/v1/orders/5b1906b4e659900006a7c623/refund",
     "upsell": "http://docker-ext-stg.digitalorigin.com:20010/api/v1/orders/5b1906b4e659900006a7c623/upsell"
   },
-  "refunds": [],
-  "upsells": []
+  "refunds": [
+    {
+      "id": "r5b1906b4e659900006a7c623",
+      "refunded_at": "2020-01-31T11:22:14",
+      "promoted_amount": "0",
+      "total_amount": "588"
+    },
+    {
+      "id": "rr5b1906b4e659900006a7c623",
+      "refunded_at": "2020-01-31T11:22:54",
+      "promoted_amount": "5",
+      "total_amount": "589"
+    }
+  ],
+  "upsells": [
+    {
+      "id": "r5b1906b4e659900006a7c623",
+      "refunded_at": "2020-01-31T11:22:14",
+      "total_amount": "588"
+    },
+    {
+      "id": "rr5b1906b4e659900006a7c623",
+      "refunded_at": "2020-01-31T11:22:54",
+      "total_amount": "589"
+    }
+  ]
 }
