@@ -29,7 +29,6 @@ class AbstractModelTest extends TestCase
             JSON_UNESCAPED_SLASHES
         );
         $this->assertEquals($object, $orderExport);
-        var_dump($orderExportJson);die;
         $this->assertEquals($orderJson, $orderExportJson);
     }
 }
