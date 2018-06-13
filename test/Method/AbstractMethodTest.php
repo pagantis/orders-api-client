@@ -12,14 +12,13 @@ use Exceptions\Http\Server\InternalServerErrorException;
 use Exceptions\Http\Server\ServiceUnavailableException;
 use PagaMasTarde\OrdersApiClient\Method\AbstractMethod;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
-use PHPUnit\Framework\TestCase;
 
 /**
  * Class AbstractMethodTest
  *
  * @package Test\PagaMasTarde\OrdersApiClient\Method;
  */
-class AbstractMethodTest extends TestCase
+class AbstractMethodTest extends AbstractTest
 {
     /**
      * Has Slash

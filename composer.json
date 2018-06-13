@@ -18,6 +18,11 @@
             "PagaMasTarde\\OrdersApiClient\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\PagaMasTarde\\OrdersApiClient\\": "test/"
+        }
+    },
     "authors": [
         {
             "name": "DigitalOrigin",
