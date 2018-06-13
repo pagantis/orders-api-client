@@ -104,6 +104,9 @@ class Order extends AbstractModel
         $this->shoppingCart = new ShoppingCart();
         $this->upsells = array();
         $this->user = new User();
+        $this->createdAt = new \DateTime();
+        $this->confirmedAt = new \DateTime();
+        $this->expiresAt = new \DateTime();
     }
 
     /**
@@ -407,10 +410,39 @@ class Order extends AbstractModel
     }
 
     /**
+     * @param \stdClass $object
+     */
+    public function import($object)
+    {
+        parent::import($object);
+        $properties = get_object_vars($object);
+        foreach ($properties as $key => $value) {
+            if (is_array($value)) {
+                if (is_array($this->{$key}) && $key == 'refunds') {
+                    $this->refunds = array();
+                    foreach ($value as $refund) {
+                        $refundObject = new Refund();
+                        $refundObject->import($refund);
+                        $this->addRefund($refundObject);
+                    }
+                }
+                if (is_array($this->{$key}) && $key == 'upsells') {
+                    $this->upsells = array();
+                    foreach ($value as $refund) {
+                        $upsellObject = new Upsell();
+                        $upsellObject->import($refund);
+                        $this->addUpsell($upsellObject);
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * Check setters and validate the mandatory fields:
      * User, Configuration and Shopping Cart
      *
-     * @return true|void
+     * @return bool|true
      */
     public function validate()
     {
@@ -420,5 +452,7 @@ class Order extends AbstractModel
                 $value->validate();
             }
         }
+
+        return true;
     }
 }

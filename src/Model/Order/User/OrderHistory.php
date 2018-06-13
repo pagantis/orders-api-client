@@ -44,7 +44,7 @@ class OrderHistory extends AbstractModel
      */
     public function setAmount($amount)
     {
-        if ($amount >= 1 && is_int($amount)) {
+        if ($amount >= 1) {
             $this->amount = $amount;
             return $this;
         }

@@ -5,7 +5,6 @@ namespace Test\PagaMasTarde\OrdersApiClient\Model;
 use Faker\Factory;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
 use PHPUnit\Framework\TestCase;
-use Test\PagaMasTarde\OrdersApiClient\Model\Order\Configuration\UrlsTest;
 
 /**
  * Class ApiConfigurationTest
@@ -68,7 +67,6 @@ class ApiConfigurationTest extends TestCase
         try {
             $apiConfiguration->validate();
             $this->assertTrue(false);
-
         } catch (\Exception $exception) {
             //Private and Public cannot be null
             $this->assertTrue(true);

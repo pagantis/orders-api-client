@@ -89,7 +89,7 @@ class Upsell extends AbstractModel
      */
     public function setTotalAmount($totalAmount)
     {
-        if ($totalAmount >= 1 && is_int($totalAmount)) {
+        if ($totalAmount >= 1) {
             $this->totalAmount = $totalAmount;
             return $this;
         }

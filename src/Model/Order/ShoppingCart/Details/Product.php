@@ -41,7 +41,7 @@ class Product extends AbstractModel
      */
     public function setAmount($amount)
     {
-        if ($amount >= 1 && is_int($amount)) {
+        if ($amount >= 1) {
             $this->amount = $amount;
             return $this;
         }
@@ -82,7 +82,7 @@ class Product extends AbstractModel
      */
     public function setQuantity($quantity)
     {
-        if ($quantity >= 1 && is_int($quantity)) {
+        if ($quantity >= 1) {
             $this->quantity = $quantity;
             return $this;
         }

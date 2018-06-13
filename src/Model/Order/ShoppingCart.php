@@ -102,7 +102,7 @@ class ShoppingCart extends AbstractModel
      */
     public function setPromotedAmount($promotedAmount)
     {
-        if ($promotedAmount >= 0 && is_int($promotedAmount)) {
+        if ($promotedAmount >= 0) {
             $this->promotedAmount = $promotedAmount;
             return $this;
         }
@@ -125,7 +125,7 @@ class ShoppingCart extends AbstractModel
      */
     public function setTotalAmount($totalAmount)
     {
-        if ($totalAmount >= 1 && is_int($totalAmount)) {
+        if ($totalAmount >= 1) {
             $this->totalAmount = $totalAmount;
             return $this;
         }

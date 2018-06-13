@@ -2,9 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart;
 
-use Exceptions\Data\IntegrityException;
 use Exceptions\Data\ValidationException;
-use Nayjest\StrCaseConverter\Str;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details\Product;
 
@@ -67,7 +65,7 @@ class Details extends AbstractModel
      */
     public function setShippingCost($shippingCost)
     {
-        if ($shippingCost >= 0 && is_int($shippingCost)) {
+        if ($shippingCost >= 0) {
             $this->shippingCost = $shippingCost;
             return $this;
         }
@@ -82,21 +80,15 @@ class Details extends AbstractModel
      */
     public function import($object)
     {
-        if (is_object($object)) {
-            $properties = get_object_vars($object);
-            foreach ($properties as $key => $value) {
-                if (property_exists($this, lcfirst(Str::toCamelCase($key)))) {
-                    if (is_array($value)) {
-                        foreach ($value as $product) {
-                            $addProduct = new Product();
-                            $addProduct->import($product);
-                            $this->addProduct($addProduct);
-                        }
-                    } else {
-                        $this->{lcfirst(Str::toCamelCase($key))} = $value;
-                    }
-                } else {
-                    throw new IntegrityException('Property ' . lcfirst(Str::toCamelCase($key)) . ' Not found');
+        parent::import($object);
+        $properties = get_object_vars($object);
+        foreach ($properties as $key => $value) {
+            if (is_array($value) && is_array($this->{$key}) && $key == 'products') {
+                $this->products = array();
+                foreach ($value as $product) {
+                    $productObject = new Product();
+                    $productObject->import($product);
+                    $this->addProduct($productObject);
                 }
             }
         }

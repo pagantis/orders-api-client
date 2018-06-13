@@ -2,9 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
-use Exceptions\Data\IntegrityException;
 use Exceptions\Data\ValidationException;
-use Nayjest\StrCaseConverter\Str;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 use PagaMasTarde\OrdersApiClient\Model\Order\User\Address;
 use PagaMasTarde\OrdersApiClient\Model\Order\User\OrderHistory;
@@ -330,26 +328,15 @@ class User extends AbstractModel
      */
     public function import($object)
     {
-        if (is_object($object)) {
-            $properties = get_object_vars($object);
-            foreach ($properties as $key => $value) {
-                if (property_exists($this, lcfirst(Str::toCamelCase($key)))) {
-                    if (is_object($value)) {
-                        $objectProperty = $this->{lcfirst(Str::toCamelCase($key))};
-                        if ($objectProperty instanceof AbstractModel) {
-                            $objectProperty->import($value);
-                        }
-                    } elseif (is_array($value)) {
-                        foreach ($value as $orderHistory) {
-                            $addOrderHistory = new OrderHistory();
-                            $addOrderHistory->import($orderHistory);
-                            $this->addOrderHistory($addOrderHistory);
-                        }
-                    } else {
-                        $this->{lcfirst(Str::toCamelCase($key))} = $value;
-                    }
-                } else {
-                    throw new IntegrityException('Property ' . lcfirst(Str::toCamelCase($key)) . ' Not found');
+        parent::import($object);
+        $properties = get_object_vars($object);
+        foreach ($properties as $key => $value) {
+            if (is_array($value) && $key == 'order_history') {
+                $this->orderHistory = array();
+                foreach ($value as $orderHistory) {
+                    $orderHistoryObject = new OrderHistory();
+                    $orderHistoryObject->import($orderHistory);
+                    $this->addOrderHistory($orderHistoryObject);
                 }
             }
         }
