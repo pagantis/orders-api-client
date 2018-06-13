@@ -11,4 +11,21 @@ use PHPUnit\Framework\TestCase;
  */
 class MethodInterfaceTest extends TestCase
 {
+    /**
+     * testInterfaceExists
+     */
+    public function testInterfaceExists()
+    {
+        $interfaceMock = $this->getMock('PagaMasTarde\OrdersApiClient\Method\MethodInterface');
+        $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Method\MethodInterface', $interfaceMock);
+    }
+
+    /**
+     * testInterfaceHasMethodCall
+     */
+    public function testInterfaceHasMethodCall()
+    {
+        $interfaceMock = $this->getMock('PagaMasTarde\OrdersApiClient\Method\MethodInterface');
+        $this->assertTrue(method_exists($interfaceMock, 'call'));
+    }
 }
