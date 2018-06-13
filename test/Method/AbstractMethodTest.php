@@ -3,6 +3,13 @@
 namespace Test\PagaMasTarde\OrdersApiClient\Method;
 
 use Exceptions\Http\Client\BadRequestException;
+use Exceptions\Http\Client\ForbiddenException;
+use Exceptions\Http\Client\MethodNotAllowedException;
+use Exceptions\Http\Client\NotFoundException;
+use Exceptions\Http\Client\UnauthorizedException;
+use Exceptions\Http\Client\UnprocessableEntityException;
+use Exceptions\Http\Server\InternalServerErrorException;
+use Exceptions\Http\Server\ServiceUnavailableException;
 use PagaMasTarde\OrdersApiClient\Method\AbstractMethod;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
 use PHPUnit\Framework\TestCase;
@@ -111,7 +118,7 @@ class AbstractMethodTest extends TestCase
         $json = 'body';
         $responseMock = $this->getMockBuilder('Httpful\Response')->disableOriginalConstructor()->getMock();
         $responseMockReflect = new \ReflectionClass('Httpful\Response');
-        $property = $responseMockReflect->getProperty('body');
+        $property = $responseMockReflect->getProperty('raw_body');
         $property->setAccessible(true);
         $property->setValue($responseMock, $json);
 
@@ -159,8 +166,45 @@ class AbstractMethodTest extends TestCase
         $reflectedClass = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\AbstractMethod');
         $method = $reflectedClass->getMethod('parseHttpException');
         $method->setAccessible(true);
-        $this->setExpectedException('Exceptions\Http\Client\BadRequestException');
-        $method->invoke($abstractMethod, BadRequestException::HTTP_CODE);
-        $this->getExpectedException();
+        try {
+            $method->invoke($abstractMethod, BadRequestException::HTTP_CODE);
+        } catch (BadRequestException $exception) {
+            $this->assertInstanceOf('Exceptions\Http\Client\BadRequestException', $exception);
+        }
+        try {
+            $method->invoke($abstractMethod, UnauthorizedException::HTTP_CODE);
+        } catch (UnauthorizedException $exception) {
+            $this->assertInstanceOf('Exceptions\Http\Client\UnauthorizedException', $exception);
+        }
+        try {
+            $method->invoke($abstractMethod, ForbiddenException::HTTP_CODE);
+        } catch (ForbiddenException $exception) {
+            $this->assertInstanceOf('Exceptions\Http\Client\ForbiddenException', $exception);
+        }
+        try {
+            $method->invoke($abstractMethod, NotFoundException::HTTP_CODE);
+        } catch (NotFoundException $exception) {
+            $this->assertInstanceOf('Exceptions\Http\Client\NotFoundException', $exception);
+        }
+        try {
+            $method->invoke($abstractMethod, MethodNotAllowedException::HTTP_CODE);
+        } catch (MethodNotAllowedException $exception) {
+            $this->assertInstanceOf('Exceptions\Http\Client\MethodNotAllowedException', $exception);
+        }
+        try {
+            $method->invoke($abstractMethod, UnprocessableEntityException::HTTP_CODE);
+        } catch (UnprocessableEntityException $exception) {
+            $this->assertInstanceOf('Exceptions\Http\Client\UnprocessableEntityException', $exception);
+        }
+        try {
+            $method->invoke($abstractMethod, InternalServerErrorException::HTTP_CODE);
+        } catch (InternalServerErrorException $exception) {
+            $this->assertInstanceOf('Exceptions\Http\Server\InternalServerErrorException', $exception);
+        }
+        try {
+            $method->invoke($abstractMethod, ServiceUnavailableException::HTTP_CODE);
+        } catch (ServiceUnavailableException $exception) {
+            $this->assertInstanceOf('Exceptions\Http\Server\ServiceUnavailableException', $exception);
+        }
     }
 }
