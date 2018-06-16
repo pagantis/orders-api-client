@@ -26,7 +26,7 @@ class ApiConfigurationTest extends TestCase
     /**
      * Base URL for API calls
      */
-    const BASE_URI = 'https://orders-stg.pagamastarde.com';
+    const BASE_URI = 'https://orders.pagamastarde.com';
 
     /**
      * Base URL for API calls
