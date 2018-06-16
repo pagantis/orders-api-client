@@ -4,6 +4,7 @@ namespace PagaMasTarde\OrdersApiClient\Method;
 
 use Exceptions\Http\Server\ServerErrorException;
 use Httpful\Http;
+use Httpful\Request;
 use Httpful\Response;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 
@@ -37,34 +38,6 @@ class ListOrdersMethod extends AbstractMethod
     }
 
     /**
-     * @return $this
-     *
-     * @throws \Httpful\Exception\ConnectionErrorException
-     *
-     * @throws ServerErrorException
-     */
-    public function call()
-    {
-        $response = $this->getRequest()
-            ->method(Http::GET)
-            ->uri(
-                $this->apiConfiguration->getBaseUri().
-                self::SLASH.
-                self::ENDPOINT.
-                $this->addGetParameters($this->queryParameters)
-            )
-            ->send()
-        ;
-
-        if (!$response->hasErrors()) {
-            $this->response = $response;
-            return $this;
-        }
-
-        return $this->parseHttpException($response->code);
-    }
-
-    /**
      * @return Order[] | false
      */
     public function getOrders()
@@ -83,5 +56,36 @@ class ListOrdersMethod extends AbstractMethod
         }
 
         return false;
+    }
+
+    /**
+     * @return $this
+     *
+     * @throws \Httpful\Exception\ConnectionErrorException
+     *
+     * @throws ServerErrorException
+     */
+    public function call()
+    {
+        $this->prepareRequest();
+        return $this->setResponse($this->request->send());
+    }
+
+    /**
+     * prepareRequest
+     */
+    public function prepareRequest()
+    {
+        if (!$this->request instanceof Request) {
+            $this->request = $this->getRequest()
+                ->method(Http::GET)
+                ->uri(
+                    $this->apiConfiguration->getBaseUri().
+                    self::SLASH.
+                    self::ENDPOINT.
+                    $this->addGetParameters($this->queryParameters)
+                )
+            ;
+        }
     }
 }

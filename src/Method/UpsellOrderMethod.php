@@ -6,6 +6,7 @@ use Exceptions\Data\ValidationException;
 use Exceptions\Http\Server\ServerErrorException;
 use Httpful\Http;
 use Httpful\Mime;
+use Httpful\Request;
 use Httpful\Response;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 
@@ -67,28 +68,8 @@ class UpsellOrderMethod extends AbstractMethod
     public function call()
     {
         if ($this->upsell instanceof Order\Upsell && is_string($this->orderId)) {
-            $response = $this->getRequest()
-                ->method(Http::PUT)
-                ->uri(
-                    $this->apiConfiguration->getBaseUri().
-                    self::SLASH.
-                    self::ENDPOINT.
-                    self::SLASH.
-                    $this->orderId.
-                    self::SLASH.
-                    self::UPSELL_ENDPOINT
-                )
-                ->sendsType(Mime::JSON)
-                ->body(json_encode($this->upsell->export()))
-                ->send()
-            ;
-
-            if (!$response->hasErrors()) {
-                $this->response = $response;
-                return $this;
-            }
-
-            return $this->parseHttpException($response->code);
+            $this->prepareRequest();
+            return $this->setResponse($this->request->send());
         }
         throw new ValidationException('Please set Upsell Object and OrderId');
     }
@@ -106,5 +87,28 @@ class UpsellOrderMethod extends AbstractMethod
         }
 
         return false;
+    }
+
+    /**
+     * prepareRequest
+     */
+    protected function prepareRequest()
+    {
+        if (!$this->request instanceof Request) {
+            $this->request = $this->getRequest()
+                ->method(Http::PUT)
+                ->uri(
+                    $this->apiConfiguration->getBaseUri().
+                    self::SLASH.
+                    self::ENDPOINT.
+                    self::SLASH.
+                    $this->orderId.
+                    self::SLASH.
+                    self::UPSELL_ENDPOINT
+                )
+                ->sendsType(Mime::JSON)
+                ->body(json_encode($this->upsell->export()))
+            ;
+        }
     }
 }

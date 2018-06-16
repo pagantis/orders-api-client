@@ -3,16 +3,19 @@
 namespace Test\PagaMasTarde\OrdersApiClient\Method;
 
 use Exceptions\Data\ValidationException;
-use Exceptions\Http\Client\NotFoundException;
 use Faker\Factory;
+use Httpful\Http;
+use Httpful\Request;
 use PagaMasTarde\OrdersApiClient\Method\GetOrderMethod;
+use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class GetOrderMethodTest
  *
  * @package Test\PagaMasTarde\OrdersApiClient\Method;
  */
-class GetOrderMethodTest extends AbstractTest
+class GetOrderMethodTest extends TestCase
 {
     /**
      * testEndpointConstant
@@ -32,7 +35,8 @@ class GetOrderMethodTest extends AbstractTest
     {
         $faker = Factory::create();
         $orderId = $faker->uuid;
-        $getOrderMethod = new GetOrderMethod($this->get200ApiConfiguration());
+        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $getOrderMethod = new GetOrderMethod($apiConfigurationMock);
         $getOrderMethod->setOrderId($orderId);
         $reflectGetOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\GetOrderMethod');
         $property = $reflectGetOrderMethod->getProperty('orderId');
@@ -54,7 +58,8 @@ class GetOrderMethodTest extends AbstractTest
         $property->setAccessible(true);
         $property->setValue($responseMock, json_decode($orderJson));
 
-        $getOrderMethod = new GetOrderMethod($this->get200ApiConfiguration());
+        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $getOrderMethod = new GetOrderMethod($apiConfigurationMock);
         $this->assertFalse($getOrderMethod->getOrder());
         $reflectGetOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\GetOrderMethod');
         $property = $reflectGetOrderMethod->getProperty('response');
@@ -65,30 +70,48 @@ class GetOrderMethodTest extends AbstractTest
     }
 
     /**
+     * testPrepareRequest
+     *
+     * @throws \ReflectionException
+     */
+    public function testPrepareRequest()
+    {
+        $faker = Factory::create();
+        $url = $faker->url;
+        $orderId = $faker->uuid;
+        $apiConfiguration = new ApiConfiguration();
+        $apiConfiguration->setBaseUri($url);
+        $getOrderMethod = new GetOrderMethod($apiConfiguration);
+        $reflectGetOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\GetOrderMethod');
+        $method = $reflectGetOrderMethod->getMethod('prepareRequest');
+        $method->setAccessible(true);
+        $property = $reflectGetOrderMethod->getProperty('request');
+        $property->setAccessible(true);
+        $this->assertNull($property->getValue($getOrderMethod));
+        $getOrderMethod->setOrderId($orderId);
+        $method->invoke($getOrderMethod);
+        /** @var Request $request */
+        $request = $property->getValue($getOrderMethod);
+        $this->assertInstanceOf('Httpful\Request', $request);
+        $this->assertSame(Http::GET, $request->method);
+        $uri = $url . GetOrderMethod::SLASH . GetOrderMethod::ENDPOINT . GetOrderMethod::SLASH . $orderId;
+        $this->assertSame($uri, $request->uri);
+    }
+
+    /**
      * testCall
      *
      * @throws \Httpful\Exception\ConnectionErrorException
      */
     public function testCall()
     {
-        $getOrderMethod = new GetOrderMethod($this->get404ApiConfiguration());
+        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $getOrderMethod = new GetOrderMethod($apiConfigurationMock);
         try {
             $getOrderMethod->call();
             $this->assertTrue(false);
         } catch (ValidationException $exception) {
             $this->assertInstanceOf('Exceptions\Data\ValidationException', $exception);
         }
-        $faker = Factory::create();
-        $getOrderMethod->setOrderId($faker->uuid);
-        try {
-            $getOrderMethod->call();
-            $this->assertTrue(false);
-        } catch (NotFoundException $exception) {
-            $this->assertInstanceOf('Exceptions\Http\Client\NotFoundException', $exception);
-        }
-        $getOrderMethod = new GetOrderMethod($this->get200ApiConfiguration());
-        $getOrderMethod->setOrderId($faker->uuid);
-        $getOrderMethod->call();
-        $this->assertInstanceOf('Httpful\Response', $getOrderMethod->getResponse());
     }
 }

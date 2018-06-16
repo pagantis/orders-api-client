@@ -36,6 +36,11 @@ abstract class AbstractMethod implements MethodInterface
     protected $response;
 
     /**
+     * @var Request
+     */
+    protected $request;
+
+    /**
      * AbstractMethod constructor.
      *
      * @param ApiConfiguration $apiConfiguration
@@ -43,18 +48,6 @@ abstract class AbstractMethod implements MethodInterface
     public function __construct(ApiConfiguration $apiConfiguration)
     {
         $this->apiConfiguration = $apiConfiguration;
-    }
-
-    /**
-     * @return Request
-     */
-    public function getRequest()
-    {
-        return Request::init()
-            ->expects(Mime::JSON)
-            ->authenticateWithBasic($this->apiConfiguration->getPublicKey(), $this->apiConfiguration->getPrivateKey())
-            ->timeoutIn(5)
-        ;
     }
 
     /**
@@ -89,7 +82,10 @@ abstract class AbstractMethod implements MethodInterface
      */
     protected function addGetParameters($array)
     {
-        $query = http_build_query(array_filter($array));
+        $query = '';
+        if (is_array($array)) {
+            $query = http_build_query(array_filter($array));
+        }
 
         return empty($query) ? '' : '?' . $query;
     }
@@ -130,5 +126,32 @@ abstract class AbstractMethod implements MethodInterface
                 throw new InternalServerErrorException();
                 break;
         }
+    }
+
+    /**
+     * @return Request
+     */
+    protected function getRequest()
+    {
+        return Request::init()
+            ->expects(Mime::JSON)
+            ->authenticateWithBasic($this->apiConfiguration->getPublicKey(), $this->apiConfiguration->getPrivateKey())
+            ->timeoutIn(5)
+            ;
+    }
+
+    /**
+     * @param Response $response
+     *
+     * @return $this
+     */
+    protected function setResponse(Response $response)
+    {
+        if (!$response->hasErrors()) {
+            $this->response = $response;
+            return $this;
+        }
+
+        return $this->parseHttpException($response->code);
     }
 }

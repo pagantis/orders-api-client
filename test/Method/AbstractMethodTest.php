@@ -12,13 +12,14 @@ use Exceptions\Http\Server\InternalServerErrorException;
 use Exceptions\Http\Server\ServiceUnavailableException;
 use PagaMasTarde\OrdersApiClient\Method\AbstractMethod;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class AbstractMethodTest
  *
  * @package Test\PagaMasTarde\OrdersApiClient\Method;
  */
-class AbstractMethodTest extends AbstractTest
+class AbstractMethodTest extends TestCase
 {
     /**
      * Has Slash
@@ -205,5 +206,68 @@ class AbstractMethodTest extends AbstractTest
         } catch (ServiceUnavailableException $exception) {
             $this->assertInstanceOf('Exceptions\Http\Server\ServiceUnavailableException', $exception);
         }
+    }
+
+    /**
+     * testSetResponse
+     *
+     * @expectedException \Exceptions\Http\Server\InternalServerErrorException
+     *
+     * @throws \ReflectionException
+     */
+    public function testSetResponseException()
+    {
+        $responseMock = $this
+            ->getMockBuilder('Httpful\Response')
+            ->disableOriginalConstructor()
+            ->getMock()
+        ;
+
+        $abstractMethod = $this
+            ->getMockBuilder('PagaMasTarde\OrdersApiClient\Method\AbstractMethod')
+            ->disableOriginalConstructor()
+            ->getMock()
+        ;
+
+        $reflectedClass = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\AbstractMethod');
+        $method = $reflectedClass->getMethod('setResponse');
+        $method->setAccessible(true);
+
+        $responseMock->code = InternalServerErrorException::HTTP_CODE;
+        $responseMock->method('hasErrors')->willReturn(true);
+        $this->assertInstanceOf(
+            'PagaMasTarde\OrdersApiClient\Method\AbstractMethod',
+            $method->invoke($abstractMethod, $responseMock)
+        );
+    }
+
+    /**
+     * testSetResponse
+     *
+     * @throws \ReflectionException
+     */
+    public function testSetResponse()
+    {
+        $responseMock = $this
+            ->getMockBuilder('Httpful\Response')
+            ->disableOriginalConstructor()
+            ->getMock()
+        ;
+
+        $abstractMethod = $this
+            ->getMockBuilder('PagaMasTarde\OrdersApiClient\Method\AbstractMethod')
+            ->disableOriginalConstructor()
+            ->getMock()
+        ;
+
+        $reflectedClass = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\AbstractMethod');
+        $method = $reflectedClass->getMethod('setResponse');
+        $method->setAccessible(true);
+
+        $responseMock->method('hasErrors')->willReturn(false);
+        $this->assertInstanceOf(
+            'PagaMasTarde\OrdersApiClient\Method\AbstractMethod',
+            $method->invoke($abstractMethod, $responseMock)
+        );
     }
 }

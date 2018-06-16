@@ -5,6 +5,7 @@ namespace PagaMasTarde\OrdersApiClient\Method;
 use Exceptions\Data\ValidationException;
 use Exceptions\Http\Server\ServerErrorException;
 use Httpful\Http;
+use Httpful\Request;
 use Httpful\Response;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 
@@ -49,7 +50,34 @@ class ConfirmOrderMethod extends AbstractMethod
     public function call()
     {
         if (is_string($this->orderId)) {
-            $response = $this->getRequest()
+            $this->prepareRequest();
+            return $this->setResponse($this->request->send());
+        }
+        throw new ValidationException('Please set OrderId');
+    }
+
+    /**
+     * @return Order | false
+     */
+    public function getOrder()
+    {
+        $response = $this->getResponse();
+        if ($response instanceof Response) {
+            $order = new Order();
+            $order->import($this->getResponse()->body);
+            return $order;
+        }
+
+        return false;
+    }
+
+    /**
+     * prepareRequest
+     */
+    protected function prepareRequest()
+    {
+        if (!$this->request instanceof Request) {
+            $this->request = $this->getRequest()
                 ->method(Http::PUT)
                 ->uri(
                     $this->apiConfiguration->getBaseUri().
@@ -60,31 +88,7 @@ class ConfirmOrderMethod extends AbstractMethod
                     self::SLASH.
                     self::CONFIRM_ENDPOINT
                 )
-                ->send()
             ;
-
-            if (!$response->hasErrors()) {
-                $this->response = $response;
-                return $this;
-            }
-
-            return $this->parseHttpException($response->code);
         }
-        throw new ValidationException('Please set OrderId');
-    }
-
-    /**
-     * @return Order\Upsell | false
-     */
-    public function getUpsell()
-    {
-        $response = $this->getResponse();
-        if ($response instanceof Response) {
-            $upsell = new Order\Upsell();
-            $upsell->import($this->getResponse()->body);
-            return $upsell;
-        }
-
-        return false;
     }
 }
