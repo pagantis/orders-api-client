@@ -3,9 +3,12 @@
 namespace PagaMasTarde\OrdersApiClient;
 
 use Exceptions\Operation\NotImplementedException;
+use PagaMasTarde\OrdersApiClient\Method\ConfirmOrderMethod;
 use PagaMasTarde\OrdersApiClient\Method\CreateOrderMethod;
 use PagaMasTarde\OrdersApiClient\Method\GetOrderMethod;
 use PagaMasTarde\OrdersApiClient\Method\ListOrdersMethod;
+use PagaMasTarde\OrdersApiClient\Method\RefundOrderMethod;
+use PagaMasTarde\OrdersApiClient\Method\UpsellOrderMethod;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 
@@ -69,7 +72,7 @@ class Client
      *
      * @throws \Httpful\Exception\ConnectionErrorException
      */
-    public function getOrderById($orderId, $asJson = false)
+    public function getOrder($orderId, $asJson = false)
     {
         $getOrderMethod = new GetOrderMethod($this->apiConfiguration);
         $getOrderMethod->setOrderId($orderId);
@@ -97,5 +100,64 @@ class Client
         }
 
         return $listOrdersMethod->call()->getOrders();
+    }
+
+    /**
+     * @param string    $orderId
+     * @param bool      $asJson return API JSON RESPONSE instead of the order object
+     *
+     * @return false|Model\Order|string
+     *
+     * @throws \Httpful\Exception\ConnectionErrorException
+     */
+    public function confirmOrder($orderId, $asJson = false)
+    {
+        $confirmOrderMethod = new ConfirmOrderMethod($this->apiConfiguration);
+        $confirmOrderMethod->setOrderId($orderId);
+        if ($asJson) {
+            return $confirmOrderMethod->call()->getResponseAsJson();
+        }
+
+        return $confirmOrderMethod->call()->getOrder();
+    }
+
+    /**
+     * @param              $orderId
+     * @param Order\Refund $refund
+     * @param bool         $asJson
+     *
+     * @return bool|false|Order\Refund|string
+     * @throws \Httpful\Exception\ConnectionErrorException
+     */
+    public function refundOrder($orderId, Order\Refund $refund, $asJson = false)
+    {
+        $refundOrderMethod = new RefundOrderMethod($this->apiConfiguration);
+        $refundOrderMethod->setOrderId($orderId);
+        $refundOrderMethod->setRefund($refund);
+        if ($asJson) {
+            return $refundOrderMethod->call()->getResponseAsJson();
+        }
+
+        return $refundOrderMethod->call()->getRefund();
+    }
+
+    /**
+     * @param              $orderId
+     * @param Order\Upsell $upsell
+     * @param bool         $asJson
+     *
+     * @return bool|false|Order\Upsell|string
+     * @throws \Httpful\Exception\ConnectionErrorException
+     */
+    public function upsellOrder($orderId, Order\Upsell $upsell, $asJson = false)
+    {
+        $refundOrderMethod = new UpsellOrderMethod($this->apiConfiguration);
+        $refundOrderMethod->setOrderId($orderId);
+        $refundOrderMethod->setUpsell($upsell);
+        if ($asJson) {
+            return $refundOrderMethod->call()->getResponseAsJson();
+        }
+
+        return $refundOrderMethod->call()->getUpsell();
     }
 }
