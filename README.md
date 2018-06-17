@@ -37,7 +37,7 @@ $ordersApiClient = new OrdersApiClient($publicKey, $privateKey);
 
 //Example: get an existing Order status:
 $order = $ordersApiClient->getOrder($pmtOrderId); //$pmOrderId is the id of the order
-if ($order instaceof PagaMasTarde/OrderApiClient/Order) {
+if ($order instanceof PagaMasTarde\OrdersApiClient\Model\Order) {
     $orderStatus = $order->getStatus();
     echo $orderStatus;
 }
