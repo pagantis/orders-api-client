@@ -91,7 +91,6 @@ class ClientTest extends TestCase
         );
 
         $orderCreated = $apiClient->createOrder($order);
-
         $this->assertEquals($order->getConfiguration(), $orderCreated->getConfiguration());
         $this->assertEquals($order->getShoppingCart(), $orderCreated->getShoppingCart());
         $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Order', $order);
@@ -99,6 +98,7 @@ class ClientTest extends TestCase
         $this->assertTrue(Order\Configuration\Urls::urlValidate($formUrl));
 
         $this->order = $orderCreated;
+
         return $orderCreated;
     }
 
@@ -134,6 +134,7 @@ class ClientTest extends TestCase
         $this->order->setConfirmedAt(null);
         $orderRetrieved->setConfirmedAt(null);
         $this->assertEquals($this->order, $orderRetrieved);
+
         return $orderRetrieved;
     }
 
@@ -246,6 +247,7 @@ class ClientTest extends TestCase
         $upsell = new Order\Upsell();
         $upsell
             ->setTotalAmount(10)
+
         ;
 
         $upsellRetrieved = $apiClient->upsellOrder($this->order->getId(), $upsell);

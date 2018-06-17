@@ -3,6 +3,7 @@
 namespace PagaMasTarde\OrdersApiClient\Method;
 
 use Exceptions\Http\Client\BadRequestException;
+use Exceptions\Http\Client\ConflictException;
 use Exceptions\Http\Client\ForbiddenException;
 use Exceptions\Http\Client\MethodNotAllowedException;
 use Exceptions\Http\Client\NotFoundException;
@@ -92,10 +93,11 @@ abstract class AbstractMethod implements MethodInterface
 
     /**
      * @param $code
+     * @param string $message
      *
      * @throws ServerErrorException
      */
-    protected function parseHttpException($code)
+    protected function parseHttpException($code, $message = null)
     {
         switch ($code) {
             case BadRequestException::HTTP_CODE:
@@ -122,8 +124,11 @@ abstract class AbstractMethod implements MethodInterface
             case ServiceUnavailableException::HTTP_CODE:
                 throw new ServiceUnavailableException();
                 break;
+            case ConflictException::HTTP_CODE:
+                throw new ConflictException($message);
+                break;
             default:
-                throw new InternalServerErrorException();
+                throw new InternalServerErrorException($message);
                 break;
         }
     }
@@ -152,6 +157,6 @@ abstract class AbstractMethod implements MethodInterface
             return $this;
         }
 
-        return $this->parseHttpException($response->code);
+        return $this->parseHttpException($response->code, $response->raw_body);
     }
 }
