@@ -38,7 +38,8 @@ class DetailsTest extends TestCase
             $exception = new \Exception('Product should have 1 element');
             $this->throwException($exception);
         }
-        $productFromDetails = array_pop($details->getProducts());
+        $products = $details->getProducts();
+        $productFromDetails = array_pop($products);
         $this->assertSame($productFromDetails, $product);
     }
 
