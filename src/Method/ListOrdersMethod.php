@@ -2,7 +2,6 @@
 
 namespace PagaMasTarde\OrdersApiClient\Method;
 
-use Exceptions\Http\Server\ServerErrorException;
 use Httpful\Http;
 use Httpful\Request;
 use Httpful\Response;
@@ -38,7 +37,8 @@ class ListOrdersMethod extends AbstractMethod
     }
 
     /**
-     * @return Order[] | false
+     * @return array|bool
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function getOrders()
     {
@@ -59,11 +59,9 @@ class ListOrdersMethod extends AbstractMethod
     }
 
     /**
-     * @return $this
-     *
+     * @return $this|AbstractMethod
      * @throws \Httpful\Exception\ConnectionErrorException
-     *
-     * @throws ServerErrorException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
      */
     public function call()
     {

@@ -2,12 +2,11 @@
 
 namespace PagaMasTarde\OrdersApiClient\Method;
 
-use Exceptions\Data\ValidationException;
-use Exceptions\Http\Server\ServerErrorException;
 use Httpful\Http;
 use Httpful\Mime;
 use Httpful\Request;
 use Httpful\Response;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 
 /**
@@ -59,11 +58,10 @@ class RefundOrderMethod extends AbstractMethod
     }
 
     /**
-     * @return $this
-     *
+     * @return $this|AbstractMethod
+     * @throws ValidationException
      * @throws \Httpful\Exception\ConnectionErrorException
-     *
-     * @throws ServerErrorException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
      */
     public function call()
     {
@@ -75,7 +73,8 @@ class RefundOrderMethod extends AbstractMethod
     }
 
     /**
-     * @return Order\Refund | false
+     * @return bool|Order\Refund
+     * @throws ValidationException
      */
     public function getRefund()
     {
@@ -91,6 +90,8 @@ class RefundOrderMethod extends AbstractMethod
 
     /**
      * prepareRequest
+     *
+     * @throws ValidationException
      */
     protected function prepareRequest()
     {

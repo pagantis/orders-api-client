@@ -29,7 +29,7 @@ class ChannelTest extends TestCase
     /**
      * testSetAssistedSale
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetAssistedSale()
     {
@@ -44,7 +44,7 @@ class ChannelTest extends TestCase
     /**
      * testSetType
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      *
      * @throws \ReflectionException
      */
@@ -68,7 +68,7 @@ class ChannelTest extends TestCase
     /**
      * testValidate
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      *
      * @throws \ReflectionException
      */

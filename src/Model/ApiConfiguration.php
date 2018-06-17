@@ -2,7 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Urls;
 
 /**
@@ -94,6 +94,7 @@ class ApiConfiguration extends AbstractModel
      * @param $baseUri
      *
      * @return $this
+     * @throws ValidationException
      */
     public function setBaseUri($baseUri)
     {
@@ -106,9 +107,8 @@ class ApiConfiguration extends AbstractModel
     }
 
     /**
-     * Nothing to validate
-     *
      * @return bool|true
+     * @throws ValidationException
      */
     public function validate()
     {

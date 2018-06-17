@@ -2,7 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 use PagaMasTarde\OrdersApiClient\Model\Order\User\Address;
 use PagaMasTarde\OrdersApiClient\Model\Order\User\OrderHistory;
@@ -130,9 +130,10 @@ class User extends AbstractModel
     }
 
     /**
-     * @param string $dateOfBirth
+     * @param $dateOfBirth
      *
-     * @return User
+     * @return $this
+     * @throws ValidationException
      */
     public function setDateOfBirth($dateOfBirth)
     {
@@ -158,9 +159,10 @@ class User extends AbstractModel
     }
 
     /**
-     * @param string $dni
+     * @param $dni
      *
-     * @return User
+     * @return $this
+     * @throws ValidationException
      */
     public function setDni($dni)
     {
@@ -181,9 +183,10 @@ class User extends AbstractModel
     }
 
     /**
-     * @param string $email
+     * @param $email
      *
-     * @return User
+     * @return $this
+     * @throws ValidationException
      */
     public function setEmail($email)
     {
@@ -224,9 +227,10 @@ class User extends AbstractModel
     }
 
     /**
-     * @param string $fullName
+     * @param $fullName
      *
-     * @return User
+     * @return $this
+     * @throws ValidationException
      */
     public function setFullName($fullName)
     {
@@ -325,6 +329,8 @@ class User extends AbstractModel
      * Overwrite import to fill ordersHistory correctly
      *
      * @param $object
+     *
+     * @throws ValidationException
      */
     public function import($object)
     {
@@ -343,9 +349,8 @@ class User extends AbstractModel
     }
 
     /**
-     * Validate setters, objects and full name + email can not be empty.
-     *
      * @return bool|true
+     * @throws ValidationException
      */
     public function validate()
     {

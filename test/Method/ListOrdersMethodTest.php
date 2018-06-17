@@ -2,7 +2,6 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Method;
 
-use Exceptions\Data\ValidationException;
 use Faker\Factory;
 use Httpful\Http;
 use Httpful\Request;
@@ -46,6 +45,7 @@ class ListOrdersMethodTest extends TestCase
     /**
      * testGetOrders
      *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      * @throws \ReflectionException
      */
     public function testGetOrders()
@@ -76,6 +76,7 @@ class ListOrdersMethodTest extends TestCase
     /**
      * testPrepareRequest
      *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      * @throws \ReflectionException
      */
     public function testPrepareRequest()

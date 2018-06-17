@@ -2,7 +2,7 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Method;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use Faker\Factory;
 use Httpful\Http;
 use Httpful\Request;
@@ -63,8 +63,9 @@ class UpsellOrderMethodTest extends TestCase
     }
 
     /**
-     * testGetOrder
+     * testGetUpsell
      *
+     * @throws ValidationException
      * @throws \ReflectionException
      */
     public function testGetUpsell()
@@ -90,6 +91,7 @@ class UpsellOrderMethodTest extends TestCase
     /**
      * testPrepareRequest
      *
+     * @throws ValidationException
      * @throws \ReflectionException
      */
     public function testPrepareRequest()
@@ -133,6 +135,7 @@ class UpsellOrderMethodTest extends TestCase
      * testCall
      *
      * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
      */
     public function testCall()
     {
@@ -142,7 +145,7 @@ class UpsellOrderMethodTest extends TestCase
             $upsellOrderMethod->call();
             $this->assertTrue(false);
         } catch (ValidationException $exception) {
-            $this->assertInstanceOf('Exceptions\Data\ValidationException', $exception);
+            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\ValidationException', $exception);
         }
     }
 }

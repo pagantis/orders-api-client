@@ -2,7 +2,7 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Method;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use Faker\Factory;
 use Httpful\Http;
 use Httpful\Request;
@@ -46,7 +46,7 @@ class RefundOrderMethodTest extends TestCase
     }
 
     /**
-     * testSetOrderId
+     * testSetRefund
      *
      * @throws \ReflectionException
      */
@@ -63,8 +63,9 @@ class RefundOrderMethodTest extends TestCase
     }
 
     /**
-     * testGetOrder
+     * testGetRefund
      *
+     * @throws ValidationException
      * @throws \ReflectionException
      */
     public function testGetRefund()
@@ -90,6 +91,7 @@ class RefundOrderMethodTest extends TestCase
     /**
      * testPrepareRequest
      *
+     * @throws ValidationException
      * @throws \ReflectionException
      */
     public function testPrepareRequest()
@@ -133,6 +135,7 @@ class RefundOrderMethodTest extends TestCase
      * testCall
      *
      * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
      */
     public function testCall()
     {
@@ -142,7 +145,7 @@ class RefundOrderMethodTest extends TestCase
             $refundOrderMethod->call();
             $this->assertTrue(false);
         } catch (ValidationException $exception) {
-            $this->assertInstanceOf('Exceptions\Data\ValidationException', $exception);
+            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\ValidationException', $exception);
         }
     }
 }

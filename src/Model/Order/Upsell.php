@@ -2,7 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
@@ -83,9 +83,10 @@ class Upsell extends AbstractModel
     }
 
     /**
-     * @param int $totalAmount
+     * @param $totalAmount
      *
-     * @return Upsell
+     * @return $this
+     * @throws ValidationException
      */
     public function setTotalAmount($totalAmount)
     {
@@ -98,9 +99,8 @@ class Upsell extends AbstractModel
     }
 
     /**
-     * Validation occurs on setters.
-     *
      * @return bool|true
+     * @throws ValidationException
      */
     public function validate()
     {

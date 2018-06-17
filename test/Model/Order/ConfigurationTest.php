@@ -2,7 +2,7 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Model\Order;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use Faker\Factory;
 use PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
 use PHPUnit\Framework\TestCase;
@@ -30,7 +30,9 @@ class ConfigurationTest extends TestCase
     }
 
     /**
-     * test Validate
+     * testValidate
+     *
+     * @throws ValidationException
      */
     public function testValidate()
     {

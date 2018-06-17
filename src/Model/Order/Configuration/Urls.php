@@ -2,7 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
@@ -53,6 +53,7 @@ class Urls extends AbstractModel
      * @param $cancel
      *
      * @return $this
+     * @throws ValidationException
      */
     public function setCancel($cancel)
     {
@@ -76,6 +77,7 @@ class Urls extends AbstractModel
      * @param $ko
      *
      * @return $this
+     * @throws ValidationException
      */
     public function setKo($ko)
     {
@@ -99,6 +101,7 @@ class Urls extends AbstractModel
      * @param $notificationCallback
      *
      * @return $this
+     * @throws ValidationException
      */
     public function setNotificationCallback($notificationCallback)
     {
@@ -122,6 +125,7 @@ class Urls extends AbstractModel
      * @param $ok
      *
      * @return $this
+     * @throws ValidationException
      */
     public function setOk($ok)
     {
@@ -134,9 +138,8 @@ class Urls extends AbstractModel
     }
 
     /**
-     * Check KO and OK as mandatory, trigger setters for validation
-     *
      * @return bool|true
+     * @throws ValidationException
      */
     public function validate()
     {

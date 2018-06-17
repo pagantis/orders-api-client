@@ -411,6 +411,8 @@ class Order extends AbstractModel
 
     /**
      * @param \stdClass $object
+     *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function import($object)
     {
@@ -442,7 +444,7 @@ class Order extends AbstractModel
      * Check setters and validate the mandatory fields:
      * User, Configuration and Shopping Cart
      *
-     * @return bool|true
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function validate()
     {

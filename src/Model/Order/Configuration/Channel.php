@@ -2,7 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
@@ -45,9 +45,10 @@ class Channel extends AbstractModel
     }
 
     /**
-     * @param bool $assistedSale
+     * @param $assistedSale
      *
-     * @return Channel
+     * @return $this
+     * @throws ValidationException
      */
     public function setAssistedSale($assistedSale)
     {
@@ -60,6 +61,7 @@ class Channel extends AbstractModel
         throw new ValidationException('Assisted Sale has to be boolean true|false');
     }
 
+
     /**
      * @return string
      */
@@ -70,7 +72,9 @@ class Channel extends AbstractModel
 
     /**
      * @param $type
+     *
      * @return $this
+     * @throws ValidationException
      */
     public function setType($type)
     {
@@ -90,6 +94,7 @@ class Channel extends AbstractModel
 
     /**
      * @return bool|true
+     * @throws ValidationException
      */
     public function validate()
     {

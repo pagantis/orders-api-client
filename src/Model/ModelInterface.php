@@ -2,8 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model;
 
-use Exceptions\Data\IntegrityException;
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 
 /**
  * Interface ModelInterface
@@ -21,7 +20,7 @@ interface ModelInterface
     /**
      * @param \stdClass $object
      *
-     * @throws IntegrityException
+     * @throws ValidationException
      */
     public function import($object);
 

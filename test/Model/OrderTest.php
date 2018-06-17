@@ -48,6 +48,8 @@ class OrderTest extends TestCase
 
     /**
      * testValidate
+     *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testValidate()
     {
@@ -75,6 +77,8 @@ class OrderTest extends TestCase
 
     /**
      * testImport
+     *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testImport()
     {

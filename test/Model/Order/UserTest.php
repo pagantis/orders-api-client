@@ -41,7 +41,7 @@ class UserTest extends TestCase
     /**
      * testSetDateOfBirth
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetDateOfBirth()
     {
@@ -66,7 +66,7 @@ class UserTest extends TestCase
     /**
      * testSetDni
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetDni()
     {
@@ -80,7 +80,7 @@ class UserTest extends TestCase
     /**
      * Test SetEmail
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetEmail()
     {
@@ -95,7 +95,7 @@ class UserTest extends TestCase
     /**
      * testSetFullName
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetFullName()
     {
@@ -125,6 +125,8 @@ class UserTest extends TestCase
 
     /**
      * testImport
+     *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testImport()
     {
@@ -138,6 +140,8 @@ class UserTest extends TestCase
 
     /**
      * testValidate
+     *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testValidate()
     {

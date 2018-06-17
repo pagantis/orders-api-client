@@ -41,7 +41,7 @@ class ShoppingCartTest extends TestCase
     /**
      * testSetAmount
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetTotalAmount()
     {
@@ -58,7 +58,7 @@ class ShoppingCartTest extends TestCase
     /**
      * testSetPromotedAmount
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetPromotedAmount()
     {
@@ -80,6 +80,8 @@ class ShoppingCartTest extends TestCase
 
     /**
      * testValidate
+     *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testValidate()
     {

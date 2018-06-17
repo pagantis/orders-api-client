@@ -2,19 +2,10 @@
 
 namespace PagaMasTarde\OrdersApiClient\Method;
 
-use Exceptions\Http\Client\BadRequestException;
-use Exceptions\Http\Client\ConflictException;
-use Exceptions\Http\Client\ForbiddenException;
-use Exceptions\Http\Client\MethodNotAllowedException;
-use Exceptions\Http\Client\NotFoundException;
-use Exceptions\Http\Client\UnauthorizedException;
-use Exceptions\Http\Client\UnprocessableEntityException;
-use Exceptions\Http\Server\InternalServerErrorException;
-use Exceptions\Http\Server\ServerErrorException;
-use Exceptions\Http\Server\ServiceUnavailableException;
 use Httpful\Mime;
 use Httpful\Request;
 use Httpful\Response;
+use PagaMasTarde\OrdersApiClient\Exception\HttpException;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
 
 /**
@@ -92,43 +83,43 @@ abstract class AbstractMethod implements MethodInterface
     }
 
     /**
-     * @param $code
-     * @param string $message
+     * @param      $code
+     * @param null $message
      *
-     * @throws ServerErrorException
+     * @throws HttpException
      */
     protected function parseHttpException($code, $message = null)
     {
         switch ($code) {
-            case BadRequestException::HTTP_CODE:
-                throw new BadRequestException();
+            case HttpException::HTTP_BAD_REQUEST:
+                throw new HttpException(HttpException::HTTP_BAD_REQUEST);
                 break;
-            case UnauthorizedException::HTTP_CODE:
-                throw new UnauthorizedException();
+            case HttpException::HTTP_UNAUTHORIZED:
+                throw new HttpException(HttpException::HTTP_UNAUTHORIZED);
                 break;
-            case ForbiddenException::HTTP_CODE:
-                throw new ForbiddenException();
+            case HttpException::HTTP_FORBIDDEN:
+                throw new HttpException(HttpException::HTTP_FORBIDDEN);
                 break;
-            case NotFoundException::HTTP_CODE:
-                throw new NotFoundException();
+            case HttpException::HTTP_NOT_FOUND:
+                throw new HttpException(HttpException::HTTP_NOT_FOUND);
                 break;
-            case MethodNotAllowedException::HTTP_CODE:
-                throw new MethodNotAllowedException();
+            case HttpException::HTTP_METHOD_NOT_ALLOWED:
+                throw new HttpException(HttpException::HTTP_METHOD_NOT_ALLOWED);
                 break;
-            case UnprocessableEntityException::HTTP_CODE:
-                throw new UnprocessableEntityException();
+            case HttpException::HTTP_UNPROCESSABLE_ENTITY:
+                throw new HttpException(HttpException::HTTP_UNPROCESSABLE_ENTITY);
                 break;
-            case InternalServerErrorException::HTTP_CODE:
-                throw new InternalServerErrorException();
+            case HttpException::HTTP_INTERNAL_SERVER_ERROR:
+                throw new HttpException(HttpException::HTTP_INTERNAL_SERVER_ERROR);
                 break;
-            case ServiceUnavailableException::HTTP_CODE:
-                throw new ServiceUnavailableException();
+            case HttpException::HTTP_SERVICE_UNAVAILABLE:
+                throw new HttpException(HttpException::HTTP_SERVICE_UNAVAILABLE);
                 break;
-            case ConflictException::HTTP_CODE:
-                throw new ConflictException($message);
+            case HttpException::HTTP_CONFLICT:
+                throw new HttpException(HttpException::HTTP_CONFLICT, $message);
                 break;
             default:
-                throw new InternalServerErrorException($message);
+                throw new HttpException(HttpException::HTTP_INTERNAL_SERVER_ERROR);
                 break;
         }
     }
@@ -149,6 +140,7 @@ abstract class AbstractMethod implements MethodInterface
      * @param Response $response
      *
      * @return $this
+     * @throws HttpException
      */
     protected function setResponse(Response $response)
     {

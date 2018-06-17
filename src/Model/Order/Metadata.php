@@ -2,7 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
@@ -16,6 +16,7 @@ class Metadata extends AbstractModel
      * @param $value
      *
      * @return $this
+     * @throws ValidationException
      */
     public function addMetadata($key, $value)
     {
@@ -28,9 +29,9 @@ class Metadata extends AbstractModel
     }
 
     /**
-     * Overwrite function from abstract since here there is no need for validation
-     *
      * @param $object
+     *
+     * @throws ValidationException
      */
     public function import($object)
     {

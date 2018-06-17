@@ -72,9 +72,8 @@ class Configuration extends AbstractModel
     }
 
     /**
-     * Both objects need to be present and validated
-     *
      * @return bool|true
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function validate()
     {

@@ -2,7 +2,7 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Method;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use Faker\Factory;
 use Httpful\Http;
 use Httpful\Request;
@@ -34,7 +34,6 @@ class CreateOrderMethodTest extends TestCase
      */
     public function testSetOrderId()
     {
-        $faker = Factory::create();
         $order = new Order();
         $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
         $createOrderMethod = new CreateOrderMethod($apiConfigurationMock);
@@ -48,6 +47,7 @@ class CreateOrderMethodTest extends TestCase
     /**
      * testGetOrder
      *
+     * @throws ValidationException
      * @throws \ReflectionException
      */
     public function testGetOrder()
@@ -73,6 +73,7 @@ class CreateOrderMethodTest extends TestCase
     /**
      * testPrepareRequest
      *
+     * @throws ValidationException
      * @throws \ReflectionException
      */
     public function testPrepareRequest()
@@ -107,6 +108,7 @@ class CreateOrderMethodTest extends TestCase
      * testCall
      *
      * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
      */
     public function testCall()
     {
@@ -116,7 +118,7 @@ class CreateOrderMethodTest extends TestCase
             $createOrderMethod->call();
             $this->assertTrue(false);
         } catch (ValidationException $exception) {
-            $this->assertInstanceOf('Exceptions\Data\ValidationException', $exception);
+            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\ValidationException', $exception);
         }
     }
 }

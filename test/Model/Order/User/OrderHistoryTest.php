@@ -24,7 +24,7 @@ class OrderHistoryTest extends TestCase
     /**
      * testSetAmount
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetAmount()
     {
@@ -40,6 +40,8 @@ class OrderHistoryTest extends TestCase
 
     /**
      * testValidate
+     *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testValidate()
     {

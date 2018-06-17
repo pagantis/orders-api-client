@@ -2,7 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details\Product;
 
@@ -59,9 +59,10 @@ class Details extends AbstractModel
     }
 
     /**
-     * @param int $shippingCost
+     * @param $shippingCost
      *
-     * @return Details
+     * @return $this
+     * @throws ValidationException
      */
     public function setShippingCost($shippingCost)
     {
@@ -77,6 +78,8 @@ class Details extends AbstractModel
      * Overwrite import to fill products correctly
      *
      * @param $object
+     *
+     * @throws ValidationException
      */
     public function import($object)
     {
@@ -95,9 +98,8 @@ class Details extends AbstractModel
     }
 
     /**
-     * Trigger setters and double check that there is at least 1 product.
-     *
      * @return bool|true
+     * @throws ValidationException
      */
     public function validate()
     {

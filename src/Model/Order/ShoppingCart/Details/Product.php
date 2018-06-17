@@ -2,7 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
@@ -38,6 +38,7 @@ class Product extends AbstractModel
      * @param $amount
      *
      * @return $this
+     * @throws ValidationException
      */
     public function setAmount($amount)
     {
@@ -79,6 +80,7 @@ class Product extends AbstractModel
      * @param $quantity
      *
      * @return $this
+     * @throws ValidationException
      */
     public function setQuantity($quantity)
     {
@@ -91,9 +93,8 @@ class Product extends AbstractModel
     }
 
     /**
-     * Be sure to trigger setters in order to validate fields
-     *
      * @return bool|true
+     * @throws ValidationException
      */
     public function validate()
     {

@@ -14,6 +14,8 @@ class AbstractModelTest extends TestCase
 {
     /**
      * complete testing, entire order validate, export and import
+     *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testAllMethod()
     {

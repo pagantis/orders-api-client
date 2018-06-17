@@ -36,7 +36,7 @@ class UrlsTest extends TestCase
     /**
      * testSetOk
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testValidate()
     {
@@ -54,7 +54,7 @@ class UrlsTest extends TestCase
     /**
      * testSetOk
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetOk()
     {
@@ -69,7 +69,7 @@ class UrlsTest extends TestCase
     /**
      * testSetOk
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetKo()
     {
@@ -84,7 +84,7 @@ class UrlsTest extends TestCase
     /**
      * testSetOk
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetCancel()
     {
@@ -99,7 +99,7 @@ class UrlsTest extends TestCase
     /**
      * testSetOk
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetNotificationCallback()
     {

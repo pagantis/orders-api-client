@@ -2,14 +2,7 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Method;
 
-use Exceptions\Http\Client\BadRequestException;
-use Exceptions\Http\Client\ForbiddenException;
-use Exceptions\Http\Client\MethodNotAllowedException;
-use Exceptions\Http\Client\NotFoundException;
-use Exceptions\Http\Client\UnauthorizedException;
-use Exceptions\Http\Client\UnprocessableEntityException;
-use Exceptions\Http\Server\InternalServerErrorException;
-use Exceptions\Http\Server\ServiceUnavailableException;
+use PagaMasTarde\OrdersApiClient\Exception\HttpException;
 use PagaMasTarde\OrdersApiClient\Method\AbstractMethod;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
 use PHPUnit\Framework\TestCase;
@@ -167,51 +160,51 @@ class AbstractMethodTest extends TestCase
         $method = $reflectedClass->getMethod('parseHttpException');
         $method->setAccessible(true);
         try {
-            $method->invoke($abstractMethod, BadRequestException::HTTP_CODE);
-        } catch (BadRequestException $exception) {
-            $this->assertInstanceOf('Exceptions\Http\Client\BadRequestException', $exception);
+            $method->invoke($abstractMethod, HttpException::HTTP_BAD_REQUEST);
+        } catch (\Exception $exception) {
+            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\HttpException', $exception);
         }
         try {
-            $method->invoke($abstractMethod, UnauthorizedException::HTTP_CODE);
-        } catch (UnauthorizedException $exception) {
-            $this->assertInstanceOf('Exceptions\Http\Client\UnauthorizedException', $exception);
+            $method->invoke($abstractMethod, HttpException::HTTP_UNAUTHORIZED);
+        } catch (\Exception $exception) {
+            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\HttpException', $exception);
         }
         try {
-            $method->invoke($abstractMethod, ForbiddenException::HTTP_CODE);
-        } catch (ForbiddenException $exception) {
-            $this->assertInstanceOf('Exceptions\Http\Client\ForbiddenException', $exception);
+            $method->invoke($abstractMethod, HttpException::HTTP_FORBIDDEN);
+        } catch (\Exception $exception) {
+            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\HttpException', $exception);
         }
         try {
-            $method->invoke($abstractMethod, NotFoundException::HTTP_CODE);
-        } catch (NotFoundException $exception) {
-            $this->assertInstanceOf('Exceptions\Http\Client\NotFoundException', $exception);
+            $method->invoke($abstractMethod, HttpException::HTTP_NOT_FOUND);
+        } catch (\Exception $exception) {
+            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\HttpException', $exception);
         }
         try {
-            $method->invoke($abstractMethod, MethodNotAllowedException::HTTP_CODE);
-        } catch (MethodNotAllowedException $exception) {
-            $this->assertInstanceOf('Exceptions\Http\Client\MethodNotAllowedException', $exception);
+            $method->invoke($abstractMethod, HttpException::HTTP_METHOD_NOT_ALLOWED);
+        } catch (\Exception $exception) {
+            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\HttpException', $exception);
         }
         try {
-            $method->invoke($abstractMethod, UnprocessableEntityException::HTTP_CODE);
-        } catch (UnprocessableEntityException $exception) {
-            $this->assertInstanceOf('Exceptions\Http\Client\UnprocessableEntityException', $exception);
+            $method->invoke($abstractMethod, HttpException::HTTP_UNPROCESSABLE_ENTITY);
+        } catch (\Exception $exception) {
+            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\HttpException', $exception);
         }
         try {
-            $method->invoke($abstractMethod, InternalServerErrorException::HTTP_CODE);
-        } catch (InternalServerErrorException $exception) {
-            $this->assertInstanceOf('Exceptions\Http\Server\InternalServerErrorException', $exception);
+            $method->invoke($abstractMethod, HttpException::HTTP_INTERNAL_SERVER_ERROR);
+        } catch (\Exception $exception) {
+            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\HttpException', $exception);
         }
         try {
-            $method->invoke($abstractMethod, ServiceUnavailableException::HTTP_CODE);
-        } catch (ServiceUnavailableException $exception) {
-            $this->assertInstanceOf('Exceptions\Http\Server\ServiceUnavailableException', $exception);
+            $method->invoke($abstractMethod, HttpException::HTTP_SERVICE_UNAVAILABLE);
+        } catch (\Exception $exception) {
+            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\HttpException', $exception);
         }
     }
 
     /**
      * testSetResponse
      *
-     * @expectedException \Exceptions\Http\Server\InternalServerErrorException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\HttpException
      *
      * @throws \ReflectionException
      */
@@ -233,7 +226,7 @@ class AbstractMethodTest extends TestCase
         $method = $reflectedClass->getMethod('setResponse');
         $method->setAccessible(true);
 
-        $responseMock->code = InternalServerErrorException::HTTP_CODE;
+        $responseMock->code = HttpException::HTTP_INTERNAL_SERVER_ERROR;
         $responseMock->method('hasErrors')->willReturn(true);
         $this->assertInstanceOf(
             'PagaMasTarde\OrdersApiClient\Method\AbstractMethod',

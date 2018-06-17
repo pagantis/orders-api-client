@@ -15,7 +15,7 @@ class ProductTest extends TestCase
     /**
      * testSetAmount
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetAmount()
     {
@@ -46,7 +46,7 @@ class ProductTest extends TestCase
     /**
      * testSetQuantity
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetQuantity()
     {
@@ -63,7 +63,7 @@ class ProductTest extends TestCase
     /**
      * Test validate calls setters.
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testValidate()
     {

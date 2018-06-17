@@ -2,8 +2,8 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model;
 
-use Exceptions\Data\IntegrityException;
 use Nayjest\StrCaseConverter\Str;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 
 /**
  * Class AbstractModel
@@ -18,6 +18,7 @@ abstract class AbstractModel implements ModelInterface
      * @param bool $validation
      *
      * @return array
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function export($validation = true)
     {
@@ -38,9 +39,10 @@ abstract class AbstractModel implements ModelInterface
      * Parse the value of the object depending of type.
      *
      * @param $value
-     * @param bool $validation
+     * @param $validation
      *
-     * @return array
+     * @return array|string
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     protected function parseValue($value, $validation)
     {
@@ -69,6 +71,8 @@ abstract class AbstractModel implements ModelInterface
      * Fill Up the Order from the json_decode(false) result of the API response.
      *
      * @param $object
+     *
+     * @throws ValidationException
      */
     public function import($object)
     {
@@ -90,7 +94,9 @@ abstract class AbstractModel implements ModelInterface
                         }
                     }
                 } else {
-                    throw new IntegrityException('Property ' . lcfirst(Str::toCamelCase($key)) . ' Not found');
+                    throw new ValidationException(
+                        'Property ' . lcfirst(Str::toCamelCase($key)) . ' Not found'
+                    );
                 }
             }
         }

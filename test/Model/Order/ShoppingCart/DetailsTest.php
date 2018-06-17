@@ -2,7 +2,7 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use Faker\Factory;
 use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details;
 use PHPUnit\Framework\TestCase;
@@ -46,7 +46,7 @@ class DetailsTest extends TestCase
     /**
      * testShippingCost
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testShippingCost()
     {
@@ -66,9 +66,7 @@ class DetailsTest extends TestCase
     }
 
     /**
-     * testValidate
-     *
-     * Validate at least 1 object and validate that each object is calling validate
+     * @throws ValidationException
      */
     public function testValidate()
     {
@@ -102,9 +100,9 @@ class DetailsTest extends TestCase
     }
 
     /**
-     * testImport
+     * test Import
      *
-     * Fully test of import
+     * @throws ValidationException
      */
     public function testImport()
     {
@@ -133,7 +131,7 @@ class DetailsTest extends TestCase
     /**
      * testImport
      *
-     * @expectedException \Exceptions\Data\IntegrityException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testImportCrashForNonExistingProperty()
     {

@@ -15,7 +15,7 @@ class MetadataTest extends TestCase
     /**
      * testAddMetadata
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testAddMetadata()
     {
@@ -31,7 +31,9 @@ class MetadataTest extends TestCase
     }
 
     /**
-     * Test Import
+     * testImport
+     *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testImport()
     {

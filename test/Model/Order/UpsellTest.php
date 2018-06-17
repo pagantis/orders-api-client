@@ -24,7 +24,7 @@ class UpsellTest extends TestCase
     /**
      * testSetAmount
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetAmount()
     {

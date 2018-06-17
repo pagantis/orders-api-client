@@ -37,6 +37,7 @@ class ClientTest extends TestCase
 
     /**
      * @return ApiConfiguration
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function getApiConfiguration()
     {
@@ -51,10 +52,12 @@ class ClientTest extends TestCase
     }
 
     /**
-     * createOrder
+     * testCreateOrder
      *
      * @return bool|false|Order|string
      * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      * @throws \ReflectionException
      */
     public function testCreateOrder()
@@ -105,8 +108,10 @@ class ClientTest extends TestCase
     /**
      * testGetOrder
      *
-     * @return false|Order|string
+     * @return bool|false|Order|string
      * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      * @throws \ReflectionException
      */
     public function testGetOrder()
@@ -141,8 +146,10 @@ class ClientTest extends TestCase
     /**
      * testListOrders
      *
-     * @return false | array
+     * @return bool|false|Order[]|string
      * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testListOrders()
     {
@@ -164,8 +171,10 @@ class ClientTest extends TestCase
     /**
      * testConfirmOrder
      *
-     * @return false|Order|string
+     * @return bool|false|Order|string
      * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      * @throws \ReflectionException
      */
     public function testConfirmOrder()
@@ -202,6 +211,8 @@ class ClientTest extends TestCase
      *
      * @return bool|false|Order\Refund|string
      * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      * @throws \ReflectionException
      */
     public function testRefundOrder()
@@ -234,8 +245,10 @@ class ClientTest extends TestCase
     /**
      * testUpsellOrder
      *
-     * @return bool|false|Order\Refund|string
+     * @return bool|false|Order\Upsell|string
      * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      * @throws \ReflectionException
      */
     public function testUpsellOrder()

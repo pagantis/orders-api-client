@@ -2,7 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order\User;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
@@ -41,6 +41,7 @@ class OrderHistory extends AbstractModel
      * @param $amount
      *
      * @return $this
+     * @throws ValidationException
      */
     public function setAmount($amount)
     {

@@ -24,7 +24,7 @@ class RefundTest extends TestCase
     /**
      * testSetAmount
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetAmount()
     {
@@ -41,7 +41,7 @@ class RefundTest extends TestCase
     /**
      * testSetPromotedAmount
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetPromotedAmount()
     {
@@ -62,7 +62,9 @@ class RefundTest extends TestCase
     }
 
     /**
-     * Test Validate
+     * testValidate
+     *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testValidate()
     {

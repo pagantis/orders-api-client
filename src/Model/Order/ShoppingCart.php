@@ -2,7 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
-use Exceptions\Data\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details;
 
@@ -96,9 +96,10 @@ class ShoppingCart extends AbstractModel
     }
 
     /**
-     * @param int $promotedAmount
+     * @param $promotedAmount
      *
-     * @return ShoppingCart
+     * @return $this
+     * @throws ValidationException
      */
     public function setPromotedAmount($promotedAmount)
     {
@@ -119,9 +120,10 @@ class ShoppingCart extends AbstractModel
     }
 
     /**
-     * @param int $totalAmount
+     * @param $totalAmount
      *
-     * @return ShoppingCart
+     * @return $this
+     * @throws ValidationException
      */
     public function setTotalAmount($totalAmount)
     {
@@ -134,9 +136,8 @@ class ShoppingCart extends AbstractModel
     }
 
     /**
-     * Validate setters, amount total > amount promoted and details object
-     *
      * @return bool|true
+     * @throws ValidationException
      */
     public function validate()
     {

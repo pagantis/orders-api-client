@@ -45,7 +45,7 @@ class ApiConfigurationTest extends TestCase
     /**
      * testSetBaseUrl
      *
-     * @expectedException \Exceptions\Data\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetBaseUrl()
     {
@@ -56,7 +56,9 @@ class ApiConfigurationTest extends TestCase
     }
 
     /**
-     * validate
+     * testValidate
+     *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testValidate()
     {

@@ -2,7 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient;
 
-use Exceptions\Operation\NotImplementedException;
+use Httpful\Exception\ConnectionErrorException;
 use PagaMasTarde\OrdersApiClient\Method\ConfirmOrderMethod;
 use PagaMasTarde\OrdersApiClient\Method\CreateOrderMethod;
 use PagaMasTarde\OrdersApiClient\Method\GetOrderMethod;
@@ -30,11 +30,14 @@ class Client
      * @param      $publicKey
      * @param      $privateKey
      * @param null $baseUri
+     *
+     * @throws ConnectionErrorException
+     * @throws Exception\ValidationException
      */
     public function __construct($publicKey, $privateKey, $baseUri = null)
     {
         if (!function_exists("curl_init")) {
-            throw new NotImplementedException("Curl module is not available on this system");
+            throw new ConnectionErrorException("Curl module is not available on this system");
         }
 
         $apiConfiguration = new ApiConfiguration();
@@ -48,10 +51,12 @@ class Client
 
     /**
      * @param Order $order
-     * @param bool  $asJson return API JSON RESPONSE instead of the order object
+     * @param bool  $asJson
      *
      * @return bool|false|Order|string
-     * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws ConnectionErrorException
+     * @throws Exception\HttpException
+     * @throws Exception\ValidationException
      */
     public function createOrder(Order $order, $asJson = false)
     {
@@ -65,12 +70,13 @@ class Client
     }
 
     /**
-     * @param string    $orderId
-     * @param bool      $asJson return API JSON RESPONSE instead of the order object
+     * @param      $orderId
+     * @param bool $asJson
      *
-     * @return false|Model\Order|string
-     *
-     * @throws \Httpful\Exception\ConnectionErrorException
+     * @return bool|false|Order|string
+     * @throws ConnectionErrorException
+     * @throws Exception\HttpException
+     * @throws Exception\ValidationException
      */
     public function getOrder($orderId, $asJson = false)
     {
@@ -84,12 +90,15 @@ class Client
     }
 
     /**
-     * @param array $queryString
-     * @param bool  $asJson return API JSON RESPONSE instead of the order object
+     * listOrders
      *
-     * @return false|Model\Order|string
+     * @param array|null $queryString
+     * @param bool       $asJson
      *
-     * @throws \Httpful\Exception\ConnectionErrorException
+     * @return array|bool|string
+     * @throws ConnectionErrorException
+     * @throws Exception\HttpException
+     * @throws Exception\ValidationException
      */
     public function listOrders(array $queryString = null, $asJson = false)
     {
@@ -103,12 +112,13 @@ class Client
     }
 
     /**
-     * @param string    $orderId
-     * @param bool      $asJson return API JSON RESPONSE instead of the order object
+     * @param      $orderId
+     * @param bool $asJson
      *
-     * @return false|Model\Order|string
-     *
-     * @throws \Httpful\Exception\ConnectionErrorException
+     * @return bool|false|Order|string
+     * @throws ConnectionErrorException
+     * @throws Exception\HttpException
+     * @throws Exception\ValidationException
      */
     public function confirmOrder($orderId, $asJson = false)
     {
@@ -127,7 +137,9 @@ class Client
      * @param bool         $asJson
      *
      * @return bool|false|Order\Refund|string
-     * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws ConnectionErrorException
+     * @throws Exception\HttpException
+     * @throws Exception\ValidationException
      */
     public function refundOrder($orderId, Order\Refund $refund, $asJson = false)
     {
@@ -147,7 +159,9 @@ class Client
      * @param bool         $asJson
      *
      * @return bool|false|Order\Upsell|string
-     * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws ConnectionErrorException
+     * @throws Exception\HttpException
+     * @throws Exception\ValidationException
      */
     public function upsellOrder($orderId, Order\Upsell $upsell, $asJson = false)
     {
