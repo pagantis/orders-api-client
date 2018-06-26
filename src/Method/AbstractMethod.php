@@ -107,7 +107,10 @@ abstract class AbstractMethod implements MethodInterface
                 throw new HttpException(HttpException::HTTP_METHOD_NOT_ALLOWED);
                 break;
             case HttpException::HTTP_UNPROCESSABLE_ENTITY:
-                throw new HttpException(HttpException::HTTP_UNPROCESSABLE_ENTITY);
+                throw new HttpException(
+                    HttpException::HTTP_UNPROCESSABLE_ENTITY,
+                    $message
+                );
                 break;
             case HttpException::HTTP_INTERNAL_SERVER_ERROR:
                 throw new HttpException(HttpException::HTTP_INTERNAL_SERVER_ERROR);
