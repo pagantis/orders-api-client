@@ -22,8 +22,7 @@ class OrderTest extends TestCase
             'PagaMasTarde\OrdersApiClient\Model\Order\User',
             $order->getUser()
         );
-        $this->assertInstanceOf(
-            'PagaMasTarde\OrdersApiClient\Model\Order\ActionUrls',
+        $this->assertNull(
             $order->getActionUrls()
         );
         $this->assertInstanceOf(
@@ -39,11 +38,11 @@ class OrderTest extends TestCase
             $order->getMetadata()
         );
 
-        $this->assertInstanceOf('\Datetime', $order->getConfirmedAt());
-        $this->assertInstanceOf('\Datetime', $order->getCreatedAt());
-        $this->assertInstanceOf('\Datetime', $order->getExpiresAt());
-        $this->assertTrue(is_array($order->getRefunds()));
-        $this->assertTrue(is_array($order->getUpsells()));
+        $this->assertNull($order->getConfirmedAt());
+        $this->assertNull($order->getCreatedAt());
+        $this->assertNull($order->getExpiresAt());
+        $this->assertNull($order->getRefunds());
+        $this->assertNull($order->getUpsells());
     }
 
     /**
@@ -71,7 +70,6 @@ class OrderTest extends TestCase
         $object = $this->getMock('PagaMasTarde\OrdersApiClient\Model\Order\User');
         $object->expects($this->atLeastOnce())->method('validate');
         $order->setUser($object);
-
         $this->assertTrue($order->validate());
     }
 

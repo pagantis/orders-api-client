@@ -97,16 +97,10 @@ class Order extends AbstractModel
      */
     public function __construct()
     {
-        $this->actionUrls = new ActionUrls();
         $this->configuration = new Configuration();
         $this->metadata = new Metadata();
-        $this->refunds = array();
         $this->shoppingCart = new ShoppingCart();
-        $this->upsells = array();
         $this->user = new User();
-        $this->createdAt = new \DateTime();
-        $this->confirmedAt = new \DateTime();
-        $this->expiresAt = new \DateTime();
     }
 
     /**
@@ -416,6 +410,17 @@ class Order extends AbstractModel
      */
     public function import($object)
     {
+        $this->actionUrls = new ActionUrls();
+        $this->configuration = new Configuration();
+        $this->metadata = new Metadata();
+        $this->refunds = array();
+        $this->shoppingCart = new ShoppingCart();
+        $this->upsells = array();
+        $this->user = new User();
+        $this->createdAt = new \DateTime();
+        $this->confirmedAt = new \DateTime();
+        $this->expiresAt = new \DateTime();
+
         parent::import($object);
         $properties = get_object_vars($object);
         foreach ($properties as $key => $value) {
