@@ -73,6 +73,7 @@ class ClientTest extends TestCase
             ->setConfirmedAt(null)
             ->setCreatedAt(null)
             ->setExpiresAt(null)
+            ->setUnconfirmedAt(null)
             ->setGracePeriod(null)
             ->setGracePeriodMonth(null)
             ->setId(null)
@@ -138,6 +139,7 @@ class ClientTest extends TestCase
         $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Order', $order);
         $this->order->setConfirmedAt(null);
         $orderRetrieved->setConfirmedAt(null);
+        $orderRetrieved->setUnconfirmedAt($this->order->getUnconfirmedAt());
         $this->assertEquals($this->order, $orderRetrieved);
 
         return $orderRetrieved;

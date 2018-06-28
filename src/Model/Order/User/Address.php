@@ -37,6 +37,21 @@ class Address extends AbstractModel
     protected $zipCode;
 
     /**
+     * @var string $dni the DNI of the user.
+     */
+    protected $dni;
+
+    /**
+     * @var string $fixPhone Fix Phone of the user
+     */
+    protected $fixPhone;
+
+    /**
+     * @var string $mobilePhone Mobile phone of the user
+     */
+    protected $mobilePhone;
+
+    /**
      * @return string
      */
     public function getAddress()
@@ -136,6 +151,66 @@ class Address extends AbstractModel
     public function setZipCode($zipCode)
     {
         $this->zipCode = $zipCode;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDni()
+    {
+        return $this->dni;
+    }
+
+    /**
+     * @param string $dni
+     *
+     * @return Address
+     */
+    public function setDni($dni)
+    {
+        $this->dni = $dni;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFixPhone()
+    {
+        return $this->fixPhone;
+    }
+
+    /**
+     * @param string $fixPhone
+     *
+     * @return Address
+     */
+    public function setFixPhone($fixPhone)
+    {
+        $this->fixPhone = $fixPhone;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMobilePhone()
+    {
+        return $this->mobilePhone;
+    }
+
+    /**
+     * @param string $mobilePhone
+     *
+     * @return Address
+     */
+    public function setMobilePhone($mobilePhone)
+    {
+        $this->mobilePhone = $mobilePhone;
 
         return $this;
     }

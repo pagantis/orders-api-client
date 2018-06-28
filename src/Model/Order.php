@@ -48,6 +48,11 @@ class Order extends AbstractModel
     protected $expiresAt;
 
     /**
+     * @var \DateTime $unconfirmedAt
+     */
+    protected $unconfirmedAt;
+
+    /**
      * @var string $gracePeriod
      */
     protected $gracePeriod;
@@ -219,6 +224,26 @@ class Order extends AbstractModel
     public function setExpiresAt($expiresAt)
     {
         $this->expiresAt = $expiresAt;
+
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUnconfirmedAt()
+    {
+        return $this->unconfirmedAt;
+    }
+
+    /**
+     * @param \DateTime $unconfirmedAt
+     *
+     * @return Order
+     */
+    public function setUnconfirmedAt($unconfirmedAt)
+    {
+        $this->unconfirmedAt = $unconfirmedAt;
 
         return $this;
     }
@@ -420,6 +445,7 @@ class Order extends AbstractModel
         $this->createdAt = new \DateTime();
         $this->confirmedAt = new \DateTime();
         $this->expiresAt = new \DateTime();
+        $this->unconfirmedAt = new \DateTime();
 
         parent::import($object);
         $properties = get_object_vars($object);
