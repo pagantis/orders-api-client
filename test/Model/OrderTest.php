@@ -127,6 +127,36 @@ class OrderTest extends TestCase
     {
         $orderJson = file_get_contents('test/Resources/Order.json');
         $object = json_decode($orderJson);
+
+        foreach ($object as $key => $value) {
+            if (null === $value) {
+                unset($object->$key);
+            }
+        }
+
+        $order = new Order();
+        $order->import($object);
+        $this->assertTrue($order->validate());
+        $orderExport = json_decode(json_encode($order->export()));
+        $this->assertEquals($object, $orderExport);
+    }
+
+    /**
+     * testImport
+     *
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
+     */
+    public function testImportEmptyDates()
+    {
+        $orderJson = file_get_contents('test/Resources/Order.json');
+        $object = json_decode($orderJson);
+
+        foreach ($object as $key => $value) {
+            if (null === $value) {
+                unset($object->$key);
+            }
+        }
+
         $order = new Order();
         $order->import($object);
         $this->assertTrue($order->validate());

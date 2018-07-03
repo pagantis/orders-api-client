@@ -86,8 +86,9 @@ abstract class AbstractModel implements ModelInterface
                             $objectProperty->import($value);
                         }
                     } else {
-                        $objectProperty = $this->{lcfirst(Str::toCamelCase($key))};
-                        if ($objectProperty instanceof \DateTime) {
+                        if (is_string($value) &&
+                            preg_match('/[0-9\-]*T[0-9\:]/', $value)
+                        ) {
                             $this->{lcfirst(Str::toCamelCase($key))} = new \DateTime($value);
                         } else {
                             $this->{lcfirst(Str::toCamelCase($key))} = $value;

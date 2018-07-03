@@ -13,15 +13,6 @@ use PHPUnit\Framework\TestCase;
 class UpsellTest extends TestCase
 {
     /**
-     * testConstructor
-     */
-    public function testConstructor()
-    {
-        $upsell = new Upsell();
-        $this->assertInstanceOf('\DateTime', $upsell->getUpsellAt());
-    }
-
-    /**
      * testSetAmount
      *
      * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException

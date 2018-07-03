@@ -22,14 +22,6 @@ class OrderHistory extends AbstractModel
     protected $date;
 
     /**
-     * OrderHistory constructor.
-     */
-    public function __construct()
-    {
-        $this->date = new \DateTime();
-    }
-
-    /**
      * @return int
      */
     public function getAmount()

@@ -27,14 +27,6 @@ class Upsell extends AbstractModel
     protected $totalAmount;
 
     /**
-     * Upsell constructor.
-     */
-    public function __construct()
-    {
-        $this->upsellAt = new \DateTime();
-    }
-
-    /**
      * @return string
      */
     public function getId()

@@ -2,6 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model;
 
+use Nayjest\StrCaseConverter\Str;
 use PagaMasTarde\OrdersApiClient\Model\Order\ActionUrls;
 use PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
 use PagaMasTarde\OrdersApiClient\Model\Order\Metadata;
@@ -487,10 +488,6 @@ class Order extends AbstractModel
         $this->shoppingCart = new ShoppingCart();
         $this->upsells = array();
         $this->user = new User();
-        $this->createdAt = new \DateTime();
-        $this->confirmedAt = new \DateTime();
-        $this->expiresAt = new \DateTime();
-        $this->unconfirmedAt = new \DateTime();
 
         parent::import($object);
         $properties = get_object_vars($object);

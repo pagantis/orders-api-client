@@ -13,15 +13,6 @@ use PHPUnit\Framework\TestCase;
 class RefundTest extends TestCase
 {
     /**
-     * testConstructor
-     */
-    public function testConstructor()
-    {
-        $refund = new Refund();
-        $this->assertInstanceOf('\DateTime', $refund->getRefundedAt());
-    }
-
-    /**
      * testSetAmount
      *
      * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException

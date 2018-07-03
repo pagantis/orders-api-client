@@ -36,7 +36,6 @@ class Refund extends AbstractModel
      */
     public function __construct()
     {
-        $this->refundedAt = new \DateTime();
         $this->promotedAmount = 0;
     }
 
