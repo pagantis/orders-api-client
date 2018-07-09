@@ -28,8 +28,8 @@ Finally, be sure to include the autoloader:
 require_once '/path/to/your-project/vendor/autoload.php';
 ```
 
-Once you have the library ready inside your project you will have the stub objects available and
-the ordersApiClient also available.
+Once the library is ready and inside the project the stub objects will available and
+the ordersApiClient will also available.
 
 ```php
 //Create a pmtApi object, for example:
@@ -46,6 +46,42 @@ if ($order instanceof PagaMasTarde\OrdersApiClient\Model\Order) {
 // https://developer-staging.pagamastarde.com/api/
 
 ```
+
+### Objects
+
+The objects used inside the API are already defined as Classes with the desired properties. Each object has a setup
+of setters and getters for easy validation and OOP.
+
+Inside `src/Model` find defined the Order Object. Inside Order folder it is possible to see each element that the main
+Order object has.
+
+Use always the defined objects when using the API Client. For example when creating a refund:
+```php
+<?php
+
+//Use the API Client to operate with the API
+$orderApiClient = new PagaMasTarde\OrdersApiClient\Client(
+    $publicKey,
+    $privateKey
+);
+
+//Create a Refund object and set the amounts:
+$refund = new PagaMasTarde\OrdersApiClient\Model\Order\Refund();
+$refund
+    ->setPromotedAmount(0)
+    ->setTotalAmount(10)
+;
+
+//Then use the API client to generate a the refund:
+$refundCreated = $apiClient->refundOrder($orderId, $refund);
+?>
+
+@Exception Handling
+
+use Try|Catch when using the API methods, since it can cause HTTP exceptions.
+```
+
+
 
 ## Help us to improve
 
