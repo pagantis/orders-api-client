@@ -47,7 +47,7 @@ if ($order instanceof PagaMasTarde\OrdersApiClient\Model\Order) {
 
 ```
 
-### Objects
+## Objects
 
 The objects used inside the API are already defined as Classes with the desired properties. Each object has a setup
 of setters and getters for easy validation and OOP.
@@ -81,7 +81,249 @@ $refundCreated = $apiClient->refundOrder($orderId, $refund);
 use Try|Catch when using the API methods, since it can cause HTTP exceptions.
 ```
 
+## API Methods
 
+### Create Order
+
+To create a order using the API Client start from a empty Order object,
+create the sub-objects and set the mandatory information. Once the order is filled
+use validate to verify that the fields needed to create the order are present.
+
+Then send the API Call to Paga+Tarde using the API Client. The result is the same
+order object with the rest of the fields completed. The status is `CREATED`.
+
+Store the relation between Paga+Tarde order id and the merchant order id to be able to identify orders after creation.
+
+
+```php
+<?php
+
+//Use the API Client to operate with the API
+$orderApiClient = new PagaMasTarde\OrdersApiClient\Client(
+    $publicKey,
+    $privateKey
+);
+
+$order = new \PagaMasTarde\OrdersApiClient\Model\Order();
+$order
+    ->setConfiguration($configurationObject)
+    ->setShoppingCart($shoppingCartObject)
+    ->setUser($userObject)
+    ->setMetadata($metadataObject)
+;
+
+//Notice, Create and fill with information the 4 objects
+
+//Validate the Order before trying to create it by using:
+
+/** $isValid bool **/
+$isValid = $order->validate();
+
+//To see the JSON result of a order Object:
+echo json_encode(
+  $order->export(),
+  JSON_PRETTY_PRINT |
+  JSON_UNESCAPED_SLASHES |
+  JSON_UNESCAPED_UNICODE
+);
+
+//Finally create the order by using the client:
+$orderCreated = $orderApiClient->create($order);
+
+
+
+/*
+ * The Order object is defined inside the library and is prepared for OOP.
+ * The attributes work with GETTERS and SETTERS
+ *
+ * The Response is parsed within the Client and is transformed into a Previously Defined Object with
+ * validation and useful methods.
+ */
+
+?>
+
+@Exception Handling
+
+use Try|Catch when using order Create method, since it can cause HTTP exceptions.
+
+When setting data into the order object there is Validation Exceptions that may force to set the attributes in the
+correct format.
+```
+
+### Get Order
+
+Use the method Get Order to retrieve the order again from Paga+Tarde server. The order retrieved has updated status.
+Store the relation between Paga+Tarde order id and the merchant order id to be able to identify orders after creation.
+
+
+```php
+<?php
+
+//Use the API Client to operate with the API
+$orderApiClient = new PagaMasTarde\OrdersApiClient\Client(
+    $publicKey,
+    $privateKey
+);
+
+//By storing the Paga+Tarde order ID, fetch back the updated order:
+$order = $orderApiClient->getOrder($orderId);
+
+?>
+
+@Exception Handling
+
+use Try|Catch when using get Order method, since it can cause HTTP exceptions.
+
+<?php
+
+/** Tip: Navigate inside the fetched order properties:
+
+/** $status array() **/
+$status = $order->getStatus();
+
+/** $amount int **/
+$amount = $order->getShoppingCart()->getTotalAmount();
+
+/** $createdAt \DateTime **/
+$createdAt = $order->getCreateAt();
+
+/** $refunds Refund[] **/
+$refunds = $order->getRefunds();
+```
+
+### List Orders
+
+Find the order, get all orders from yesterday, see online or instore orders, list Confirmed orders.
+Use this service to find orders in the system. Use query string for result filtering.
+See all the queryString parameters [here](https://developer.pagamastarde.com/api/)
+
+```php
+<?php
+
+//Use the API Client to operate with the API
+$orderApiClient = new PagaMasTarde\OrdersApiClient\Client(
+    $publicKey,
+    $privateKey
+);
+
+//Define the queryString parameters to filter:
+$queryString = [
+    'channel'       => 'online',
+    'pageSize'      => 2,
+    'page'          => 1,
+    'status'        => Order::STATUS_CONFIRMED,
+    'createdFrom'   => '2018-06-28T14:08:01',
+    'createdTo'     => '2018-06-28T14:08:03',
+];
+
+$orders = $orderApiClient->listOrders($queryString);
+
+?>
+
+@Exception Handling
+
+use Try|Catch when using get Order method, since it can cause HTTP exceptions.
+
+
+
+<?php
+
+/** Tip: Iterate inside the fetched list of Orders:
+
+// Calculate the total amount of sales withing the orders: List the orders from yesterday with status CONFIRMED and...
+
+$amount = 0;
+
+foreach ($orders as $order) {
+    $amount += $order->getShoppingCart()->getTotalAmount();
+}
+
+// In cents, the total amount of sales from yesterday.
+echo $amount;
+```
+
+### Confirm Order
+
+When the order is AUTHORIZED confirm is the action of the merchant that informs the payment method that he validates
+and confirms that the user has paid the order. A confirmed order can only be cancelled with a total refund.
+Confirmed orders are processed and the loan is created. Once a loan is confirmed it is able to have refunds.
+
+A callback URL can be added to the order for notification of orders waiting for confirmation.
+Also it is possible to list all the orders that are pending confirmation.
+
+```php
+<?php
+
+//Use the API Client to operate with the API
+$orderApiClient = new PagaMasTarde\OrdersApiClient\Client(
+    $publicKey,
+    $privateKey
+);
+
+$order = $orderApiClient->confirmOrder($orderId);
+
+/** @See https://github.com/PagaMasTarde/ordersApiClient **/
+
+?>
+
+@Exception Handling
+
+use Try|Catch when using get Order method, since it can cause HTTP exceptions.
+
+<?php
+
+/** Tip: List the AUTHORIZED orders and confirm them to prevent loosing any transaction:
+
+$authorizedOrders = $orderApiClient->listOrders([
+    'status' => Order::STATUS_AUTHORIZED,
+]);
+
+foreach ($orders as $order) {
+    // validate the payment in the merchant system and then inform Paga+Tarde API that
+    // the order is processed and valid in the merchant
+    $orderConfirmed = $orderApiClient->confirmOrder($order->getId());
+}
+
+?>
+
+Remember that if a AUTHORIZED order is not confirmed, the payment will
+be released and the loan will not be created. It is mandatory to
+confirm all AUTHORIZED orders.
+```
+
+### Refund Order
+
+Refund is a deduction of the order total_amount. Refund can only be requested over a confirmed order.
+The refund of an order is automatically decreasing the amount from the end of the installments.
+
+A order can have several refunds, as long as they do not reach the order total_amount.
+Once the total_amount is refunded, the order status will change to CANCELLED.
+
+```php
+<?php
+
+//Use the API Client to operate with the API
+$orderApiClient = new PagaMasTarde\OrdersApiClient\Client(
+    $publicKey,
+    $privateKey
+);
+
+//Create a Refund object and set the amounts:
+$refund = new PagaMasTarde\OrdersApiClient\Model\Order\Refund();
+$refund
+    ->setPromotedAmount(0)
+    ->setTotalAmount(10)
+;
+
+//Then use the API client to generate a the refund:
+$refundCreated = $apiClient->refundOrder($orderId, $refund);
+
+?>
+
+@Exception Handling
+
+use Try|Catch when using get Order method, since it can cause HTTP exceptions.
+```
 
 ## Help us to improve
 
