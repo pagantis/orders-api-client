@@ -21,7 +21,7 @@ class RefundOrderMethod extends AbstractMethod
      */
     const ENDPOINT = 'api/v1/orders';
 
-    const REFUND_ENDPOINT = 'refund';
+    const REFUND_ENDPOINT = 'refunds';
 
     /**
      * @var string $orderId
@@ -97,7 +97,7 @@ class RefundOrderMethod extends AbstractMethod
     {
         if (!$this->request instanceof Request) {
             $this->request = $this->getRequest()
-                ->method(Http::PUT)
+                ->method(Http::POST)
                 ->uri(
                     $this->apiConfiguration->getBaseUri().
                     self::SLASH.

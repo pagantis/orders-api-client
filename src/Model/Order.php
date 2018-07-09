@@ -2,13 +2,11 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model;
 
-use Nayjest\StrCaseConverter\Str;
 use PagaMasTarde\OrdersApiClient\Model\Order\ActionUrls;
 use PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
 use PagaMasTarde\OrdersApiClient\Model\Order\Metadata;
 use PagaMasTarde\OrdersApiClient\Model\Order\Refund;
 use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart;
-use PagaMasTarde\OrdersApiClient\Model\Order\Upsell;
 use PagaMasTarde\OrdersApiClient\Model\Order\User;
 
 /**
@@ -30,7 +28,7 @@ class Order extends AbstractModel
     const STATUS_AUTHORIZED = 'AUTHORIZED';
 
     /**
-     * Order confirmed has been paid by customer and merchant has confirmed it. Payment is complemeted
+     * Order confirmed has been paid by customer and merchant has confirmed it. Payment is completed
      * and settlement will be created.
      */
     const STATUS_CONFIRMED = 'CONFIRMED';
@@ -48,7 +46,7 @@ class Order extends AbstractModel
     const STATUS_INVALIDATED = 'INVALIDATED';
 
     /**
-     * Undefined ERROR has occured, please double check with the account manager or PMT support channels.
+     * Undefined ERROR has occurred, please double check with the account manager or PMT support channels.
      */
     const STATUS_ERROR = 'ERROR';
 
@@ -59,7 +57,7 @@ class Order extends AbstractModel
     const STATUS_UNCONFIRMED = 'UNCONFIRMED';
 
     /**
-     * The order cancelled is a concecuence of a total refund or sum of partial refunds generating the total refund.
+     * The order cancelled is a consequence of a total refund or sum of partial refunds generating the total refund.
      */
     const STATUS_CANCELLED = 'CANCELLED';
 
@@ -132,11 +130,6 @@ class Order extends AbstractModel
      * @var string $status
      */
     protected $status;
-
-    /**
-     * @var Upsell[] $upsells
-     */
-    protected $upsells;
 
     /**
      * @var User $user
@@ -435,26 +428,6 @@ class Order extends AbstractModel
     }
 
     /**
-     * @return Upsell[]
-     */
-    public function getUpsells()
-    {
-        return $this->upsells;
-    }
-
-    /**
-     * @param Upsell $upsell
-     *
-     * @return $this
-     */
-    public function addUpsell(Upsell $upsell)
-    {
-        $this->upsells[] = $upsell;
-
-        return $this;
-    }
-
-    /**
      * @return User
      */
     public function getUser()
@@ -486,7 +459,6 @@ class Order extends AbstractModel
         $this->metadata = new Metadata();
         $this->refunds = array();
         $this->shoppingCart = new ShoppingCart();
-        $this->upsells = array();
         $this->user = new User();
 
         parent::import($object);
@@ -499,14 +471,6 @@ class Order extends AbstractModel
                         $refundObject = new Refund();
                         $refundObject->import($refund);
                         $this->addRefund($refundObject);
-                    }
-                }
-                if (is_array($this->{$key}) && $key == 'upsells') {
-                    $this->upsells = array();
-                    foreach ($value as $refund) {
-                        $upsellObject = new Upsell();
-                        $upsellObject->import($refund);
-                        $this->addUpsell($upsellObject);
                     }
                 }
             }

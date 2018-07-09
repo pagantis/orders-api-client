@@ -87,7 +87,6 @@ class OrderTest extends TestCase
         $this->assertNull($order->getCreatedAt());
         $this->assertNull($order->getExpiresAt());
         $this->assertNull($order->getRefunds());
-        $this->assertNull($order->getUpsells());
     }
 
     /**

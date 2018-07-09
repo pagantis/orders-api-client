@@ -8,7 +8,6 @@ use PagaMasTarde\OrdersApiClient\Method\CreateOrderMethod;
 use PagaMasTarde\OrdersApiClient\Method\GetOrderMethod;
 use PagaMasTarde\OrdersApiClient\Method\ListOrdersMethod;
 use PagaMasTarde\OrdersApiClient\Method\RefundOrderMethod;
-use PagaMasTarde\OrdersApiClient\Method\UpsellOrderMethod;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 
@@ -151,27 +150,5 @@ class Client
         }
 
         return $refundOrderMethod->call()->getRefund();
-    }
-
-    /**
-     * @param              $orderId
-     * @param Order\Upsell $upsell
-     * @param bool         $asJson
-     *
-     * @return bool|false|Order\Upsell|string
-     * @throws ConnectionErrorException
-     * @throws Exception\HttpException
-     * @throws Exception\ValidationException
-     */
-    public function upsellOrder($orderId, Order\Upsell $upsell, $asJson = false)
-    {
-        $refundOrderMethod = new UpsellOrderMethod($this->apiConfiguration);
-        $refundOrderMethod->setOrderId($orderId);
-        $refundOrderMethod->setUpsell($upsell);
-        if ($asJson) {
-            return $refundOrderMethod->call()->getResponseAsJson();
-        }
-
-        return $refundOrderMethod->call()->getUpsell();
     }
 }

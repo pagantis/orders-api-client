@@ -1,6 +1,8 @@
 {
-    "id": "r5b1906b4e659900006a7c623",
-    "promoted_amount": "0",
-    "refunded_at": "2020-01-31T11:22:14",
-    "total_amount": "588"
+    "total_amount": 5,
+    "promoted_amount": 0,
+    "refunded_merchant_cost": 0,
+    "payment_processor_cost": 0,
+    "id": "5b433007f1b7bf0005de5ee4",
+    "created_at": "2018-07-09T09:51:03"
 }

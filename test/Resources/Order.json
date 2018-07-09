@@ -32,16 +32,20 @@
     },
     "refunds": [
         {
-            "id": "r5b1906b4e659900006a7c623",
-            "promoted_amount": "0",
-            "refunded_at": "2020-01-31T11:22:14",
-            "total_amount": "588"
+            "id": "string",
+            "promoted_amount": 0,
+            "created_at": "2018-07-09T09:51:03",
+            "total_amount": 5,
+            "refunded_merchant_cost": 0,
+            "payment_processor_cost": 0
         },
         {
-            "id": "rr5b1906b4e659900006a7c623",
-            "promoted_amount": "5",
-            "refunded_at": "2020-01-31T11:22:54",
-            "total_amount": "589"
+            "id": "string",
+            "promoted_amount": 0,
+            "created_at": "2018-07-09T09:51:04",
+            "total_amount": 5,
+            "refunded_merchant_cost": 0,
+            "payment_processor_cost": 0
         }
     ],
     "shopping_cart": {
@@ -71,18 +75,6 @@
         "deprecated_order_description": "string"
     },
     "status": "AUTHORIZED",
-    "upsells": [
-        {
-            "id": "r5b1906b4e659900006a7c623",
-            "upsell_at": "2020-01-31T11:22:14",
-            "total_amount": "588"
-        },
-        {
-            "id": "rr5b1906b4e659900006a7c623",
-            "upsell_at": "2020-01-31T11:22:54",
-            "total_amount": "589"
-        }
-    ],
     "user": {
         "address": {
             "address": "My House, in the middle of the street, 55",

@@ -118,7 +118,7 @@ class RefundOrderMethodTest extends TestCase
         /** @var Request $request */
         $request = $property->getValue($refundOrderMethod);
         $this->assertInstanceOf('Httpful\Request', $request);
-        $this->assertSame(Http::PUT, $request->method);
+        $this->assertSame(Http::POST, $request->method);
         $uri =
             $url .
             RefundOrderMethod::SLASH .

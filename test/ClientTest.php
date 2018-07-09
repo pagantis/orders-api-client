@@ -84,9 +84,6 @@ class ClientTest extends TestCase
         $property = $orderReflectionClass->getProperty('refunds');
         $property->setAccessible(true);
         $property->setValue($order, null);
-        $property = $orderReflectionClass->getProperty('upsells');
-        $property->setAccessible(true);
-        $property->setValue($order, null);
 
         $apiClient = new Client(
             self::PUBLIC_KEY,
@@ -219,7 +216,7 @@ class ClientTest extends TestCase
      */
     public function testRefundOrder()
     {
-        //Not implemented yet
+        //need to mark other as confirmed
         return true;
 
         if (!$this->order instanceof Order) {
@@ -242,41 +239,5 @@ class ClientTest extends TestCase
         $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Refund', $refund);
 
         return $refund;
-    }
-
-    /**
-     * testUpsellOrder
-     *
-     * @return bool|false|Order\Upsell|string
-     * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
-     * @throws \ReflectionException
-     */
-    public function testUpsellOrder()
-    {
-        //Not implemented yet
-        return true;
-
-        if (!$this->order instanceof Order) {
-            $this->testCreateOrder();
-        }
-
-        $apiClient = new Client(
-            self::PUBLIC_KEY,
-            self::PRIVATE_KEY,
-            ApiConfiguration::BASE_URI
-        );
-
-        $upsell = new Order\Upsell();
-        $upsell
-            ->setTotalAmount(10)
-
-        ;
-
-        $upsellRetrieved = $apiClient->upsellOrder($this->order->getId(), $upsell);
-        $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Upsell', $upsellRetrieved);
-
-        return $upsellRetrieved;
     }
 }
