@@ -17,7 +17,7 @@ class OrderHistory extends AbstractModel
     protected $amount;
 
     /**
-     * @var \DateTime $date
+     * @var string $date
      */
     protected $date;
 
@@ -46,7 +46,7 @@ class OrderHistory extends AbstractModel
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
     public function getDate()
     {
@@ -54,11 +54,11 @@ class OrderHistory extends AbstractModel
     }
 
     /**
-     * @param \DateTime $date
+     * @param string $date
      *
      * @return OrderHistory
      */
-    public function setDate(\DateTime $date)
+    public function setDate($date)
     {
         $this->date = $date;
 
