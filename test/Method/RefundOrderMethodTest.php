@@ -24,7 +24,7 @@ class RefundOrderMethodTest extends TestCase
     public function testEndpointConstant()
     {
         $constant = RefundOrderMethod::ENDPOINT;
-        $this->assertEquals('api/v1/orders', $constant);
+        $this->assertEquals('/orders', $constant);
     }
 
     /**

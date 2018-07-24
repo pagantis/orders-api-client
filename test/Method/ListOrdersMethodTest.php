@@ -22,7 +22,7 @@ class ListOrdersMethodTest extends TestCase
     public function testEndpointConstant()
     {
         $constant = ListOrdersMethod::ENDPOINT;
-        $this->assertEquals('api/v1/orders', $constant);
+        $this->assertEquals('/orders', $constant);
     }
 
     /**

@@ -19,7 +19,7 @@ class RefundOrderMethod extends AbstractMethod
     /**
      * Get Order Endpoint
      */
-    const ENDPOINT = 'api/v1/orders';
+    const ENDPOINT = '/orders';
 
     const REFUND_ENDPOINT = 'refunds';
 

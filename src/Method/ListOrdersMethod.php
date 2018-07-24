@@ -17,7 +17,7 @@ class ListOrdersMethod extends AbstractMethod
     /**
      * Get Order Endpoint
      */
-    const ENDPOINT = 'api/v1/orders';
+    const ENDPOINT = '/orders';
 
     /**
      * @var array $queryParameters

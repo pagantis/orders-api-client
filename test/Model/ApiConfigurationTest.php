@@ -16,7 +16,7 @@ class ApiConfigurationTest extends TestCase
     /**
      * Invalid URL
      */
-    const VALID_URL = 'http://pagamastarde.com:8080/api/v1/orders?order=true';
+    const VALID_URL = 'http://pagamastarde.com:8080//orders?order=true';
 
     /**
      *  Valid URL
@@ -26,12 +26,12 @@ class ApiConfigurationTest extends TestCase
     /**
      * Base URL for API calls
      */
-    const BASE_URI = 'https://orders.pagamastarde.com';
+    const BASE_URI = 'https://api.pagamastarde.com/v2';
 
     /**
      * Base URL for API calls
      */
-    const SANDBOX_BASE_URI = 'https://orders-stg.pagamastarde.com';
+    const SANDBOX_BASE_URI = 'https://api-stg.pagamastarde.com/v2';
 
     /**
      * testConstantsNotChange

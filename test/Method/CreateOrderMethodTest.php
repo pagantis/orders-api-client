@@ -24,7 +24,7 @@ class CreateOrderMethodTest extends TestCase
     public function testEndpointConstant()
     {
         $constant = CreateOrderMethod::ENDPOINT;
-        $this->assertEquals('api/v1/orders', $constant);
+        $this->assertEquals('/orders', $constant);
     }
 
     /**

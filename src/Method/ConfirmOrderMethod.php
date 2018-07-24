@@ -18,7 +18,7 @@ class ConfirmOrderMethod extends AbstractMethod
     /**
      * Get Order Endpoint
      */
-    const ENDPOINT = 'api/v1/orders';
+    const ENDPOINT = '/orders';
 
     const CONFIRM_ENDPOINT = 'confirm';
 

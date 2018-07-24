@@ -23,7 +23,7 @@ class ConfirmOrderMethodTest extends TestCase
     public function testEndpointConstant()
     {
         $constant = ConfirmOrderMethod::ENDPOINT;
-        $this->assertEquals('api/v1/orders', $constant);
+        $this->assertEquals('/orders', $constant);
     }
 
     /**
