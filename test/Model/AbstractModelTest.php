@@ -3,14 +3,14 @@
 namespace Test\PagaMasTarde\OrdersApiClient\Model;
 
 use PagaMasTarde\OrdersApiClient\Model\Order;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class AbstractModelTest
  *
  * @package Test\PagaMasTarde\OrdersApiClient\Model
  */
-class AbstractModelTest extends TestCase
+class AbstractModelTest extends AbstractTest
 {
     /**
      * complete testing, entire order validate, export and import
@@ -19,7 +19,7 @@ class AbstractModelTest extends TestCase
      */
     public function testAllMethod()
     {
-        $orderJson = file_get_contents('test/Resources/Order.json');
+        $orderJson = file_get_contents($this->resourcePath.'Order.json');
         $object = json_decode($orderJson);
         $order = new Order();
         $order->import($object);

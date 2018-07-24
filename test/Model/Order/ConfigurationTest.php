@@ -5,13 +5,13 @@ namespace Test\PagaMasTarde\OrdersApiClient\Model\Order;
 use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use Faker\Factory;
 use PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class ConfigurationTest
  * @package Test\PagaMasTarde\OrdersApiClient\Model\Order
  */
-class ConfigurationTest extends TestCase
+class ConfigurationTest extends AbstractTest
 {
     /**
      * Test Constructor creates entities

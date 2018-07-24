@@ -4,13 +4,13 @@ namespace Test\PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details;
 
 use Faker\Factory;
 use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details\Product;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class Product
  * @package Test\PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details
  */
-class ProductTest extends TestCase
+class ProductTest extends AbstractTest
 {
     /**
      * testSetAmount

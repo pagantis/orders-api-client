@@ -4,13 +4,13 @@ namespace Test\PagaMasTarde\OrdersApiClient;
 use PagaMasTarde\OrdersApiClient\Client;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
 use PagaMasTarde\OrdersApiClient\Model\Order;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class ClientTest
  * @package PagaMasTarde\Test
  */
-class ClientTest extends TestCase
+class ClientTest extends AbstractTest
 {
     /**
      * Demo Public Key For access the service
@@ -62,7 +62,8 @@ class ClientTest extends TestCase
      */
     public function testCreateOrder()
     {
-        $orderJson = file_get_contents('test/Resources/Order.json');
+
+        $orderJson = file_get_contents($this->resourcePath.'Order.json');
         $object = json_decode($orderJson);
         $order = new Order();
         $order->import($object);
@@ -118,7 +119,7 @@ class ClientTest extends TestCase
             $this->testCreateOrder();
         }
 
-        $orderJson = file_get_contents('test/Resources/Order.json');
+        $orderJson = file_get_contents($this->resourcePath.'Order.json');
         $object = json_decode($orderJson);
         $order = new Order();
         $order->import($object);
@@ -185,7 +186,7 @@ class ClientTest extends TestCase
             $this->testCreateOrder();
         }
 
-        $orderJson = file_get_contents('test/Resources/Order.json');
+        $orderJson = file_get_contents($this->resourcePath.'Order.json');
         $object = json_decode($orderJson);
         $order = new Order();
         $order->import($object);

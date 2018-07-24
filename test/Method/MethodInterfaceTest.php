@@ -2,14 +2,14 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Method;
 
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class MethodInterfaceTest
  *
  * @package Test\PagaMasTarde\OrdersApiClient\Method;
  */
-class MethodInterfaceTest extends TestCase
+class MethodInterfaceTest extends AbstractTest
 {
     /**
      * testInterfaceExists

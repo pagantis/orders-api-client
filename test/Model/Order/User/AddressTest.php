@@ -4,13 +4,13 @@ namespace Test\PagaMasTarde\OrdersApiClient\Model\Order\User;
 
 use Faker\Factory;
 use PagaMasTarde\OrdersApiClient\Model\Order\User\Address;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class AddressTest
  * @package Test\PagaMasTarde\OrdersApiClient\Model\Order\User
  */
-class AddressTest extends TestCase
+class AddressTest extends AbstractTest
 {
     /**
      * testSetFullName

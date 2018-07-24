@@ -4,13 +4,13 @@ namespace Test\PagaMasTarde\OrdersApiClient\Model\Order;
 
 use Faker\Factory;
 use PagaMasTarde\OrdersApiClient\Model\Order\User;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class UserTest
  * @package Test\PagaMasTarde\OrdersApiClient\Model\Order
  */
-class UserTest extends TestCase
+class UserTest extends AbstractTest
 {
     /**
      * Fake DNI generated
@@ -130,7 +130,7 @@ class UserTest extends TestCase
      */
     public function testImport()
     {
-        $orderJson = file_get_contents('test/Resources/Order.json');
+        $orderJson = file_get_contents($this->resourcePath.'Order.json');
         $object = json_decode($orderJson);
         $object = $object->user;
         $user = new User();

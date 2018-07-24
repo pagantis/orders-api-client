@@ -3,13 +3,13 @@
 namespace Test\PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
 
 use PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Channel;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class ChannelTest
  * @package Test\PagaMasTarde\OrdersApiClient\Model\Order\Configuration
  */
-class ChannelTest extends TestCase
+class ChannelTest extends AbstractTest
 {
     /**
      * Online type, for sales in the website

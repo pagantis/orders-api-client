@@ -8,14 +8,14 @@ use Httpful\Http;
 use Httpful\Request;
 use PagaMasTarde\OrdersApiClient\Method\GetOrderMethod;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class GetOrderMethodTest
  *
  * @package Test\PagaMasTarde\OrdersApiClient\Method;
  */
-class GetOrderMethodTest extends TestCase
+class GetOrderMethodTest extends AbstractTest
 {
     /**
      * testEndpointConstant
@@ -52,7 +52,7 @@ class GetOrderMethodTest extends TestCase
      */
     public function testGetOrder()
     {
-        $orderJson = file_get_contents('test/Resources/Order.json');
+        $orderJson = file_get_contents($this->resourcePath.'Order.json');
         $responseMock = $this->getMockBuilder('Httpful\Response')->disableOriginalConstructor()->getMock();
         $responseMockReflect = new \ReflectionClass('Httpful\Response');
         $property = $responseMockReflect->getProperty('body');
