@@ -5,14 +5,14 @@ namespace Test\PagaMasTarde\OrdersApiClient\Method;
 use PagaMasTarde\OrdersApiClient\Exception\HttpException;
 use PagaMasTarde\OrdersApiClient\Method\AbstractMethod;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class AbstractMethodTest
  *
  * @package Test\PagaMasTarde\OrdersApiClient\Method;
  */
-class AbstractMethodTest extends TestCase
+class AbstractMethodTest extends AbstractTest
 {
     /**
      * Has Slash

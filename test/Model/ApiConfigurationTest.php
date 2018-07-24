@@ -4,14 +4,14 @@ namespace Test\PagaMasTarde\OrdersApiClient\Model;
 
 use Faker\Factory;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class ApiConfigurationTest
  *
  * @package Test\PagaMasTarde\OrdersApiClient\Model
  */
-class ApiConfigurationTest extends TestCase
+class ApiConfigurationTest extends AbstractTest
 {
     /**
      * Invalid URL

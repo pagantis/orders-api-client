@@ -9,14 +9,14 @@ use Httpful\Request;
 use PagaMasTarde\OrdersApiClient\Method\RefundOrderMethod;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
 use PagaMasTarde\OrdersApiClient\Model\Order\Refund;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class RefundOrderMethodTest
  *
  * @package Test\PagaMasTarde\OrdersApiClient\Method;
  */
-class RefundOrderMethodTest extends TestCase
+class RefundOrderMethodTest extends AbstractTest
 {
     /**
      * testEndpointConstant

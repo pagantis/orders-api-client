@@ -4,13 +4,13 @@ namespace Test\PagaMasTarde\OrdersApiClient\Model\Order;
 
 use Faker\Factory;
 use PagaMasTarde\OrdersApiClient\Model\Order\Refund;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class RefundTest
  * @package Test\PagaMasTarde\OrdersApiClient\Model\Order
  */
-class RefundTest extends TestCase
+class RefundTest extends AbstractTest
 {
     /**
      * testSetAmount

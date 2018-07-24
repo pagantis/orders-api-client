@@ -4,13 +4,13 @@ namespace Test\PagaMasTarde\OrdersApiClient\Model\Order;
 
 use Faker\Factory;
 use PagaMasTarde\OrdersApiClient\Model\Order\Metadata;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class MetadataTest
  * @package Test\PagaMasTarde\OrdersApiClient\Model\Order
  */
-class MetadataTest extends TestCase
+class MetadataTest extends AbstractTest
 {
     /**
      * testAddMetadata
@@ -39,7 +39,7 @@ class MetadataTest extends TestCase
     {
         $metadata = new Metadata();
 
-        $orderJson = file_get_contents('test/Resources/Order.json');
+        $orderJson = file_get_contents($this->resourcePath.'Order.json');
         $object = json_decode($orderJson);
         $object = $object->metadata;
 

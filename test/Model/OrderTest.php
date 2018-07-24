@@ -3,14 +3,14 @@
 namespace Test\PagaMasTarde\OrdersApiClient\Model;
 
 use PagaMasTarde\OrdersApiClient\Model\Order;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class OrderTest
  *
  * @package Test\PagaMasTarde\OrdersApiClient\Model
  */
-class OrderTest extends TestCase
+class OrderTest extends AbstractTest
 {
     /**
      * Initial status of a order.
@@ -124,7 +124,7 @@ class OrderTest extends TestCase
      */
     public function testImport()
     {
-        $orderJson = file_get_contents('test/Resources/Order.json');
+        $orderJson = file_get_contents($this->resourcePath.'Order.json');
         $object = json_decode($orderJson);
 
         foreach ($object as $key => $value) {
@@ -147,7 +147,7 @@ class OrderTest extends TestCase
      */
     public function testImportEmptyDates()
     {
-        $orderJson = file_get_contents('test/Resources/Order.json');
+        $orderJson = file_get_contents($this->resourcePath.'Order.json');
         $object = json_decode($orderJson);
 
         foreach ($object as $key => $value) {

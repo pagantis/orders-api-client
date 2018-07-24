@@ -7,14 +7,14 @@ use Httpful\Http;
 use Httpful\Request;
 use PagaMasTarde\OrdersApiClient\Method\ListOrdersMethod;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class ListOrdersMethodTest
  *
  * @package Test\PagaMasTarde\OrdersApiClient\Method;
  */
-class ListOrdersMethodTest extends TestCase
+class ListOrdersMethodTest extends AbstractTest
 {
     /**
      * testEndpointConstant
@@ -50,7 +50,7 @@ class ListOrdersMethodTest extends TestCase
      */
     public function testGetOrders()
     {
-        $orderJson = file_get_contents('test/Resources/Order.json');
+        $orderJson = file_get_contents($this->resourcePath.'Order.json');
         $arrayOfOrders = '[' . $orderJson . ',' . $orderJson . ',' .$orderJson . ']';
             $responseMock = $this->getMockBuilder('Httpful\Response')->disableOriginalConstructor()->getMock();
         $responseMockReflect = new \ReflectionClass('Httpful\Response');

@@ -3,13 +3,13 @@
 namespace Test\PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
 
 use PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Urls;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class UrlsTest
  * @package Test\PagaMasTarde\OrdersApiClient\Model\Order\Configuration
  */
-class UrlsTest extends TestCase
+class UrlsTest extends AbstractTest
 {
     /**
      * Invalid URL

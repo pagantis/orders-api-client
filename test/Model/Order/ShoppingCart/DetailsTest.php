@@ -5,13 +5,13 @@ namespace Test\PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart;
 use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use Faker\Factory;
 use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details;
-use PHPUnit\Framework\TestCase;
+use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class Details
  * @package Test\PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart
  */
-class DetailsTest extends TestCase
+class DetailsTest extends AbstractTest
 {
     /**
      * testConstructor
@@ -106,7 +106,7 @@ class DetailsTest extends TestCase
      */
     public function testImport()
     {
-        $orderJson = file_get_contents('test/Resources/Order.json');
+        $orderJson = file_get_contents($this->resourcePath.'Order.json');
         $object = json_decode($orderJson);
         $object = $object->shopping_cart->details;
         $details = new Details();
@@ -135,7 +135,7 @@ class DetailsTest extends TestCase
      */
     public function testImportCrashForNonExistingProperty()
     {
-        $orderJson = file_get_contents('test/Resources/Order.json');
+        $orderJson = file_get_contents($this->resourcePath.'Order.json');
         $object = json_decode($orderJson);
         $object = $object->shopping_cart->details;
         $object->fake_property = 50;
