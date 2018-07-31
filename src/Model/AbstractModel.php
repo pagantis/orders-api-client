@@ -94,10 +94,6 @@ abstract class AbstractModel implements ModelInterface
                             $this->{lcfirst(Str::toCamelCase($key))} = $value;
                         }
                     }
-                } else {
-                    throw new ValidationException(
-                        'Property ' . lcfirst(Str::toCamelCase($key)) . ' Not found'
-                    );
                 }
             }
         }
