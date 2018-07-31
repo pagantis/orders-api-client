@@ -96,7 +96,7 @@ class GetOrderMethodTest extends AbstractTest
         $request = $property->getValue($getOrderMethod);
         $this->assertInstanceOf('Httpful\Request', $request);
         $this->assertSame(Http::GET, $request->method);
-        $uri = $url . GetOrderMethod::SLASH . GetOrderMethod::ENDPOINT . GetOrderMethod::SLASH . $orderId;
+        $uri = $url . GetOrderMethod::ENDPOINT . GetOrderMethod::SLASH . $orderId;
         $this->assertSame($uri, $request->uri);
     }
 

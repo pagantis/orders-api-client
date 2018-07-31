@@ -102,7 +102,7 @@ class ListOrdersMethodTest extends AbstractTest
         $request = $property->getValue($listOrdersMethod);
         $this->assertInstanceOf('Httpful\Request', $request);
         $this->assertSame(Http::GET, $request->method);
-        $uri = $url . ListOrdersMethod::SLASH . ListOrdersMethod::ENDPOINT . '?' . http_build_query($queryParameters);
+        $uri = $url . ListOrdersMethod::ENDPOINT . '?' . http_build_query($queryParameters);
         $this->assertSame($uri, $request->uri);
     }
 }

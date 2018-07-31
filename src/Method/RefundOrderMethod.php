@@ -100,7 +100,6 @@ class RefundOrderMethod extends AbstractMethod
                 ->method(Http::POST)
                 ->uri(
                     $this->apiConfiguration->getBaseUri().
-                    self::SLASH.
                     self::ENDPOINT.
                     self::SLASH.
                     $this->orderId.

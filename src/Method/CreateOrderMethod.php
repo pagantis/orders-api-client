@@ -81,7 +81,6 @@ class CreateOrderMethod extends AbstractMethod
                 ->method(Http::POST)
                 ->uri(
                     $this->apiConfiguration->getBaseUri() .
-                    self::SLASH .
                     self::ENDPOINT
                 )
                 ->sendsType(Mime::JSON)

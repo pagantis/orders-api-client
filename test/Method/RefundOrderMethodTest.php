@@ -121,7 +121,6 @@ class RefundOrderMethodTest extends AbstractTest
         $this->assertSame(Http::POST, $request->method);
         $uri =
             $url .
-            RefundOrderMethod::SLASH .
             RefundOrderMethod::ENDPOINT .
             RefundOrderMethod::SLASH .
             $orderId .

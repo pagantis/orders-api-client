@@ -78,7 +78,6 @@ class GetOrderMethod extends AbstractMethod
                 ->method(Http::GET)
                 ->uri(
                     $this->apiConfiguration->getBaseUri() .
-                    self::SLASH .
                     self::ENDPOINT .
                     self::SLASH .
                     $this->orderId

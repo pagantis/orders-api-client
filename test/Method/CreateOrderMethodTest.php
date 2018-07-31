@@ -98,7 +98,6 @@ class CreateOrderMethodTest extends AbstractTest
         $this->assertSame(Http::POST, $request->method);
         $uri =
             $url .
-            CreateOrderMethod::SLASH .
             CreateOrderMethod::ENDPOINT
         ;
         $this->assertSame($uri, $request->uri);

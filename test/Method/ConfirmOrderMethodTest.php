@@ -98,7 +98,6 @@ class ConfirmOrderMethodTest extends AbstractTest
         $this->assertSame(Http::PUT, $request->method);
         $uri =
             $url .
-            ConfirmOrderMethod::SLASH .
             ConfirmOrderMethod::ENDPOINT .
             ConfirmOrderMethod::SLASH .
             $orderId .
