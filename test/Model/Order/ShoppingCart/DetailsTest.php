@@ -126,20 +126,4 @@ class DetailsTest extends AbstractTest
         //Finally test that the result of the export == the import
         $this->assertEquals($object, json_decode(json_encode($details->export())));
     }
-
-
-    /**
-     * testImport
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
-     */
-    public function testImportCrashForNonExistingProperty()
-    {
-        $orderJson = file_get_contents($this->resourcePath.'Order.json');
-        $object = json_decode($orderJson);
-        $object = $object->shopping_cart->details;
-        $object->fake_property = 50;
-        $details = new Details();
-        $details->import($object);
-    }
 }
