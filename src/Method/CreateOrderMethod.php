@@ -80,8 +80,8 @@ class CreateOrderMethod extends AbstractMethod
             $this->request = $this->getRequest()
                 ->method(Http::POST)
                 ->uri(
-                    $this->apiConfiguration->getBaseUri() .
-                    self::ENDPOINT
+                    $this->apiConfiguration->getBaseUri()
+                    . self::ENDPOINT
                 )
                 ->sendsType(Mime::JSON)
                 ->body(json_encode($this->order->export()))

@@ -81,12 +81,12 @@ class ConfirmOrderMethod extends AbstractMethod
             $this->request = $this->getRequest()
                 ->method(Http::PUT)
                 ->uri(
-                    $this->apiConfiguration->getBaseUri().
-                    self::ENDPOINT.
-                    self::SLASH.
-                    $this->orderId.
-                    self::SLASH.
-                    self::CONFIRM_ENDPOINT
+                    $this->apiConfiguration->getBaseUri()
+                    . self::ENDPOINT
+                    . self::SLASH
+                    . $this->orderId
+                    . self::SLASH
+                    . self::CONFIRM_ENDPOINT
                 )
             ;
         }

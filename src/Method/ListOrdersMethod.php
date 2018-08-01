@@ -78,9 +78,9 @@ class ListOrdersMethod extends AbstractMethod
             $this->request = $this->getRequest()
                 ->method(Http::GET)
                 ->uri(
-                    $this->apiConfiguration->getBaseUri().
-                    self::ENDPOINT.
-                    $this->addGetParameters($this->queryParameters)
+                    $this->apiConfiguration->getBaseUri()
+                    . self::ENDPOINT
+                    . $this->addGetParameters($this->queryParameters)
                 )
             ;
         }
