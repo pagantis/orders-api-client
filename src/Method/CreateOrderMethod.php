@@ -19,7 +19,7 @@ class CreateOrderMethod extends AbstractMethod
     /**
      * Get Order Endpoint
      */
-    const ENDPOINT = 'api/v1/orders';
+    const ENDPOINT = '/orders';
 
     /**
      * @var Order
@@ -80,9 +80,8 @@ class CreateOrderMethod extends AbstractMethod
             $this->request = $this->getRequest()
                 ->method(Http::POST)
                 ->uri(
-                    $this->apiConfiguration->getBaseUri() .
-                    self::SLASH .
-                    self::ENDPOINT
+                    $this->apiConfiguration->getBaseUri()
+                    . self::ENDPOINT
                 )
                 ->sendsType(Mime::JSON)
                 ->body(json_encode($this->order->export()))

@@ -24,7 +24,7 @@ class RefundOrderMethodTest extends AbstractTest
     public function testEndpointConstant()
     {
         $constant = RefundOrderMethod::ENDPOINT;
-        $this->assertEquals('api/v1/orders', $constant);
+        $this->assertEquals('/orders', $constant);
     }
 
     /**
@@ -121,7 +121,6 @@ class RefundOrderMethodTest extends AbstractTest
         $this->assertSame(Http::POST, $request->method);
         $uri =
             $url .
-            RefundOrderMethod::SLASH .
             RefundOrderMethod::ENDPOINT .
             RefundOrderMethod::SLASH .
             $orderId .

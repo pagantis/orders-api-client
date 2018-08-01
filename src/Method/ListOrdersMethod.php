@@ -17,7 +17,7 @@ class ListOrdersMethod extends AbstractMethod
     /**
      * Get Order Endpoint
      */
-    const ENDPOINT = 'api/v1/orders';
+    const ENDPOINT = '/orders';
 
     /**
      * @var array $queryParameters
@@ -78,10 +78,9 @@ class ListOrdersMethod extends AbstractMethod
             $this->request = $this->getRequest()
                 ->method(Http::GET)
                 ->uri(
-                    $this->apiConfiguration->getBaseUri().
-                    self::SLASH.
-                    self::ENDPOINT.
-                    $this->addGetParameters($this->queryParameters)
+                    $this->apiConfiguration->getBaseUri()
+                    . self::ENDPOINT
+                    . $this->addGetParameters($this->queryParameters)
                 )
             ;
         }

@@ -1,9 +1,9 @@
 {
     "action_urls": {
-        "confirm": "http://docker-ext-stg.digitalorigin.com:20010/api/v1/orders/5b1906b4e659900006a7c623/confirm",
+        "confirm": "http://docker-ext-stg.digitalorigin.com:20010//orders/5b1906b4e659900006a7c623/confirm",
         "form": "https://ppcobranded-form-staging.pagamastarde.com/orders/5b1906b4e659900006a7c623",
-        "refund": "http://docker-ext-stg.digitalorigin.com:20010/api/v1/orders/5b1906b4e659900006a7c623/refund",
-        "upsell": "http://docker-ext-stg.digitalorigin.com:20010/api/v1/orders/5b1906b4e659900006a7c623/upsell"
+        "refund": "http://docker-ext-stg.digitalorigin.com:20010//orders/5b1906b4e659900006a7c623/refund",
+        "upsell": "http://docker-ext-stg.digitalorigin.com:20010//orders/5b1906b4e659900006a7c623/upsell"
     },
     "api_version": "v1",
     "configuration": {

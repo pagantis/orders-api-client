@@ -18,7 +18,7 @@ class ConfirmOrderMethod extends AbstractMethod
     /**
      * Get Order Endpoint
      */
-    const ENDPOINT = 'api/v1/orders';
+    const ENDPOINT = '/orders';
 
     const CONFIRM_ENDPOINT = 'confirm';
 
@@ -81,13 +81,12 @@ class ConfirmOrderMethod extends AbstractMethod
             $this->request = $this->getRequest()
                 ->method(Http::PUT)
                 ->uri(
-                    $this->apiConfiguration->getBaseUri().
-                    self::SLASH.
-                    self::ENDPOINT.
-                    self::SLASH.
-                    $this->orderId.
-                    self::SLASH.
-                    self::CONFIRM_ENDPOINT
+                    $this->apiConfiguration->getBaseUri()
+                    . self::ENDPOINT
+                    . self::SLASH
+                    . $this->orderId
+                    . self::SLASH
+                    . self::CONFIRM_ENDPOINT
                 )
             ;
         }

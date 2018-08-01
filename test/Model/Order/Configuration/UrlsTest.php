@@ -14,7 +14,7 @@ class UrlsTest extends AbstractTest
     /**
      * Invalid URL
      */
-    const VALID_URL = 'http://pagamastarde.com:8080/api/v1/orders?order=true';
+    const VALID_URL = 'http://pagamastarde.com:8080//orders?order=true';
 
     /**
      *  Valid URL
@@ -27,7 +27,7 @@ class UrlsTest extends AbstractTest
     public function testUrlValidate()
     {
         $this->assertTrue(Urls::urlValidate('https://pagamastarde.com'));
-        $this->assertTrue(Urls::urlValidate('http://pagamastarde.com:8080/api/v1/orders?order=true'));
+        $this->assertTrue(Urls::urlValidate('http://pagamastarde.com:8080//orders?order=true'));
         $this->assertFalse(Urls::urlValidate('://google.es'));
         $this->assertFalse(Urls::urlValidate('google.es'));
         $this->assertFalse(Urls::urlValidate('google'));

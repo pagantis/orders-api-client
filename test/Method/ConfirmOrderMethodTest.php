@@ -23,7 +23,7 @@ class ConfirmOrderMethodTest extends AbstractTest
     public function testEndpointConstant()
     {
         $constant = ConfirmOrderMethod::ENDPOINT;
-        $this->assertEquals('api/v1/orders', $constant);
+        $this->assertEquals('/orders', $constant);
     }
 
     /**
@@ -98,7 +98,6 @@ class ConfirmOrderMethodTest extends AbstractTest
         $this->assertSame(Http::PUT, $request->method);
         $uri =
             $url .
-            ConfirmOrderMethod::SLASH .
             ConfirmOrderMethod::ENDPOINT .
             ConfirmOrderMethod::SLASH .
             $orderId .

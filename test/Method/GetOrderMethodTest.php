@@ -23,7 +23,7 @@ class GetOrderMethodTest extends AbstractTest
     public function testEndpointConstant()
     {
         $constant = GetOrderMethod::ENDPOINT;
-        $this->assertEquals('api/v1/orders', $constant);
+        $this->assertEquals('/orders', $constant);
     }
 
     /**
@@ -96,7 +96,7 @@ class GetOrderMethodTest extends AbstractTest
         $request = $property->getValue($getOrderMethod);
         $this->assertInstanceOf('Httpful\Request', $request);
         $this->assertSame(Http::GET, $request->method);
-        $uri = $url . GetOrderMethod::SLASH . GetOrderMethod::ENDPOINT . GetOrderMethod::SLASH . $orderId;
+        $uri = $url . GetOrderMethod::ENDPOINT . GetOrderMethod::SLASH . $orderId;
         $this->assertSame($uri, $request->uri);
     }
 

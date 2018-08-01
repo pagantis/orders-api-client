@@ -12,14 +12,14 @@ use PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Urls;
 class ApiConfiguration extends AbstractModel
 {
     /**
-     * Base URL for API calls
+     * Base Production URL for API calls
      */
-    const BASE_URI = 'https://orders.pagamastarde.com';
+    const BASE_URI = 'https://api.pagamastarde.com/v2';
 
     /**
-     * Base URL for API calls
+     * Base Sandbox URL for API calls
      */
-    const SANDBOX_BASE_URI = 'https://orders-stg.pagamastarde.com';
+    const SANDBOX_BASE_URI = 'https://api-stg.pagamastarde.com/v2';
 
     /**
      * Private key for API calls

@@ -24,7 +24,7 @@ class CreateOrderMethodTest extends AbstractTest
     public function testEndpointConstant()
     {
         $constant = CreateOrderMethod::ENDPOINT;
-        $this->assertEquals('api/v1/orders', $constant);
+        $this->assertEquals('/orders', $constant);
     }
 
     /**
@@ -98,7 +98,6 @@ class CreateOrderMethodTest extends AbstractTest
         $this->assertSame(Http::POST, $request->method);
         $uri =
             $url .
-            CreateOrderMethod::SLASH .
             CreateOrderMethod::ENDPOINT
         ;
         $this->assertSame($uri, $request->uri);

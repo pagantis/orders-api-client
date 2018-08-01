@@ -19,7 +19,7 @@ class RefundOrderMethod extends AbstractMethod
     /**
      * Get Order Endpoint
      */
-    const ENDPOINT = 'api/v1/orders';
+    const ENDPOINT = '/orders';
 
     const REFUND_ENDPOINT = 'refunds';
 
@@ -99,13 +99,12 @@ class RefundOrderMethod extends AbstractMethod
             $this->request = $this->getRequest()
                 ->method(Http::POST)
                 ->uri(
-                    $this->apiConfiguration->getBaseUri().
-                    self::SLASH.
-                    self::ENDPOINT.
-                    self::SLASH.
-                    $this->orderId.
-                    self::SLASH.
-                    self::REFUND_ENDPOINT
+                    $this->apiConfiguration->getBaseUri()
+                    . self::ENDPOINT
+                    . self::SLASH
+                    . $this->orderId
+                    . self::SLASH
+                    . self::REFUND_ENDPOINT
                 )
                 ->sendsType(Mime::JSON)
                 ->body(json_encode($this->refund->export()))
