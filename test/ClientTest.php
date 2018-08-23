@@ -159,7 +159,11 @@ class ClientTest extends AbstractTest
             ApiConfiguration::BASE_URI
         );
 
-        $ordersRetrieved = $apiClient->listOrders(array());
+        $ordersRetrieved = $apiClient->listOrders(array(
+            'pageSize' => 10,
+            'page' => 1,
+            'status' => Order::STATUS_CREATED,
+        ));
 
         foreach ($ordersRetrieved as $order) {
             $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Order', $order);
