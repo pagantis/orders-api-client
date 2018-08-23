@@ -57,7 +57,7 @@ class Urls extends AbstractModel
      */
     public function setCancel($cancel)
     {
-        if ($this->urlValidate($cancel)) {
+        if ($this->urlValidate($cancel) || empty($cancel)) {
             $this->cancel = $cancel;
             return $this;
         }
@@ -105,7 +105,7 @@ class Urls extends AbstractModel
      */
     public function setNotificationCallback($notificationCallback)
     {
-        if ($this->urlValidate($notificationCallback)) {
+        if ($this->urlValidate($notificationCallback) || empty($notificationCallback)) {
             $this->notificationCallback = $notificationCallback;
             return $this;
         }
