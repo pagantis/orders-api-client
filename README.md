@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/PagaMasTarde/ordersApiClient.svg?branch=master)](https://travis-ci.org/PagaMasTarde/ordersApiClient)
 [![Latest Stable Version](https://poser.pugx.org/pagamastarde/orders-api-client/v/stable)](https://packagist.org/packages/pagamastarde/orders-api-client)
 [![composer.lock](https://poser.pugx.org/pagamastarde/orders-api-client/composerlock)](https://packagist.org/packages/pagamastarde/orders-api-client)
-[![Maintainability](https://api.codeclimate.com/v1/badges/b94053de00f8cec5f34d/maintainability)](https://codeclimate.com/github/PagaMasTarde/ordersApiClient/maintainability)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/PagaMasTarde/ordersApiClient/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PagaMasTarde/ordersApiClient/?branch=master)
 
 Orders API Client offers the merchants working with Paga+Tarde a way to consume the API services without the effort of doing a complete development.
 The library provides stubs for each type of object withing the API and the method calls. Each Method supported by the API is implemented in this client and
