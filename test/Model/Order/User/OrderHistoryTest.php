@@ -14,8 +14,6 @@ class OrderHistoryTest extends AbstractTest
 {
     /**
      * testSetAmount
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetAmount()
     {
@@ -25,8 +23,6 @@ class OrderHistoryTest extends AbstractTest
 
         $orderHistory->setAmount($number);
         $this->assertEquals($orderHistory->getAmount(), $number);
-
-        $orderHistory->setAmount(0);
     }
 
     /**
