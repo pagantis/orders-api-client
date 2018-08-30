@@ -136,4 +136,14 @@ class HttpException extends \Exception
 
         return $this;
     }
+
+    /**
+     * Return the valid status array
+     *
+     * @return array
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
 }
