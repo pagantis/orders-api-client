@@ -90,41 +90,18 @@ abstract class AbstractMethod implements MethodInterface
      */
     protected function parseHttpException($code, $message = null)
     {
-        switch ($code) {
-            case HttpException::HTTP_BAD_REQUEST:
-                throw new HttpException(HttpException::HTTP_BAD_REQUEST);
-                break;
-            case HttpException::HTTP_UNAUTHORIZED:
-                throw new HttpException(HttpException::HTTP_UNAUTHORIZED);
-                break;
-            case HttpException::HTTP_FORBIDDEN:
-                throw new HttpException(HttpException::HTTP_FORBIDDEN);
-                break;
-            case HttpException::HTTP_NOT_FOUND:
-                throw new HttpException(HttpException::HTTP_NOT_FOUND);
-                break;
-            case HttpException::HTTP_METHOD_NOT_ALLOWED:
-                throw new HttpException(HttpException::HTTP_METHOD_NOT_ALLOWED);
-                break;
-            case HttpException::HTTP_UNPROCESSABLE_ENTITY:
-                throw new HttpException(
-                    HttpException::HTTP_UNPROCESSABLE_ENTITY,
-                    $message
-                );
-                break;
-            case HttpException::HTTP_INTERNAL_SERVER_ERROR:
-                throw new HttpException(HttpException::HTTP_INTERNAL_SERVER_ERROR);
-                break;
-            case HttpException::HTTP_SERVICE_UNAVAILABLE:
-                throw new HttpException(HttpException::HTTP_SERVICE_UNAVAILABLE);
-                break;
-            case HttpException::HTTP_CONFLICT:
-                throw new HttpException(HttpException::HTTP_CONFLICT, $message);
-                break;
-            default:
-                throw new HttpException(HttpException::HTTP_INTERNAL_SERVER_ERROR);
-                break;
+        if (!in_array($code, array(HttpException::HTTP_UNPROCESSABLE_ENTITY, HttpException::HTTP_CONFLICT))) {
+            $message = null;
         }
+
+        $objHttpException = new HttpException($code, $message);
+        $status = $objHttpException->getStatus();
+
+        if (!in_array($code, $status)) {
+            throw new HttpException(HttpException::HTTP_INTERNAL_SERVER_ERROR);
+        }
+
+        throw $objHttpException;
     }
 
     /**

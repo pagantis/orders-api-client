@@ -38,16 +38,11 @@ class Product extends AbstractModel
      * @param $amount
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setAmount($amount)
     {
-        if ($amount >= 1) {
-            $this->amount = $amount;
-            return $this;
-        }
-
-        throw new ValidationException('Amount has to be non zero natural number');
+        $this->amount = $amount;
+        return $this;
     }
 
     /**
