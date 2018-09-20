@@ -2,7 +2,6 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
@@ -81,16 +80,12 @@ class Refund extends AbstractModel
      * @param $promotedAmount
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setPromotedAmount($promotedAmount)
     {
-        if ($promotedAmount >= 0) {
-            $this->promotedAmount = $promotedAmount;
-            return $this;
-        }
+        $this->promotedAmount = $promotedAmount;
 
-        throw new ValidationException('Promoted amount has to be a natural number');
+        return $this;
     }
 
     /**
@@ -125,16 +120,12 @@ class Refund extends AbstractModel
      * @param $totalAmount
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setTotalAmount($totalAmount)
     {
-        if ($totalAmount >= 1) {
-            $this->totalAmount = $totalAmount;
-            return $this;
-        }
+        $this->totalAmount = $totalAmount;
 
-        throw new ValidationException('Total amount has to be a non zero natural number');
+        return $this;
     }
 
     /**
@@ -175,23 +166,5 @@ class Refund extends AbstractModel
         $this->paymentProcessorCost = $paymentProcessorCost;
 
         return $this;
-    }
-
-    /**
-     * @return bool|true
-     * @throws ValidationException
-     */
-    public function validate()
-    {
-        $this->triggerSetters();
-
-        if (!$this->totalAmount) {
-            throw new ValidationException('Total amount can not be empty');
-        }
-        if ($this->getTotalAmount() < $this->getPromotedAmount()) {
-            throw new ValidationException('Promoted amount can not be higher than total amount');
-        }
-
-        return true;
     }
 }

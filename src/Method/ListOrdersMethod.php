@@ -38,7 +38,6 @@ class ListOrdersMethod extends AbstractMethod
 
     /**
      * @return array|bool
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function getOrders()
     {

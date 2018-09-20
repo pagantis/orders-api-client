@@ -19,17 +19,15 @@ class ChannelTest extends AbstractTest
     /**
      * In store type, for sales in a physical store
      */
-    const INSTORE = 'INSTORE';
+    const INSTORE = 'IN_STORE';
 
     /**
      * Phonesale type, for sales made on the phone
      */
-    const PHONESALE = 'PHONESALE';
+    const PHONESALE = 'PHONE';
 
     /**
      * testSetAssistedSale
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetAssistedSale()
     {
@@ -38,13 +36,10 @@ class ChannelTest extends AbstractTest
         $this->assertNull($channel->getAssistedSale());
         $channel->setAssistedSale(true);
         $this->assertTrue($channel->getAssistedSale());
-        $channel->setAssistedSale('string');
     }
 
     /**
      * testSetType
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      *
      * @throws \ReflectionException
      */
@@ -62,39 +57,6 @@ class ChannelTest extends AbstractTest
 
         $channel->setType(null);
         $this->assertNull($channel->getType());
-        $channel->setType('string');
-    }
-
-    /**
-     * testValidate
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
-     *
-     * @throws \ReflectionException
-     */
-    public function testValidate()
-    {
-        //AssistedCase
-        $channel = new Channel();
-        $channel->setType(Channel::INSTORE);
-        $channel->setAssistedSale(true);
-        $this->assertTrue($channel->validate());
-
-        //All cases
-        $channel->setAssistedSale(false);
-        $reflectionClass = new \ReflectionClass(
-            'PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Channel'
-        );
-        $constants = $reflectionClass->getConstants();
-        foreach ($constants as $constant) {
-            $channel->setType($constant);
-            $this->assertTrue($channel->validate());
-        }
-
-        //Failure
-        $channel->setAssistedSale(true);
-        $channel->setType(Channel::PHONESALE);
-        $channel->validate();
     }
 
     /**

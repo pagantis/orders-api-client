@@ -2,7 +2,7 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ClientException;
 use PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Urls;
 
 /**
@@ -94,7 +94,7 @@ class ApiConfiguration extends AbstractModel
      * @param $baseUri
      *
      * @return $this
-     * @throws ValidationException
+     * @throws ClientException
      */
     public function setBaseUri($baseUri)
     {
@@ -103,22 +103,6 @@ class ApiConfiguration extends AbstractModel
             return $this;
         }
 
-        throw new ValidationException('Invalid base URL on the ApiConfiguration setter');
-    }
-
-    /**
-     * @return bool|true
-     * @throws ValidationException
-     */
-    public function validate()
-    {
-        if (empty($this->publicKey) || empty($this->privateKey)) {
-            throw new ValidationException('Public Key and Private Key can not be empty');
-        }
-        if (!Urls::urlValidate($this->getBaseUri())) {
-            throw new ValidationException('Invalid Base URL');
-        }
-
-        return true;
+        throw new ClientException('Invalid base URL on the ApiConfiguration setter');
     }
 }

@@ -2,7 +2,6 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
@@ -19,12 +18,12 @@ class Channel extends AbstractModel
     /**
      * In store type, for sales in a physical store
      */
-    const INSTORE = 'INSTORE';
+    const INSTORE = 'IN_STORE';
 
     /**
      * Phonesale type, for sales made on the phone
      */
-    const PHONESALE = 'PHONESALE';
+    const PHONESALE = 'PHONE';
 
     /**
      * @var string type
@@ -48,17 +47,13 @@ class Channel extends AbstractModel
      * @param $assistedSale
      *
      * @return $this
-     * @throws ValidationException
+
      */
     public function setAssistedSale($assistedSale)
     {
-        if (is_bool($assistedSale)) {
-            $this->assistedSale = $assistedSale;
+        $this->assistedSale = $assistedSale;
 
-            return $this;
-        }
-
-        throw new ValidationException('Assisted Sale has to be boolean true|false');
+        return $this;
     }
 
 
@@ -74,36 +69,11 @@ class Channel extends AbstractModel
      * @param $type
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setType($type)
     {
-        $validTypes = array(
-            self::ONLINE,
-            self::INSTORE,
-            self::PHONESALE,
-        );
+        $this->type = $type;
 
-        if (in_array($type, $validTypes)) {
-            $this->type = $type;
-            return $this;
-        }
-
-        throw new ValidationException('Set type from Channel::class constants');
-    }
-
-    /**
-     * @return bool|true
-     * @throws ValidationException
-     */
-    public function validate()
-    {
-        $this->triggerSetters();
-
-        if ($this->getAssistedSale() && $this->getType() !== self::INSTORE) {
-            throw new ValidationException('Assisted sale is only for in-store sale');
-        }
-
-        return true;
+        return $this;
     }
 }

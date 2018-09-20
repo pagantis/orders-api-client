@@ -449,8 +449,6 @@ class Order extends AbstractModel
 
     /**
      * @param \stdClass $object
-     *
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function import($object)
     {
@@ -475,23 +473,5 @@ class Order extends AbstractModel
                 }
             }
         }
-    }
-
-    /**
-     * Check setters and validate the mandatory fields:
-     * User, Configuration and Shopping Cart
-     *
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
-     */
-    public function validate()
-    {
-        $this->triggerSetters();
-        foreach ($this as $key => $value) {
-            if ($value instanceof AbstractModel) {
-                $value->validate();
-            }
-        }
-
-        return true;
     }
 }

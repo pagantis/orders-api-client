@@ -2,8 +2,6 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
-
 /**
  * Interface ModelInterface
  * @package PagaMasTarde\OrdersApiClient\Model
@@ -20,16 +18,6 @@ interface ModelInterface
     /**
      * @param \stdClass $object
      *
-     * @throws ValidationException
      */
     public function import($object);
-
-    /**
-     * Each Model should implement their own validation methods
-     *
-     * @return true
-     *
-     * @throws ValidationException
-     */
-    public function validate();
 }

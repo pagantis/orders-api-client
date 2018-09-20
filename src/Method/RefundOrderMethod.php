@@ -6,7 +6,7 @@ use Httpful\Http;
 use Httpful\Mime;
 use Httpful\Request;
 use Httpful\Response;
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ClientException;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 
 /**
@@ -59,9 +59,9 @@ class RefundOrderMethod extends AbstractMethod
 
     /**
      * @return $this|AbstractMethod
-     * @throws ValidationException
      * @throws \Httpful\Exception\ConnectionErrorException
      * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws ClientException
      */
     public function call()
     {
@@ -69,12 +69,11 @@ class RefundOrderMethod extends AbstractMethod
             $this->prepareRequest();
             return $this->setResponse($this->request->send());
         }
-        throw new ValidationException('Please set Refund Object and OrderId');
+        throw new ClientException('Please set Refund Object and OrderId');
     }
 
     /**
      * @return bool|Order\Refund
-     * @throws ValidationException
      */
     public function getRefund()
     {
@@ -91,7 +90,6 @@ class RefundOrderMethod extends AbstractMethod
     /**
      * prepareRequest
      *
-     * @throws ValidationException
      */
     protected function prepareRequest()
     {

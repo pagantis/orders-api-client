@@ -4,7 +4,6 @@ namespace Test\PagaMasTarde\OrdersApiClient;
 use PagaMasTarde\OrdersApiClient\Client;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
 use PagaMasTarde\OrdersApiClient\Model\Order;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
 /**
  * Class ClientTest
@@ -37,7 +36,7 @@ class ClientTest extends AbstractTest
 
     /**
      * @return ApiConfiguration
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
      */
     public function getApiConfiguration()
     {
@@ -57,17 +56,15 @@ class ClientTest extends AbstractTest
      * @return bool|false|Order|string
      * @throws \Httpful\Exception\ConnectionErrorException
      * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
      * @throws \ReflectionException
      */
     public function testCreateOrder()
     {
-
         $orderJson = file_get_contents($this->resourcePath.'Order.json');
         $object = json_decode($orderJson);
         $order = new Order();
         $order->import($object);
-        $order->validate();
         $order
             ->setActionUrls(null)
             ->setApiVersion(null)
@@ -110,7 +107,7 @@ class ClientTest extends AbstractTest
      * @return bool|false|Order|string
      * @throws \Httpful\Exception\ConnectionErrorException
      * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
      * @throws \ReflectionException
      */
     public function testGetOrder()
@@ -149,7 +146,6 @@ class ClientTest extends AbstractTest
      * @return bool|false|Order[]|string
      * @throws \Httpful\Exception\ConnectionErrorException
      * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testListOrders()
     {
@@ -178,7 +174,7 @@ class ClientTest extends AbstractTest
      * @return bool|false|Order|string
      * @throws \Httpful\Exception\ConnectionErrorException
      * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
      * @throws \ReflectionException
      */
     public function testConfirmOrder()
@@ -216,7 +212,7 @@ class ClientTest extends AbstractTest
      * @return bool|false|Order\Refund|string
      * @throws \Httpful\Exception\ConnectionErrorException
      * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
      * @throws \ReflectionException
      */
     public function testRefundOrder()

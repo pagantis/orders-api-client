@@ -6,7 +6,7 @@ use Httpful\Http;
 use Httpful\Mime;
 use Httpful\Request;
 use Httpful\Response;
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ClientException;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 
 /**
@@ -40,8 +40,8 @@ class CreateOrderMethod extends AbstractMethod
 
     /**
      * @return $this|AbstractMethod
-     * @throws ValidationException
      * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws ClientException
      * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
      */
     public function call()
@@ -50,12 +50,11 @@ class CreateOrderMethod extends AbstractMethod
             $this->prepareRequest();
             return $this->setResponse($this->request->send());
         }
-        throw new ValidationException('Please Set Order');
+        throw new ClientException('Please Set Order');
     }
 
     /**
      * @return bool|Order
-     * @throws ValidationException
      */
     public function getOrder()
     {
@@ -72,7 +71,6 @@ class CreateOrderMethod extends AbstractMethod
     /**
      * prepareRequest
      *
-     * @throws ValidationException
      */
     protected function prepareRequest()
     {

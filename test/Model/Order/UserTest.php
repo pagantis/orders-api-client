@@ -13,11 +13,6 @@ use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 class UserTest extends AbstractTest
 {
     /**
-     * Fake DNI generated
-     */
-    const FAKE_DNI = '68178726X';
-
-    /**
      * testConstructor
      */
     public function testConstructor()
@@ -40,47 +35,29 @@ class UserTest extends AbstractTest
 
     /**
      * testSetDateOfBirth
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetDateOfBirth()
     {
-        $today = date('Y-m-d');
         $beforeFiftyYears = date('Y-m-d', strtotime('-18 years'));
-        $grandFather = date('Y-m-d', strtotime('-50 years'));
-
         $user = new User();
-        $user->setDateOfBirth(null);
         $this->assertNull($user->getDateOfBirth());
-
         $user->setDateOfBirth($beforeFiftyYears);
         $this->assertSame($beforeFiftyYears, $user->getDateOfBirth());
-
-        $user->setDateOfBirth($grandFather);
-        $this->assertSame($grandFather, $user->getDateOfBirth());
-
-        //Younger than 18 will not pass test
-        $user->setDateOfBirth($today);
     }
 
     /**
      * testSetDni
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetDni()
     {
-        $faker = Factory::create();
         $user = new User();
-        $user->setDni(self::FAKE_DNI);
-        $this->assertSame(self::FAKE_DNI, $user->getDni());
-        $user->setDni($faker->name);
+        $dni = '1234567Y';
+        $user->setDni($dni);
+        $this->assertSame($dni, $user->getDni());
     }
 
     /**
      * Test SetEmail
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetEmail()
     {
@@ -89,13 +66,10 @@ class UserTest extends AbstractTest
         $email = $faker->email;
         $user->setEmail($email);
         $this->assertSame($email, $user->getEmail());
-        $user->setEmail($faker->name);
     }
 
     /**
      * testSetFullName
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetFullName()
     {
@@ -103,9 +77,7 @@ class UserTest extends AbstractTest
         $user = new User();
         $fullName = $faker->name . ' ' . $faker->lastName;
         $user->setFullName($fullName);
-        $user->setFullName($fullName);
         $this->assertSame($fullName, $user->getFullName());
-        $user->setFullName(null);
     }
 
     /**
@@ -125,8 +97,6 @@ class UserTest extends AbstractTest
 
     /**
      * testImport
-     *
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testImport()
     {
@@ -136,42 +106,5 @@ class UserTest extends AbstractTest
         $user = new User();
         $user->import($object);
         $this->assertEquals($object, json_decode(json_encode($user->export())));
-    }
-
-    /**
-     * testValidate
-     *
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
-     */
-    public function testValidate()
-    {
-        $faker = Factory::create();
-        $user = new User();
-
-        //test AbstractModel calls validate
-        $address = $this->getMock('PagaMasTarde\OrdersApiClient\Model\Order\User\Address');
-        $address->expects($this->atLeastOnce())->method('validate');
-
-        //test OrderHistory calls validate
-        $orderHistory = $this->getMock('PagaMasTarde\OrdersApiClient\Model\Order\User\OrderHistory');
-        $orderHistory->expects($this->atLeastOnce())->method('validate');
-
-        $user
-            ->setAddress($address)
-            ->addOrderHistory($orderHistory)
-        ;
-
-        try {
-            $user->validate();
-        } catch (\Exception $exception) {
-            //FullName and Email Cannot be null
-            $this->assertTrue(true);
-        }
-
-        $user
-            ->setFullName($faker->name)
-            ->setEmail($faker->email)
-        ;
-        $this->assertTrue($user->validate());
     }
 }

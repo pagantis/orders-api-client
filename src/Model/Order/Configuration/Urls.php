@@ -2,7 +2,6 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
@@ -53,16 +52,12 @@ class Urls extends AbstractModel
      * @param $cancel
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setCancel($cancel)
     {
-        if ($this->urlValidate($cancel) || empty($cancel)) {
-            $this->cancel = $cancel;
-            return $this;
-        }
+        $this->cancel = $cancel;
 
-        throw new ValidationException('Invalid Cancel Url');
+        return $this;
     }
 
     /**
@@ -77,16 +72,12 @@ class Urls extends AbstractModel
      * @param $ko
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setKo($ko)
     {
-        if ($this->urlValidate($ko)) {
-            $this->ko = $ko;
-            return $this;
-        }
+        $this->ko = $ko;
 
-        throw new ValidationException('Invalid Ko Url');
+        return $this;
     }
 
     /**
@@ -101,16 +92,12 @@ class Urls extends AbstractModel
      * @param $notificationCallback
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setNotificationCallback($notificationCallback)
     {
-        if ($this->urlValidate($notificationCallback) || empty($notificationCallback)) {
-            $this->notificationCallback = $notificationCallback;
-            return $this;
-        }
+        $this->notificationCallback = $notificationCallback;
 
-        throw new ValidationException('Invalid NotificationCallback Url');
+        return $this;
     }
 
     /**
@@ -125,30 +112,11 @@ class Urls extends AbstractModel
      * @param $ok
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setOk($ok)
     {
-        if ($this->urlValidate($ok)) {
-            $this->ok = $ok;
-            return $this;
-        }
+        $this->ok = $ok;
 
-        throw new ValidationException('Invalid Ok Url');
-    }
-
-    /**
-     * @return bool|true
-     * @throws ValidationException
-     */
-    public function validate()
-    {
-        $this->triggerSetters();
-
-        if (!empty($this->ok) && !(empty($this->ko))) {
-            return true;
-        }
-
-        throw new ValidationException('Ok and Ko URL can not be empty');
+        return $this;
     }
 }

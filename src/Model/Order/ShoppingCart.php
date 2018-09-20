@@ -2,7 +2,6 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details;
 
@@ -99,16 +98,12 @@ class ShoppingCart extends AbstractModel
      * @param $promotedAmount
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setPromotedAmount($promotedAmount)
     {
-        if ($promotedAmount >= 0) {
-            $this->promotedAmount = $promotedAmount;
-            return $this;
-        }
+        $this->promotedAmount = $promotedAmount;
 
-        throw new ValidationException('Promoted amount has to be natural number');
+        return $this;
     }
 
     /**
@@ -123,30 +118,11 @@ class ShoppingCart extends AbstractModel
      * @param $totalAmount
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setTotalAmount($totalAmount)
     {
-        if ($totalAmount >= 1) {
-            $this->totalAmount = $totalAmount;
-            return $this;
-        }
+        $this->totalAmount = $totalAmount;
 
-        throw new ValidationException('Total amount has to be a non zero natural number');
-    }
-
-    /**
-     * @return bool|true
-     * @throws ValidationException
-     */
-    public function validate()
-    {
-        $this->triggerSetters();
-        $this->details->validate();
-        if ($this->getTotalAmount() < $this->getPromotedAmount()) {
-            throw new ValidationException('Promoted amount can not be higher than total amount');
-        }
-
-        return true;
+        return $this;
     }
 }

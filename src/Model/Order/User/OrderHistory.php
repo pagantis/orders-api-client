@@ -2,7 +2,6 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order\User;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
@@ -58,17 +57,5 @@ class OrderHistory extends AbstractModel
         $this->date = $date;
 
         return $this;
-    }
-
-    /**
-     * Just trigger the setters in order to validate amount and the Datetime
-     *
-     * @return bool|true
-     */
-    public function validate()
-    {
-        $this->triggerSetters();
-
-        return true;
     }
 }

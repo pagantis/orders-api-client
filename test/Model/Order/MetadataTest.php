@@ -14,8 +14,6 @@ class MetadataTest extends AbstractTest
 {
     /**
      * testAddMetadata
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testAddMetadata()
     {
@@ -26,14 +24,10 @@ class MetadataTest extends AbstractTest
         $metadata->addMetadata($key, $value);
         $metadataExport = $metadata->export();
         $this->assertSame($value, $metadataExport[$key]);
-
-        $metadata->addMetadata(array(), array());
     }
 
     /**
      * testImport
-     *
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testImport()
     {

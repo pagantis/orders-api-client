@@ -20,23 +20,7 @@ class OrderHistoryTest extends AbstractTest
         $faker = Factory::create();
         $number = $faker->randomDigitNotNull;
         $orderHistory = new OrderHistory();
-
         $orderHistory->setAmount($number);
         $this->assertEquals($orderHistory->getAmount(), $number);
-    }
-
-    /**
-     * testValidate
-     *
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
-     */
-    public function testValidate()
-    {
-        $faker = Factory::create();
-        $orderHistory = new OrderHistory();
-        $this->assertTrue($orderHistory->validate());
-        $amount = $faker->randomDigitNotNull;
-        $orderHistory->setAmount($amount);
-        $this->assertTrue($orderHistory->validate());
     }
 }

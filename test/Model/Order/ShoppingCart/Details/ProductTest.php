@@ -14,19 +14,14 @@ class ProductTest extends AbstractTest
 {
     /**
      * testSetAmount
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetAmount()
     {
         $faker = Factory::create();
         $number = $faker->randomDigitNotNull;
         $product = new Product();
-
         $product->setQuantity($number);
         $this->assertEquals($product->getQuantity(), $number);
-
-        $product->setQuantity(0);
     }
 
     /**
@@ -45,39 +40,13 @@ class ProductTest extends AbstractTest
 
     /**
      * testSetQuantity
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetQuantity()
     {
         $faker = Factory::create();
         $number = $faker->randomDigitNotNull;
         $product = new Product();
-
         $product->setQuantity($number);
         $this->assertEquals($product->getQuantity(), $number);
-
-        $product->setQuantity(0);
-    }
-
-    /**
-     * Test validate calls setters.
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
-     */
-    public function testValidate()
-    {
-        $faker = Factory::create();
-
-        //Working:
-        $product = new Product();
-        $product->setQuantity($faker->randomDigitNotNull);
-        $product->setDescription($faker->sentence);
-        $product->setAmount($faker->randomDigitNotNull);
-        $this->assertTrue($product->validate());
-
-        //Failure: amount and quantity have to be set
-        $product = new Product();
-        $product->validate();
     }
 }
