@@ -31,6 +31,7 @@ class Client
      * @param null $baseUri
      *
      * @throws ConnectionErrorException
+     * @throws Exception\ClientException
      */
     public function __construct($publicKey, $privateKey, $baseUri = null)
     {

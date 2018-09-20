@@ -24,7 +24,7 @@ class OrderTest extends AbstractTest
     const STATUS_AUTHORIZED = 'AUTHORIZED';
 
     /**
-     * Order confirmed has been paid by customer and merchant has confirmed it. Payment is complemeted
+     * Order confirmed has been paid by customer and merchant has confirmed it. Payment is completed
      * and settlement will be created.
      */
     const STATUS_CONFIRMED = 'CONFIRMED';
@@ -42,7 +42,7 @@ class OrderTest extends AbstractTest
     const STATUS_INVALIDATED = 'INVALIDATED';
 
     /**
-     * Undefined ERROR has occured, please double check with the account manager or PMT support channels.
+     * Undefined ERROR has occurred, please double check with the account manager or PMT support channels.
      */
     const STATUS_ERROR = 'ERROR';
 
@@ -53,7 +53,7 @@ class OrderTest extends AbstractTest
     const STATUS_UNCONFIRMED = 'UNCONFIRMED';
 
     /**
-     * The order cancelled is a concecuence of a total refund or sum of partial refunds generating the total refund.
+     * The order cancelled is a consequence of a total refund or sum of partial refunds generating the total refund.
      */
     const STATUS_CANCELLED = 'CANCELLED';
 

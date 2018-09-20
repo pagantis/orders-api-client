@@ -146,6 +146,7 @@ class ClientTest extends AbstractTest
      * @return bool|false|Order[]|string
      * @throws \Httpful\Exception\ConnectionErrorException
      * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
      */
     public function testListOrders()
     {
