@@ -35,26 +35,6 @@ class UrlsTest extends AbstractTest
 
     /**
      * testSetOk
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
-     */
-    public function testValidate()
-    {
-        //Expected true:
-        $urls = new Urls();
-        $urls->setKo(self::VALID_URL);
-        $urls->setOk(self::VALID_URL);
-        $this->assertTrue($urls->validate());
-
-        //Expected Failure:
-        $urls = new Urls();
-        $this->assertTrue($urls->validate());
-    }
-
-    /**
-     * testSetOk
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetOk()
     {
@@ -63,13 +43,10 @@ class UrlsTest extends AbstractTest
         $this->assertNull($urls->getOk());
         $urls->setOk(self::VALID_URL);
         $this->assertEquals(self::VALID_URL, $urls->getOk());
-        $urls->setOk(self::INVALID_URL);
     }
 
     /**
      * testSetOk
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetKo()
     {
@@ -78,13 +55,10 @@ class UrlsTest extends AbstractTest
         $this->assertNull($urls->getKo());
         $urls->setKo(self::VALID_URL);
         $this->assertEquals(self::VALID_URL, $urls->getKo());
-        $urls->setKo(self::INVALID_URL);
     }
 
     /**
      * testSetOk
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetCancel()
     {
@@ -93,13 +67,10 @@ class UrlsTest extends AbstractTest
         $this->assertNull($urls->getCancel());
         $urls->setCancel(self::VALID_URL);
         $this->assertEquals(self::VALID_URL, $urls->getCancel());
-        $urls->setCancel(self::INVALID_URL);
     }
 
     /**
      * testSetOk
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testSetNotificationCallback()
     {
@@ -108,6 +79,5 @@ class UrlsTest extends AbstractTest
         $this->assertNull($urls->getNotificationCallback());
         $urls->setNotificationCallback(self::VALID_URL);
         $this->assertEquals(self::VALID_URL, $urls->getNotificationCallback());
-        $urls->setNotificationCallback(self::INVALID_URL);
     }
 }

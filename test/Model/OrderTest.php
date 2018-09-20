@@ -24,7 +24,7 @@ class OrderTest extends AbstractTest
     const STATUS_AUTHORIZED = 'AUTHORIZED';
 
     /**
-     * Order confirmed has been paid by customer and merchant has confirmed it. Payment is complemeted
+     * Order confirmed has been paid by customer and merchant has confirmed it. Payment is completed
      * and settlement will be created.
      */
     const STATUS_CONFIRMED = 'CONFIRMED';
@@ -42,7 +42,7 @@ class OrderTest extends AbstractTest
     const STATUS_INVALIDATED = 'INVALIDATED';
 
     /**
-     * Undefined ERROR has occured, please double check with the account manager or PMT support channels.
+     * Undefined ERROR has occurred, please double check with the account manager or PMT support channels.
      */
     const STATUS_ERROR = 'ERROR';
 
@@ -53,7 +53,7 @@ class OrderTest extends AbstractTest
     const STATUS_UNCONFIRMED = 'UNCONFIRMED';
 
     /**
-     * The order cancelled is a concecuence of a total refund or sum of partial refunds generating the total refund.
+     * The order cancelled is a consequence of a total refund or sum of partial refunds generating the total refund.
      */
     const STATUS_CANCELLED = 'CANCELLED';
 
@@ -90,37 +90,7 @@ class OrderTest extends AbstractTest
     }
 
     /**
-     * testValidate
-     *
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
-     */
-    public function testValidate()
-    {
-        $order = new Order();
-
-        //test AbstractModel calls validate
-        $object = $this->getMock('PagaMasTarde\OrdersApiClient\Model\Order\ActionUrls');
-        $object->expects($this->atLeastOnce())->method('validate');
-        $order->setActionUrls($object);
-        $object = $this->getMock('PagaMasTarde\OrdersApiClient\Model\Order\Configuration');
-        $object->expects($this->atLeastOnce())->method('validate');
-        $order->setConfiguration($object);
-        $object = $this->getMock('PagaMasTarde\OrdersApiClient\Model\Order\Metadata');
-        $object->expects($this->atLeastOnce())->method('validate');
-        $order->setMetadata($object);
-        $object = $this->getMock('PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart');
-        $object->expects($this->atLeastOnce())->method('validate');
-        $order->setShoppingCart($object);
-        $object = $this->getMock('PagaMasTarde\OrdersApiClient\Model\Order\User');
-        $object->expects($this->atLeastOnce())->method('validate');
-        $order->setUser($object);
-        $this->assertTrue($order->validate());
-    }
-
-    /**
      * testImport
-     *
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testImport()
     {
@@ -135,15 +105,12 @@ class OrderTest extends AbstractTest
 
         $order = new Order();
         $order->import($object);
-        $this->assertTrue($order->validate());
         $orderExport = json_decode(json_encode($order->export()));
         $this->assertEquals($object, $orderExport);
     }
 
     /**
      * testImport
-     *
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testImportEmptyDates()
     {
@@ -158,7 +125,6 @@ class OrderTest extends AbstractTest
 
         $order = new Order();
         $order->import($object);
-        $this->assertTrue($order->validate());
         $orderExport = json_decode(json_encode($order->export()));
         $this->assertEquals($object, $orderExport);
     }

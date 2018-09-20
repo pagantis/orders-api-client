@@ -37,13 +37,4 @@ class ModelInterfaceTest extends AbstractTest
         $interfaceMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ModelInterface');
         $this->assertTrue(method_exists($interfaceMock, 'import'));
     }
-
-    /**
-     * testInterfaceExists
-     */
-    public function testInterfaceValidate()
-    {
-        $interfaceMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ModelInterface');
-        $this->assertTrue(method_exists($interfaceMock, 'validate'));
-    }
 }

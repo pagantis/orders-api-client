@@ -31,7 +31,7 @@ class Client
      * @param null $baseUri
      *
      * @throws ConnectionErrorException
-     * @throws Exception\ValidationException
+     * @throws Exception\ClientException
      */
     public function __construct($publicKey, $privateKey, $baseUri = null)
     {
@@ -55,7 +55,7 @@ class Client
      * @return bool|false|Order|string
      * @throws ConnectionErrorException
      * @throws Exception\HttpException
-     * @throws Exception\ValidationException
+     * @throws Exception\ClientException
      */
     public function createOrder(Order $order, $asJson = false)
     {
@@ -75,7 +75,7 @@ class Client
      * @return bool|false|Order|string
      * @throws ConnectionErrorException
      * @throws Exception\HttpException
-     * @throws Exception\ValidationException
+     * @throws Exception\ClientException
      */
     public function getOrder($orderId, $asJson = false)
     {
@@ -97,7 +97,6 @@ class Client
      * @return array|bool|string
      * @throws ConnectionErrorException
      * @throws Exception\HttpException
-     * @throws Exception\ValidationException
      */
     public function listOrders(array $queryString = null, $asJson = false)
     {
@@ -117,7 +116,7 @@ class Client
      * @return bool|false|Order|string
      * @throws ConnectionErrorException
      * @throws Exception\HttpException
-     * @throws Exception\ValidationException
+     * @throws Exception\ClientException
      */
     public function confirmOrder($orderId, $asJson = false)
     {
@@ -138,7 +137,7 @@ class Client
      * @return bool|false|Order\Refund|string
      * @throws ConnectionErrorException
      * @throws Exception\HttpException
-     * @throws Exception\ValidationException
+     * @throws Exception\ClientException
      */
     public function refundOrder($orderId, Order\Refund $refund, $asJson = false)
     {

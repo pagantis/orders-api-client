@@ -3,15 +3,15 @@
 namespace PagaMasTarde\OrdersApiClient\Exception;
 
 /**
- * Class ValidationException
+ * Class ClientException
  * @package PagaMasTarde\OrdersApiClient\Exception
  */
-class ValidationException extends \Exception
+class ClientException extends \Exception
 {
     /**
      * Default Message
      */
-    const MESSAGE = 'Provided data does not conform to business model or basic domain validation rules';
+    const MESSAGE = 'Client Error';
 
     /**
      * Default Code
@@ -33,9 +33,8 @@ class ValidationException extends \Exception
      *
      * @param string          $message
      * @param int             $code
-     * @param \Throwable|null $previous
      */
-    public function __construct($message = "", $code = 0, \Throwable $previous = null)
+    public function __construct($message = "", $code = 0)
     {
         $this->message = empty($message) ? self::MESSAGE : $message;
         $this->code = empty($code) ? self::CODE : $code;

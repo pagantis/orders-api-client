@@ -44,8 +44,6 @@ class ListOrdersMethodTest extends AbstractTest
 
     /**
      * testGetOrders
-     *
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      * @throws \ReflectionException
      */
     public function testGetOrders()
@@ -76,8 +74,8 @@ class ListOrdersMethodTest extends AbstractTest
     /**
      * testPrepareRequest
      *
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      * @throws \ReflectionException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
      */
     public function testPrepareRequest()
     {

@@ -2,7 +2,6 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Model;
 
-use Faker\Factory;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
 use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
@@ -45,7 +44,7 @@ class ApiConfigurationTest extends AbstractTest
     /**
      * testSetBaseUrl
      *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
+     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ClientException
      */
     public function testSetBaseUrl()
     {
@@ -53,41 +52,5 @@ class ApiConfigurationTest extends AbstractTest
         $apiConfiguration->setBaseUri(self::VALID_URL);
         $this->assertEquals(self::VALID_URL, $apiConfiguration->getBaseUri());
         $apiConfiguration->setBaseUri(self::INVALID_URL);
-    }
-
-    /**
-     * testValidate
-     *
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
-     */
-    public function testValidate()
-    {
-        $faker = Factory::create();
-        $apiConfiguration = new ApiConfiguration();
-        $apiConfiguration->import((object) array('base_uri' => self::INVALID_URL));
-
-        try {
-            $apiConfiguration->validate();
-            $this->assertTrue(false);
-        } catch (\Exception $exception) {
-            //Private and Public cannot be null
-            $this->assertTrue(true);
-        }
-
-        $apiConfiguration
-            ->setPrivateKey($faker->uuid)
-            ->setPublicKey($faker->uuid)
-        ;
-
-        try {
-            $apiConfiguration->validate();
-            $this->assertTrue(false);
-        } catch (\Exception $exception) {
-            //Wrong BaseUri
-            $this->assertTrue(true);
-        }
-
-        $apiConfiguration->setBaseUri(self::VALID_URL);
-        $apiConfiguration->validate();
     }
 }

@@ -2,10 +2,10 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Method;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use Faker\Factory;
 use Httpful\Http;
 use Httpful\Request;
+use PagaMasTarde\OrdersApiClient\Exception\ClientException;
 use PagaMasTarde\OrdersApiClient\Method\CreateOrderMethod;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
 use PagaMasTarde\OrdersApiClient\Model\Order;
@@ -47,7 +47,6 @@ class CreateOrderMethodTest extends AbstractTest
     /**
      * testGetOrder
      *
-     * @throws ValidationException
      * @throws \ReflectionException
      */
     public function testGetOrder()
@@ -73,8 +72,8 @@ class CreateOrderMethodTest extends AbstractTest
     /**
      * testPrepareRequest
      *
-     * @throws ValidationException
      * @throws \ReflectionException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
      */
     public function testPrepareRequest()
     {
@@ -116,8 +115,8 @@ class CreateOrderMethodTest extends AbstractTest
         try {
             $createOrderMethod->call();
             $this->assertTrue(false);
-        } catch (ValidationException $exception) {
-            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\ValidationException', $exception);
+        } catch (ClientException $exception) {
+            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\ClientException', $exception);
         }
     }
 }

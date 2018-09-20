@@ -2,7 +2,6 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order\User;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
@@ -123,16 +122,12 @@ class Address extends AbstractModel
      * @param $fullName
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setFullName($fullName)
     {
-        if (!empty($fullName)) {
-            $this->fullName = $fullName;
-            return $this;
-        }
+        $this->fullName = $fullName;
 
-        throw new ValidationException('Full name cannot be empty');
+        return $this;
     }
 
     /**
@@ -213,17 +208,5 @@ class Address extends AbstractModel
         $this->mobilePhone = $mobilePhone;
 
         return $this;
-    }
-
-    /**
-     * Address has no validation
-     *
-     * @return bool|true
-     */
-    public function validate()
-    {
-        $this->triggerSetters();
-
-        return true;
     }
 }

@@ -2,7 +2,6 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
@@ -75,30 +74,11 @@ class Product extends AbstractModel
      * @param $quantity
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setQuantity($quantity)
     {
-        if ($quantity >= 1) {
-            $this->quantity = $quantity;
-            return $this;
-        }
+        $this->quantity = $quantity;
 
-        throw new ValidationException('Quantity has to be non zero natural number');
-    }
-
-    /**
-     * @return bool|true
-     * @throws ValidationException
-     */
-    public function validate()
-    {
-        $this->triggerSetters();
-
-        if (!$this->getAmount() || !$this->getQuantity()) {
-            throw new ValidationException('Amount and Quantity can not be empty');
-        }
-
-        return true;
+        return $this;
     }
 }

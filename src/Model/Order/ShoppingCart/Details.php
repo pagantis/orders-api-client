@@ -2,7 +2,6 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details\Product;
 
@@ -62,16 +61,12 @@ class Details extends AbstractModel
      * @param $shippingCost
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setShippingCost($shippingCost)
     {
-        if ($shippingCost >= 0) {
-            $this->shippingCost = $shippingCost;
-            return $this;
-        }
+        $this->shippingCost = $shippingCost;
 
-        throw new ValidationException('Shipping cost has to be natural number');
+        return $this;
     }
 
     /**
@@ -79,7 +74,6 @@ class Details extends AbstractModel
      *
      * @param $object
      *
-     * @throws ValidationException
      */
     public function import($object)
     {
@@ -95,24 +89,5 @@ class Details extends AbstractModel
                 }
             }
         }
-    }
-
-    /**
-     * @return bool|true
-     * @throws ValidationException
-     */
-    public function validate()
-    {
-        $this->triggerSetters();
-
-        if (empty($this->products)) {
-            throw new ValidationException('At least 1 product is expected');
-        }
-
-        foreach ($this->products as $product) {
-            $product->validate();
-        }
-
-        return true;
     }
 }

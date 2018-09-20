@@ -2,7 +2,6 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use Faker\Factory;
 use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details;
 use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
@@ -45,64 +44,18 @@ class DetailsTest extends AbstractTest
 
     /**
      * testShippingCost
-     *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function testShippingCost()
     {
         $faker = Factory::create();
         $number = $faker->randomDigitNotNull;
         $details = new Details();
-
-        //Working:
         $details->setShippingCost($number);
         $this->assertEquals($details->getShippingCost(), $number);
-
-        //Working: shipping can be 0
-        $details->setShippingCost(0);
-
-        //Failure: not negative values nor not int
-        $details->setShippingCost(-1);
-    }
-
-    /**
-     * @throws ValidationException
-     */
-    public function testValidate()
-    {
-        $faker = Factory::create();
-        $details = new Details();
-
-        try {
-            $details->validate();
-            $this->assertTrue(false);
-        } catch (ValidationException $exception) {
-            //At least 1 product is expected
-            $this->assertTrue(true);
-        };
-
-        $product = new Details\Product();
-        $details->addProduct($product);
-
-        try {
-            $details->validate();
-            $this->assertTrue(false);
-        } catch (ValidationException $exception) {
-            //Product doesn't validate
-            $this->assertTrue(true);
-        };
-
-        $product->setAmount($faker->randomDigitNotNull);
-        $product->setQuantity($faker->randomDigitNotNull);
-        $product->setDescription($faker->sentence);
-
-        $this->assertTrue($details->validate());
     }
 
     /**
      * test Import
-     *
-     * @throws ValidationException
      */
     public function testImport()
     {

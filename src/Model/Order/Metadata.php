@@ -2,7 +2,6 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 
 /**
@@ -16,22 +15,17 @@ class Metadata extends AbstractModel
      * @param $value
      *
      * @return $this
-     * @throws ValidationException
      */
     public function addMetadata($key, $value)
     {
-        if (is_string($key) && is_string($value)) {
-            $this->{$key} = $value;
-            return $this;
-        }
+        $this->{$key} = $value;
 
-        throw new ValidationException('Key and value have to be string');
+        return $this;
     }
 
     /**
      * @param $object
      *
-     * @throws ValidationException
      */
     public function import($object)
     {
@@ -49,9 +43,6 @@ class Metadata extends AbstractModel
      */
     public function export($validation = true)
     {
-        if ($validation) {
-            $this->validate();
-        }
         $result = array();
         foreach ($this as $key => $value) {
             if ($value) {
@@ -60,15 +51,5 @@ class Metadata extends AbstractModel
         }
 
         return $result;
-    }
-
-    /**
-     * Nothing to validate.
-     *
-     * @return bool|true
-     */
-    public function validate()
-    {
-        return true;
     }
 }

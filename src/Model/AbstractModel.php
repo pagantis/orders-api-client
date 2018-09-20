@@ -3,7 +3,6 @@
 namespace PagaMasTarde\OrdersApiClient\Model;
 
 use Nayjest\StrCaseConverter\Str;
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 
 /**
  * Class AbstractModel
@@ -18,13 +17,9 @@ abstract class AbstractModel implements ModelInterface
      * @param bool $validation
      *
      * @return array
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     public function export($validation = true)
     {
-        if ($validation) {
-            $this->validate();
-        }
         $result = array();
         foreach ($this as $key => $value) {
             if (!is_null($value)) {
@@ -42,7 +37,6 @@ abstract class AbstractModel implements ModelInterface
      * @param $validation
      *
      * @return array|string
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
      */
     protected function parseValue($value, $validation)
     {
@@ -72,7 +66,6 @@ abstract class AbstractModel implements ModelInterface
      *
      * @param $object
      *
-     * @throws ValidationException
      */
     public function import($object)
     {
@@ -95,18 +88,6 @@ abstract class AbstractModel implements ModelInterface
                         }
                     }
                 }
-            }
-        }
-    }
-
-    /**
-     * Helps for validation purpose, since setters have the validation
-     */
-    public function triggerSetters()
-    {
-        foreach ($this as $key => $value) {
-            if (method_exists($this, 'set' . ucfirst($key)) && $value !== null) {
-                $this->{'set' . ucfirst($key)}($value);
             }
         }
     }

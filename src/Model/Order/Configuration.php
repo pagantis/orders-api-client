@@ -70,17 +70,4 @@ class Configuration extends AbstractModel
 
         return $this;
     }
-
-    /**
-     * @return bool|true
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ValidationException
-     */
-    public function validate()
-    {
-        $this->triggerSetters();
-        $this->getChannel()->validate();
-        $this->getUrls()->validate();
-
-        return true;
-    }
 }

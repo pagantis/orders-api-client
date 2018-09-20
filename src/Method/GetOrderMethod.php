@@ -5,7 +5,7 @@ namespace PagaMasTarde\OrdersApiClient\Method;
 use Httpful\Http;
 use Httpful\Request;
 use Httpful\Response;
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
+use PagaMasTarde\OrdersApiClient\Exception\ClientException;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 
 /**
@@ -39,9 +39,9 @@ class GetOrderMethod extends AbstractMethod
 
     /**
      * @return $this|AbstractMethod
-     * @throws ValidationException
      * @throws \Httpful\Exception\ConnectionErrorException
      * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws ClientException
      */
     public function call()
     {
@@ -49,12 +49,11 @@ class GetOrderMethod extends AbstractMethod
             $this->prepareRequest();
             return $this->setResponse($this->request->send());
         }
-        throw new ValidationException('Please set OrderId');
+        throw new ClientException('Please set OrderId');
     }
 
     /**
      * @return bool|Order
-     * @throws ValidationException
      */
     public function getOrder()
     {

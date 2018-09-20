@@ -2,7 +2,6 @@
 
 namespace PagaMasTarde\OrdersApiClient\Model\Order;
 
-use PagaMasTarde\OrdersApiClient\Exception\ValidationException;
 use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 use PagaMasTarde\OrdersApiClient\Model\Order\User\Address;
 use PagaMasTarde\OrdersApiClient\Model\Order\User\OrderHistory;
@@ -133,19 +132,11 @@ class User extends AbstractModel
      * @param $dateOfBirth
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setDateOfBirth($dateOfBirth)
     {
-        if (null !== $dateOfBirth) {
-            $dateOfBirthParsed = new \DateTime($dateOfBirth);
-            $matureFilterDate = new \DateTime(date('Y-m-d', strtotime('-18 years')));
-            if ($dateOfBirthParsed <= $matureFilterDate) {
-                $this->dateOfBirth = $dateOfBirthParsed->format('Y-m-d');
-                return $this;
-            }
-            throw new ValidationException('Date of birth error. User cant have less than 18 years');
-        }
+        $dateOfBirthParsed = new \DateTime($dateOfBirth);
+        $this->dateOfBirth = $dateOfBirthParsed->format('Y-m-d');
 
         return $this;
     }
@@ -162,16 +153,12 @@ class User extends AbstractModel
      * @param $dni
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setDni($dni)
     {
-        if (self::dniCheck($dni)) {
-            $this->dni = $dni;
-            return $this;
-        }
+        $this->dni = $dni;
 
-        throw new ValidationException('Invalid DNI');
+        return $this;
     }
 
     /**
@@ -186,16 +173,12 @@ class User extends AbstractModel
      * @param $email
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setEmail($email)
     {
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $this->email = $email;
-            return $this;
-        }
+        $this->email = $email;
 
-        throw new ValidationException('Invalid User Email');
+        return $this;
     }
 
     /**
@@ -230,16 +213,12 @@ class User extends AbstractModel
      * @param $fullName
      *
      * @return $this
-     * @throws ValidationException
      */
     public function setFullName($fullName)
     {
-        if (!empty($fullName)) {
-            $this->fullName = $fullName;
-            return $this;
-        }
+        $this->fullName = $fullName;
 
-        throw new ValidationException('Full name cannot be empty');
+        return $this;
     }
 
     /**
@@ -303,34 +282,10 @@ class User extends AbstractModel
     }
 
     /**
-     * @param $dni
-     *
-     * @return bool
-     */
-    public static function dniCheck($dni)
-    {
-        try {
-            $letter = substr($dni, -1);
-            $numbers = substr($dni, 0, -1);
-            if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numbers%23, 1) == $letter &&
-                strlen($letter) == 1 &&
-                strlen($numbers) == 8
-            ) {
-                return true;
-            }
-        } catch (\Exception $exception) {
-            return false;
-        }
-
-        return false;
-    }
-
-    /**
      * Overwrite import to fill ordersHistory correctly
      *
      * @param $object
      *
-     * @throws ValidationException
      */
     public function import($object)
     {
@@ -346,30 +301,5 @@ class User extends AbstractModel
                 }
             }
         }
-    }
-
-    /**
-     * @return bool|true
-     * @throws ValidationException
-     */
-    public function validate()
-    {
-        $this->triggerSetters();
-
-        foreach ($this as $key => $value) {
-            if ($value instanceof AbstractModel) {
-                $value->validate();
-            }
-        }
-
-        foreach ($this->orderHistory as $orderHistory) {
-            $orderHistory->validate();
-        }
-
-        if (empty($this->fullName) || empty($this->email)) {
-            throw new ValidationException('Full name and Email can not be null');
-        }
-
-        return true;
     }
 }
