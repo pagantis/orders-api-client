@@ -135,9 +135,10 @@ class User extends AbstractModel
      */
     public function setDateOfBirth($dateOfBirth)
     {
-        $dateOfBirthParsed = new \DateTime($dateOfBirth);
-        $this->dateOfBirth = $dateOfBirthParsed->format('Y-m-d');
-
+        if (null !== $dateOfBirth) {
+            $dateOfBirthParsed = new \DateTime($dateOfBirth);
+            $this->dateOfBirth = $dateOfBirthParsed->format('Y-m-d');
+        }
         return $this;
     }
 
