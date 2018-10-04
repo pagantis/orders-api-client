@@ -97,7 +97,7 @@ abstract class AbstractMethod implements MethodInterface
         $objHttpException = new HttpException($code, $message);
         $status = $objHttpException->getStatus();
 
-        if (!in_array($code, $status)) {
+        if (!array_key_exists($code, $status)) {
             throw new HttpException(HttpException::HTTP_INTERNAL_SERVER_ERROR);
         }
 
