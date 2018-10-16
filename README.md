@@ -86,8 +86,7 @@ use Try|Catch when using the API methods, since it can cause HTTP exceptions.
 ### Create Order
 
 To create a order using the API Client start from a empty Order object,
-create the sub-objects and set the mandatory information. Once the order is filled
-use validate to verify that the fields needed to create the order are present.
+create the sub-objects and set the mandatory information.
 
 Then send the API Call to Paga+Tarde using the API Client. The result is the same
 order object with the rest of the fields completed. The status is `CREATED`.
@@ -114,11 +113,6 @@ $order
 
 //Notice, Create and fill with information the 4 objects
 
-//Validate the Order before trying to create it by using:
-
-/** $isValid bool **/
-$isValid = $order->validate();
-
 //To see the JSON result of a order Object:
 echo json_encode(
   $order->export(),
@@ -137,7 +131,7 @@ $orderCreated = $orderApiClient->create($order);
  * The attributes work with GETTERS and SETTERS
  *
  * The Response is parsed within the Client and is transformed into a Previously Defined Object with
- * validation and useful methods.
+ * useful methods.
  */
 
 ?>
@@ -146,7 +140,7 @@ $orderCreated = $orderApiClient->create($order);
 
 use Try|Catch when using order Create method, since it can cause HTTP exceptions.
 
-When setting data into the order object there is Validation Exceptions that may force to set the attributes in the
+When setting data into the order object there is Client Exceptions that may force to set the attributes in the
 correct format.
 ```
 
