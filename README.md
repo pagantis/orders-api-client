@@ -122,7 +122,7 @@ echo json_encode(
 );
 
 //Finally create the order by using the client:
-$orderCreated = $orderApiClient->create($order);
+$orderCreated = $orderApiClient->createOrder($order);
 
 
 
