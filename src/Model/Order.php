@@ -57,11 +57,6 @@ class Order extends AbstractModel
     const STATUS_UNCONFIRMED = 'UNCONFIRMED';
 
     /**
-     * The order cancelled is a consequence of a total refund or sum of partial refunds generating the total refund.
-     */
-    const STATUS_CANCELLED = 'CANCELLED';
-
-    /**
      * @var ActionUrls $actionUrls
      */
     protected $actionUrls;
