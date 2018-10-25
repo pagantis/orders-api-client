@@ -53,11 +53,6 @@ class OrderTest extends AbstractTest
     const STATUS_UNCONFIRMED = 'UNCONFIRMED';
 
     /**
-     * The order cancelled is a consequence of a total refund or sum of partial refunds generating the total refund.
-     */
-    const STATUS_CANCELLED = 'CANCELLED';
-
-    /**
      * testConstructor
      */
     public function testConstructor()
@@ -141,6 +136,5 @@ class OrderTest extends AbstractTest
         $this->assertEquals(self::STATUS_INVALIDATED, Order::STATUS_INVALIDATED);
         $this->assertEquals(self::STATUS_ERROR, Order::STATUS_ERROR);
         $this->assertEquals(self::STATUS_UNCONFIRMED, Order::STATUS_UNCONFIRMED);
-        $this->assertEquals(self::STATUS_CANCELLED, Order::STATUS_CANCELLED);
     }
 }

@@ -239,7 +239,7 @@ echo $amount;
 ### Confirm Order
 
 When the order is AUTHORIZED confirm is the action of the merchant that informs the payment method that he validates
-and confirms that the user has paid the order. A confirmed order can only be cancelled with a total refund.
+and confirms that the user has paid the order.
 Confirmed orders are processed and the loan is created. Once a loan is confirmed it is able to have refunds.
 
 A callback URL can be added to the order for notification of orders waiting for confirmation.
@@ -291,7 +291,7 @@ Refund is a deduction of the order total_amount. Refund can only be requested ov
 The refund of an order is automatically decreasing the amount from the end of the installments.
 
 A order can have several refunds, as long as they do not reach the order total_amount.
-Once the total_amount is refunded, the order status will change to CANCELLED.
+Once the total_amount is refunded, the order status will keep to CONFIRMED.
 
 ```php
 <?php
