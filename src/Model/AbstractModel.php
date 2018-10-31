@@ -16,14 +16,14 @@ abstract class AbstractModel implements ModelInterface
      *
      * @param bool $validation
      *
-     * @return array
+     * @return \stdClass
      */
     public function export($validation = true)
     {
-        $result = array();
+        $result = new \StdClass();
         foreach ($this as $key => $value) {
             if (!is_null($value)) {
-                $result[Str::toSnakeCase($key)] = $this->parseValue($value, $validation);
+                $result->{Str::toSnakeCase($key)} = $this->parseValue($value, $validation, $key);
             }
         }
 
