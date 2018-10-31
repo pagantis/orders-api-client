@@ -39,14 +39,14 @@ class Metadata extends AbstractModel
      *
      * @param bool $validation
      *
-     * @return array
+     * @return \stdClass
      */
     public function export($validation = true)
     {
-        $result = array();
+        $result = new \stdClass();
         foreach ($this as $key => $value) {
             if ($value) {
-                $result[$key] = $value;
+                $result->{$key} = $value;
             }
         }
 

@@ -35,4 +35,18 @@ class AbstractModelTest extends AbstractTest
         $this->assertEquals($object, $orderExport);
         $this->assertEquals($orderJson, $orderExportJson);
     }
+
+    /**
+     * testExportEmptyObjectReturnObject
+     *
+     * Test to confirm the object exported as json
+     */
+    public function testExportEmptyObjectReturnJSONObject()
+    {
+        $address = new Order\User\Address();
+        $result = json_encode($address->export());
+        $expectedResult = "{}";
+
+        $this->assertSame($expectedResult, $result);
+    }
 }
