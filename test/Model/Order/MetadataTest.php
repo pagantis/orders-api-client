@@ -23,7 +23,7 @@ class MetadataTest extends AbstractTest
         $value = $faker->sentence;
         $metadata->addMetadata($key, $value);
         $metadataExport = $metadata->export();
-        $this->assertSame($value, $metadataExport[$key]);
+        $this->assertSame($value, $metadataExport->{$key});
     }
 
     /**
