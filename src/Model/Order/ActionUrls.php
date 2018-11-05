@@ -51,7 +51,7 @@ class ActionUrls extends AbstractModel
     /**
      * @param string $confirm
      *
-     * @return ActionUrls
+     * @return $this
      */
     public function setConfirm($confirm)
     {
@@ -71,7 +71,7 @@ class ActionUrls extends AbstractModel
     /**
      * @param string $form
      *
-     * @return ActionUrls
+     * @return $this
      */
     public function setForm($form)
     {
@@ -91,7 +91,7 @@ class ActionUrls extends AbstractModel
     /**
      * @param string $instoreEmail
      *
-     * @return ActionUrls
+     * @return $this
      */
     public function setInstoreEmail($instoreEmail)
     {
@@ -111,7 +111,7 @@ class ActionUrls extends AbstractModel
     /**
      * @param string $instoreSms
      *
-     * @return ActionUrls
+     * @return $this
      */
     public function setInstoreSms($instoreSms)
     {
@@ -131,7 +131,7 @@ class ActionUrls extends AbstractModel
     /**
      * @param string $refund
      *
-     * @return ActionUrls
+     * @return $this
      */
     public function setRefund($refund)
     {
@@ -151,7 +151,7 @@ class ActionUrls extends AbstractModel
     /**
      * @param string $upsell
      *
-     * @return ActionUrls
+     * @return $this
      */
     public function setUpsell($upsell)
     {

@@ -21,9 +21,14 @@ class Urls extends AbstractModel
     protected $ko = null;
 
     /**
-     * @var string $notificationCallback URL
+     * @var string $authorizedNotificationCallback URL
      */
-    protected $notificationCallback = null;
+    protected $authorizedNotificationCallback = null;
+
+    /**
+     * @var string $rejectedNotificationCallback URL
+     */
+    protected $rejectedNotificationCallback = null;
 
     /**
      * @var string ok URL
@@ -49,9 +54,9 @@ class Urls extends AbstractModel
     }
 
     /**
-     * @param $cancel
+     * @param string $cancel
      *
-     * @return $this
+     * @return Urls
      */
     public function setCancel($cancel)
     {
@@ -69,9 +74,9 @@ class Urls extends AbstractModel
     }
 
     /**
-     * @param $ko
+     * @param string $ko
      *
-     * @return $this
+     * @return Urls
      */
     public function setKo($ko)
     {
@@ -83,19 +88,39 @@ class Urls extends AbstractModel
     /**
      * @return string
      */
-    public function getNotificationCallback()
+    public function getAuthorizedNotificationCallback()
     {
-        return $this->notificationCallback;
+        return $this->authorizedNotificationCallback;
     }
 
     /**
-     * @param $notificationCallback
+     * @param string $authorizedNotificationCallback
      *
-     * @return $this
+     * @return Urls
      */
-    public function setNotificationCallback($notificationCallback)
+    public function setAuthorizedNotificationCallback($authorizedNotificationCallback)
     {
-        $this->notificationCallback = $notificationCallback;
+        $this->authorizedNotificationCallback = $authorizedNotificationCallback;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRejectedNotificationCallback()
+    {
+        return $this->rejectedNotificationCallback;
+    }
+
+    /**
+     * @param string $rejectedNotificationCallback
+     *
+     * @return Urls
+     */
+    public function setRejectedNotificationCallback($rejectedNotificationCallback)
+    {
+        $this->rejectedNotificationCallback = $rejectedNotificationCallback;
 
         return $this;
     }
@@ -109,9 +134,9 @@ class Urls extends AbstractModel
     }
 
     /**
-     * @param $ok
+     * @param string $ok
      *
-     * @return $this
+     * @return Urls
      */
     public function setOk($ok)
     {

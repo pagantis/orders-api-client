@@ -70,14 +70,26 @@ class UrlsTest extends AbstractTest
     }
 
     /**
-     * testSetOk
-     */
-    public function testSetNotificationCallback()
+ * testSetOk
+ */
+    public function testSetAuthorizedNotificationCallback()
     {
         $urls = new Urls();
-        $urls->setNotificationCallback(null);
-        $this->assertNull($urls->getNotificationCallback());
-        $urls->setNotificationCallback(self::VALID_URL);
-        $this->assertEquals(self::VALID_URL, $urls->getNotificationCallback());
+        $urls->setAuthorizedNotificationCallback(null);
+        $this->assertNull($urls->getAuthorizedNotificationCallback());
+        $urls->setAuthorizedNotificationCallback(self::VALID_URL);
+        $this->assertEquals(self::VALID_URL, $urls->getAuthorizedNotificationCallback());
+    }
+
+    /**
+     * testSetOk
+     */
+    public function testSetRejectedNotificationCallback()
+    {
+        $urls = new Urls();
+        $urls->setRejectedNotificationCallback(null);
+        $this->assertNull($urls->getRejectedNotificationCallback());
+        $urls->setRejectedNotificationCallback(self::VALID_URL);
+        $this->assertEquals(self::VALID_URL, $urls->getRejectedNotificationCallback());
     }
 }
