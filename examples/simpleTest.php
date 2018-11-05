@@ -1,0 +1,195 @@
+<?php
+
+//Require the Client library using composer: composer require pagamastarde/orders-api-client
+require_once('../vendor/autoload.php');
+
+/**
+ * PLEASE FILL YOUR PUBLIC KEY AND PRIVATE KEY
+ */
+const PUBLICKEY = 'tk_05f3993ef51d41209c52eac7'; //Set your public key
+const PRIVATEKEY = 'c580df9e0b7b40c3'; //Set your private key
+const ORDERIDENTIFICATION = 'order_4159972708';
+
+try {
+    session_start();
+    $method = ($_GET['action']) ? ($_GET['action']) : 'createOrder';
+    call_user_func($method);
+} catch (Exception $e) {
+    echo $e->getMessage();
+    exit;
+}
+
+function createOrder()
+{
+    // There are 3 objects which are mandatory: User object, ShoppingCart object and Configuration object.
+    //1. User Object
+    writeLog('Creating User object');
+    writeLog('Adding the address of the user');
+    $userAddress =  new \PagaMasTarde\OrdersApiClient\Model\Order\User\Address();
+    $userAddress
+        ->setZipCode('28031')
+        ->setFullName('María Sanchez Escudero')
+        ->setCountryCode('ES')
+        ->setCity('Madrid')
+        ->setAddress('Paseo de la Castellana, 95')
+        ->setDni('59661738Z')
+        ->setFixPhone('911231234')
+        ->setMobilePhone('600123123');
+
+    $orderBillingAddress = $userAddress;
+
+    $orderShippingAddress =  new \PagaMasTarde\OrdersApiClient\Model\Order\User\Address();
+    $orderShippingAddress
+        ->setZipCode('08029')
+        ->setFullName('Alberto Escudero Sanchez')
+        ->setCountryCode('ES')
+        ->setCity('Barcelona')
+        ->setAddress('Avenida de la diagonal 525')
+        ->setDni('77695544A')
+        ->setFixPhone('931232345')
+        ->setMobilePhone('600123124');
+
+    writeLog('Adding the information of the user');
+    $orderUser = new \PagaMasTarde\OrdersApiClient\Model\Order\User();
+    $orderUser
+        ->setFullName('María Sanchez Escudero')
+        ->setAddress($userAddress)
+        ->setBillingAddress($orderBillingAddress)
+        ->setShippingAddress($orderShippingAddress)
+        ->setDateOfBirth('1985-12-30')
+        ->setEmail('user@my-shop.com')
+        ->setFixPhone('911231234')
+        ->setMobilePhone('600123123')
+        ->setDni('59661738Z');
+    writeLog('Created User object');
+
+    //2. ShoppingCart Object
+    writeLog('Creating ShoppingCart object');
+    writeLog('Adding the purchases of the customer, if there are.');
+    $orderHistory = new \PagaMasTarde\OrdersApiClient\Model\Order\User\OrderHistory();
+    $orderHistory
+        ->setAmount('2499')
+        ->setDate('2010-01-31');
+    $orderUser->addOrderHistory($orderHistory);
+
+    writeLog('Adding cart products');
+    $product = new \PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details\Product();
+    $product
+        ->setAmount('59999')
+        ->setQuantity('1')
+        ->setDescription('TV LG UltraPlana');
+
+    $details = new \PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details();
+    $details->setShippingCost('0');
+    $details->addProduct($product);
+
+    $orderShoppingCart = new \PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart();
+    $orderShoppingCart
+        ->setDetails($details)
+        ->setOrderReference(ORDERIDENTIFICATION)
+        ->setPromotedAmount(0) // This amount means that the merchant will asume the interests.
+        ->setTotalAmount('59999');
+    writeLog('Created OrderShoppingCart object');
+
+    //3. Configuration Object
+    writeLog('Creating Configuration object');
+    writeLog('Adding urls to redirect the user according each case');
+    $confirmUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=confirmOrder";
+    $errorUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=cancelOrder";
+    $orderConfigurationUrls = new \PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Urls();
+    $orderConfigurationUrls
+        ->setCancel($errorUrl)
+        ->setKo($errorUrl)
+        ->setNotificationCallback($confirmUrl)
+        ->setOk($confirmUrl);
+
+    writeLog('Adding channel info');
+    $orderChannel = new \PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Channel();
+    $orderChannel
+        ->setAssistedSale(false)
+        ->setType(\PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Channel::ONLINE);
+
+    $orderConfiguration = new \PagaMasTarde\OrdersApiClient\Model\Order\Configuration();
+    $orderConfiguration
+        ->setChannel($orderChannel)
+        ->setUrls($orderConfigurationUrls);
+    writeLog('Created Configuration object');
+
+    $order = new \PagaMasTarde\OrdersApiClient\Model\Order();
+    $order
+        ->setConfiguration($orderConfiguration)
+        ->setShoppingCart($orderShoppingCart)
+        ->setUser($orderUser);
+
+    writeLog('Creating client variable');
+    $orderClient = new \PagaMasTarde\OrdersApiClient\Client(PUBLICKEY, PRIVATEKEY);
+
+    writeLog('Creating Paga+Tarde order');
+    $order = $orderClient->createOrder($order);
+    if ($order instanceof \PagaMasTarde\OrdersApiClient\Model\Order) {
+        //If the order is correct and created then we have the redirection URL here:
+        $url = $order->getActionUrls()->getForm();
+        $_SESSION['order_id'] = $order->getId();
+        writeLog(json_encode($order->export(), JSON_PRETTY_PRINT));
+    } else {
+        throw new \Exception('Order not created');
+    }
+
+    // You can use our test credit cards to fill the Paga+Tarde form
+    writeLog("Redirecting to Paga+Tarde form => $url");
+    header('Location:'. $url);
+}
+
+function confirmOrder()
+{
+    /* Once the user comes back to the OK url or there is a notification upon callback url you will have to confirm
+     * the reception of the order. If not it will expire and will never be paid.
+     *
+     * Add this parameters in your database when you create a order and map it to your own order. Or search orders by
+     * your own order id. Both options are possible.
+     */
+
+    writeLog('Creating client variable');
+    $orderClient = new \PagaMasTarde\OrdersApiClient\Client(PUBLICKEY, PRIVATEKEY);
+
+    $order = $orderClient->getOrder($_SESSION['order_id']);
+
+    if ($order instanceof \PagaMasTarde\OrdersApiClient\Model\Order &&
+        $order->getStatus() == \PagaMasTarde\OrdersApiClient\Model\Order::STATUS_AUTHORIZED) {
+        //If the order exists, and the status is authorized, means you can mark the order as paid.
+
+        //DO WHATEVER YOU NEED TO DO TO MARK THE ORDER AS PAID IN YOUR OWN SYSTEM.
+        writeLog('Confirming order');
+        $order = $orderClient->confirmOrder($_SESSION['order_id']);
+
+        writeLog('Order confirmed');
+        writeLog(json_encode($order->export(), JSON_PRETTY_PRINT));
+        $message = "The order {$_SESSION['order_id']} has been confirmed successfully";
+    } else {
+        $message = "The order {$_SESSION['order_id']} can't be confirmed";
+    }
+
+    /* The order has been marked as paid and confirmed in Paga+Tarde so you will send the product to your customer and
+     * Paga+Tarde will pay you in the next 24h.
+     */
+
+    echo $message;
+    exit;
+}
+
+function cancelOrder()
+{
+    $message = "The order {$_SESSION['order_id']} can't be created";
+
+    echo $message;
+    exit;
+}
+
+/**
+ * UTILS
+ */
+
+function writeLog($message)
+{
+    file_put_contents('pmt.log', "$message.\n", FILE_APPEND);
+}
