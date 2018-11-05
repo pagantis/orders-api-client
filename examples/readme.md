@@ -7,7 +7,7 @@ This file demonstrates how to generate a order in Paga+Tarde using Orders API Cl
 To run this demo, you need to clone it and install dependencies:
 
 ```
-git clone https://github.com/PagaMasTarde/ordersApiClient.git
+git clone https://github.com/PagaMasTarde/ordersApiClient.git .
 composer install
 ```
 
@@ -19,7 +19,7 @@ php -S 0.0.0.0:8000 -t examples/
 
 The web application is running at [http://localhost:8000/simpleTest.php](http://localhost:8000/simpleTest.php).
 
-To trace the execution in real time, you can open the log file using the comand: 
+To trace the execution in real time, you can open the log file using the command: 
 ```
-tail -f pmt.log
+tail -f examples/pmt.log
 ``` 
