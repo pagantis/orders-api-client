@@ -242,7 +242,7 @@ When the order is AUTHORIZED confirm is the action of the merchant that informs 
 and confirms that the user has paid the order.
 Confirmed orders are processed and the loan is created. Once a loan is confirmed it is able to have refunds.
 
-A callbacks can be added to the order for notification of orders authorized or rejected.
+Several callbacks can be added to the order for notification of orders authorized or rejected.
 Also it is possible to list all the orders that are pending confirmation.
 
 ```php
