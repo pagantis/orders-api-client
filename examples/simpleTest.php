@@ -19,6 +19,13 @@ try {
     exit;
 }
 
+/**
+ * Create order in Paga+Tarde
+ *
+ * @throws \Httpful\Exception\ConnectionErrorException
+ * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+ * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+ */
 function createOrder()
 {
     // There are 3 objects which are mandatory: User object, ShoppingCart object and Configuration object.
@@ -72,7 +79,7 @@ function createOrder()
         ->setDate('2010-01-31');
     $orderUser->addOrderHistory($orderHistory);
 
-    writeLog('Adding cart products');
+    writeLog('Adding cart products. Minimum 1 required');
     $product = new \PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details\Product();
     $product
         ->setAmount('59999')
@@ -121,7 +128,7 @@ function createOrder()
         ->setShoppingCart($orderShoppingCart)
         ->setUser($orderUser);
 
-    writeLog('Creating client variable');
+    writeLog('Creating OrdersApiClient');
     if (PUBLIC_KEY=='' || PRIVATE_KEY == '') {
         throw new \Exception('You need set the public and private key');
     }
@@ -133,7 +140,7 @@ function createOrder()
         //If the order is correct and created then we have the redirection URL here:
         $url = $order->getActionUrls()->getForm();
         $_SESSION['order_id'] = $order->getId();
-        writeLog(json_encode($order->export(), JSON_PRETTY_PRINT));
+        writeLog(json_encode($order->export(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
     } else {
         throw new \Exception('Order not created');
     }
@@ -143,6 +150,13 @@ function createOrder()
     header('Location:'. $url);
 }
 
+/**
+ * Confirm order in Paga+Tarde
+ *
+ * @throws \Httpful\Exception\ConnectionErrorException
+ * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+ * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+ */
 function confirmOrder()
 {
     /* Once the user comes back to the OK url or there is a notification upon callback url you will have to confirm
@@ -152,7 +166,7 @@ function confirmOrder()
      * your own order id. Both options are possible.
      */
 
-    writeLog('Creating client variable');
+    writeLog('Creating OrdersApiClient');
     $orderClient = new \PagaMasTarde\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
 
     $order = $orderClient->getOrder($_SESSION['order_id']);
@@ -163,10 +177,10 @@ function confirmOrder()
 
         //DO WHATEVER YOU NEED TO DO TO MARK THE ORDER AS PAID IN YOUR OWN SYSTEM.
         writeLog('Confirming order');
-        $order = $orderClient->confirmOrder($_SESSION['order_id']);
+        $order = $orderClient->confirmOrder($order->getId());
 
         writeLog('Order confirmed');
-        writeLog(json_encode($order->export(), JSON_PRETTY_PRINT));
+        writeLog(json_encode($order->export(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
         $message = "The order {$_SESSION['order_id']} has been confirmed successfully";
     } else {
         $message = "The order {$_SESSION['order_id']} can't be confirmed";
@@ -180,6 +194,9 @@ function confirmOrder()
     exit;
 }
 
+/**
+ * Action after redirect to cancelUrl
+ */
 function cancelOrder()
 {
     $message = "The order {$_SESSION['order_id']} can't be created";
@@ -192,6 +209,11 @@ function cancelOrder()
  * UTILS
  */
 
+/**
+ * Write log file
+ *
+ * @param $message
+ */
 function writeLog($message)
 {
     file_put_contents('pmt.log', "$message.\n", FILE_APPEND);
