@@ -14,7 +14,8 @@
         "urls": {
             "cancel": "https://my-store.com/order-cancelled",
             "ko": "https://my-store.com/order-rejected",
-            "notification_callback": "https://my-store.com/orders/notify",
+            "authorized_notification_callback": "https://my-store.com/orders/notify",
+            "rejected_notification_callback": "https://my-store.com/orders/notify",
             "ok": "https://my-store.com/order-approved"
         }
     },
