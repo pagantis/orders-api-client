@@ -108,7 +108,8 @@ function createOrder()
     $orderConfigurationUrls
         ->setCancel($errorUrl)
         ->setKo($errorUrl)
-        ->setNotificationCallback($confirmUrl)
+        ->setAuthorizedNotificationCallback($confirmUrl)
+        ->setRejectedNotificationCallback($confirmUrl)
         ->setOk($confirmUrl);
 
     writeLog('Adding channel info');
