@@ -6,9 +6,9 @@ require_once('../vendor/autoload.php');
 /**
  * PLEASE FILL YOUR PUBLIC KEY AND PRIVATE KEY
  */
-const PUBLICKEY = ''; //Set your public key
-const PRIVATEKEY = ''; //Set your private key
-const ORDERIDENTIFICATION = 'order_4159972708';
+const PUBLIC_KEY = ''; //Set your public key
+const PRIVATE_KEY = ''; //Set your private key
+const ORDER_ID = 'order_4159972708';
 
 try {
     session_start();
@@ -86,7 +86,7 @@ function createOrder()
     $orderShoppingCart = new \PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart();
     $orderShoppingCart
         ->setDetails($details)
-        ->setOrderReference(ORDERIDENTIFICATION)
+        ->setOrderReference(ORDER_ID)
         ->setPromotedAmount(0) // This amount means that the merchant will asume the interests.
         ->setTotalAmount('59999');
     writeLog('Created OrderShoppingCart object');
@@ -122,10 +122,10 @@ function createOrder()
         ->setUser($orderUser);
 
     writeLog('Creating client variable');
-    if (PUBLICKEY=='' || PRIVATEKEY == '') {
+    if (PUBLIC_KEY=='' || PRIVATE_KEY == '') {
         throw new \Exception('You need set the public and private key');
     }
-    $orderClient = new \PagaMasTarde\OrdersApiClient\Client(PUBLICKEY, PRIVATEKEY);
+    $orderClient = new \PagaMasTarde\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
 
     writeLog('Creating Paga+Tarde order');
     $order = $orderClient->createOrder($order);
@@ -153,7 +153,7 @@ function confirmOrder()
      */
 
     writeLog('Creating client variable');
-    $orderClient = new \PagaMasTarde\OrdersApiClient\Client(PUBLICKEY, PRIVATEKEY);
+    $orderClient = new \PagaMasTarde\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
 
     $order = $orderClient->getOrder($_SESSION['order_id']);
 
