@@ -25,6 +25,7 @@ try {
  * @throws \Httpful\Exception\ConnectionErrorException
  * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
  * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+ * @throws \Exception
  */
 function createOrder()
 {
@@ -140,7 +141,10 @@ function createOrder()
         //If the order is correct and created then we have the redirection URL here:
         $url = $order->getActionUrls()->getForm();
         $_SESSION['order_id'] = $order->getId();
-        writeLog(json_encode($order->export(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        writeLog(json_encode(
+            $order->export(),
+            JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
+        ));
     } else {
         throw new \Exception('Order not created');
     }
@@ -180,7 +184,10 @@ function confirmOrder()
         $order = $orderClient->confirmOrder($order->getId());
 
         writeLog('Order confirmed');
-        writeLog(json_encode($order->export(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+        writeLog(json_encode(
+            $order->export(),
+            JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
+        ));
         $message = "The order {$_SESSION['order_id']} has been confirmed successfully";
     } else {
         $message = "The order {$_SESSION['order_id']} can't be confirmed";
