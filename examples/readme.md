@@ -19,4 +19,7 @@ php -S 0.0.0.0:8000 -t examples/
 
 The web application is running at [http://localhost:8000/simpleTest.php](http://localhost:8000/simpleTest.php).
 
-To trace the execution in real time, you can open the log file using the comand: tail -f pmt.log 
+To trace the execution in real time, you can open the log file using the comand: 
+```
+tail -f pmt.log
+``` 
