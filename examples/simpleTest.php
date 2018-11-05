@@ -6,8 +6,8 @@ require_once('../vendor/autoload.php');
 /**
  * PLEASE FILL YOUR PUBLIC KEY AND PRIVATE KEY
  */
-const PUBLICKEY = 'tk_05f3993ef51d41209c52eac7'; //Set your public key
-const PRIVATEKEY = 'c580df9e0b7b40c3'; //Set your private key
+const PUBLICKEY = ''; //Set your public key
+const PRIVATEKEY = ''; //Set your private key
 const ORDERIDENTIFICATION = 'order_4159972708';
 
 try {
@@ -122,6 +122,9 @@ function createOrder()
         ->setUser($orderUser);
 
     writeLog('Creating client variable');
+    if (PUBLICKEY=='' || PRIVATEKEY == '') {
+        throw new \Exception('You need set the public and private key');
+    }
     $orderClient = new \PagaMasTarde\OrdersApiClient\Client(PUBLICKEY, PRIVATEKEY);
 
     writeLog('Creating Paga+Tarde order');
