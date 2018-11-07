@@ -47,6 +47,10 @@ if ($order instanceof PagaMasTarde\OrdersApiClient\Model\Order) {
 
 ```
 
+## Examples / DemoTool
+
+Find [examples in PHP](https://github.com/PagaMasTarde/ordersApiClient/tree/master/examples) and a [demonstration tool](https://github.com/PagaMasTarde/ordersApiClient/tree/master/examples) with the complete integration [here](https://github.com/PagaMasTarde/ordersApiClient/tree/master/examples)
+
 ## Objects
 
 The objects used inside the API are already defined as Classes with the desired properties. Each object has a setup
