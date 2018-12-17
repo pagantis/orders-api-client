@@ -64,8 +64,9 @@ abstract class AbstractModel implements ModelInterface
     /**
      * Fill Up the Order from the json_decode(false) result of the API response.
      *
-     * @param $object
+     * @param \stdClass $object
      *
+     * @throws \Exception
      */
     public function import($object)
     {
@@ -79,9 +80,7 @@ abstract class AbstractModel implements ModelInterface
                             $objectProperty->import($value);
                         }
                     } else {
-                        if (is_string($value) &&
-                            preg_match('/[0-9\-]*T[0-9\:]/', $value)
-                        ) {
+                        if (is_string($value) && $this->validateDate($value)) {
                             $this->{lcfirst(Str::toCamelCase($key))} = new \DateTime($value);
                         } else {
                             $this->{lcfirst(Str::toCamelCase($key))} = $value;
@@ -90,5 +89,35 @@ abstract class AbstractModel implements ModelInterface
                 }
             }
         }
+    }
+
+    /**
+     * @param $date
+     *
+     * @return bool
+     */
+    private function validateDate($date)
+    {
+        $formats = array(
+            \DateTime::RFC3339_EXTENDED,
+            \DateTime::RFC3339,
+            \DateTime::ISO8601,
+            'Y-m-d\TH:i:s',
+            'Y-m-d\TH:i:s.v',
+        );
+
+        try {
+            $dateTime = new \DateTime($date);
+        } catch (\Exception $exception) {
+            return false;
+        }
+
+        foreach ($formats as $format) {
+            if ($dateTime && $dateTime->format($format) === $date) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Model;
 
+use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
 use PagaMasTarde\OrdersApiClient\Model\Order;
 use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
 
@@ -48,5 +49,46 @@ class AbstractModelTest extends AbstractTest
         $expectedResult = "{}";
 
         $this->assertSame($expectedResult, $result);
+    }
+
+    /**
+     * testValidateDate
+     *
+     * @throws \ReflectionException
+     */
+    public function testValidateDate()
+    {
+        $abstractModelMock = $this->getMockBuilder('PagaMasTarde\OrdersApiClient\Model\AbstractModel')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $abstractModelReflection = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Model\AbstractModel');
+        $method = $abstractModelReflection->getMethod('validateDate');
+        $method->setAccessible(true);
+
+        $correctValues = array(
+            '2018-12-17T08:46:18.000+00:00',
+            '2018-12-17T08:46:18.123+20:00',
+            '2018-12-03T10:20:58+01:00',
+            '2018-12-03T10:20:58',
+            '2018-12-03T10:20:58.988+01:00',
+        );
+
+        $wrongValues = array(
+            'APPLE IPHONE XS MAX 512GB GOLD SUPER RETINA HD/A12 BIONIC/LTE/DUAL 12MPX/4K/6.5 MT582QL/A',
+            'A+NO FROST2 X 0,60 METROS NUEVO CON DOS AÑOS DE GARANTÍA .SOLO ENVÍOS EN LA COMUNIDAD DE MADRID ',
+            '2018-12-03T10:20:58.A988+01:00',
+            '2018-12-03T10:20:58.988+2H',
+            '0000-00-00T00:00:00',
+            '0000-00-00T00:00:00.000',
+            '2018-12-03',
+        );
+
+        foreach ($correctValues as $value) {
+            $this->assertTrue($method->invokeArgs($abstractModelMock, array($value)));
+        }
+
+        foreach ($wrongValues as $value) {
+            $this->assertFalse($method->invokeArgs($abstractModelMock, array($value)));
+        }
     }
 }
