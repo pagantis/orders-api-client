@@ -99,9 +99,9 @@ abstract class AbstractModel implements ModelInterface
     private function validateDate($date)
     {
         $formats = array(
-            \DateTime::RFC3339_EXTENDED,
-            \DateTime::RFC3339,
-            \DateTime::ISO8601,
+            'Y-m-d\TH:i:s.vP',
+            'Y-m-d\TH:i:sP',
+            'Y-m-d\TH:i:sO',
             'Y-m-d\TH:i:s',
             'Y-m-d\TH:i:s.v',
         );
