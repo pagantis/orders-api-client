@@ -98,24 +98,14 @@ abstract class AbstractModel implements ModelInterface
      */
     private function validateDate($date)
     {
-        $formats = array(
-            'Y-m-d\TH:i:s.vP',
-            'Y-m-d\TH:i:sP',
-            'Y-m-d\TH:i:sO',
-            'Y-m-d\TH:i:s',
-            'Y-m-d\TH:i:s.v',
-        );
-
         try {
             $dateTime = new \DateTime($date);
         } catch (\Exception $exception) {
             return false;
         }
 
-        foreach ($formats as $format) {
-            if ($dateTime && $dateTime->format($format) === $date) {
-                return true;
-            }
+        if ($dateTime && substr($dateTime->format('c'), 0, 19) === substr($date, 0, 19)) {
+            return true;
         }
 
         return false;
