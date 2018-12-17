@@ -66,14 +66,8 @@ class ChannelTest extends AbstractTest
      */
     public function testConstantsNotChange()
     {
-        $reflectionClass = new \ReflectionClass(
-            'PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Channel'
-        );
-        $channelConstants = $reflectionClass->getConstants();
-
-        $reflectionClass = new \ReflectionClass(__CLASS__);
-        $testChannelConstants = $reflectionClass->getConstants();
-
-        $this->assertSame($testChannelConstants, $channelConstants);
+        $this->assertSame(self::INSTORE, Channel::INSTORE);
+        $this->assertSame(self::ONLINE, Channel::ONLINE);
+        $this->assertSame(self::PHONESALE, Channel::PHONESALE);
     }
 }
