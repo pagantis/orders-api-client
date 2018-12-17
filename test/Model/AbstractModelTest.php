@@ -84,11 +84,11 @@ class AbstractModelTest extends AbstractTest
         );
 
         foreach ($correctValues as $value) {
-            $this->assertTrue($method->invokeArgs($abstractModelMock, array($value)));
+            $this->assertTrue($method->invokeArgs($abstractModelMock, array($value)), $value);
         }
 
         foreach ($wrongValues as $value) {
-            $this->assertFalse($method->invokeArgs($abstractModelMock, array($value)));
+            $this->assertFalse($method->invokeArgs($abstractModelMock, array($value)), $value);
         }
     }
 }
