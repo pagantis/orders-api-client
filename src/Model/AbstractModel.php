@@ -57,6 +57,9 @@ abstract class AbstractModel implements ModelInterface
         if (is_object($value) && $value instanceof \DateTime && !empty($value)) {
             return $value->format('Y-m-d\Th:i:s');
         }
+        if (is_string($value)) {
+            return utf8_encode($value);
+        }
 
         return $value;
     }
