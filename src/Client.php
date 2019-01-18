@@ -26,14 +26,15 @@ class Client
     /**
      * Client constructor.
      *
-     * @param      $publicKey
-     * @param      $privateKey
-     * @param null $baseUri
+     * @param       $publicKey
+     * @param       $privateKey
+     * @param null  $baseUri
+     * @param array $headers
      *
      * @throws ConnectionErrorException
      * @throws Exception\ClientException
      */
-    public function __construct($publicKey, $privateKey, $baseUri = null)
+    public function __construct($publicKey, $privateKey, $baseUri = null, $headers = array())
     {
         if (!function_exists("curl_init")) {
             throw new ConnectionErrorException("Curl module is not available on this system");
@@ -44,6 +45,7 @@ class Client
             ->setBaseUri($baseUri ? $baseUri : ApiConfiguration::BASE_URI)
             ->setPrivateKey($privateKey)
             ->setPublicKey($publicKey)
+            ->setHeaders($headers)
         ;
         $this->apiConfiguration = $apiConfiguration;
     }

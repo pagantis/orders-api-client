@@ -113,6 +113,7 @@ abstract class AbstractMethod implements MethodInterface
             ->expects(Mime::JSON)
             ->authenticateWithBasic($this->apiConfiguration->getPublicKey(), $this->apiConfiguration->getPrivateKey())
             ->timeoutIn(5)
+            ->setHeaders($this->apiConfiguration->getHeaders())
             ;
     }
 

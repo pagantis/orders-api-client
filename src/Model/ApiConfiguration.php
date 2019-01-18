@@ -43,6 +43,13 @@ class ApiConfiguration extends AbstractModel
     protected $baseUri;
 
     /**
+     * Headers send to the API
+     *
+     * @var array
+     */
+    protected $headers = array();
+
+    /**
      * @return string
      */
     public function getPrivateKey()
@@ -104,5 +111,35 @@ class ApiConfiguration extends AbstractModel
         }
 
         throw new ClientException('Invalid base URL on the ApiConfiguration setter');
+    }
+
+    /**
+     * @return array
+     */
+    public function getHeaders()
+    {
+        return $this->headers;
+    }
+
+    /**
+     * @param array $headers
+     * @return ApiConfiguration
+     */
+    public function setHeaders($headers)
+    {
+        $this->headers = $headers;
+
+        return $this;
+    }
+
+    /**
+     * @param $header
+     * @return ApiConfiguration
+     */
+    public function addHeader($header)
+    {
+        $this->headers[] = $header;
+
+        return $this;
     }
 }

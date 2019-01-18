@@ -60,7 +60,10 @@ class AbstractMethodTest extends AbstractTest
         $reflectedClass = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\AbstractMethod');
         $method = $reflectedClass->getMethod('getRequest');
         $method->setAccessible(true);
-        $this->assertInstanceOf('Httpful\Request', $method->invoke($abstractMethod));
+        $request = $method->invoke($abstractMethod);
+        $this->assertInstanceOf('Httpful\Request', $request);
+
+        //todo finish this asserts.
     }
 
     /**
