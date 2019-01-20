@@ -35,6 +35,35 @@ class ClientTest extends AbstractTest
     }
 
     /**
+     * @throws \Httpful\Exception\ConnectionErrorException
+     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+     * @throws \ReflectionException
+     */
+    public function testConstructorArguments()
+    {
+        $array = array('key' => 'value');
+        $apiClient = new Client(
+            self::PUBLIC_KEY,
+            self::PRIVATE_KEY,
+            ApiConfiguration::BASE_URI,
+            $array
+        );
+
+        $apiClientReflection = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Client');
+
+        $property = $apiClientReflection->getProperty('apiConfiguration');
+        $property->setAccessible(true);
+
+        /** @var ApiConfiguration $apiConfiguration */
+        $apiConfiguration = $property->getValue($apiClient);
+
+        $this->assertSame(ApiConfiguration::BASE_URI, $apiConfiguration->getBaseUri());
+        $this->assertSame(self::PRIVATE_KEY, $apiConfiguration->getPrivateKey());
+        $this->assertSame(self::PUBLIC_KEY, $apiConfiguration->getPublicKey());
+        $this->assertSame($array, $apiConfiguration->getHeaders());
+    }
+
+    /**
      * @return ApiConfiguration
      * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
      */

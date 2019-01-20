@@ -2,6 +2,7 @@
 
 namespace Test\PagaMasTarde\OrdersApiClient\Method;
 
+use Httpful\Request;
 use PagaMasTarde\OrdersApiClient\Exception\HttpException;
 use PagaMasTarde\OrdersApiClient\Method\AbstractMethod;
 use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
@@ -50,7 +51,16 @@ class AbstractMethodTest extends AbstractTest
      */
     public function testGetRequest()
     {
+        $headers = array('key' => 'value');
+        $publicKey = 'publicKey';
+        $privateKey = 'privateKey';
+
         $apiConfiguration = new ApiConfiguration();
+        $apiConfiguration
+            ->setHeaders($headers)
+            ->setPrivateKey($privateKey)
+            ->setPublicKey($publicKey)
+        ;
         $abstractMethod = $this->getMock(
             'PagaMasTarde\OrdersApiClient\Method\AbstractMethod',
             array('call'),
@@ -60,10 +70,13 @@ class AbstractMethodTest extends AbstractTest
         $reflectedClass = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\AbstractMethod');
         $method = $reflectedClass->getMethod('getRequest');
         $method->setAccessible(true);
+        /** @var Request $request */
         $request = $method->invoke($abstractMethod);
         $this->assertInstanceOf('Httpful\Request', $request);
 
-        //todo finish this asserts.
+        $this->assertSame($headers, $request->headers);
+        $this->assertSame($publicKey, $request->username);
+        $this->assertSame($privateKey, $request->password);
     }
 
     /**
