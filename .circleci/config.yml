@@ -5,5 +5,6 @@ jobs:
       - image: splitbrain/phpfarm
     steps:
       - checkout
-      - run: composer install -n --prefer-dist
+      - run: curl -s https://getcomposer.org/installer | php
+      - run: composer.phar install
       - run: ./vendor/bin/phpunit
