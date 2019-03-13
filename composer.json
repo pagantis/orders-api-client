@@ -1,7 +1,7 @@
 {
-    "name": "pagamastarde/orders-api-client",
+    "name": "pagantis/orders-api-client",
     "license": "proprietary",
-    "description": "PagaMasTarde Orders Api Client in PHP. Use the api with simple methods and using OOP.",
+    "description": "Pagantis Orders Api Client in PHP. Use the api with simple methods and using OOP.",
     "type": "library",
     "require": {
         "php": ">=5.3",
@@ -24,8 +24,8 @@
     },
     "authors": [
         {
-            "name": "DigitalOrigin",
-            "email": "cromero@digitalorigin.com"
+            "name": "Pagantis",
+            "email": "integration@pagantis.com"
         }
     ]
 }
