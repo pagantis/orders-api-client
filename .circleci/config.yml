@@ -5,6 +5,11 @@ jobs:
       - image: splitbrain/phpfarm
     steps:
       - checkout
-      - run: curl -s https://getcomposer.org/installer | php-7.0
-      - run: php-7.0 composer.phar install
+      - run: curl -s https://getcomposer.org/installer | php-5.3
+      - run: php-5.3 composer.phar install
+      - run: php-5.4 ./vendor/bin/phpunit
+      - run: php-5.6 ./vendor/bin/phpunit
       - run: php-7.0 ./vendor/bin/phpunit
+      - run: php-7.1 ./vendor/bin/phpunit
+      - run: php-7.2 ./vendor/bin/phpunit
+
