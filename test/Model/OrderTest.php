@@ -1,14 +1,14 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Model;
+namespace Test\Pagantis\OrdersApiClient\Model;
 
-use PagaMasTarde\OrdersApiClient\Model\Order;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Pagantis\OrdersApiClient\Model\Order;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class OrderTest
  *
- * @package Test\PagaMasTarde\OrdersApiClient\Model
+ * @package Test\Pagantis\OrdersApiClient\Model
  */
 class OrderTest extends AbstractTest
 {
@@ -59,22 +59,22 @@ class OrderTest extends AbstractTest
     {
         $order = new Order();
         $this->assertInstanceOf(
-            'PagaMasTarde\OrdersApiClient\Model\Order\User',
+            'Pagantis\OrdersApiClient\Model\Order\User',
             $order->getUser()
         );
         $this->assertNull(
             $order->getActionUrls()
         );
         $this->assertInstanceOf(
-            'PagaMasTarde\OrdersApiClient\Model\Order\Configuration',
+            'Pagantis\OrdersApiClient\Model\Order\Configuration',
             $order->getConfiguration()
         );
         $this->assertInstanceOf(
-            'PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart',
+            'Pagantis\OrdersApiClient\Model\Order\ShoppingCart',
             $order->getShoppingCart()
         );
         $this->assertInstanceOf(
-            'PagaMasTarde\OrdersApiClient\Model\Order\Metadata',
+            'Pagantis\OrdersApiClient\Model\Order\Metadata',
             $order->getMetadata()
         );
 

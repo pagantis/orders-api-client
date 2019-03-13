@@ -1,10 +1,10 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model;
+namespace Pagantis\OrdersApiClient\Model;
 
 /**
  * Interface ModelInterface
- * @package PagaMasTarde\OrdersApiClient\Model
+ * @package Pagantis\OrdersApiClient\Model
  */
 interface ModelInterface
 {

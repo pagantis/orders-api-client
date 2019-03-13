@@ -1,13 +1,14 @@
-# Orders Api Client <img src="https://pagamastarde.com/img/icons/logo.svg" width="100" align="right">
+# Orders Api Client <img src="https://www.pagantis.com/wp-content/uploads/2019/02/cropped-pagantis_logo-1.png" width="100" align="right">
 
-[![Build Status](https://travis-ci.org/PagaMasTarde/ordersApiClient.svg?branch=master)](https://travis-ci.org/PagaMasTarde/ordersApiClient)
-[![Latest Stable Version](https://poser.pugx.org/pagamastarde/orders-api-client/v/stable)](https://packagist.org/packages/pagamastarde/orders-api-client)
-[![composer.lock](https://poser.pugx.org/pagamastarde/orders-api-client/composerlock)](https://packagist.org/packages/pagamastarde/orders-api-client)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/PagaMasTarde/ordersApiClient/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/PagaMasTarde/ordersApiClient/?branch=master)
+CircleCI: [![CircleCI](https://circleci.com/gh/pagantis/orders-api-client/tree/master.svg?style=svg)](https://circleci.com/gh/pagantis/orders-api-client/tree/master)
 
-Orders API Client offers the merchants working with Paga+Tarde a way to consume the API services without the effort of doing a complete development.
+[![Latest Stable Version](https://poser.pugx.org/pagantis/orders-api-client/v/stable)](https://packagist.org/packages/pagantis/orders-api-client)
+[![composer.lock](https://poser.pugx.org/pagantis/orders-api-client/composerlock)](https://packagist.org/packages/pagantis/orders-api-client)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pagantis/orders-api-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pagantis/orders-api-client/?branch=master)
+
+Orders API Client offers the merchants working with Pagantis a way to consume the API services without the effort of doing a complete development.
 The library provides stubs for each type of object withing the API and the method calls. Each Method supported by the API is implemented in this client and
-is documented within the code and [here](https://developer-staging.pagamastarde.com/api/)
+is documented within the code and [here](https://developer.pagamastarde.com/api/)
 
 All the code is tested and inspected by external services.
 
@@ -15,13 +16,13 @@ All the code is tested and inspected by external services.
 
 Install the library by:
 
-- Downloading it from [here](https://github.com/PagaMasTarde/ordersApiClient/releases/latest)
+- Downloading it from [here](https://github.com/pagantis/orders-api-client/releases/latest)
 
-https://github.com/PagaMasTarde/ordersApiClient/releases/latest
+https://github.com/pagantis/orders-api-client/releases/latest
 
 - Using Composer:
 ```php
-composer require pagamastarde/orders-api-client
+composer require pagantis/orders-api-client
 ```
 Finally, be sure to include the autoloader:
 ```php
@@ -37,19 +38,19 @@ $ordersApiClient = new OrdersApiClient($publicKey, $privateKey);
 
 //Example: get an existing Order status:
 $order = $ordersApiClient->getOrder($pmtOrderId); //$pmOrderId is the id of the order
-if ($order instanceof PagaMasTarde\OrdersApiClient\Model\Order) {
+if ($order instanceof Pagantis\OrdersApiClient\Model\Order) {
     $orderStatus = $order->getStatus();
     echo $orderStatus;
 }
 
 // You can investigate the rest of the methods. And find all the documentation of the API here:
-// https://developer-staging.pagamastarde.com/api/
+// https://developer.pagamastarde.com/api/
 
 ```
 
 ## Examples / DemoTool
 
-Find [examples in PHP](https://github.com/PagaMasTarde/ordersApiClient/tree/master/examples) and a [demonstration tool](https://github.com/PagaMasTarde/ordersApiClient/tree/master/examples) with the complete integration [here](https://github.com/PagaMasTarde/ordersApiClient/tree/master/examples)
+Find [examples in PHP](https://github.com/pagantis/orders-api-client/tree/master/examples) and a [demonstration tool](https://github.com/pagantis/orders-api-client/tree/master/examples) with the complete integration [here](https://github.com/pagantis/orders-api-client/tree/master/examples)
 
 ## Objects
 
@@ -64,13 +65,13 @@ Use always the defined objects when using the API Client. For example when creat
 <?php
 
 //Use the API Client to operate with the API
-$orderApiClient = new PagaMasTarde\OrdersApiClient\Client(
+$orderApiClient = new Pagantis\OrdersApiClient\Client(
     $publicKey,
     $privateKey
 );
 
 //Create a Refund object and set the amounts:
-$refund = new PagaMasTarde\OrdersApiClient\Model\Order\Refund();
+$refund = new Pagantis\OrdersApiClient\Model\Order\Refund();
 $refund
     ->setPromotedAmount(0)
     ->setTotalAmount(10)
@@ -92,22 +93,22 @@ use Try|Catch when using the API methods, since it can cause HTTP exceptions.
 To create a order using the API Client start from a empty Order object,
 create the sub-objects and set the mandatory information.
 
-Then send the API Call to Paga+Tarde using the API Client. The result is the same
+Then send the API Call to Pagantis using the API Client. The result is the same
 order object with the rest of the fields completed. The status is `CREATED`.
 
-Store the relation between Paga+Tarde order id and the merchant order id to be able to identify orders after creation.
+Store the relation between Pagantis order id and the merchant order id to be able to identify orders after creation.
 
 
 ```php
 <?php
 
 //Use the API Client to operate with the API
-$orderApiClient = new PagaMasTarde\OrdersApiClient\Client(
+$orderApiClient = new Pagantis\OrdersApiClient\Client(
     $publicKey,
     $privateKey
 );
 
-$order = new \PagaMasTarde\OrdersApiClient\Model\Order();
+$order = new \Pagantis\OrdersApiClient\Model\Order();
 $order
     ->setConfiguration($configurationObject)
     ->setShoppingCart($shoppingCartObject)
@@ -150,20 +151,20 @@ correct format.
 
 ### Get Order
 
-Use the method Get Order to retrieve the order again from Paga+Tarde server. The order retrieved has updated status.
-Store the relation between Paga+Tarde order id and the merchant order id to be able to identify orders after creation.
+Use the method Get Order to retrieve the order again from Pagantis server. The order retrieved has updated status.
+Store the relation between Pagantis order id and the merchant order id to be able to identify orders after creation.
 
 
 ```php
 <?php
 
 //Use the API Client to operate with the API
-$orderApiClient = new PagaMasTarde\OrdersApiClient\Client(
+$orderApiClient = new Pagantis\OrdersApiClient\Client(
     $publicKey,
     $privateKey
 );
 
-//By storing the Paga+Tarde order ID, fetch back the updated order:
+//By storing the Pagantis order ID, fetch back the updated order:
 $order = $orderApiClient->getOrder($orderId);
 
 ?>
@@ -199,7 +200,7 @@ See all the queryString parameters [here](https://developer.pagamastarde.com/api
 <?php
 
 //Use the API Client to operate with the API
-$orderApiClient = new PagaMasTarde\OrdersApiClient\Client(
+$orderApiClient = new Pagantis\OrdersApiClient\Client(
     $publicKey,
     $privateKey
 );
@@ -253,14 +254,14 @@ Also it is possible to list all the orders that are pending confirmation.
 <?php
 
 //Use the API Client to operate with the API
-$orderApiClient = new PagaMasTarde\OrdersApiClient\Client(
+$orderApiClient = new Pagantis\OrdersApiClient\Client(
     $publicKey,
     $privateKey
 );
 
 $order = $orderApiClient->confirmOrder($orderId);
 
-/** @See https://github.com/PagaMasTarde/ordersApiClient **/
+/** @See https://github.com/pagantis/orders-api-client **/
 
 ?>
 
@@ -277,7 +278,7 @@ $authorizedOrders = $orderApiClient->listOrders([
 ]);
 
 foreach ($orders as $order) {
-    // validate the payment in the merchant system and then inform Paga+Tarde API that
+    // validate the payment in the merchant system and then inform Pagantis API that
     // the order is processed and valid in the merchant
     $orderConfirmed = $orderApiClient->confirmOrder($order->getId());
 }
@@ -301,13 +302,13 @@ Once the total_amount is refunded, the order status will keep to CONFIRMED.
 <?php
 
 //Use the API Client to operate with the API
-$orderApiClient = new PagaMasTarde\OrdersApiClient\Client(
+$orderApiClient = new Pagantis\OrdersApiClient\Client(
     $publicKey,
     $privateKey
 );
 
 //Create a Refund object and set the amounts:
-$refund = new PagaMasTarde\OrdersApiClient\Model\Order\Refund();
+$refund = new Pagantis\OrdersApiClient\Model\Order\Refund();
 $refund
     ->setPromotedAmount(0)
     ->setTotalAmount(10)
@@ -330,4 +331,4 @@ please create a pull request here following the PSR-2 code style and we will use
 the code and if al test pass and no issues are detected by SensioLab Insights you could will be ready
 to merge. 
 
-* [Issue Tracker](https://github.com/PagaMasTarde/ordersApiClient/issues)
+* [Issue Tracker](https://github.com/pagantis/orders-api-client/issues)

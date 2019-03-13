@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: splitbrain/phpfarm
+    steps:
+      - checkout
+      - run:
+          name: Install Composer
+          command: curl -s https://getcomposer.org/installer | php-5.3
+      - run:
+          name: Install Vendors
+          command: php-5.3 composer.phar install
+      - run:
+          name: Testing PHP 5.3
+          command: php-5.3 ./vendor/bin/phpunit
+      - run:
+          name: Testing PHP 5.4
+          command: php-5.4 ./vendor/bin/phpunit
+      - run:
+          name: Testing PHP 5.6
+          command: php-5.6 ./vendor/bin/phpunit
+      - run:
+          name: Testing PHP 7.0
+          command: php-7.0 ./vendor/bin/phpunit
+      - run:
+          name: Testing PHP 7.1
+          command: php-7.1 ./vendor/bin/phpunit
+      - run:
+          name: Testing PHP 7.2
+          command: php-7.2 ./vendor/bin/phpunit

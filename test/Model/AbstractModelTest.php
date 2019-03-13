@@ -1,15 +1,15 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Model;
+namespace Test\Pagantis\OrdersApiClient\Model;
 
-use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
-use PagaMasTarde\OrdersApiClient\Model\Order;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Pagantis\OrdersApiClient\Model\AbstractModel;
+use Pagantis\OrdersApiClient\Model\Order;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class AbstractModelTest
  *
- * @package Test\PagaMasTarde\OrdersApiClient\Model
+ * @package Test\Pagantis\OrdersApiClient\Model
  */
 class AbstractModelTest extends AbstractTest
 {
@@ -58,10 +58,10 @@ class AbstractModelTest extends AbstractTest
      */
     public function testValidateDate()
     {
-        $abstractModelMock = $this->getMockBuilder('PagaMasTarde\OrdersApiClient\Model\AbstractModel')
+        $abstractModelMock = $this->getMockBuilder('Pagantis\OrdersApiClient\Model\AbstractModel')
             ->disableOriginalConstructor()
             ->getMock();
-        $abstractModelReflection = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Model\AbstractModel');
+        $abstractModelReflection = new \ReflectionClass('Pagantis\OrdersApiClient\Model\AbstractModel');
         $method = $abstractModelReflection->getMethod('validateDate');
         $method->setAccessible(true);
 

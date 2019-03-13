@@ -1,12 +1,12 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model\Order\User;
+namespace Pagantis\OrdersApiClient\Model\Order\User;
 
-use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
+use Pagantis\OrdersApiClient\Model\AbstractModel;
 
 /**
  * Class OrderHistory
- * @package PagaMasTarde\OrdersApiClient\Model\Order\User
+ * @package Pagantis\OrdersApiClient\Model\Order\User
  */
 class OrderHistory extends AbstractModel
 {

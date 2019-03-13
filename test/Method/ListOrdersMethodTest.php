@@ -1,18 +1,18 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Method;
+namespace Test\Pagantis\OrdersApiClient\Method;
 
 use Faker\Factory;
 use Httpful\Http;
 use Httpful\Request;
-use PagaMasTarde\OrdersApiClient\Method\ListOrdersMethod;
-use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Pagantis\OrdersApiClient\Method\ListOrdersMethod;
+use Pagantis\OrdersApiClient\Model\ApiConfiguration;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class ListOrdersMethodTest
  *
- * @package Test\PagaMasTarde\OrdersApiClient\Method;
+ * @package Test\Pagantis\OrdersApiClient\Method;
  */
 class ListOrdersMethodTest extends AbstractTest
 {
@@ -33,10 +33,10 @@ class ListOrdersMethodTest extends AbstractTest
     public function testSetQueryParameters()
     {
         $queryParameters = array('id' => 'uuid', 'created_at' => '2014-05-05');
-        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $apiConfigurationMock = $this->getMock('Pagantis\OrdersApiClient\Model\ApiConfiguration');
         $listOrderMethod = new ListOrdersMethod($apiConfigurationMock);
         $listOrderMethod->setQueryParameters($queryParameters);
-        $reflectGetOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\ListOrdersMethod');
+        $reflectGetOrderMethod = new \ReflectionClass('Pagantis\OrdersApiClient\Method\ListOrdersMethod');
         $property = $reflectGetOrderMethod->getProperty('queryParameters');
         $property->setAccessible(true);
         $this->assertEquals($queryParameters, $property->getValue($listOrderMethod));
@@ -56,10 +56,10 @@ class ListOrdersMethodTest extends AbstractTest
         $property->setAccessible(true);
         $property->setValue($responseMock, json_decode($arrayOfOrders));
 
-        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $apiConfigurationMock = $this->getMock('Pagantis\OrdersApiClient\Model\ApiConfiguration');
         $listOrderMethod = new ListOrdersMethod($apiConfigurationMock);
         $this->assertFalse($listOrderMethod->getOrders());
-        $reflectGetOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\ListOrdersMethod');
+        $reflectGetOrderMethod = new \ReflectionClass('Pagantis\OrdersApiClient\Method\ListOrdersMethod');
         $property = $reflectGetOrderMethod->getProperty('response');
         $property->setAccessible(true);
         $property->setValue($listOrderMethod, $responseMock);
@@ -67,7 +67,7 @@ class ListOrdersMethodTest extends AbstractTest
         $this->assertNotEmpty($listOrderMethod->getOrders());
         $orders = $listOrderMethod->getOrders();
         foreach ($orders as $order) {
-            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Order', $order);
+            $this->assertInstanceOf('Pagantis\OrdersApiClient\Model\Order', $order);
         }
     }
 
@@ -75,7 +75,7 @@ class ListOrdersMethodTest extends AbstractTest
      * testPrepareRequest
      *
      * @throws \ReflectionException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
      */
     public function testPrepareRequest()
     {
@@ -88,7 +88,7 @@ class ListOrdersMethodTest extends AbstractTest
         $apiConfiguration = new ApiConfiguration();
         $apiConfiguration->setBaseUri($url);
         $listOrdersMethod = new ListOrdersMethod($apiConfiguration);
-        $reflectGetOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\ListOrdersMethod');
+        $reflectGetOrderMethod = new \ReflectionClass('Pagantis\OrdersApiClient\Method\ListOrdersMethod');
         $method = $reflectGetOrderMethod->getMethod('prepareRequest');
         $method->setAccessible(true);
         $property = $reflectGetOrderMethod->getProperty('request');

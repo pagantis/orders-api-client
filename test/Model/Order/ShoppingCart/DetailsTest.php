@@ -1,14 +1,14 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart;
+namespace Test\Pagantis\OrdersApiClient\Model\Order\ShoppingCart;
 
 use Faker\Factory;
-use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class Details
- * @package Test\PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart
+ * @package Test\Pagantis\OrdersApiClient\Model\Order\ShoppingCart
  */
 class DetailsTest extends AbstractTest
 {
@@ -28,7 +28,7 @@ class DetailsTest extends AbstractTest
     {
         $details = new Details();
         $product = $this->getMock(
-            'PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details\Product'
+            'Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details\Product'
         );
         $details->addProduct($product);
         $products = $details->getProducts();

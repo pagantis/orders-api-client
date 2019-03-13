@@ -1,17 +1,17 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Method;
+namespace Pagantis\OrdersApiClient\Method;
 
 use Httpful\Mime;
 use Httpful\Request;
 use Httpful\Response;
-use PagaMasTarde\OrdersApiClient\Exception\HttpException;
-use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
+use Pagantis\OrdersApiClient\Exception\HttpException;
+use Pagantis\OrdersApiClient\Model\ApiConfiguration;
 
 /**
  * Class AbstractMethod
  *
- * @package PagaMasTarde\OrdersApiClient\Method
+ * @package Pagantis\OrdersApiClient\Method
  */
 abstract class AbstractMethod implements MethodInterface
 {

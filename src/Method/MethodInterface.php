@@ -1,10 +1,10 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Method;
+namespace Pagantis\OrdersApiClient\Method;
 
 /**
  * Interface MethodInterface
- * @package PagaMasTarde\OrdersApiClient\Method
+ * @package Pagantis\OrdersApiClient\Method
  */
 interface MethodInterface
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Model;
+namespace Test\Pagantis\OrdersApiClient\Model;
 
-use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Pagantis\OrdersApiClient\Model\ApiConfiguration;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class ApiConfigurationTest
  *
- * @package Test\PagaMasTarde\OrdersApiClient\Model
+ * @package Test\Pagantis\OrdersApiClient\Model
  */
 class ApiConfigurationTest extends AbstractTest
 {
@@ -44,7 +44,7 @@ class ApiConfigurationTest extends AbstractTest
     /**
      * testSetBaseUrl
      *
-     * @expectedException \PagaMasTarde\OrdersApiClient\Exception\ClientException
+     * @expectedException \Pagantis\OrdersApiClient\Exception\ClientException
      */
     public function testSetBaseUrl()
     {

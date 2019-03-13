@@ -1,18 +1,18 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model;
+namespace Pagantis\OrdersApiClient\Model;
 
-use PagaMasTarde\OrdersApiClient\Model\Order\ActionUrls;
-use PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
-use PagaMasTarde\OrdersApiClient\Model\Order\Metadata;
-use PagaMasTarde\OrdersApiClient\Model\Order\Refund;
-use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart;
-use PagaMasTarde\OrdersApiClient\Model\Order\User;
+use Pagantis\OrdersApiClient\Model\Order\ActionUrls;
+use Pagantis\OrdersApiClient\Model\Order\Configuration;
+use Pagantis\OrdersApiClient\Model\Order\Metadata;
+use Pagantis\OrdersApiClient\Model\Order\Refund;
+use Pagantis\OrdersApiClient\Model\Order\ShoppingCart;
+use Pagantis\OrdersApiClient\Model\Order\User;
 
 /**
  * Class Order
  *
- * @package PagaMasTarde\OrdersApiClient\Model
+ * @package Pagantis\OrdersApiClient\Model
  */
 class Order extends AbstractModel
 {

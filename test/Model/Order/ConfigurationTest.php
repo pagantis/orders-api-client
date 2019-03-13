@@ -1,13 +1,13 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Model\Order;
+namespace Test\Pagantis\OrdersApiClient\Model\Order;
 
-use PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Pagantis\OrdersApiClient\Model\Order\Configuration;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class ConfigurationTest
- * @package Test\PagaMasTarde\OrdersApiClient\Model\Order
+ * @package Test\Pagantis\OrdersApiClient\Model\Order
  */
 class ConfigurationTest extends AbstractTest
 {
@@ -18,11 +18,11 @@ class ConfigurationTest extends AbstractTest
     {
         $configuration = new Configuration();
         $this->assertInstanceOf(
-            'PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Channel',
+            'Pagantis\OrdersApiClient\Model\Order\Configuration\Channel',
             $configuration->getChannel()
         );
         $this->assertInstanceOf(
-            'PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Urls',
+            'Pagantis\OrdersApiClient\Model\Order\Configuration\Urls',
             $configuration->getUrls()
         );
     }

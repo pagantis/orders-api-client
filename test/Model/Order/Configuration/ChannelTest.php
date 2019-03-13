@@ -1,13 +1,13 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
+namespace Test\Pagantis\OrdersApiClient\Model\Order\Configuration;
 
-use PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Channel;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Pagantis\OrdersApiClient\Model\Order\Configuration\Channel;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class ChannelTest
- * @package Test\PagaMasTarde\OrdersApiClient\Model\Order\Configuration
+ * @package Test\Pagantis\OrdersApiClient\Model\Order\Configuration
  */
 class ChannelTest extends AbstractTest
 {
@@ -47,7 +47,7 @@ class ChannelTest extends AbstractTest
     {
         $channel = new Channel();
         $reflectionClass = new \ReflectionClass(
-            'PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Channel'
+            'Pagantis\OrdersApiClient\Model\Order\Configuration\Channel'
         );
         $constants = $reflectionClass->getConstants();
         foreach ($constants as $constant) {

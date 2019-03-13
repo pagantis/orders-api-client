@@ -1,12 +1,12 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
+namespace Pagantis\OrdersApiClient\Model\Order\Configuration;
 
-use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
+use Pagantis\OrdersApiClient\Model\AbstractModel;
 
 /**
  * Class Channel
- * @package PagaMasTarde\OrdersApiClient\Model\Order\Configuration
+ * @package Pagantis\OrdersApiClient\Model\Order\Configuration
  */
 class Channel extends AbstractModel
 {

@@ -1,20 +1,20 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Method;
+namespace Test\Pagantis\OrdersApiClient\Method;
 
 use Faker\Factory;
 use Httpful\Http;
 use Httpful\Request;
-use PagaMasTarde\OrdersApiClient\Exception\ClientException;
-use PagaMasTarde\OrdersApiClient\Method\RefundOrderMethod;
-use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
-use PagaMasTarde\OrdersApiClient\Model\Order\Refund;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Pagantis\OrdersApiClient\Exception\ClientException;
+use Pagantis\OrdersApiClient\Method\RefundOrderMethod;
+use Pagantis\OrdersApiClient\Model\ApiConfiguration;
+use Pagantis\OrdersApiClient\Model\Order\Refund;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class RefundOrderMethodTest
  *
- * @package Test\PagaMasTarde\OrdersApiClient\Method;
+ * @package Test\Pagantis\OrdersApiClient\Method;
  */
 class RefundOrderMethodTest extends AbstractTest
 {
@@ -36,10 +36,10 @@ class RefundOrderMethodTest extends AbstractTest
     {
         $faker = Factory::create();
         $orderId = $faker->uuid;
-        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $apiConfigurationMock = $this->getMock('Pagantis\OrdersApiClient\Model\ApiConfiguration');
         $refundOrderMethod = new RefundOrderMethod($apiConfigurationMock);
         $refundOrderMethod->setOrderId($orderId);
-        $reflectRefundOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\RefundOrderMethod');
+        $reflectRefundOrderMethod = new \ReflectionClass('Pagantis\OrdersApiClient\Method\RefundOrderMethod');
         $property = $reflectRefundOrderMethod->getProperty('orderId');
         $property->setAccessible(true);
         $this->assertEquals($orderId, $property->getValue($refundOrderMethod));
@@ -53,10 +53,10 @@ class RefundOrderMethodTest extends AbstractTest
     public function testSetRefund()
     {
         $refund = new Refund();
-        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $apiConfigurationMock = $this->getMock('Pagantis\OrdersApiClient\Model\ApiConfiguration');
         $refundOrderMethod = new RefundOrderMethod($apiConfigurationMock);
         $refundOrderMethod->setRefund($refund);
-        $reflectRefundOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\RefundOrderMethod');
+        $reflectRefundOrderMethod = new \ReflectionClass('Pagantis\OrdersApiClient\Method\RefundOrderMethod');
         $property = $reflectRefundOrderMethod->getProperty('refund');
         $property->setAccessible(true);
         $this->assertSame($refund, $property->getValue($refundOrderMethod));
@@ -76,22 +76,22 @@ class RefundOrderMethodTest extends AbstractTest
         $property->setAccessible(true);
         $property->setValue($responseMock, json_decode($orderJson));
 
-        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $apiConfigurationMock = $this->getMock('Pagantis\OrdersApiClient\Model\ApiConfiguration');
         $refundOrderMethod = new RefundOrderMethod($apiConfigurationMock);
         $this->assertFalse($refundOrderMethod->getRefund());
-        $reflectRefundOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\RefundOrderMethod');
+        $reflectRefundOrderMethod = new \ReflectionClass('Pagantis\OrdersApiClient\Method\RefundOrderMethod');
         $property = $reflectRefundOrderMethod->getProperty('response');
         $property->setAccessible(true);
         $property->setValue($refundOrderMethod, $responseMock);
 
-        $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Order\Refund', $refundOrderMethod->getRefund());
+        $this->assertInstanceOf('Pagantis\OrdersApiClient\Model\Order\Refund', $refundOrderMethod->getRefund());
     }
 
     /**
      * testPrepareRequest
      *
      * @throws \ReflectionException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
      */
     public function testPrepareRequest()
     {
@@ -106,7 +106,7 @@ class RefundOrderMethodTest extends AbstractTest
         $apiConfiguration->setBaseUri($url);
         $refundOrderMethod = new RefundOrderMethod($apiConfiguration);
         $refundOrderMethod->setRefund($refund);
-        $reflectRefundOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\RefundOrderMethod');
+        $reflectRefundOrderMethod = new \ReflectionClass('Pagantis\OrdersApiClient\Method\RefundOrderMethod');
         $method = $reflectRefundOrderMethod->getMethod('prepareRequest');
         $method->setAccessible(true);
         $property = $reflectRefundOrderMethod->getProperty('request');
@@ -133,17 +133,17 @@ class RefundOrderMethodTest extends AbstractTest
      * testCall
      *
      * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
      */
     public function testCall()
     {
-        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $apiConfigurationMock = $this->getMock('Pagantis\OrdersApiClient\Model\ApiConfiguration');
         $refundOrderMethod = new RefundOrderMethod($apiConfigurationMock);
         try {
             $refundOrderMethod->call();
             $this->assertTrue(false);
         } catch (ClientException $exception) {
-            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\ClientException', $exception);
+            $this->assertInstanceOf('Pagantis\OrdersApiClient\Exception\ClientException', $exception);
         }
     }
 }

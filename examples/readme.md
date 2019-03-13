@@ -1,13 +1,13 @@
 # OrdersApiClient demo
 
-This file demonstrates how to generate a order in Paga+Tarde using Orders API Client
+This file demonstrates how to generate a order in Pagantis using Orders API Client
 
 ## Run
 
 To run this demo, you need to clone it and install dependencies:
 
 ```
-git clone https://github.com/PagaMasTarde/ordersApiClient.git .
+git clone https://github.com/pagantis/orders-api-client.git .
 composer install
 ```
 

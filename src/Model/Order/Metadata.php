@@ -1,12 +1,12 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model\Order;
+namespace Pagantis\OrdersApiClient\Model\Order;
 
-use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
+use Pagantis\OrdersApiClient\Model\AbstractModel;
 
 /**
  * Class Metadata
- * @package PagaMasTarde\OrdersApiClient\Model\Order
+ * @package Pagantis\OrdersApiClient\Model\Order
  */
 class Metadata extends AbstractModel
 {

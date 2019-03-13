@@ -1,13 +1,13 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model;
+namespace Pagantis\OrdersApiClient\Model;
 
 use Nayjest\StrCaseConverter\Str;
 
 /**
  * Class AbstractModel
  *
- * @package PagaMasTarde\OrdersApiClient\Model
+ * @package Pagantis\OrdersApiClient\Model
  */
 abstract class AbstractModel implements ModelInterface
 {

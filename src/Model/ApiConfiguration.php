@@ -1,13 +1,13 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model;
+namespace Pagantis\OrdersApiClient\Model;
 
-use PagaMasTarde\OrdersApiClient\Exception\ClientException;
-use PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Urls;
+use Pagantis\OrdersApiClient\Exception\ClientException;
+use Pagantis\OrdersApiClient\Model\Order\Configuration\Urls;
 
 /**
  * Class ApiConfiguration
- * @package PagaMasTarde\OrdersApiClient\Model
+ * @package Pagantis\OrdersApiClient\Model
  */
 class ApiConfiguration extends AbstractModel
 {

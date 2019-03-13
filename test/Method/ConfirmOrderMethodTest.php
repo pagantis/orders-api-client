@@ -1,19 +1,19 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Method;
+namespace Test\Pagantis\OrdersApiClient\Method;
 
 use Faker\Factory;
 use Httpful\Http;
 use Httpful\Request;
-use PagaMasTarde\OrdersApiClient\Exception\ClientException;
-use PagaMasTarde\OrdersApiClient\Method\ConfirmOrderMethod;
-use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Pagantis\OrdersApiClient\Exception\ClientException;
+use Pagantis\OrdersApiClient\Method\ConfirmOrderMethod;
+use Pagantis\OrdersApiClient\Model\ApiConfiguration;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class ConfirmOrderMethodTest
  *
- * @package Test\PagaMasTarde\OrdersApiClient\Method;
+ * @package Test\Pagantis\OrdersApiClient\Method;
  */
 class ConfirmOrderMethodTest extends AbstractTest
 {
@@ -35,10 +35,10 @@ class ConfirmOrderMethodTest extends AbstractTest
     {
         $faker = Factory::create();
         $orderId = $faker->uuid;
-        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $apiConfigurationMock = $this->getMock('Pagantis\OrdersApiClient\Model\ApiConfiguration');
         $confirmOrderMethod = new ConfirmOrderMethod($apiConfigurationMock);
         $confirmOrderMethod->setOrderId($orderId);
-        $reflectConfirmOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\ConfirmOrderMethod');
+        $reflectConfirmOrderMethod = new \ReflectionClass('Pagantis\OrdersApiClient\Method\ConfirmOrderMethod');
         $property = $reflectConfirmOrderMethod->getProperty('orderId');
         $property->setAccessible(true);
         $this->assertEquals($orderId, $property->getValue($confirmOrderMethod));
@@ -58,22 +58,22 @@ class ConfirmOrderMethodTest extends AbstractTest
         $property->setAccessible(true);
         $property->setValue($responseMock, json_decode($orderJson));
 
-        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $apiConfigurationMock = $this->getMock('Pagantis\OrdersApiClient\Model\ApiConfiguration');
         $confirmOrderMethod = new ConfirmOrderMethod($apiConfigurationMock);
         $this->assertFalse($confirmOrderMethod->getOrder());
-        $reflectConfirmOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\ConfirmOrderMethod');
+        $reflectConfirmOrderMethod = new \ReflectionClass('Pagantis\OrdersApiClient\Method\ConfirmOrderMethod');
         $property = $reflectConfirmOrderMethod->getProperty('response');
         $property->setAccessible(true);
         $property->setValue($confirmOrderMethod, $responseMock);
 
-        $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Order', $confirmOrderMethod->getOrder());
+        $this->assertInstanceOf('Pagantis\OrdersApiClient\Model\Order', $confirmOrderMethod->getOrder());
     }
 
     /**
      * testPrepareRequest
      *
      * @throws \ReflectionException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
      */
     public function testPrepareRequest()
     {
@@ -83,7 +83,7 @@ class ConfirmOrderMethodTest extends AbstractTest
         $apiConfiguration = new ApiConfiguration();
         $apiConfiguration->setBaseUri($url);
         $confirmOrderMethod = new ConfirmOrderMethod($apiConfiguration);
-        $reflectConfirmOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\ConfirmOrderMethod');
+        $reflectConfirmOrderMethod = new \ReflectionClass('Pagantis\OrdersApiClient\Method\ConfirmOrderMethod');
         $method = $reflectConfirmOrderMethod->getMethod('prepareRequest');
         $method->setAccessible(true);
         $property = $reflectConfirmOrderMethod->getProperty('request');
@@ -110,17 +110,17 @@ class ConfirmOrderMethodTest extends AbstractTest
      * testCall
      *
      * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
      */
     public function testCall()
     {
-        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $apiConfigurationMock = $this->getMock('Pagantis\OrdersApiClient\Model\ApiConfiguration');
         $confirmOrderMethod = new ConfirmOrderMethod($apiConfigurationMock);
         try {
             $confirmOrderMethod->call();
             $this->assertTrue(false);
         } catch (ClientException $exception) {
-            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\ClientException', $exception);
+            $this->assertInstanceOf('Pagantis\OrdersApiClient\Exception\ClientException', $exception);
         }
     }
 }
