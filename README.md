@@ -1,5 +1,7 @@
 # Orders Api Client <img src="https://www.pagantis.com/wp-content/uploads/2019/02/cropped-pagantis_logo-1.png" width="100" align="right">
 
+CircleCI: [![CircleCI](https://circleci.com/gh/pagantis/orders-api-client/tree/master.svg?style=svg)](https://circleci.com/gh/pagantis/orders-api-client/tree/master)
+
 [![Latest Stable Version](https://poser.pugx.org/pagantis/orders-api-client/v/stable)](https://packagist.org/packages/pagantis/orders-api-client)
 [![composer.lock](https://poser.pugx.org/pagantis/orders-api-client/composerlock)](https://packagist.org/packages/pagantis/orders-api-client)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pagantis/orders-api-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pagantis/orders-api-client/?branch=master)
