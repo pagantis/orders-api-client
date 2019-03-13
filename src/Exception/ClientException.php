@@ -1,10 +1,10 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Exception;
+namespace Pagantis\OrdersApiClient\Exception;
 
 /**
  * Class ClientException
- * @package PagaMasTarde\OrdersApiClient\Exception
+ * @package Pagantis\OrdersApiClient\Exception
  */
 class ClientException extends \Exception
 {

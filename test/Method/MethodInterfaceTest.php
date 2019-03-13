@@ -1,13 +1,13 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Method;
+namespace Test\Pagantis\OrdersApiClient\Method;
 
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class MethodInterfaceTest
  *
- * @package Test\PagaMasTarde\OrdersApiClient\Method;
+ * @package Test\Pagantis\OrdersApiClient\Method;
  */
 class MethodInterfaceTest extends AbstractTest
 {
@@ -16,8 +16,8 @@ class MethodInterfaceTest extends AbstractTest
      */
     public function testInterfaceExists()
     {
-        $interfaceMock = $this->getMock('PagaMasTarde\OrdersApiClient\Method\MethodInterface');
-        $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Method\MethodInterface', $interfaceMock);
+        $interfaceMock = $this->getMock('Pagantis\OrdersApiClient\Method\MethodInterface');
+        $this->assertInstanceOf('Pagantis\OrdersApiClient\Method\MethodInterface', $interfaceMock);
     }
 
     /**
@@ -25,7 +25,7 @@ class MethodInterfaceTest extends AbstractTest
      */
     public function testInterfaceHasMethodCall()
     {
-        $interfaceMock = $this->getMock('PagaMasTarde\OrdersApiClient\Method\MethodInterface');
+        $interfaceMock = $this->getMock('Pagantis\OrdersApiClient\Method\MethodInterface');
         $this->assertTrue(method_exists($interfaceMock, 'call'));
     }
 }

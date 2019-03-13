@@ -1,12 +1,12 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model\Order\User;
+namespace Pagantis\OrdersApiClient\Model\Order\User;
 
-use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
+use Pagantis\OrdersApiClient\Model\AbstractModel;
 
 /**
  * Class Address
- * @package PagaMasTarde\OrdersApiClient\Model\Order\User
+ * @package Pagantis\OrdersApiClient\Model\Order\User
  */
 class Address extends AbstractModel
 {

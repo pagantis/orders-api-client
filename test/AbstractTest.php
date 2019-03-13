@@ -1,12 +1,12 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient;
+namespace Test\Pagantis\OrdersApiClient;
 
 use PHPUnit\Framework\TestCase;
 
 /**
  * Class AbstractTest
- * @package Test\PagaMasTarde\OrdersApiClient
+ * @package Test\Pagantis\OrdersApiClient
  */
 abstract class AbstractTest extends TestCase
 {

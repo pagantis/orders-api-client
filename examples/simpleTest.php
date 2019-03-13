@@ -1,6 +1,6 @@
 <?php
 
-//Require the Client library using composer: composer require pagamastarde/orders-api-client
+//Require the Client library using composer: composer require pagantis/orders-api-client
 require_once('../vendor/autoload.php');
 
 /**
@@ -23,8 +23,8 @@ try {
  * Create order in Paga+Tarde
  *
  * @throws \Httpful\Exception\ConnectionErrorException
- * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
- * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+ * @throws \Pagantis\OrdersApiClient\Exception\ClientException
+ * @throws \Pagantis\OrdersApiClient\Exception\HttpException
  * @throws \Exception
  */
 function createOrder()
@@ -33,7 +33,7 @@ function createOrder()
     //1. User Object
     writeLog('Creating User object');
     writeLog('Adding the address of the user');
-    $userAddress =  new \PagaMasTarde\OrdersApiClient\Model\Order\User\Address();
+    $userAddress =  new \Pagantis\OrdersApiClient\Model\Order\User\Address();
     $userAddress
         ->setZipCode('28031')
         ->setFullName('María Sanchez Escudero')
@@ -46,7 +46,7 @@ function createOrder()
 
     $orderBillingAddress = $userAddress;
 
-    $orderShippingAddress =  new \PagaMasTarde\OrdersApiClient\Model\Order\User\Address();
+    $orderShippingAddress =  new \Pagantis\OrdersApiClient\Model\Order\User\Address();
     $orderShippingAddress
         ->setZipCode('08029')
         ->setFullName('Alberto Escudero Sanchez')
@@ -58,7 +58,7 @@ function createOrder()
         ->setMobilePhone('600123124');
 
     writeLog('Adding the information of the user');
-    $orderUser = new \PagaMasTarde\OrdersApiClient\Model\Order\User();
+    $orderUser = new \Pagantis\OrdersApiClient\Model\Order\User();
     $orderUser
         ->setFullName('María Sanchez Escudero')
         ->setAddress($userAddress)
@@ -74,24 +74,24 @@ function createOrder()
     //2. ShoppingCart Object
     writeLog('Creating ShoppingCart object');
     writeLog('Adding the purchases of the customer, if there are.');
-    $orderHistory = new \PagaMasTarde\OrdersApiClient\Model\Order\User\OrderHistory();
+    $orderHistory = new \Pagantis\OrdersApiClient\Model\Order\User\OrderHistory();
     $orderHistory
         ->setAmount('2499')
         ->setDate('2010-01-31');
     $orderUser->addOrderHistory($orderHistory);
 
     writeLog('Adding cart products. Minimum 1 required');
-    $product = new \PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details\Product();
+    $product = new \Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details\Product();
     $product
         ->setAmount('59999')
         ->setQuantity('1')
         ->setDescription('TV LG UltraPlana');
 
-    $details = new \PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details();
+    $details = new \Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details();
     $details->setShippingCost('0');
     $details->addProduct($product);
 
-    $orderShoppingCart = new \PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart();
+    $orderShoppingCart = new \Pagantis\OrdersApiClient\Model\Order\ShoppingCart();
     $orderShoppingCart
         ->setDetails($details)
         ->setOrderReference(ORDER_ID)
@@ -104,7 +104,7 @@ function createOrder()
     writeLog('Adding urls to redirect the user according each case');
     $confirmUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=confirmOrder";
     $errorUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=cancelOrder";
-    $orderConfigurationUrls = new \PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Urls();
+    $orderConfigurationUrls = new \Pagantis\OrdersApiClient\Model\Order\Configuration\Urls();
     $orderConfigurationUrls
         ->setCancel($errorUrl)
         ->setKo($errorUrl)
@@ -113,18 +113,18 @@ function createOrder()
         ->setOk($confirmUrl);
 
     writeLog('Adding channel info');
-    $orderChannel = new \PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Channel();
+    $orderChannel = new \Pagantis\OrdersApiClient\Model\Order\Configuration\Channel();
     $orderChannel
         ->setAssistedSale(false)
-        ->setType(\PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Channel::ONLINE);
+        ->setType(\Pagantis\OrdersApiClient\Model\Order\Configuration\Channel::ONLINE);
 
-    $orderConfiguration = new \PagaMasTarde\OrdersApiClient\Model\Order\Configuration();
+    $orderConfiguration = new \Pagantis\OrdersApiClient\Model\Order\Configuration();
     $orderConfiguration
         ->setChannel($orderChannel)
         ->setUrls($orderConfigurationUrls);
     writeLog('Created Configuration object');
 
-    $order = new \PagaMasTarde\OrdersApiClient\Model\Order();
+    $order = new \Pagantis\OrdersApiClient\Model\Order();
     $order
         ->setConfiguration($orderConfiguration)
         ->setShoppingCart($orderShoppingCart)
@@ -134,11 +134,11 @@ function createOrder()
     if (PUBLIC_KEY=='' || PRIVATE_KEY == '') {
         throw new \Exception('You need set the public and private key');
     }
-    $orderClient = new \PagaMasTarde\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
+    $orderClient = new \Pagantis\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
 
     writeLog('Creating Paga+Tarde order');
     $order = $orderClient->createOrder($order);
-    if ($order instanceof \PagaMasTarde\OrdersApiClient\Model\Order) {
+    if ($order instanceof \Pagantis\OrdersApiClient\Model\Order) {
         //If the order is correct and created then we have the redirection URL here:
         $url = $order->getActionUrls()->getForm();
         $_SESSION['order_id'] = $order->getId();
@@ -159,8 +159,8 @@ function createOrder()
  * Confirm order in Paga+Tarde
  *
  * @throws \Httpful\Exception\ConnectionErrorException
- * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
- * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+ * @throws \Pagantis\OrdersApiClient\Exception\ClientException
+ * @throws \Pagantis\OrdersApiClient\Exception\HttpException
  */
 function confirmOrder()
 {
@@ -172,12 +172,12 @@ function confirmOrder()
      */
 
     writeLog('Creating OrdersApiClient');
-    $orderClient = new \PagaMasTarde\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
+    $orderClient = new \Pagantis\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
 
     $order = $orderClient->getOrder($_SESSION['order_id']);
 
-    if ($order instanceof \PagaMasTarde\OrdersApiClient\Model\Order &&
-        $order->getStatus() == \PagaMasTarde\OrdersApiClient\Model\Order::STATUS_AUTHORIZED) {
+    if ($order instanceof \Pagantis\OrdersApiClient\Model\Order &&
+        $order->getStatus() == \Pagantis\OrdersApiClient\Model\Order::STATUS_AUTHORIZED) {
         //If the order exists, and the status is authorized, means you can mark the order as paid.
 
         //DO WHATEVER YOU NEED TO DO TO MARK THE ORDER AS PAID IN YOUR OWN SYSTEM.

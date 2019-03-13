@@ -1,18 +1,18 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Method;
+namespace Pagantis\OrdersApiClient\Method;
 
 use Httpful\Http;
 use Httpful\Mime;
 use Httpful\Request;
 use Httpful\Response;
-use PagaMasTarde\OrdersApiClient\Exception\ClientException;
-use PagaMasTarde\OrdersApiClient\Model\Order;
+use Pagantis\OrdersApiClient\Exception\ClientException;
+use Pagantis\OrdersApiClient\Model\Order;
 
 /**
  * Class CreateOrderMethod
  *
- * @package PagaMasTarde\OrdersApiClient\Method
+ * @package Pagantis\OrdersApiClient\Method
  */
 class CreateOrderMethod extends AbstractMethod
 {
@@ -42,7 +42,7 @@ class CreateOrderMethod extends AbstractMethod
      * @return $this|AbstractMethod
      * @throws \Httpful\Exception\ConnectionErrorException
      * @throws ClientException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
      */
     public function call()
     {

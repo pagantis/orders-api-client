@@ -1,20 +1,20 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient;
+namespace Pagantis\OrdersApiClient;
 
 use Httpful\Exception\ConnectionErrorException;
-use PagaMasTarde\OrdersApiClient\Method\ConfirmOrderMethod;
-use PagaMasTarde\OrdersApiClient\Method\CreateOrderMethod;
-use PagaMasTarde\OrdersApiClient\Method\GetOrderMethod;
-use PagaMasTarde\OrdersApiClient\Method\ListOrdersMethod;
-use PagaMasTarde\OrdersApiClient\Method\RefundOrderMethod;
-use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
-use PagaMasTarde\OrdersApiClient\Model\Order;
+use Pagantis\OrdersApiClient\Method\ConfirmOrderMethod;
+use Pagantis\OrdersApiClient\Method\CreateOrderMethod;
+use Pagantis\OrdersApiClient\Method\GetOrderMethod;
+use Pagantis\OrdersApiClient\Method\ListOrdersMethod;
+use Pagantis\OrdersApiClient\Method\RefundOrderMethod;
+use Pagantis\OrdersApiClient\Model\ApiConfiguration;
+use Pagantis\OrdersApiClient\Model\Order;
 
 /**
  * Class Client
  *
- * @package PagaMasTarde/OrdersApiClient
+ * @package Pagantis/OrdersApiClient
  */
 class Client
 {

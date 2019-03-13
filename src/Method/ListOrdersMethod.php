@@ -1,16 +1,16 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Method;
+namespace Pagantis\OrdersApiClient\Method;
 
 use Httpful\Http;
 use Httpful\Request;
 use Httpful\Response;
-use PagaMasTarde\OrdersApiClient\Model\Order;
+use Pagantis\OrdersApiClient\Model\Order;
 
 /**
  * Class ListOrdersMethod
  *
- * @package PagaMasTarde\OrdersApiClient\Method
+ * @package Pagantis\OrdersApiClient\Method
  */
 class ListOrdersMethod extends AbstractMethod
 {
@@ -60,7 +60,7 @@ class ListOrdersMethod extends AbstractMethod
     /**
      * @return $this|AbstractMethod
      * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
      */
     public function call()
     {

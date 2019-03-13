@@ -1,14 +1,14 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Model\Order;
+namespace Test\Pagantis\OrdersApiClient\Model\Order;
 
 use Faker\Factory;
-use PagaMasTarde\OrdersApiClient\Model\Order\Metadata;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Pagantis\OrdersApiClient\Model\Order\Metadata;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class MetadataTest
- * @package Test\PagaMasTarde\OrdersApiClient\Model\Order
+ * @package Test\Pagantis\OrdersApiClient\Model\Order
  */
 class MetadataTest extends AbstractTest
 {

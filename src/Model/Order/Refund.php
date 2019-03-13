@@ -1,12 +1,12 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model\Order;
+namespace Pagantis\OrdersApiClient\Model\Order;
 
-use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
+use Pagantis\OrdersApiClient\Model\AbstractModel;
 
 /**
  * Class Refund
- * @package PagaMasTarde\OrdersApiClient\Model
+ * @package Pagantis\OrdersApiClient\Model
  */
 class Refund extends AbstractModel
 {

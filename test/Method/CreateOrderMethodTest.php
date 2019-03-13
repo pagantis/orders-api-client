@@ -1,20 +1,20 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Method;
+namespace Test\Pagantis\OrdersApiClient\Method;
 
 use Faker\Factory;
 use Httpful\Http;
 use Httpful\Request;
-use PagaMasTarde\OrdersApiClient\Exception\ClientException;
-use PagaMasTarde\OrdersApiClient\Method\CreateOrderMethod;
-use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
-use PagaMasTarde\OrdersApiClient\Model\Order;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Pagantis\OrdersApiClient\Exception\ClientException;
+use Pagantis\OrdersApiClient\Method\CreateOrderMethod;
+use Pagantis\OrdersApiClient\Model\ApiConfiguration;
+use Pagantis\OrdersApiClient\Model\Order;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class CreateOrderMethodTest
  *
- * @package Test\PagaMasTarde\OrdersApiClient\Method;
+ * @package Test\Pagantis\OrdersApiClient\Method;
  */
 class CreateOrderMethodTest extends AbstractTest
 {
@@ -35,10 +35,10 @@ class CreateOrderMethodTest extends AbstractTest
     public function testSetOrderId()
     {
         $order = new Order();
-        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $apiConfigurationMock = $this->getMock('Pagantis\OrdersApiClient\Model\ApiConfiguration');
         $createOrderMethod = new CreateOrderMethod($apiConfigurationMock);
         $createOrderMethod->setOrder($order);
-        $reflectCreateOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\CreateOrderMethod');
+        $reflectCreateOrderMethod = new \ReflectionClass('Pagantis\OrdersApiClient\Method\CreateOrderMethod');
         $property = $reflectCreateOrderMethod->getProperty('order');
         $property->setAccessible(true);
         $this->assertSame($order, $property->getValue($createOrderMethod));
@@ -58,32 +58,32 @@ class CreateOrderMethodTest extends AbstractTest
         $property->setAccessible(true);
         $property->setValue($responseMock, json_decode($orderJson));
 
-        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $apiConfigurationMock = $this->getMock('Pagantis\OrdersApiClient\Model\ApiConfiguration');
         $createOrderMethod = new CreateOrderMethod($apiConfigurationMock);
         $this->assertFalse($createOrderMethod->getOrder());
-        $reflectCreateOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\CreateOrderMethod');
+        $reflectCreateOrderMethod = new \ReflectionClass('Pagantis\OrdersApiClient\Method\CreateOrderMethod');
         $property = $reflectCreateOrderMethod->getProperty('response');
         $property->setAccessible(true);
         $property->setValue($createOrderMethod, $responseMock);
 
-        $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Order', $createOrderMethod->getOrder());
+        $this->assertInstanceOf('Pagantis\OrdersApiClient\Model\Order', $createOrderMethod->getOrder());
     }
 
     /**
      * testPrepareRequest
      *
      * @throws \ReflectionException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
      */
     public function testPrepareRequest()
     {
         $faker = Factory::create();
         $url = $faker->url;
-        $order = $this->getMock('PagaMasTarde\OrdersApiClient\Model\Order');
+        $order = $this->getMock('Pagantis\OrdersApiClient\Model\Order');
         $apiConfiguration = new ApiConfiguration();
         $apiConfiguration->setBaseUri($url);
         $createOrderMethod = new CreateOrderMethod($apiConfiguration);
-        $reflectCreateOrderMethod = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Method\CreateOrderMethod');
+        $reflectCreateOrderMethod = new \ReflectionClass('Pagantis\OrdersApiClient\Method\CreateOrderMethod');
         $method = $reflectCreateOrderMethod->getMethod('prepareRequest');
         $method->setAccessible(true);
         $property = $reflectCreateOrderMethod->getProperty('request');
@@ -106,17 +106,17 @@ class CreateOrderMethodTest extends AbstractTest
      * testCall
      *
      * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
+     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
      */
     public function testCall()
     {
-        $apiConfigurationMock = $this->getMock('PagaMasTarde\OrdersApiClient\Model\ApiConfiguration');
+        $apiConfigurationMock = $this->getMock('Pagantis\OrdersApiClient\Model\ApiConfiguration');
         $createOrderMethod = new CreateOrderMethod($apiConfigurationMock);
         try {
             $createOrderMethod->call();
             $this->assertTrue(false);
         } catch (ClientException $exception) {
-            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Exception\ClientException', $exception);
+            $this->assertInstanceOf('Pagantis\OrdersApiClient\Exception\ClientException', $exception);
         }
     }
 }

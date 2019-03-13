@@ -1,13 +1,13 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Model\Order\Configuration;
+namespace Test\Pagantis\OrdersApiClient\Model\Order\Configuration;
 
-use PagaMasTarde\OrdersApiClient\Model\Order\Configuration\Urls;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Pagantis\OrdersApiClient\Model\Order\Configuration\Urls;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class UrlsTest
- * @package Test\PagaMasTarde\OrdersApiClient\Model\Order\Configuration
+ * @package Test\Pagantis\OrdersApiClient\Model\Order\Configuration
  */
 class UrlsTest extends AbstractTest
 {

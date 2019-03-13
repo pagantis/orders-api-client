@@ -1,13 +1,13 @@
 <?php
 
-namespace PagaMasTarde\OrdersApiClient\Model\Order;
+namespace Pagantis\OrdersApiClient\Model\Order;
 
-use PagaMasTarde\OrdersApiClient\Model\AbstractModel;
-use PagaMasTarde\OrdersApiClient\Model\Order\ShoppingCart\Details;
+use Pagantis\OrdersApiClient\Model\AbstractModel;
+use Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details;
 
 /**
  * Class ShoppingCart
- * @package PagaMasTarde\OrdersApiClient\Model\Order
+ * @package Pagantis\OrdersApiClient\Model\Order
  */
 class ShoppingCart extends AbstractModel
 {

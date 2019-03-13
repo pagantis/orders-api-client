@@ -14,12 +14,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PagaMasTarde\\OrdersApiClient\\": "src/"
+            "Pagantis\\OrdersApiClient\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Test\\PagaMasTarde\\OrdersApiClient\\": "test/"
+            "Test\\Pagantis\\OrdersApiClient\\": "test/"
         }
     },
     "authors": [

@@ -1,13 +1,13 @@
 <?php
-namespace Test\PagaMasTarde\OrdersApiClient;
+namespace Test\Pagantis\OrdersApiClient;
 
-use PagaMasTarde\OrdersApiClient\Client;
-use PagaMasTarde\OrdersApiClient\Model\ApiConfiguration;
-use PagaMasTarde\OrdersApiClient\Model\Order;
+use Pagantis\OrdersApiClient\Client;
+use Pagantis\OrdersApiClient\Model\ApiConfiguration;
+use Pagantis\OrdersApiClient\Model\Order;
 
 /**
  * Class ClientTest
- * @package PagaMasTarde\Test
+ * @package Pagantis\Test
  */
 class ClientTest extends AbstractTest
 {
@@ -31,12 +31,12 @@ class ClientTest extends AbstractTest
      */
     public function testClassExists()
     {
-        $this->assertTrue(class_exists('PagaMasTarde\OrdersApiClient\Client'));
+        $this->assertTrue(class_exists('Pagantis\OrdersApiClient\Client'));
     }
 
     /**
      * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
      * @throws \ReflectionException
      */
     public function testConstructorArguments()
@@ -49,7 +49,7 @@ class ClientTest extends AbstractTest
             $array
         );
 
-        $apiClientReflection = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Client');
+        $apiClientReflection = new \ReflectionClass('Pagantis\OrdersApiClient\Client');
 
         $property = $apiClientReflection->getProperty('apiConfiguration');
         $property->setAccessible(true);
@@ -65,7 +65,7 @@ class ClientTest extends AbstractTest
 
     /**
      * @return ApiConfiguration
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
      */
     public function getApiConfiguration()
     {
@@ -84,8 +84,8 @@ class ClientTest extends AbstractTest
      *
      * @return bool|false|Order|string
      * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
+     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
      * @throws \ReflectionException
      */
     public function testCreateOrder()
@@ -107,7 +107,7 @@ class ClientTest extends AbstractTest
             ->setStatus(null)
         ;
 
-        $orderReflectionClass = new \ReflectionClass('PagaMasTarde\OrdersApiClient\Model\Order');
+        $orderReflectionClass = new \ReflectionClass('Pagantis\OrdersApiClient\Model\Order');
         $property = $orderReflectionClass->getProperty('refunds');
         $property->setAccessible(true);
         $property->setValue($order, null);
@@ -121,7 +121,7 @@ class ClientTest extends AbstractTest
         $orderCreated = $apiClient->createOrder($order);
         $this->assertEquals($order->getConfiguration(), $orderCreated->getConfiguration());
         $this->assertEquals($order->getShoppingCart(), $orderCreated->getShoppingCart());
-        $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Order', $order);
+        $this->assertInstanceOf('Pagantis\OrdersApiClient\Model\Order', $order);
         $formUrl = $orderCreated->getActionUrls()->getForm();
         $this->assertTrue(Order\Configuration\Urls::urlValidate($formUrl));
 
@@ -135,8 +135,8 @@ class ClientTest extends AbstractTest
      *
      * @return bool|false|Order|string
      * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
+     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
      * @throws \ReflectionException
      */
     public function testGetOrder()
@@ -160,7 +160,7 @@ class ClientTest extends AbstractTest
 
         $this->assertEquals($order->getConfiguration(), $orderRetrieved->getConfiguration());
         $this->assertEquals($order->getShoppingCart(), $orderRetrieved->getShoppingCart());
-        $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Order', $order);
+        $this->assertInstanceOf('Pagantis\OrdersApiClient\Model\Order', $order);
         $this->order->setConfirmedAt(null);
         $orderRetrieved->setConfirmedAt(null);
         $orderRetrieved->setUnconfirmedAt($this->order->getUnconfirmedAt());
@@ -174,8 +174,8 @@ class ClientTest extends AbstractTest
      *
      * @return bool|false|Order[]|string
      * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
+     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
      */
     public function testListOrders()
     {
@@ -192,7 +192,7 @@ class ClientTest extends AbstractTest
         ));
 
         foreach ($ordersRetrieved as $order) {
-            $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Order', $order);
+            $this->assertInstanceOf('Pagantis\OrdersApiClient\Model\Order', $order);
         }
 
         return $ordersRetrieved;
@@ -203,8 +203,8 @@ class ClientTest extends AbstractTest
      *
      * @return bool|false|Order|string
      * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
+     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
      * @throws \ReflectionException
      */
     public function testConfirmOrder()
@@ -231,7 +231,7 @@ class ClientTest extends AbstractTest
 
         $this->assertEquals($order->getConfiguration(), $orderRetrieved->getConfiguration());
         $this->assertEquals($order->getShoppingCart(), $orderRetrieved->getShoppingCart());
-        $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Order', $order);
+        $this->assertInstanceOf('Pagantis\OrdersApiClient\Model\Order', $order);
 
         return $orderRetrieved;
     }
@@ -241,8 +241,8 @@ class ClientTest extends AbstractTest
      *
      * @return bool|false|Order\Refund|string
      * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\HttpException
-     * @throws \PagaMasTarde\OrdersApiClient\Exception\ClientException
+     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
+     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
      * @throws \ReflectionException
      */
     public function testRefundOrder()
@@ -267,7 +267,7 @@ class ClientTest extends AbstractTest
         ;
 
         $refund = $apiClient->refundOrder($this->order->getId(), $refund);
-        $this->assertInstanceOf('PagaMasTarde\OrdersApiClient\Model\Refund', $refund);
+        $this->assertInstanceOf('Pagantis\OrdersApiClient\Model\Refund', $refund);
 
         return $refund;
     }

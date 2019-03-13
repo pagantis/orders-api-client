@@ -1,14 +1,14 @@
 <?php
 
-namespace Test\PagaMasTarde\OrdersApiClient\Model\Order\User;
+namespace Test\Pagantis\OrdersApiClient\Model\Order\User;
 
 use Faker\Factory;
-use PagaMasTarde\OrdersApiClient\Model\Order\User\OrderHistory;
-use Test\PagaMasTarde\OrdersApiClient\AbstractTest;
+use Pagantis\OrdersApiClient\Model\Order\User\OrderHistory;
+use Test\Pagantis\OrdersApiClient\AbstractTest;
 
 /**
  * Class OrderHistoryTest
- * @package Test\PagaMasTarde\OrdersApiClient\Model\Order\User
+ * @package Test\Pagantis\OrdersApiClient\Model\Order\User
  */
 class OrderHistoryTest extends AbstractTest
 {
