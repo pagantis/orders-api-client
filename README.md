@@ -91,10 +91,10 @@ use Try|Catch when using the API methods, since it can cause HTTP exceptions.
 To create a order using the API Client start from a empty Order object,
 create the sub-objects and set the mandatory information.
 
-Then send the API Call to Paga+Tarde using the API Client. The result is the same
+Then send the API Call to Pagantis using the API Client. The result is the same
 order object with the rest of the fields completed. The status is `CREATED`.
 
-Store the relation between Paga+Tarde order id and the merchant order id to be able to identify orders after creation.
+Store the relation between Pagantis order id and the merchant order id to be able to identify orders after creation.
 
 
 ```php
@@ -149,8 +149,8 @@ correct format.
 
 ### Get Order
 
-Use the method Get Order to retrieve the order again from Paga+Tarde server. The order retrieved has updated status.
-Store the relation between Paga+Tarde order id and the merchant order id to be able to identify orders after creation.
+Use the method Get Order to retrieve the order again from Pagantis server. The order retrieved has updated status.
+Store the relation between Pagantis order id and the merchant order id to be able to identify orders after creation.
 
 
 ```php
@@ -162,7 +162,7 @@ $orderApiClient = new Pagantis\OrdersApiClient\Client(
     $privateKey
 );
 
-//By storing the Paga+Tarde order ID, fetch back the updated order:
+//By storing the Pagantis order ID, fetch back the updated order:
 $order = $orderApiClient->getOrder($orderId);
 
 ?>

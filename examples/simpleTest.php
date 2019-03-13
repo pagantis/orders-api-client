@@ -20,7 +20,7 @@ try {
 }
 
 /**
- * Create order in Paga+Tarde
+ * Create order in Pagantis
  *
  * @throws \Httpful\Exception\ConnectionErrorException
  * @throws \Pagantis\OrdersApiClient\Exception\ClientException
@@ -136,7 +136,7 @@ function createOrder()
     }
     $orderClient = new \Pagantis\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
 
-    writeLog('Creating Paga+Tarde order');
+    writeLog('Creating Pagantis order');
     $order = $orderClient->createOrder($order);
     if ($order instanceof \Pagantis\OrdersApiClient\Model\Order) {
         //If the order is correct and created then we have the redirection URL here:
@@ -150,13 +150,13 @@ function createOrder()
         throw new \Exception('Order not created');
     }
 
-    // You can use our test credit cards to fill the Paga+Tarde form
-    writeLog("Redirecting to Paga+Tarde form => $url");
+    // You can use our test credit cards to fill the Pagantis form
+    writeLog("Redirecting to Pagantis form => $url");
     header('Location:'. $url);
 }
 
 /**
- * Confirm order in Paga+Tarde
+ * Confirm order in Pagantis
  *
  * @throws \Httpful\Exception\ConnectionErrorException
  * @throws \Pagantis\OrdersApiClient\Exception\ClientException
@@ -194,8 +194,8 @@ function confirmOrder()
         $message = "The order {$_SESSION['order_id']} can't be confirmed";
     }
 
-    /* The order has been marked as paid and confirmed in Paga+Tarde so you will send the product to your customer and
-     * Paga+Tarde will pay you in the next 24h.
+    /* The order has been marked as paid and confirmed in Pagantis so you will send the product to your customer and
+     * Pagantis will pay you in the next 24h.
      */
 
     echo $message;

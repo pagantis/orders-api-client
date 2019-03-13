@@ -1,6 +1,6 @@
 # OrdersApiClient demo
 
-This file demonstrates how to generate a order in Paga+Tarde using Orders API Client
+This file demonstrates how to generate a order in Pagantis using Orders API Client
 
 ## Run
 
