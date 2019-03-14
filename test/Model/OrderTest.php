@@ -42,7 +42,7 @@ class OrderTest extends AbstractTest
     const STATUS_INVALIDATED = 'INVALIDATED';
 
     /**
-     * Undefined ERROR has occurred, please double check with the account manager or PMT support channels.
+     * Undefined ERROR has occurred, please double check with the account manager or Pagantis support channels.
      */
     const STATUS_ERROR = 'ERROR';
 

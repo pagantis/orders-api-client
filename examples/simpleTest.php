@@ -224,5 +224,5 @@ function cancelOrder()
  */
 function writeLog($message)
 {
-    file_put_contents('pmt.log', "$message.\n", FILE_APPEND);
+    file_put_contents('pagantis.log', "$message.\n", FILE_APPEND);
 }

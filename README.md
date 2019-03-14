@@ -8,7 +8,7 @@ CircleCI: [![CircleCI](https://circleci.com/gh/pagantis/orders-api-client/tree/m
 
 Orders API Client offers the merchants working with Pagantis a way to consume the API services without the effort of doing a complete development.
 The library provides stubs for each type of object withing the API and the method calls. Each Method supported by the API is implemented in this client and
-is documented within the code and [here](https://developer.pagamastarde.com/api/)
+is documented within the code and [here](https://developer.pagantis.com/api/)
 
 All the code is tested and inspected by external services.
 
@@ -33,18 +33,18 @@ Once the library is ready and inside the project the stub objects will available
 the ordersApiClient will also available.
 
 ```php
-//Create a pmtApi object, for example:
+//Create a OrdersApiClient object, for example:
 $ordersApiClient = new OrdersApiClient($publicKey, $privateKey);
 
 //Example: get an existing Order status:
-$order = $ordersApiClient->getOrder($pmtOrderId); //$pmOrderId is the id of the order
+$order = $ordersApiClient->getOrder($pagantisOrderId); //$pmOrderId is the id of the order
 if ($order instanceof Pagantis\OrdersApiClient\Model\Order) {
     $orderStatus = $order->getStatus();
     echo $orderStatus;
 }
 
 // You can investigate the rest of the methods. And find all the documentation of the API here:
-// https://developer.pagamastarde.com/api/
+// https://developer.pagantis.com/api/
 
 ```
 
@@ -194,7 +194,7 @@ $refunds = $order->getRefunds();
 
 Find the order, get all orders from yesterday, see online or instore orders, list Confirmed orders.
 Use this service to find orders in the system. Use query string for result filtering.
-See all the queryString parameters [here](https://developer.pagamastarde.com/api/)
+See all the queryString parameters [here](https://developer.pagantis.com/api/)
 
 ```php
 <?php
