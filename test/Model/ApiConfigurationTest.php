@@ -15,7 +15,7 @@ class ApiConfigurationTest extends AbstractTest
     /**
      * Invalid URL
      */
-    const VALID_URL = 'http://pagamastarde.com:8080//orders?order=true';
+    const VALID_URL = 'http://pagantis.com:8080//orders?order=true';
 
     /**
      *  Valid URL

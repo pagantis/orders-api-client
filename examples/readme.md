@@ -21,5 +21,5 @@ The web application is running at [http://localhost:8000/simpleTest.php](http://
 
 To trace the execution in real time, you can open the log file using the command: 
 ```
-tail -f examples/pmt.log
+tail -f examples/pagantis.log
 ``` 
