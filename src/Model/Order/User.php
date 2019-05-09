@@ -53,6 +53,16 @@ class User extends AbstractModel
     protected $mobilePhone;
 
     /**
+     * @var string $taxId Tax Id for italian orders.
+     */
+    protected $taxId;
+
+    /**
+     * @var string $nationalId National Id for italian orders.
+     */
+    protected $nationalId;
+
+    /**
      * @var OrderHistory[] $orderHistory Array of previous orders
      */
     protected $orderHistory;
@@ -241,6 +251,46 @@ class User extends AbstractModel
     }
 
     /**
+     * @return string
+     */
+    public function getTaxId()
+    {
+        return $this->taxId;
+    }
+
+    /**
+     * @param string $taxId
+     *
+     * @return User
+     */
+    public function setTaxId($taxId)
+    {
+        $this->taxId = $taxId;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNationalId()
+    {
+        return $this->nationalId;
+    }
+
+    /**
+     * @param string $nationalId
+     *
+     * @return User
+     */
+    public function setNationalId($nationalId)
+    {
+        $this->nationalId = $nationalId;
+
+        return $this;
+    }
+
+    /**
      * @return array
      */
     public function getOrderHistory()
@@ -283,7 +333,8 @@ class User extends AbstractModel
     /**
      * Overwrite import to fill ordersHistory correctly
      *
-     * @param $object
+     * @param \stdClass $object
+     * @throws \Exception
      *
      */
     public function import($object)

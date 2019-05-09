@@ -51,6 +51,16 @@ class Address extends AbstractModel
     protected $mobilePhone;
 
     /**
+     * @var string $taxId Tax Id for italian orders.
+     */
+    protected $taxId;
+
+    /**
+     * @var string $nationalId National Id for italian orders.
+     */
+    protected $nationalId;
+
+    /**
      * @return string
      */
     public function getAddress()
@@ -209,4 +219,44 @@ class Address extends AbstractModel
 
         return $this;
     }
+    /**
+     * @return string
+     */
+    public function getTaxId()
+    {
+        return $this->taxId;
+    }
+
+    /**
+     * @param string $taxId
+     *
+     * @return Address
+     */
+    public function setTaxId($taxId)
+    {
+        $this->taxId = $taxId;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNationalId()
+    {
+        return $this->nationalId;
+    }
+
+    /**
+     * @param string $nationalId
+     *
+     * @return Address
+     */
+    public function setNationalId($nationalId)
+    {
+        $this->nationalId = $nationalId;
+
+        return $this;
+    }
+
 }

@@ -82,7 +82,9 @@
             "city": "Madrid",
             "country_code": "ES",
             "full_name": "Jöhn Dōė Ramirez",
-            "zip_code": "28008"
+            "zip_code": "28008",
+            "tax_id": "A123456789B",
+            "national_id": "A123456789B"
         },
         "billing_address": {
             "address": "My House, in the middle of the street, 55",
@@ -96,7 +98,9 @@
         "email": "john.doe@email.com",
         "fix_phone": "915556677",
         "full_name": "Jöhn Dōė Ramirez",
-        "mobile_phone": "600123123",
+        "mobile_phone": "A123456789B",
+        "tax_id": "A123456789B",
+        "national_id": "BC555000G",
         "order_history": [
             {
                 "amount": 989,

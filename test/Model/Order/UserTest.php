@@ -87,6 +87,28 @@ class UserTest extends AbstractTest
     }
 
     /**
+     * testSetTaxId
+     */
+    public function testSetTaxId()
+    {
+        $user = new User();
+        $taxId = 'A123456789B';
+        $user->setTaxId($taxId);
+        $this->assertSame($taxId, $user->getTaxId());
+    }
+
+    /**
+     * testSetNationalId
+     */
+    public function testSetNationalId()
+    {
+        $user = new User();
+        $nationalId = 'A123456789B';
+        $user->setNationalId($nationalId);
+        $this->assertSame($nationalId, $user->getNationalId());
+    }
+
+    /**
      * testAddOrderHistory
      */
     public function testAddOrderHistory()

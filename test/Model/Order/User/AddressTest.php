@@ -23,4 +23,27 @@ class AddressTest extends AbstractTest
         $address->setFullName($fullName);
         $this->assertSame($fullName, $address->getFullName());
     }
+
+    /**
+     * testSetTaxId
+     */
+    public function testSetTaxId()
+    {
+        $address = new Address();
+        $taxId = 'A123456789B';
+        $address->setTaxId($taxId);
+        $this->assertSame($taxId, $address->getTaxId());
+    }
+
+    /**
+     * testSetNationalId
+     */
+    public function testSetNationalId()
+    {
+        $address = new Address();
+        $nationalId = 'A123456789B';
+        $address->setNationalId($nationalId);
+        $this->assertSame($nationalId, $address->getNationalId());
+    }
+
 }
