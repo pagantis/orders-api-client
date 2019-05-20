@@ -54,10 +54,9 @@ class Client
      * @param Order $order
      * @param bool  $asJson
      *
-     * @return bool|false|Order|string
-     * @throws ConnectionErrorException
-     * @throws Exception\HttpException
-     * @throws Exception\ClientException
+     * @return bool|Order|string
+     *
+     * @throws \Exception
      */
     public function createOrder(Order $order, $asJson = false)
     {
@@ -74,10 +73,9 @@ class Client
      * @param      $orderId
      * @param bool $asJson
      *
-     * @return bool|false|Order|string
-     * @throws ConnectionErrorException
-     * @throws Exception\HttpException
-     * @throws Exception\ClientException
+     * @return bool|Order|string
+     *
+     * @throws \Exception
      */
     public function getOrder($orderId, $asJson = false)
     {
@@ -97,8 +95,8 @@ class Client
      * @param bool       $asJson
      *
      * @return array|bool|string
-     * @throws ConnectionErrorException
-     * @throws Exception\HttpException
+     *
+     * @throws \Exception
      */
     public function listOrders(array $queryString = null, $asJson = false)
     {
@@ -116,9 +114,8 @@ class Client
      * @param bool $asJson
      *
      * @return bool|false|Order|string
-     * @throws ConnectionErrorException
-     * @throws Exception\HttpException
-     * @throws Exception\ClientException
+     *
+     * @throws \Exception
      */
     public function confirmOrder($orderId, $asJson = false)
     {
@@ -137,9 +134,8 @@ class Client
      * @param bool         $asJson
      *
      * @return bool|false|Order\Refund|string
-     * @throws ConnectionErrorException
-     * @throws Exception\HttpException
-     * @throws Exception\ClientException
+     *
+     * @throws \Exception
      */
     public function refundOrder($orderId, Order\Refund $refund, $asJson = false)
     {

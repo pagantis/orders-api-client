@@ -2,7 +2,6 @@
 
 namespace Test\Pagantis\OrdersApiClient\Model;
 
-use Pagantis\OrdersApiClient\Model\AbstractModel;
 use Pagantis\OrdersApiClient\Model\Order;
 use Test\Pagantis\OrdersApiClient\AbstractTest;
 
@@ -15,6 +14,8 @@ class AbstractModelTest extends AbstractTest
 {
     /**
      * complete testing, entire order validate, export and import
+     *
+     * @throws \Exception
      */
     public function testAllMethod()
     {

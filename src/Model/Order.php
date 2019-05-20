@@ -444,6 +444,8 @@ class Order extends AbstractModel
 
     /**
      * @param \stdClass $object
+     *
+     * @throws \Exception
      */
     public function import($object)
     {

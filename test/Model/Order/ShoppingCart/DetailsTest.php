@@ -56,6 +56,7 @@ class DetailsTest extends AbstractTest
 
     /**
      * test Import
+     * @throws \Exception
      */
     public function testImport()
     {

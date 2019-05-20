@@ -66,6 +66,7 @@ class RefundOrderMethodTest extends AbstractTest
      * testGetRefund
      *
      * @throws \ReflectionException
+     * @throws \Exception
      */
     public function testGetRefund()
     {
@@ -91,7 +92,7 @@ class RefundOrderMethodTest extends AbstractTest
      * testPrepareRequest
      *
      * @throws \ReflectionException
-     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
+     * @throws ClientException
      */
     public function testPrepareRequest()
     {

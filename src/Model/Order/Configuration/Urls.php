@@ -42,7 +42,7 @@ class Urls extends AbstractModel
      */
     public static function urlValidate($url)
     {
-        return filter_var($url, FILTER_VALIDATE_URL) !== false;
+        return false !== filter_var($url, FILTER_VALIDATE_URL);
     }
 
     /**

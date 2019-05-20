@@ -17,7 +17,8 @@
             "authorized_notification_callback": "https://my-store.com/orders/notify",
             "rejected_notification_callback": "https://my-store.com/orders/notify",
             "ok": "https://my-store.com/order-approved"
-        }
+        },
+        "purchase_country": "ES"
     },
     "confirmed_at": null,
     "created_at": "2020-01-31T11:22:12",
@@ -94,7 +95,6 @@
             "zip_code": "28008"
         },
         "date_of_birth": "1987-01-31",
-        "dni": "68178726X",
         "email": "john.doe@email.com",
         "fix_phone": "915556677",
         "full_name": "Jöhn Dōė Ramirez",

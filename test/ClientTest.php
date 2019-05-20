@@ -84,9 +84,7 @@ class ClientTest extends AbstractTest
      *
      * @return bool|false|Order|string
      * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
-     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
-     * @throws \ReflectionException
+     * @throws \Exception
      */
     public function testCreateOrder()
     {
@@ -134,10 +132,8 @@ class ClientTest extends AbstractTest
      * testGetOrder
      *
      * @return bool|false|Order|string
-     * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
-     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
-     * @throws \ReflectionException
+     *
+     * @throws \Exception
      */
     public function testGetOrder()
     {
@@ -173,9 +169,8 @@ class ClientTest extends AbstractTest
      * testListOrders
      *
      * @return bool|false|Order[]|string
-     * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
-     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
+     *
+     * @throws \Exception
      */
     public function testListOrders()
     {
@@ -202,10 +197,8 @@ class ClientTest extends AbstractTest
      * testConfirmOrder
      *
      * @return bool|false|Order|string
-     * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
-     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
-     * @throws \ReflectionException
+     *
+     * @throws \Exception
      */
     public function testConfirmOrder()
     {
@@ -240,10 +233,8 @@ class ClientTest extends AbstractTest
      * testRefundOrder
      *
      * @return bool|false|Order\Refund|string
-     * @throws \Httpful\Exception\ConnectionErrorException
-     * @throws \Pagantis\OrdersApiClient\Exception\HttpException
-     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
-     * @throws \ReflectionException
+     *
+     * @throws \Exception
      */
     public function testRefundOrder()
     {

@@ -23,6 +23,11 @@ class Configuration extends AbstractModel
     protected $urls;
 
     /**
+     * @var string purchaseCountry valid country for your merchant account: ES,IT,PT,FR
+     */
+    protected $purchaseCountry;
+
+    /**
      * Configuration constructor.
      */
     public function __construct()
@@ -48,6 +53,14 @@ class Configuration extends AbstractModel
     }
 
     /**
+     * @return string
+     */
+    public function getPurchaseCountry()
+    {
+        return $this->purchaseCountry;
+    }
+
+    /**
      * @param Channel $channel
      *
      * @return Configuration
@@ -67,6 +80,18 @@ class Configuration extends AbstractModel
     public function setUrls(Urls $urls)
     {
         $this->urls = $urls;
+
+        return $this;
+    }
+
+    /**
+     * @param string $purchaseCountry
+     *
+     * @return Configuration
+     */
+    public function setPurchaseCountry($purchaseCountry)
+    {
+        $this->purchaseCountry = $purchaseCountry;
 
         return $this;
     }

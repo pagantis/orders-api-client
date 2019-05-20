@@ -48,6 +48,7 @@ class CreateOrderMethodTest extends AbstractTest
      * testGetOrder
      *
      * @throws \ReflectionException
+     * @throws \Exception
      */
     public function testGetOrder()
     {
@@ -73,7 +74,7 @@ class CreateOrderMethodTest extends AbstractTest
      * testPrepareRequest
      *
      * @throws \ReflectionException
-     * @throws \Pagantis\OrdersApiClient\Exception\ClientException
+     * @throws ClientException
      */
     public function testPrepareRequest()
     {

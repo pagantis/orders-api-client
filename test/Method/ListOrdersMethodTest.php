@@ -45,6 +45,7 @@ class ListOrdersMethodTest extends AbstractTest
     /**
      * testGetOrders
      * @throws \ReflectionException
+     * @throws \Exception
      */
     public function testGetOrders()
     {

@@ -38,6 +38,8 @@ class ListOrdersMethod extends AbstractMethod
 
     /**
      * @return array|bool
+     *
+     * @throws \Exception
      */
     public function getOrders()
     {

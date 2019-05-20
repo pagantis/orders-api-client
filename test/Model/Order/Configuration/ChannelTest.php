@@ -22,7 +22,7 @@ class ChannelTest extends AbstractTest
     const INSTORE = 'IN_STORE';
 
     /**
-     * Phonesale type, for sales made on the phone
+     * PhoneSale type, for sales made on the phone
      */
     const PHONESALE = 'PHONE';
 
@@ -61,8 +61,6 @@ class ChannelTest extends AbstractTest
 
     /**
      * testConstantsNotChange
-     *
-     * @throws \ReflectionException
      */
     public function testConstantsNotChange()
     {

@@ -6,7 +6,8 @@
     "require": {
         "php": ">=5.3",
         "nategood/httpful": "^0.2",
-        "nayjest/str-case-converter": "^1.0"
+        "nayjest/str-case-converter": "^1.0",
+        "ext-json": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",

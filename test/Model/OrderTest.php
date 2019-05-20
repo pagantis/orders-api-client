@@ -86,6 +86,7 @@ class OrderTest extends AbstractTest
 
     /**
      * testImport
+     * @throws \Exception
      */
     public function testImport()
     {
@@ -106,6 +107,7 @@ class OrderTest extends AbstractTest
 
     /**
      * testImport
+     * @throws \Exception
      */
     public function testImportEmptyDates()
     {

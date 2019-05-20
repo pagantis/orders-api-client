@@ -38,5 +38,7 @@ class ClientException extends \Exception
     {
         $this->message = empty($message) ? self::MESSAGE : $message;
         $this->code = empty($code) ? self::CODE : $code;
+
+        return parent::__construct();
     }
 }
