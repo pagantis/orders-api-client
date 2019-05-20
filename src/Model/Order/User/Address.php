@@ -56,9 +56,6 @@ class Address extends AbstractModel
     protected $nationalId;
 
     /**
-     * @var OrderHistory[] $orderHistory Array of previous orders
-
-    /**
      * @return string
      */
     public function getAddress()
