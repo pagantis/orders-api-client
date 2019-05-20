@@ -54,6 +54,8 @@ class GetOrderMethod extends AbstractMethod
 
     /**
      * @return bool|Order
+     *
+     * @throws \Exception
      */
     public function getOrder()
     {

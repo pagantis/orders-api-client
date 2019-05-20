@@ -72,8 +72,9 @@ class Details extends AbstractModel
     /**
      * Overwrite import to fill products correctly
      *
-     * @param $object
+     * @param \stdClass $object
      *
+     * @throws \Exception
      */
     public function import($object)
     {

@@ -21,7 +21,7 @@ class Channel extends AbstractModel
     const INSTORE = 'IN_STORE';
 
     /**
-     * Phonesale type, for sales made on the phone
+     * PhoneSale type, for sales made on the phone
      */
     const PHONESALE = 'PHONE';
 

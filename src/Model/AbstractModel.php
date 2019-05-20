@@ -23,7 +23,7 @@ abstract class AbstractModel implements ModelInterface
         $result = new \StdClass();
         foreach ($this as $key => $value) {
             if (!is_null($value)) {
-                $result->{Str::toSnakeCase($key)} = $this->parseValue($value, $validation, $key);
+                $result->{Str::toSnakeCase($key)} = $this->parseValue($value, $validation);
             }
         }
 

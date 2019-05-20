@@ -74,6 +74,8 @@ class RefundOrderMethod extends AbstractMethod
 
     /**
      * @return bool|Order\Refund
+     *
+     * @throws \Exception
      */
     public function getRefund()
     {
