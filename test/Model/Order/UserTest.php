@@ -52,17 +52,6 @@ class UserTest extends AbstractTest
     }
 
     /**
-     * testSetDni
-     */
-    public function testSetDni()
-    {
-        $user = new User();
-        $dni = '1234567Y';
-        $user->setDni($dni);
-        $this->assertSame($dni, $user->getDni());
-    }
-
-    /**
      * Test SetEmail
      */
     public function testSetEmail()
