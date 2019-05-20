@@ -26,4 +26,15 @@ class ConfigurationTest extends AbstractTest
             $configuration->getUrls()
         );
     }
+
+    /**
+     * Test setter and getter for purchase country
+     */
+    public function testSetPurchaseCountry()
+    {
+        $configuration = new Configuration();
+        $purchaseCountry = 'IT';
+        $configuration->setPurchaseCountry($purchaseCountry);
+        $this->assertSame($purchaseCountry, $configuration->getPurchaseCountry());
+    }
 }
