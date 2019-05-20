@@ -114,6 +114,7 @@ class UserTest extends AbstractTest
 
     /**
      * testImport
+     * @throws \Exception
      */
     public function testImport()
     {

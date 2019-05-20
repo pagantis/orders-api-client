@@ -45,5 +45,4 @@ class AddressTest extends AbstractTest
         $address->setNationalId($nationalId);
         $this->assertSame($nationalId, $address->getNationalId());
     }
-
 }

@@ -220,7 +220,7 @@ class AbstractMethodTest extends AbstractTest
     /**
      * testSetResponse
      *
-     * @expectedException \Pagantis\OrdersApiClient\Exception\HttpException
+     * @expectedException Pagantis\OrdersApiClient\Exception\HttpException
      *
      * @throws \ReflectionException
      */
