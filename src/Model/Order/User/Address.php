@@ -233,5 +233,4 @@ class Address extends AbstractModel
 
         return $this;
     }
-
 }
