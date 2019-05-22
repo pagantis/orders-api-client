@@ -36,46 +36,22 @@ class ConfigurationTest extends AbstractTest
         $purchaseCountry = 'IT';
         $configuration->setPurchaseCountry($purchaseCountry);
         $this->assertSame($purchaseCountry, $configuration->getPurchaseCountry());
-    }
 
-    /**
-     * Test setter and getter for lower letter purchase country
-     */
-    public function testSetLowerPurchaseCountry()
-    {
         $configuration = new Configuration();
         $purchaseCountry = 'it';
         $configuration->setPurchaseCountry($purchaseCountry);
         $this->assertSame(strtoupper($purchaseCountry), $configuration->getPurchaseCountry());
-    }
 
-    /**
-     * Test setter and getter for a wrong purchase country
-     */
-    public function testSetWrongPurchaseCountry()
-    {
         $configuration = new Configuration();
         $purchaseCountry = 'en';
         $configuration->setPurchaseCountry($purchaseCountry);
         $this->assertNull($configuration->getPurchaseCountry());
-    }
 
-    /**
-     * Test setter and getter for a empty purchase country
-     */
-    public function testSetEmptyPurchaseCountry()
-    {
         $configuration = new Configuration();
         $purchaseCountry = '';
         $configuration->setPurchaseCountry($purchaseCountry);
         $this->assertNull($configuration->getPurchaseCountry());
-    }
 
-    /**
-     * Test setter and getter for a null purchase country
-     */
-    public function testSetNullPurchaseCountry()
-    {
         $configuration = new Configuration();
         $purchaseCountry = null;
         $configuration->setPurchaseCountry($purchaseCountry);
