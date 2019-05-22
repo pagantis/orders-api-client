@@ -67,8 +67,14 @@ class UserTest extends AbstractTest
 
         $user = new User();
         $this->assertNull($user->getDateOfBirth());
-        $user->setDateOfBirth("123456");
+        $user->setDateOfBirth("55512346");
         $this->assertNull($user->getDateOfBirth());
+
+        $user = new User();
+        $today = new \DateTime('today');
+        $this->assertNull($user->getDateOfBirth());
+        $user->setDateOfBirth("20990101");
+        $this->assertSame($today, $user->getDateOfBirth());
     }
 
     /**
