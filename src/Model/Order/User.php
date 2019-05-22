@@ -142,6 +142,11 @@ class User extends AbstractModel
     {
         if (empty($dateOfBirth) || $dateOfBirth == '0000-00-00') {
             $this->dateOfBirth = null;
+            return $this;
+        }
+        if ($dateOfBirth instanceof \DateTime) {
+            $this->dateOfBirth = $dateOfBirth->format('Y-m-d');
+            return $this;
         }
         try {
             $dateTime = new \DateTime(trim($dateOfBirth));

@@ -74,7 +74,7 @@ class UserTest extends AbstractTest
         $today = new \DateTime('today');
         $this->assertNull($user->getDateOfBirth());
         $user->setDateOfBirth($today);
-        $this->assertSame($today, $user->getDateOfBirth());
+        $this->assertSame($today->format('Y-m-d'), $user->getDateOfBirth());
 
         $originalDate = '1985-05-25';
         $bornDate = date('Y-m-d H:i:s', strtotime($originalDate));
