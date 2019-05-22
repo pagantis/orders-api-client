@@ -1,0 +1,1323 @@
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating client variable.
+Creating Paga+Tarde order.
+Redirecting to Paga+Tarde form => $url.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating client variable.
+Creating Paga+Tarde order.
+Redirecting to Paga+Tarde form => https://form.pagamastarde.com/orders/5be0478eb194b2000544d55e.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating client variable.
+Creating Paga+Tarde order.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating client variable.
+Creating Paga+Tarde order.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating client variable.
+Creating Paga+Tarde order.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating client variable.
+Creating Paga+Tarde order.
+{}.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating client variable.
+Creating Paga+Tarde order.
+{
+    "action_urls": {
+        "form": "https:\/\/form.pagamastarde.com\/orders\/5be04b30d3d35f00055fc45b"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http:\/\/localhost:8000\/simpleTest.php?action=cancelOrder",
+            "ko": "http:\/\/localhost:8000\/simpleTest.php?action=cancelOrder",
+            "notification_callback": "http:\/\/localhost:8000\/simpleTest.php?action=confirmOrder",
+            "ok": "http:\/\/localhost:8000\/simpleTest.php?action=confirmOrder"
+        }
+    },
+    "created_at": "2018-11-05T01:52:48",
+    "expires_at": "2018-11-05T03:52:48",
+    "id": "5be04b30d3d35f00055fc45b",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlana",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Mar\u00eda Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Mar\u00eda Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "Mar\u00eda Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124"
+        },
+        "truncated": false
+    }
+}.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating Paga+Tarde order.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating Paga+Tarde order.
+{
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5be05b2f42313f00052602d5"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "ko": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "notification_callback": "http://localhost:8000/simpleTest.php?action=confirmOrder",
+            "ok": "http://localhost:8000/simpleTest.php?action=confirmOrder"
+        }
+    },
+    "created_at": "2018-11-05T03:01:03",
+    "expires_at": "2018-11-05T05:01:03",
+    "id": "5be05b2f42313f00052602d5",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlana",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124"
+        },
+        "truncated": false
+    }
+}.
+Redirecting to Paga+Tarde form => https://form.pagamastarde.com/orders/5be05b2f42313f00052602d5.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating Paga+Tarde order.
+{
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5be9397f7aaa890005d0839e"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "ko": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "notification_callback": "http://localhost:8000/simpleTest.php?action=confirmOrder",
+            "ok": "http://localhost:8000/simpleTest.php?action=confirmOrder"
+        }
+    },
+    "created_at": "2018-11-12T08:27:43",
+    "expires_at": "2018-11-12T10:27:43",
+    "id": "5be9397f7aaa890005d0839e",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlana",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124"
+        },
+        "truncated": false
+    }
+}.
+Redirecting to Paga+Tarde form => https://form.pagamastarde.com/orders/5be9397f7aaa890005d0839e.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating Paga+Tarde order.
+{
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5be939ce7aaa890005d0839f"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "ko": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "notification_callback": "http://localhost:8000/simpleTest.php?action=confirmOrder",
+            "ok": "http://localhost:8000/simpleTest.php?action=confirmOrder"
+        }
+    },
+    "created_at": "2018-11-12T08:29:02",
+    "expires_at": "2018-11-12T10:29:02",
+    "id": "5be939ce7aaa890005d0839f",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlana",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124"
+        },
+        "truncated": false
+    }
+}.
+Redirecting to Paga+Tarde form => https://form.pagamastarde.com/orders/5be939ce7aaa890005d0839f.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating Paga+Tarde order.
+{
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5be939cf30351000057376b3"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "ko": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "notification_callback": "http://localhost:8000/simpleTest.php?action=confirmOrder",
+            "ok": "http://localhost:8000/simpleTest.php?action=confirmOrder"
+        }
+    },
+    "created_at": "2018-11-12T08:29:03",
+    "expires_at": "2018-11-12T10:29:03",
+    "id": "5be939cf30351000057376b3",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlana",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124"
+        },
+        "truncated": false
+    }
+}.
+Redirecting to Paga+Tarde form => https://form.pagamastarde.com/orders/5be939cf30351000057376b3.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating Paga+Tarde order.
+{
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5be93a7b30351000057376b4"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "ko": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "notification_callback": "http://localhost:8000/simpleTest.php?action=confirmOrder",
+            "ok": "http://localhost:8000/simpleTest.php?action=confirmOrder"
+        }
+    },
+    "created_at": "2018-11-12T08:31:55",
+    "expires_at": "2018-11-12T10:31:55",
+    "id": "5be93a7b30351000057376b4",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 5900,
+                    "description": "TV LG UltraPlana",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "Juan Martinez Perez",
+        "mobile_phone": "600123123",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124"
+        },
+        "truncated": false
+    }
+}.
+Redirecting to Paga+Tarde form => https://form.pagamastarde.com/orders/5be93a7b30351000057376b4.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating Paga+Tarde order.
+{
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5be93a7d30351000057376b5"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "ko": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "notification_callback": "http://localhost:8000/simpleTest.php?action=confirmOrder",
+            "ok": "http://localhost:8000/simpleTest.php?action=confirmOrder"
+        }
+    },
+    "created_at": "2018-11-12T08:31:56",
+    "expires_at": "2018-11-12T10:31:56",
+    "id": "5be93a7d30351000057376b5",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 5900,
+                    "description": "TV LG UltraPlana",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "Juan Martinez Perez",
+        "mobile_phone": "600123123",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124"
+        },
+        "truncated": false
+    }
+}.
+Redirecting to Paga+Tarde form => https://form.pagamastarde.com/orders/5be93a7d30351000057376b5.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating Paga+Tarde order.
+{
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5be93a997aaa890005d083a0"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "ko": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "notification_callback": "http://localhost:8000/simpleTest.php?action=confirmOrder",
+            "ok": "http://localhost:8000/simpleTest.php?action=confirmOrder"
+        }
+    },
+    "created_at": "2018-11-12T08:32:25",
+    "expires_at": "2018-11-12T10:32:25",
+    "id": "5be93a997aaa890005d083a0",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 5900,
+                    "description": "TV LG UltraPlana",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 5900
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "Juan Martinez Perez",
+        "mobile_phone": "600123123",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124"
+        },
+        "truncated": false
+    }
+}.
+Redirecting to Paga+Tarde form => https://form.pagamastarde.com/orders/5be93a997aaa890005d083a0.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating Paga+Tarde order.
+{
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5be93a997aaa890005d083a1"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "ko": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "notification_callback": "http://localhost:8000/simpleTest.php?action=confirmOrder",
+            "ok": "http://localhost:8000/simpleTest.php?action=confirmOrder"
+        }
+    },
+    "created_at": "2018-11-12T08:32:25",
+    "expires_at": "2018-11-12T10:32:25",
+    "id": "5be93a997aaa890005d083a1",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 5900,
+                    "description": "TV LG UltraPlana",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 5900
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "Juan Martinez Perez",
+        "mobile_phone": "600123123",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124"
+        },
+        "truncated": false
+    }
+}.
+Redirecting to Paga+Tarde form => https://form.pagamastarde.com/orders/5be93a997aaa890005d083a1.
+Creating OrdersApiClient.
+Confirming order.
+Order confirmed.
+{
+    "action_urls": {
+        "confirm": "https://api-public.digitalorigin.com/v2/orders/5be93a997aaa890005d083a1/confirm",
+        "form": "https://form.pagamastarde.com/orders/5be93a997aaa890005d083a1",
+        "refund": "https://api-public.digitalorigin.com/v2/orders/5be93a997aaa890005d083a1/refund",
+        "upsell": "https://api-public.digitalorigin.com/v2/orders/5be93a997aaa890005d083a1/upsell"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "ko": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "notification_callback": "http://localhost:8000/simpleTest.php?action=confirmOrder",
+            "ok": "http://localhost:8000/simpleTest.php?action=confirmOrder"
+        }
+    },
+    "confirmed_at": "2018-11-12T08:38:35",
+    "created_at": "2018-11-12T08:32:25",
+    "id": "5be93a997aaa890005d083a1",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 5900,
+                    "description": "TV LG UltraPlana",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 5900
+    },
+    "status": "CONFIRMED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "Juan Martinez Perez",
+        "mobile_phone": "600123123",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124"
+        },
+        "truncated": false
+    }
+}.
+Creating OrdersApiClient.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating Paga+Tarde order.
+{
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5be93e6530351000057376b6"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "ko": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "notification_callback": "http://localhost:8000/simpleTest.php?action=confirmOrder",
+            "ok": "http://localhost:8000/simpleTest.php?action=confirmOrder"
+        }
+    },
+    "created_at": "2018-11-12T08:48:37",
+    "expires_at": "2018-11-12T10:48:37",
+    "id": "5be93e6530351000057376b6",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 5900,
+                    "description": "TV LG UltraPlana",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 5900
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "Juan Martinez Perez",
+        "mobile_phone": "600123123",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124"
+        },
+        "truncated": false
+    }
+}.
+Redirecting to Paga+Tarde form => https://form.pagamastarde.com/orders/5be93e6530351000057376b6.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating Paga+Tarde order.
+{
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5c1a28ad7e8d680005081306"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "ko": "http://localhost:8000/simpleTest.php?action=cancelOrder",
+            "notification_callback": "http://localhost:8000/simpleTest.php?action=confirmOrder",
+            "ok": "http://localhost:8000/simpleTest.php?action=confirmOrder"
+        }
+    },
+    "created_at": "2018-12-19T11:17:01",
+    "expires_at": "2018-12-19T01:17:01",
+    "id": "5c1a28ad7e8d680005081306",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 5900,
+                    "description": "TV LG UltraPlana",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 5900
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 1",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "Juan Martinez Perez",
+            "zip_code": "28000",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "Juan Martinez Perez",
+        "mobile_phone": "600123123",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124"
+        },
+        "truncated": false
+    }
+}.
+Redirecting to Paga+Tarde form => https://form.pagamastarde.com/orders/5c1a28ad7e8d680005081306.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating User object.
+Adding the address of the user.
+Adding the information of the user.
+Created User object.
+Creating ShoppingCart object.
+Adding the purchases of the customer, if there are..
+Adding cart products. Minimum 1 required.
+Created OrderShoppingCart object.
+Creating Configuration object.
+Adding urls to redirect the user according each case.
+Adding channel info.
+Created Configuration object.
+Creating OrdersApiClient.
+Creating Paga+Tarde order.

@@ -91,7 +91,12 @@ class Configuration extends AbstractModel
      */
     public function setPurchaseCountry($purchaseCountry)
     {
-        $this->purchaseCountry = $purchaseCountry;
+        $upperPurchaseCountry = strtoupper($purchaseCountry);
+        if (in_array($upperPurchaseCountry, array('IT','ES','PT','FR'))) {
+            $this->purchaseCountry = $upperPurchaseCountry;
+        } else {
+            $this->purchaseCountry = null;
+        }
 
         return $this;
     }
