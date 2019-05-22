@@ -36,5 +36,25 @@ class ConfigurationTest extends AbstractTest
         $purchaseCountry = 'IT';
         $configuration->setPurchaseCountry($purchaseCountry);
         $this->assertSame($purchaseCountry, $configuration->getPurchaseCountry());
+
+        $configuration = new Configuration();
+        $purchaseCountry = 'it';
+        $configuration->setPurchaseCountry($purchaseCountry);
+        $this->assertSame(strtoupper($purchaseCountry), $configuration->getPurchaseCountry());
+
+        $configuration = new Configuration();
+        $purchaseCountry = 'en';
+        $configuration->setPurchaseCountry($purchaseCountry);
+        $this->assertNull($configuration->getPurchaseCountry());
+
+        $configuration = new Configuration();
+        $purchaseCountry = '';
+        $configuration->setPurchaseCountry($purchaseCountry);
+        $this->assertNull($configuration->getPurchaseCountry());
+
+        $configuration = new Configuration();
+        $purchaseCountry = null;
+        $configuration->setPurchaseCountry($purchaseCountry);
+        $this->assertNull($configuration->getPurchaseCountry());
     }
 }

@@ -140,7 +140,24 @@ class User extends AbstractModel
      */
     public function setDateOfBirth($dateOfBirth)
     {
-        $this->dateOfBirth = $dateOfBirth;
+        if (empty($dateOfBirth) || $dateOfBirth == '0000-00-00') {
+            $this->dateOfBirth = null;
+            return $this;
+        }
+        if ($dateOfBirth instanceof \DateTime) {
+            $this->dateOfBirth = $dateOfBirth->format('Y-m-d');
+            return $this;
+        }
+        try {
+            $dateTime = new \DateTime(trim($dateOfBirth));
+            $today = new \DateTime('today');
+            if ($dateTime >= $today) {
+                $this->dateOfBirth =  null;
+            }
+            $this->dateOfBirth =  $dateTime->format('Y-m-d');
+        } catch (\Exception $exception) {
+            $this->dateOfBirth =  null;
+        }
 
         return $this;
     }

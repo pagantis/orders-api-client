@@ -49,6 +49,39 @@ class UserTest extends AbstractTest
         $this->assertNull($user->getDateOfBirth());
         $user->setDateOfBirth($nullDate);
         $this->assertSame($nullDate, $user->getDateOfBirth());
+
+        $user = new User();
+        $this->assertNull($user->getDateOfBirth());
+        $user->setDateOfBirth("31/7/2000 00:00:00");
+        $this->assertNull($user->getDateOfBirth());
+
+        $user = new User();
+        $this->assertNull($user->getDateOfBirth());
+        $user->setDateOfBirth("31/7/2000");
+        $this->assertNull($user->getDateOfBirth());
+
+        $user = new User();
+        $this->assertNull($user->getDateOfBirth());
+        $user->setDateOfBirth("null");
+        $this->assertSame($user->getDateOfBirth(), $nullDate);
+
+        $user = new User();
+        $this->assertNull($user->getDateOfBirth());
+        $user->setDateOfBirth("");
+        $this->assertSame($user->getDateOfBirth(), $nullDate);
+
+        $user = new User();
+        $today = new \DateTime('today');
+        $this->assertNull($user->getDateOfBirth());
+        $user->setDateOfBirth($today);
+        $this->assertSame($today->format('Y-m-d'), $user->getDateOfBirth());
+
+        $originalDate = '1985-05-25';
+        $bornDate = date('Y-m-d H:i:s', strtotime($originalDate));
+        $user = new User();
+        $this->assertNull($user->getDateOfBirth());
+        $user->setDateOfBirth($bornDate);
+        $this->assertSame($originalDate, $user->getDateOfBirth());
     }
 
     /**
