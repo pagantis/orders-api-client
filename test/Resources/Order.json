@@ -10,7 +10,7 @@
         "channel": {
             "type": "ONLINE",
             "assisted_sale": false,
-            "purchase_country" : "IT"
+            "purchase_country" : ""
         },
         "urls": {
             "cancel": "https://my-store.com/order-cancelled",
