@@ -28,6 +28,11 @@ class Configuration extends AbstractModel
     protected $purchaseCountry;
 
     /**
+     * @var array $allowedCountries
+     */
+    protected $allowedCountries = array('IT','ES','PT','FR');
+
+    /**
      * Configuration constructor.
      */
     public function __construct()
@@ -92,11 +97,8 @@ class Configuration extends AbstractModel
     public function setPurchaseCountry($purchaseCountry)
     {
         $upperPurchaseCountry = strtoupper($purchaseCountry);
-        if (in_array($upperPurchaseCountry, array('IT','ES','PT','FR'))) {
-            $this->purchaseCountry = $upperPurchaseCountry;
-        } else {
-            $this->purchaseCountry = null;
-        }
+        $this->purchaseCountry =
+            in_array($upperPurchaseCountry, $this->allowedCountries) ? $upperPurchaseCountry : null;
 
         return $this;
     }
