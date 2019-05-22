@@ -140,7 +140,7 @@ class User extends AbstractModel
      */
     public function setDateOfBirth($dateOfBirth)
     {
-        $this->dateOfBirth = $dateOfBirth;
+        $this->dateOfBirth = $this->getValidDOB($dateOfBirth);
 
         return $this;
     }
@@ -325,6 +325,29 @@ class User extends AbstractModel
                     $this->addOrderHistory($orderHistoryObject);
                 }
             }
+        }
+    }
+
+    /**
+     * Parse date. Ensure no empty, 0000-00-00, nor future dates are send
+     *
+     * @param $date
+     * @return string|null
+     */
+    private function getValidDOB($date)
+    {
+        if (empty($date) || $date == '0000-00-00') {
+            return null;
+        }
+        try {
+            $dateTime = new \DateTime(trim($date));
+            $today = new \DateTime('today');
+            if ($dateTime >= $today) {
+                return null;
+            }
+            return $dateTime->format('Y-m-d');
+        } catch (\Exception $exception) {
+            return null;
         }
     }
 }
