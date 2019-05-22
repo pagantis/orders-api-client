@@ -140,7 +140,19 @@ class User extends AbstractModel
      */
     public function setDateOfBirth($dateOfBirth)
     {
-        $this->dateOfBirth = $this->getValidDOB($dateOfBirth);
+        if (empty($dateOfBirth) || $dateOfBirth == '0000-00-00') {
+            $this->dateOfBirth = null;
+        }
+        try {
+            $dateTime = new \DateTime(trim($dateOfBirth));
+            $today = new \DateTime('today');
+            if ($dateTime >= $today) {
+                $this->dateOfBirth =  null;
+            }
+            $this->dateOfBirth =  $dateTime->format('Y-m-d');
+        } catch (\Exception $exception) {
+            $this->dateOfBirth =  null;
+        }
 
         return $this;
     }
@@ -325,29 +337,6 @@ class User extends AbstractModel
                     $this->addOrderHistory($orderHistoryObject);
                 }
             }
-        }
-    }
-
-    /**
-     * Parse date. Ensure no empty, 0000-00-00, nor future dates are send
-     *
-     * @param $date
-     * @return string|null
-     */
-    private function getValidDOB($date)
-    {
-        if (empty($date) || $date == '0000-00-00') {
-            return null;
-        }
-        try {
-            $dateTime = new \DateTime(trim($date));
-            $today = new \DateTime('today');
-            if ($dateTime >= $today) {
-                return null;
-            }
-            return $dateTime->format('Y-m-d');
-        } catch (\Exception $exception) {
-            return null;
         }
     }
 }
