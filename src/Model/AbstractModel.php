@@ -110,4 +110,29 @@ abstract class AbstractModel implements ModelInterface
 
         return false;
     }
+
+    /**
+     * @param null $date
+     * @return null | String
+     */
+    protected function checkDateFormat($date = null)
+    {
+        if (empty($date) || $date == '0000-00-00') {
+            return null;
+        }
+        if ($date instanceof \DateTime) {
+            return $date->format('Y-m-d');
+        }
+        try {
+            $dateTime = new \DateTime(trim($date));
+            $today = new \DateTime('today');
+            if ($dateTime >= $today) {
+                return null;
+            }
+            return $dateTime->format('Y-m-d');
+        } catch (\Exception $exception) {
+            return null;
+        }
+    }
+
 }

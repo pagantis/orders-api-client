@@ -54,7 +54,7 @@ class OrderHistory extends AbstractModel
      */
     public function setDate($date)
     {
-        $this->date = $date;
+        $this->date = $this->checkDateFormat($date);
 
         return $this;
     }
