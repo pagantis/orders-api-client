@@ -31,6 +31,11 @@ class Urls extends AbstractModel
     protected $rejectedNotificationCallback = null;
 
     /**
+     * @var string $invalidatedNotificationCallback URL
+     */
+    protected $invalidatedNotificationCallback = null;
+
+    /**
      * @var string ok URL
      */
     protected $ok = null;
@@ -121,6 +126,26 @@ class Urls extends AbstractModel
     public function setRejectedNotificationCallback($rejectedNotificationCallback)
     {
         $this->rejectedNotificationCallback = $rejectedNotificationCallback;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInvalidatedNotificationCallback()
+    {
+        return $this->invalidatedNotificationCallback;
+    }
+
+    /**
+     * @param string $invalidatedNotificationCallback
+     *
+     * @return Urls
+     */
+    public function setInvalidatedNotificationCallback($invalidatedNotificationCallback)
+    {
+        $this->invalidatedNotificationCallback = $invalidatedNotificationCallback;
 
         return $this;
     }
