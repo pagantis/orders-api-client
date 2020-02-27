@@ -53,7 +53,7 @@ class AddressTest extends AbstractTest
     {
         $address = new Address();
         $dni = 'A123456789B';
-        $address->setNationalId($dni);
+        $address->setDni($dni);
         $this->assertSame($dni, $address->getDni());
     }
 }
