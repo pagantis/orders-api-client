@@ -45,4 +45,15 @@ class AddressTest extends AbstractTest
         $address->setNationalId($nationalId);
         $this->assertSame($nationalId, $address->getNationalId());
     }
+
+    /**
+     * testSetDni
+     */
+    public function testSetDni()
+    {
+        $address = new Address();
+        $dni = 'A123456789B';
+        $address->setNationalId($dni);
+        $this->assertSame($dni, $address->getDni());
+    }
 }
