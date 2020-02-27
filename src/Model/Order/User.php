@@ -28,6 +28,11 @@ class User extends AbstractModel
     protected $dateOfBirth;
 
     /**
+     * @var string $dni ID of the user
+     */
+    protected $dni;
+
+    /**
      * @var string $email User email.
      */
     protected $email;
@@ -141,6 +146,26 @@ class User extends AbstractModel
     public function setDateOfBirth($dateOfBirth)
     {
         $this->dateOfBirth = $this->checkDateFormat($dateOfBirth);
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDni()
+    {
+        return $this->dni;
+    }
+
+    /**
+     * @param $dni
+     *
+     * @return $this
+     */
+    public function setDni($dni)
+    {
+        $this->dni = $dni;
 
         return $this;
     }

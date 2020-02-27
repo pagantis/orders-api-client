@@ -40,6 +40,7 @@ function createOrder()
         ->setCountryCode('ES')
         ->setCity('Madrid')
         ->setAddress('Paseo de la Castellana, 95')
+        ->setDni('59661738Z')
         ->setNationalId('59661738Z')
         ->setFixPhone('911231234')
         ->setMobilePhone('600123123');
@@ -53,6 +54,7 @@ function createOrder()
         ->setCountryCode('ES')
         ->setCity('Barcelona')
         ->setAddress('Avenida de la diagonal 525')
+        ->setDni('77695544A')
         ->setNationalId('59661738Z')
         ->setFixPhone('931232345')
         ->setMobilePhone('600123124');
@@ -68,6 +70,7 @@ function createOrder()
         ->setEmail('user@my-shop.com')
         ->setFixPhone('911231234')
         ->setMobilePhone('600123123')
+        ->setDni('59661738Z')
         ->setNationalId('59661738Z');
     writeLog('Created User object');
 
