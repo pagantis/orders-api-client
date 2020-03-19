@@ -10,8 +10,24 @@
         "ext-json": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.8",
-        "fzaninotto/faker": "^1.8"
+        "fzaninotto/faker": "^1.8",
+        "phpunit/phpunit": "^9.0",
+        "symfony/var-dumper": "^5.0"
+    },
+    "scripts": {
+        "run-examples": "nodemon examples/",
+        "examples-server": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php -S 0.0.0.0:8000 -t examples/"
+            ],
+        "post-install-cmd": [
+                "@php -r \"file_exists('nodemon.json') || copy('examples/nodemon-example.json', 'nodemon.json');\""
+        ],
+        "phpcs": "~/.composer/vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR2",
+        "cc": "~/.composer/vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR2"
+    },
+    "scripts-descriptions": {
+        "examples-server": "Runs a built-in local development web server to watch"
     },
     "autoload": {
         "psr-4": {
@@ -20,6 +36,7 @@
     },
     "autoload-dev": {
         "psr-4": {
+            "Examples\\OrdersApiClient\\": "examples/",
             "Test\\Pagantis\\OrdersApiClient\\": "test/"
         }
     },

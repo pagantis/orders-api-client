@@ -30,7 +30,7 @@ class Configuration extends AbstractModel
     /**
      * @var array $allowedCountries
      */
-    private $allowedCountries = array('IT','ES','PT','FR');
+	private array $allowedCountries = array('IT', 'ES', 'PT', 'FR');
 
     /**
      * Configuration constructor.
