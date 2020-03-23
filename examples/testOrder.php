@@ -2,7 +2,7 @@
 
 namespace Examples\OrdersApiClient;
 
-use Examples\Utils\FakeUser;
+use Examples\OrdersApiClient\Controllers\ShopUser;
 use Exception;
 use Httpful\Exception\ConnectionErrorException;
 use Pagantis\OrdersApiClient\Client;
@@ -16,7 +16,7 @@ use Pagantis\OrdersApiClient\Model\Order\ShoppingCart;
 use Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details;
 use Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details\Product;
 use Pagantis\OrdersApiClient\Model\Order\User;
-use Pagantis\OrdersApiClient\Model\Order\User\Address as UserAddress;
+use Pagantis\OrdersApiClient\Model\Order\User\Address;
 use Examples\OrdersApiClient\utils\Log;
 use Pagantis\OrdersApiClient\Model\Order\User\OrderHistory;
 
@@ -41,13 +41,17 @@ class testOrder implements OrderExampleInterface
     {
         // There are 3 objects which are mandatory: User object, ShoppingCart object and Configuration object.
         //1. User Object
-        Log::write('Creating User object');
-        Log::write('Adding the address of the user');
-        $userAddress =  FakeUser::getAddress();
-        Log::write(json_encode($userAddress, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+        Log::write('Creating User object', $withDate = true);
+        //TODO MAKE FAKE USER EXTEND ABSTRACT MODEL
+        $fakeUSer = new ShopUser();
+        $userAddress = $fakeUSer->setAddressInfo();
+        Log::write('Adding the address of the user', $withDate = true);
+        Log::write(json_encode($userAddress,
+            JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+            | JSON_PRETTY_PRINT), $withDate = true);
         $orderBillingAddress = $userAddress;
 
-        $orderShippingAddress = new UserAddress();
+        $orderShippingAddress = new Address();
         $orderShippingAddress
             ->setZipCode('08029')
             ->setFullName('Alberto Escudero Sanchez')
@@ -59,7 +63,7 @@ class testOrder implements OrderExampleInterface
             ->setFixPhone('931232345')
             ->setMobilePhone('600123124');
 
-        Log::write('Adding the information of the user');
+        Log::write('Adding the information of the user', $withDate = true);
         $orderUser = new User();
         $orderUser
             ->setFullName('María Sanchez Escudero')
@@ -72,18 +76,20 @@ class testOrder implements OrderExampleInterface
             ->setMobilePhone('600123123')
             ->setDni('59661738Z')
             ->setNationalId('59661738Z');
-        Log::write('Created User object');
+        Log::write('Created User object', $withDate = true);
 
         //2. ShoppingCart Object
-        Log::write('Creating ShoppingCart object');
-        Log::write('Adding the purchases of the customer, if there are.');
+        Log::write('Creating ShoppingCart object', $withDate = true);
+        Log::write('Adding the purchases of the customer, if there are.',
+            $withDate = true);
         $orderHistory = new OrderHistory();
         $orderHistory
             ->setAmount('2499')
             ->setDate('2010-01-31');
         $orderUser->addOrderHistory($orderHistory);
 
-        Log::write('Adding cart products. Minimum 1 required');
+        Log::write('Adding cart products. Minimum 1 required',
+            $withDate = true);
         $product = new Product();
         $product
             ->setAmount('59999')
@@ -100,13 +106,16 @@ class testOrder implements OrderExampleInterface
             ->setOrderReference(ORDER_ID)
             ->setPromotedAmount(0) // This amount means that the merchant will asume the interests.
             ->setTotalAmount('59999');
-        Log::write('Created OrderShoppingCart object');
+        Log::write('Created OrderShoppingCart object', $withDate = true);
 
         //3. Configuration Object
-        Log::write('Creating Configuration object');
-        Log::write('Adding urls to redirect the user according each case');
-        $confirmUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=confirmOrder";
-        $errorUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=cancelOrder";
+        Log::write('Creating Configuration object', $withDate = true);
+        Log::write('Adding urls to redirect the user according each case',
+            $withDate = true);
+        $confirmUrl
+            = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=confirmOrder";
+        $errorUrl
+            = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=cancelOrder";
         $orderConfigurationUrls = new Urls();
         $orderConfigurationUrls
             ->setCancel($errorUrl)
@@ -115,7 +124,7 @@ class testOrder implements OrderExampleInterface
             ->setRejectedNotificationCallback($confirmUrl)
             ->setOk($confirmUrl);
 
-        Log::write('Adding channel info');
+        Log::write('Adding channel info', $withDate = true);
         $orderChannel = new Channel();
         $orderChannel
             ->setAssistedSale(false)
@@ -125,7 +134,7 @@ class testOrder implements OrderExampleInterface
         $orderConfiguration
             ->setChannel($orderChannel)
             ->setUrls($orderConfigurationUrls);
-        Log::write('Created Configuration object');
+        Log::write('Created Configuration object', $withDate = true);
 
         $order = new Order();
         $order
@@ -133,13 +142,13 @@ class testOrder implements OrderExampleInterface
             ->setShoppingCart($orderShoppingCart)
             ->setUser($orderUser);
 
-        Log::write('Creating OrdersApiClient');
+        Log::write('Creating OrdersApiClient', $withDate = true);
         if (PUBLIC_KEY == '' || PRIVATE_KEY == '') {
             throw new Exception('You need set the public and private key');
         }
         $orderClient = new Client(PUBLIC_KEY, PRIVATE_KEY);
 
-        Log::write('Creating Pagantis order');
+        Log::write('Creating Pagantis order', $withDate = true);
         $order = $orderClient->createOrder($order);
         if ($order instanceof Order) {
             //If the order is correct and created then we have the redirection URL here:
@@ -148,15 +157,16 @@ class testOrder implements OrderExampleInterface
             Log::write(
                 json_encode(
                     $order->export(),
-                    JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
+                    JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+                    | JSON_PRETTY_PRINT
                 )
-            );
+                , $withDate = true);
         } else {
             throw new Exception('Order not created');
         }
 
         // You can use our test credit cards to fill the Pagantis form
-        Log::write("Redirecting to Pagantis form => $url");
+        Log::write("Redirecting to Pagantis form => $url", $withDate = true);
         header('Location:' . $url);
     }
 
@@ -176,28 +186,30 @@ class testOrder implements OrderExampleInterface
         * your own order id. Both options are possible.
         */
 
-        Log::write('Creating OrdersApiClient');
+        Log::write('Creating OrdersApiClient', $withDate = true);
         $orderClient = new Client(PUBLIC_KEY, PRIVATE_KEY);
 
         $order = $orderClient->getOrder($_SESSION['order_id']);
 
-        if ($order instanceof Order 
+        if ($order instanceof Order
             && $order->getStatus() == Order::STATUS_AUTHORIZED
         ) {
             //If the order exists, and the status is authorized, means you can mark the order as paid.
 
             //DO WHATEVER YOU NEED TO DO TO MARK THE ORDER AS PAID IN YOUR OWN SYSTEM.
-            Log::write('Confirming order');
+            Log::write('Confirming order', $withDate = true);
             $order = $orderClient->confirmOrder($order->getId());
 
-            Log::write('Order confirmed');
+            Log::write('Order confirmed', $withDate = true);
             Log::write(
                 json_encode(
                     $order->export(),
-                    JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
+                    JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
+                    | JSON_PRETTY_PRINT
                 )
-            );
-            $message = "The order {$_SESSION['order_id']} has been confirmed successfully";
+                , $withDate = true);
+            $message
+                = "The order {$_SESSION['order_id']} has been confirmed successfully";
         } else {
             $message = "The order {$_SESSION['order_id']} can't be confirmed";
         }

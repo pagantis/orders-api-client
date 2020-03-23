@@ -66,9 +66,7 @@ class HttpException extends \Exception
             $statusPhrase = $this->status[$statusCode];
         }
         parent::__construct($statusPhrase, $statusCode);
-
         $header  = sprintf('HTTP/1.1 %d %s', $statusCode, $statusPhrase);
-
         $this->addHeader($header);
         $this->addHeaders($headers);
     }
