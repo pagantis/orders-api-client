@@ -2,12 +2,12 @@
 
 namespace Examples\OrdersApiClient;
 
-use Examples\OrdersApiClient\Controllers\ShopUser;
+
 use Exception;
 use Httpful\Exception\ConnectionErrorException;
 use Pagantis\OrdersApiClient\Client;
 use Pagantis\OrdersApiClient\Exception\ClientException;
-use Pagantis\OrdersApiClient\Exception\HttpException;
+
 use Pagantis\OrdersApiClient\Model\Order;
 use Pagantis\OrdersApiClient\Model\Order\Configuration;
 use Pagantis\OrdersApiClient\Model\Order\Configuration\Channel;
@@ -23,11 +23,12 @@ use Pagantis\OrdersApiClient\Model\Order\User\OrderHistory;
 
 class testOrder implements OrderExampleInterface
 {
+    //TODO IMPLEMENT FAKER
     /**
      * PLEASE FILL YOUR PUBLIC KEY AND PRIVATE KEY
      */
     const PUBLIC_KEY = 'tk_45fe164c88c646a8a993d755'; //Set your public key
-    const PRIVATE_KEY = '4efe623438e14e3d'; //Set your private key
+    const PRIVATE_KEY = '4efe623438e14e3d'; //Set your public key
     const ORDER_ID = 'order_4159972708';
 
     /**
@@ -41,112 +42,61 @@ class testOrder implements OrderExampleInterface
     {
         // There are 3 objects which are mandatory: User object, ShoppingCart object and Configuration object.
         //1. User Object
+        Log::write('----------------------------------------------------------------',
+            $withDate = true);
         Log::write('Creating User object', $withDate = true);
-        //TODO MAKE FAKE USER EXTEND ABSTRACT MODEL
-        $fakeUSer = new ShopUser();
-        $userAddress = $fakeUSer->setAddressInfo();
+        $userAddress = self::setAddress();
         Log::write('Adding the address of the user', $withDate = true);
         Log::write(json_encode($userAddress,
             JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES
             | JSON_PRETTY_PRINT), $withDate = true);
         $orderBillingAddress = $userAddress;
-
-        $orderShippingAddress = new Address();
-        $orderShippingAddress
-            ->setZipCode('08029')
-            ->setFullName('Alberto Escudero Sanchez')
-            ->setCountryCode('ES')
-            ->setCity('Barcelona')
-            ->setAddress('Avenida de la diagonal 525')
-            ->setDni('77695544A')
-            ->setNationalId('59661738Z')
-            ->setFixPhone('931232345')
-            ->setMobilePhone('600123124');
-
+        $orderShippingAddress = self::setShippingAddress();
         Log::write('Adding the information of the user', $withDate = true);
-        $orderUser = new User();
-        $orderUser
-            ->setFullName('María Sanchez Escudero')
-            ->setAddress($userAddress)
-            ->setBillingAddress($orderBillingAddress)
-            ->setShippingAddress($orderShippingAddress)
-            ->setDateOfBirth('1985-12-30')
-            ->setEmail('user@my-shop.com')
-            ->setFixPhone('911231234')
-            ->setMobilePhone('600123123')
-            ->setDni('59661738Z')
-            ->setNationalId('59661738Z');
+        $orderUser = $this->setOrder($userAddress, $orderBillingAddress,
+            $orderShippingAddress);
         Log::write('Created User object', $withDate = true);
-
         //2. ShoppingCart Object
         Log::write('Creating ShoppingCart object', $withDate = true);
         Log::write('Adding the purchases of the customer, if there are.',
             $withDate = true);
-        $orderHistory = new OrderHistory();
-        $orderHistory
-            ->setAmount('2499')
-            ->setDate('2010-01-31');
-        $orderUser->addOrderHistory($orderHistory);
+        $this->setOrderHistory();
 
         Log::write('Adding cart products. Minimum 1 required',
             $withDate = true);
-        $product = new Product();
-        $product
-            ->setAmount('59999')
-            ->setQuantity('1')
-            ->setDescription('TV LG UltraPlana');
 
-        $details = new Details();
-        $details->setShippingCost('0');
-        $details->addProduct($product);
+        $product = $this->setProduct();
 
-        $orderShoppingCart = new ShoppingCart();
-        $orderShoppingCart
-            ->setDetails($details)
-            ->setOrderReference(ORDER_ID)
-            ->setPromotedAmount(0) // This amount means that the merchant will asume the interests.
-            ->setTotalAmount('59999');
+        $details = $this->setProductDetails($product);
+
+        $orderShoppingCart = $this->setShoppingCart($details,
+            self::ORDER_ID);
         Log::write('Created OrderShoppingCart object', $withDate = true);
 
         //3. Configuration Object
         Log::write('Creating Configuration object', $withDate = true);
         Log::write('Adding urls to redirect the user according each case',
             $withDate = true);
-        $confirmUrl
-            = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=confirmOrder";
-        $errorUrl
-            = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=cancelOrder";
-        $orderConfigurationUrls = new Urls();
-        $orderConfigurationUrls
-            ->setCancel($errorUrl)
-            ->setKo($errorUrl)
-            ->setAuthorizedNotificationCallback($confirmUrl)
-            ->setRejectedNotificationCallback($confirmUrl)
-            ->setOk($confirmUrl);
+
 
         Log::write('Adding channel info', $withDate = true);
-        $orderChannel = new Channel();
-        $orderChannel
-            ->setAssistedSale(false)
-            ->setType(Channel::ONLINE);
 
-        $orderConfiguration = new Configuration();
-        $orderConfiguration
-            ->setChannel($orderChannel)
-            ->setUrls($orderConfigurationUrls);
+        $orderChannel = $this->setOrderChannel();
+
+        $orderConfigurationUrls = $this->setConfigurationUrls();
+
         Log::write('Created Configuration object', $withDate = true);
+        $orderConfiguration = $this->setOrderConfiguration($orderChannel,
+            $orderConfigurationUrls);
 
-        $order = new Order();
-        $order
-            ->setConfiguration($orderConfiguration)
-            ->setShoppingCart($orderShoppingCart)
-            ->setUser($orderUser);
+        $order = $this->sendOrder($orderConfiguration, $orderShoppingCart,
+            $orderUser);
 
         Log::write('Creating OrdersApiClient', $withDate = true);
-        if (PUBLIC_KEY == '' || PRIVATE_KEY == '') {
-            throw new Exception('You need set the public and private key');
+        if (self::PUBLIC_KEY == '' || self::PRIVATE_KEY == '') {
+            throw new Exception('You need set the public and public key');
         }
-        $orderClient = new Client(PUBLIC_KEY, PRIVATE_KEY);
+        $orderClient = new Client(self::PUBLIC_KEY, self::PRIVATE_KEY);
 
         Log::write('Creating Pagantis order', $withDate = true);
         $order = $orderClient->createOrder($order);
@@ -233,4 +183,158 @@ class testOrder implements OrderExampleInterface
         exit;
     }
 
+     function setAddress()
+    {
+        $userAddress = new Address();
+
+        $userAddress
+            ->setZipCode('28031')
+            ->setFullName('María Sanchez Escudero')
+            ->setCountryCode('ES')
+            ->setCity('Madrid')
+            ->setAddress('Paseo de la Castellana, 95')
+            ->setDni('59661738Z')
+            ->setNationalId('59661738Z')
+            ->setFixPhone('911231234')
+            ->setMobilePhone('600123123');
+        return $userAddress;
+    }
+
+
+     function setShippingAddress()
+    {
+        $orderShippingAddress = new Address();
+
+        $orderShippingAddress
+            ->setZipCode('08029')
+            ->setFullName('Alberto Escudero Sanchez')
+            ->setCountryCode('ES')
+            ->setCity('Barcelona')
+            ->setAddress('Avenida de la diagonal 525')
+            ->setDni('77695544A')
+            ->setNationalId('59661738Z')
+            ->setFixPhone('931232345')
+            ->setMobilePhone('600123124');
+        return $orderShippingAddress;
+    }
+
+     function setOrder(
+        $userAddress,
+        $orderBillingAddress,
+        $orderShippingAddress
+    ) {
+        $orderUser = new User();
+        $orderUser
+            ->setFullName('María Sanchez Escudero')
+            ->setAddress($userAddress)
+            ->setBillingAddress($orderBillingAddress)
+            ->setShippingAddress($orderShippingAddress)
+            ->setDateOfBirth('1985-12-30')
+            ->setEmail('user@my-shop.com')
+            ->setFixPhone('911231234')
+            ->setMobilePhone('600123123')
+            ->setDni('59661738Z')
+            ->setNationalId('59661738Z');
+        return $orderUser;
+    }
+
+     function setOrderHistory()
+    {
+        $orderHistory = new OrderHistory();
+        $orderUser = new User();
+        $orderHistory
+            ->setAmount('2499')
+            ->setDate('2010-01-31');
+        $orderUser->addOrderHistory($orderHistory);
+        return $orderHistory;
+    }
+
+     function setProduct()
+    {
+        $product = new Product();
+        $product
+            ->setAmount('59999')
+            ->setQuantity('1')
+            ->setDescription('TV LG UltraPlasma');
+        return $product;
+    }
+
+     function setProductDetails(Product $product)
+    {
+        $details = new Details();
+        $details->setShippingCost('0');
+        $details->addProduct($product);
+        return $details;
+    }
+
+     function setShoppingCart($details, $orderID)
+    {
+        $orderShoppingCart = new ShoppingCart();
+
+        $orderShoppingCart
+            ->setDetails($details)
+            ->setOrderReference($orderID)
+            ->setPromotedAmount(0) // This amount means that the merchant will assume the interests.
+            ->setTotalAmount('59999');
+        return $orderShoppingCart;
+    }
+
+     function setConfigurationUrls()
+    {
+
+        $confirmUrl
+            = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=confirmOrder";
+        $errorUrl
+            = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=cancelOrder";
+
+        $orderConfigurationUrls = new Urls();
+        $orderConfigurationUrls
+            ->setCancel($errorUrl)
+            ->setKo($errorUrl)
+            ->setAuthorizedNotificationCallback($confirmUrl)
+            ->setRejectedNotificationCallback($confirmUrl)
+            ->setOk($confirmUrl);
+        return $orderConfigurationUrls;
+    }
+
+
+     function setOrderChannel()
+    {
+        $orderChannel = new Channel();
+        $orderChannel
+            ->setAssistedSale(false)
+            ->setType(Channel::ONLINE);
+        return $orderChannel;
+    }
+
+     function setOrderConfiguration(
+        $orderChannel,
+        $orderConfigurationUrls
+    ) {
+        $orderConfiguration = new Configuration();
+        $orderConfiguration
+            ->setChannel($orderChannel)
+            ->setUrls($orderConfigurationUrls);
+    }
+
+     function sendOrder(
+        $orderConfiguration,
+        $orderShoppingCart,
+        $orderUser
+    ) {
+        $order = new Order();
+        $order
+            ->setConfiguration($orderConfiguration)
+            ->setShoppingCart($orderShoppingCart)
+            ->setUser($orderUser);
+        return $order;
+    }
+
+     function isOrderIdValid($order)
+    {
+        if (!$order instanceof Order) {
+            return false;
+        }
+        return true;
+    }
 }

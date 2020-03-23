@@ -7,8 +7,6 @@
     <label for="custom_method">Choose a method:</label>
     <select id="custom_method" name="custom_method">
         <option value="createOrder">create Order</option>
-        <option value="cancelOrder">cancel Order</option>
-        <option value="cancelOrder">cancel Order</option>
     </select>
     <input type="submit" name="submit">
 </form>

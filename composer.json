@@ -10,10 +10,8 @@
         "ext-json": "*"
     },
     "require-dev": {
-        "fzaninotto/faker": "^1.8",
-        "phpunit/phpunit": "^9.0",
-        "symfony/var-dumper": "^5.0",
-        "symfony/dotenv": "^5.0"
+        "phpunit/phpunit": "^4.8",
+        "fzaninotto/faker": "^1.8"
     },
     "scripts": {
         "run-examples": "nodemon examples/",
@@ -22,9 +20,6 @@
             "@putenv PHP_CLI_SERVER_WORKERS=2",
             "@php -S 0.0.0.0:8000 -t examples/"
             ],
-        "post-install-cmd": [
-                "@php -r \"file_exists('nodemon.json') || copy('examples/nodemon-example.json', 'nodemon.json');\""
-        ],
         "phpcs": "~/.composer/vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR2",
         "watch-log": [
             "@putenv COMPOSER_PROCESS_TIMEOUT=5000",
