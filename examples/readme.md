@@ -11,15 +11,15 @@ git clone https://github.com/pagantis/orders-api-client.git .
 composer install
 ```
 
-Then you can run the web application using PHP's built-in server:
+Then you can run the web application using PHP's built-in server via Composer Scripts:
 
 ```
-php -S 0.0.0.0:8000 -t examples/
+composer run-script examples-server
 ```
 
-The web application is running at [http://localhost:8000/simpleTest.php](http://localhost:8000/simpleTest.php).
+The web application is running at [http://localhost:8000/createOrder.php](http://localhost:8000/createOrder.php).
 
-To trace the execution in real time, you can open the log file using the command: 
+To trace the execution in real time, you can open the log file using the following Composer script: 
 ```
-tail -f examples/pagantis.log
+composer run-script watch-logs
 ``` 

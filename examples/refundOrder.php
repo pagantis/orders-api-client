@@ -2,49 +2,45 @@
 
 require_once('../vendor/autoload.php');
 
+
 /**
  * PLEASE FILL YOUR PUBLIC KEY AND PRIVATE KEY
  */
 const PUBLIC_KEY = ''; //Set your public key
 const PRIVATE_KEY = ''; //Set your public key
+const ORDER_ID = '5e78c725929d29591bd8922f';
+
 
 try {
     writeLog('-------------------------------', $withDate = false);
-    call_user_func('listMethod');
+    call_user_func('refundMethod');
 } catch (\Exception $e) {
     echo $e->getMessage();
     exit;
 }
 
-/**
- * @throws \Httpful\Exception\ConnectionErrorException
- * @throws \Pagantis\OrdersApiClient\Exception\ClientException
- * @throws Exception
- */
-function listMethod()
+function refundMethod()
 {
     $asJson = true;
     $withDate = true;
-    $queryString = array(
-        'channel' => 'ONLINE',
-        'pageSize' => 2,
-        'page' => 1,
-        'status' => \Pagantis\OrdersApiClient\Model\Order::STATUS_CONFIRMED
-    );
+    $refundTotalAmount = 10;
     try {
         writeLog('Creating Client', $withDate);
-        $orderApiClient = new \Pagantis\OrdersApiClient\Client(
-            PUBLIC_KEY,
-            PRIVATE_KEY
-        );
+        $orderApiClient = getClient();
         writeLog('Client Created', $withDate);
-        writeLog('Fetching Orders', $withDate);
-        /** WARNING: orders must be confirmed on your back office or you will get a empty object */
-        $orders = $orderApiClient->listOrders($queryString, $asJson);
-        writeLog('Orders Fetched', $withDate);
+        writeLog('Setting Refund', $withDate);
+        $refund = new \Pagantis\OrdersApiClient\Model\Order\Refund();
+        $refund
+            ->setPromotedAmount(0)
+            ->setTotalAmount($refundTotalAmount);
+        writeLog('Refund Set', $withDate);
+        $refundCreated = $orderApiClient->refundOrder(ORDER_ID, $refund);
+        writeLog(jsonEncoded($refundCreated), $withDate);
 
-        writeLog($orders, $withDate);
-        echo $orders;
+        $refundedOrder = $orderApiClient->getOrder(ORDER_ID, $asJson);
+        $refundsArray = jsonToArray($refundedOrder);
+
+        echo jsonEncoded($refundsArray['refunds']);
 
     } catch (\Exception $exception) {
         $exception->getMessage();
@@ -64,12 +60,13 @@ function writeLog(
     $dateFormat = '[D M j G:i:s o]';
     if ($withDate) {
         $date = getCurrentDate($dateFormat);
-        return file_put_contents('logs/pagantis.old.log', "$date - 'LIST ORDERS' - $message.\n",
+        return file_put_contents('logs/pagantis.old.log', "$date - 'REFUND ORDERS' - $message.\n",
             FILE_APPEND);
     }
     return file_put_contents('logs/pagantis.old.log', "$message.\n",
         FILE_APPEND);
 }
+
 
 /**
  * @param $dateFormat
@@ -80,18 +77,6 @@ function getCurrentDate($dateFormat)
 {
     $currentDate = date($dateFormat);
     return $currentDate;
-}
-
-/**
- * @param $object
- *
- * @return false|string
- */
-function jsonEncoded($object)
-{
-    return json_encode($object,
-        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
-    );
 }
 
 /**
@@ -108,3 +93,24 @@ function getClient()
     return $orderClient;
 }
 
+/**
+ * @param $jsonString
+ *
+ * @return mixed
+ */
+function jsonToArray($jsonString)
+{
+    $myArray = json_decode($jsonString, true);
+    return $myArray;
+}
+
+/**
+ * @param $object
+ *
+ * @return false|string
+ */
+function jsonEncoded($object)
+{
+    return json_encode($object,
+        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+}

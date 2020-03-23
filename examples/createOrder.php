@@ -6,8 +6,8 @@ require_once('../vendor/autoload.php');
 /**
  * PLEASE FILL YOUR PUBLIC KEY AND PRIVATE KEY
  */
-const PUBLIC_KEY = 'tk_45fe164c88c646a8a993d755'; //Set your public key
-const PRIVATE_KEY = '4efe623438e14e3d'; //Set your public key
+const PUBLIC_KEY = ''; //Set your public key
+const PRIVATE_KEY = ''; //Set your public key
 const ORDER_ID = 'order_4159972708';
 
 try {
@@ -32,56 +32,57 @@ function createOrder()
 {
     // There are 3 objects which are mandatory: User object, ShoppingCart object and Configuration object.
     //1. User Object
-    writeLog('Creating User object', $withDate = true);
+    $withDate = true;
+    writeLog('Creating User object', $withDate);
     $userAddress = setAddress();
     $orderBillingAddress = setAddress();
     writeLog('Adding the address of the user' . jsonEncoded($orderBillingAddress),
-        $withDate = true);
+        $withDate);
     $orderShippingAddress = setShippingAddress();
 
-    writeLog('Adding the information of the user', $withDate = true);
+    writeLog('Adding the information of the user', $withDate);
     $orderUser = setOrder($userAddress, $orderBillingAddress,
         $orderShippingAddress);
-    writeLog('Created User object', $withDate = true);
+    writeLog('Created User object', $withDate);
 
     //2. ShoppingCart Object
-    writeLog('Creating ShoppingCart object', $withDate = true);
-    writeLog('Adding the purchases of the customer, if there are.', $withDate = true);
+    writeLog('Creating ShoppingCart object', $withDate);
+    writeLog('Adding the purchases of the customer, if there are.', $withDate);
     $orderHistory = setOrderHistory();
 
-    writeLog('Adding cart products. Minimum 1 required', $withDate = true);
+    writeLog('Adding cart products. Minimum 1 required', $withDate);
     $product = setProduct();
 
     $details = setProductDetails($product);
 
     $orderShoppingCart = setShoppingCart($details, ORDER_ID);
-    writeLog('Created OrderShoppingCart object', $withDate = true);
+    writeLog('Created OrderShoppingCart object', $withDate);
 
     //3. Configuration Object
-    writeLog('Creating Configuration object', $withDate = true);
-    writeLog('Adding urls to redirect the user according each case', $withDate = true);
+    writeLog('Creating Configuration object', $withDate);
+    writeLog('Adding urls to redirect the user according each case', $withDate);
 
     $orderConfigurationUrls = setConfigurationUrls();
 
-    writeLog('Adding channel info', $withDate = true);
+    writeLog('Adding channel info', $withDate);
     $orderChannel = setOrderChannel();
 
     $orderConfiguration = setOrderConfiguration($orderChannel,
         $orderConfigurationUrls);
-    writeLog('Created Configuration object', $withDate = true);
+    writeLog('Created Configuration object', $withDate);
 
     $order = sendOrder($orderConfiguration, $orderShoppingCart,
         $orderUser);
 
-    writeLog('Creating OrdersApiClient', $withDate = true);
+    writeLog('Creating OrdersApiClient', $withDate);
     $orderClient = getClient();
 
-    writeLog('Creating Pagantis order', $withDate = true);
+    writeLog('Creating Pagantis order', $withDate);
     $order = $orderClient->createOrder($order);
     processOrder($order);
     $url = getFormURL($order);
     // You can use our test credit cards to fill the Pagantis form
-    writeLog("Redirecting to Pagantis form => $url", $withDate = true);
+    writeLog("Redirecting to Pagantis form => $url", $withDate);
     header('Location:' . $url);
 }
 
@@ -101,8 +102,8 @@ function confirmOrder()
      * Add this parameters in your database when you create a order and map it to your own order. Or search orders by
      * your own order id. Both options are possible.
      */
-
-    writeLog('Creating OrdersApiClient', $withDate = true);
+    $withDate = true;
+    writeLog('Creating OrdersApiClient', $withDate);
     $orderClient = new \Pagantis\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
 
     $order = $orderClient->getOrder($_SESSION['order_id']);
@@ -113,14 +114,14 @@ function confirmOrder()
         //If the order exists, and the status is authorized, means you can mark the order as paid.
 
         //DO WHATEVER YOU NEED TO DO TO MARK THE ORDER AS PAID IN YOUR OWN SYSTEM.
-        writeLog('Confirming order', $withDate = true);
+        writeLog('Confirming order', $withDate);
         $order = $orderClient->confirmOrder($order->getId());
 
-        writeLog('Order confirmed', $withDate = true);
+        writeLog('Order confirmed', $withDate);
         writeLog(json_encode(
             $order->export(),
             JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
-        ), $withDate = true);
+        ), $withDate);
         $message = "The order {$_SESSION['order_id']} has been confirmed successfully";
     } else {
         $message = "The order {$_SESSION['order_id']} can't be confirmed";
@@ -145,12 +146,12 @@ function cancelOrder()
     exit;
 }
 
-
-
 /**
  * Internal Functions
  */
-
+/**
+ * @return \Pagantis\OrdersApiClient\Model\Order\User\Address
+ */
 function setAddress()
 {
     $userAddress = new \Pagantis\OrdersApiClient\Model\Order\User\Address();
@@ -168,6 +169,9 @@ function setAddress()
     return $userAddress;
 }
 
+/**
+ * @return \Pagantis\OrdersApiClient\Model\Order\User\Address
+ */
 function setShippingAddress()
 {
     $orderShippingAddress = new \Pagantis\OrdersApiClient\Model\Order\User\Address();
@@ -185,6 +189,13 @@ function setShippingAddress()
     return $orderShippingAddress;
 }
 
+/**
+ * @param $userAddress
+ * @param $orderBillingAddress
+ * @param $orderShippingAddress
+ *
+ * @return \Pagantis\OrdersApiClient\Model\Order\User
+ */
 function setOrder(
     $userAddress,
     $orderBillingAddress,
@@ -205,6 +216,9 @@ function setOrder(
     return $orderUser;
 }
 
+/**
+ * @return \Pagantis\OrdersApiClient\Model\Order\User\OrderHistory
+ */
 function setOrderHistory()
 {
     $orderHistory = new \Pagantis\OrdersApiClient\Model\Order\User\OrderHistory();
@@ -216,6 +230,9 @@ function setOrderHistory()
     return $orderHistory;
 }
 
+/**
+ * @return \Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details\Product
+ */
 function setProduct()
 {
     $product = new \Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details\Product();
@@ -226,6 +243,11 @@ function setProduct()
     return $product;
 }
 
+/**
+ * @param \Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details\Product $product
+ *
+ * @return \Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details
+ */
 function setProductDetails(
     \Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details\Product $product
 ) {
@@ -235,6 +257,12 @@ function setProductDetails(
     return $details;
 }
 
+/**
+ * @param $details
+ * @param $orderID
+ *
+ * @return \Pagantis\OrdersApiClient\Model\Order\ShoppingCart
+ */
 function setShoppingCart($details, $orderID)
 {
     $orderShoppingCart = new \Pagantis\OrdersApiClient\Model\Order\ShoppingCart();
@@ -247,6 +275,9 @@ function setShoppingCart($details, $orderID)
     return $orderShoppingCart;
 }
 
+/**
+ * @return \Pagantis\OrdersApiClient\Model\Order\Configuration\Urls
+ */
 function setConfigurationUrls()
 {
 
@@ -265,6 +296,9 @@ function setConfigurationUrls()
     return $orderConfigurationUrls;
 }
 
+/**
+ * @return \Pagantis\OrdersApiClient\Model\Order\Configuration\Channel
+ */
 function setOrderChannel()
 {
     $orderChannel = new \Pagantis\OrdersApiClient\Model\Order\Configuration\Channel();
@@ -274,6 +308,12 @@ function setOrderChannel()
     return $orderChannel;
 }
 
+/**
+ * @param $orderChannel
+ * @param $orderConfigurationUrls
+ *
+ * @return \Pagantis\OrdersApiClient\Model\Order\Configuration
+ */
 function setOrderConfiguration(
     $orderChannel,
     $orderConfigurationUrls
@@ -286,6 +326,13 @@ function setOrderConfiguration(
     return $orderConfiguration;
 }
 
+/**
+ * @param $orderConfiguration
+ * @param $orderShoppingCart
+ * @param $orderUser
+ *
+ * @return \Pagantis\OrdersApiClient\Model\Order
+ */
 function sendOrder(
     $orderConfiguration,
     $orderShoppingCart,
@@ -299,6 +346,11 @@ function sendOrder(
     return $order;
 }
 
+/**
+ * @param $order
+ *
+ * @return bool
+ */
 function isOrderIdValid($order)
 {
     if (!$order instanceof \Pagantis\OrdersApiClient\Model\Order) {
@@ -313,7 +365,8 @@ function isOrderIdValid($order)
  * @throws \Pagantis\OrdersApiClient\Exception\ClientException
  * @throws Exception
  */
-function getClient(){
+function getClient()
+{
     if (PUBLIC_KEY == '' || PRIVATE_KEY == '') {
         throw new \Exception('You need set the public and private key');
     }
@@ -321,25 +374,38 @@ function getClient(){
     return $orderClient;
 }
 
-function processOrder(\Pagantis\OrdersApiClient\Model\Order $order){
+/**
+ * @param \Pagantis\OrdersApiClient\Model\Order $order
+ *
+ * @throws Exception
+ */
+function processOrder(\Pagantis\OrdersApiClient\Model\Order $order)
+{
     if (isOrderIdValid($order)) {
         //If the order is correct and created then we have the redirection URL here:
-       // $url = $order->getActionUrls()->getForm();
+        // $url = $order->getActionUrls()->getForm();
         $_SESSION['order_id'] = $order->getId();
-        writeLog(jsonEncoded($order->export()), $withDate = true);
+        writeLog(jsonEncoded($order->export()), $withDate);
     } else {
         throw new \Exception('Order not valid');
     }
 }
 
-function getFormURL(\Pagantis\OrdersApiClient\Model\Order $order){
+/**
+ * @param \Pagantis\OrdersApiClient\Model\Order $order
+ *
+ * @return string
+ */
+function getFormURL(\Pagantis\OrdersApiClient\Model\Order $order)
+{
 
     $url = $order->getActionUrls()->getForm();
     return $url;
 }
+
 /**
-* UTILS
-*/
+ * UTILS
+ */
 
 /**
  * @param $message
@@ -355,19 +421,29 @@ function writeLog(
     $dateFormat = '[D M j G:i:s o]';
     if ($withDate) {
         $date = getCurrentDate($dateFormat);
-        return file_put_contents('logs/pagantis.log', "$date - 'CREATE ORDER' - $message.\n",
+        return file_put_contents('logs/pagantis.old.log', "$date - 'CREATE ORDER' - $message.\n",
             FILE_APPEND);
     }
-    return file_put_contents('logs/pagantis.log', "$message.\n",
+    return file_put_contents('logs/pagantis.old.log', "$message.\n",
         FILE_APPEND);
 }
 
+/**
+ * @param $dateFormat
+ *
+ * @return false|string
+ */
 function getCurrentDate($dateFormat)
 {
     $currentDate = date($dateFormat);
     return $currentDate;
 }
 
+/**
+ * @param $object
+ *
+ * @return false|string
+ */
 function jsonEncoded($object)
 {
     return json_encode($object,
@@ -375,6 +451,12 @@ function jsonEncoded($object)
     );
 }
 
+/**
+ * @param array $array
+ * @param       $key
+ *
+ * @return mixed
+ */
 function getValueOfKey(array $array, $key)
 {
     if (!is_string($key)) {
