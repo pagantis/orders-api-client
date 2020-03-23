@@ -148,7 +148,7 @@ function cancelOrder()
 
 
 /**
- * Action after redirect to cancelUrl
+ * Internal Functions
  */
 
 function setAddress()

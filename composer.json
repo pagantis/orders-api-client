@@ -14,20 +14,19 @@
         "fzaninotto/faker": "^1.8"
     },
     "scripts": {
-        "run-examples": "nodemon examples/",
         "examples-server": [
             "@putenv COMPOSER_PROCESS_TIMEOUT=5000",
             "@putenv PHP_CLI_SERVER_WORKERS=2",
             "@php -S 0.0.0.0:8000 -t examples/"
             ],
-        "phpcs": "~/.composer/vendor/squizlabs/php_codesniffer/bin/phpcs --standard=PSR2",
         "watch-log": [
             "@putenv COMPOSER_PROCESS_TIMEOUT=5000",
             "tail -f examples/logs/pagantis.log\n "
             ]
     },
     "scripts-descriptions": {
-        "examples-server": "Runs a built-in local development web server to watch"
+        "examples-server": "Runs a built-in local development web server to run examples provided",
+        "watch-log": "Will show live log file changes in terminal"
     },
     "autoload": {
         "psr-4": {
