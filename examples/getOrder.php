@@ -14,7 +14,7 @@ if (!isset($_POST['getOrderID'])){
 try {
 
     $orderID = $_POST['getOrderID'];
-    $orderApiClient = new Client(PUBLIC_KEY, PRIVATE_KEY);
+    $orderApiClient = getClient();
     $order = $orderApiClient->getOrder($orderID);
     $fileName = basename(__FILE__);
     writeLog("Order ID: ".$order->getId(),$fileName, true);

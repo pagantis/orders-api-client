@@ -52,25 +52,6 @@ function confirmOrders()
     }
 }
 
-/**
- * @return \Pagantis\OrdersApiClient\Client
- * @throws \Httpful\Exception\ConnectionErrorException
- * @throws \Pagantis\OrdersApiClient\Exception\ClientException
- * @throws Exception
- */
-function getClient()
-{
-    if (PUBLIC_KEY === '' || PRIVATE_KEY === '') {
-        throw new \Exception('You need set the public and private key');
-    }
-    try {
-        $orderClient = new \Pagantis\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
-    } catch (\Exception $e) {
-        $e->getMessage();
-    }
-
-    return $orderClient;
-}
 
 
 /**

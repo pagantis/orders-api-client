@@ -6,16 +6,16 @@ require_once('../examples/utils/Helpers.php');
 /**
  * PLEASE FILL YOUR PUBLIC KEY AND PRIVATE KEY
  */
-const PUBLIC_KEY = ''; //Set your public key
+const PUBLIC_KEY  = ''; //Set your public key
 const PRIVATE_KEY = ''; //Set your public key
-const ORDER_ID = 'order_4159972708';
+const ORDER_ID    = 'order_4159972708';
 
 
 try {
     session_start();
     $withDate = true;
     $fileName = basename(__FILE__);
-    $method = get_GetMethod();
+    $method   = get_GetMethod();
     call_user_func($method);
 } catch (\Exception $e) {
     echo $e->getMessage();
@@ -38,20 +38,19 @@ function createOrder()
     $withDate = true;
     $fileName = basename(__FILE__);
     writeLog('Creating User object', $fileName, $withDate);
-    $userAddress = setAddress();
+    $userAddress         = setAddress();
     $orderBillingAddress = setAddress();
     writeLog('Adding the address of the user', $fileName, $withDate);
     $orderShippingAddress = setShippingAddress();
 
     writeLog('Adding the information of the user', $fileName, $withDate);
-    $orderUser = setOrder($userAddress, $orderBillingAddress,
-        $orderShippingAddress);
+    $orderUser = setOrder($userAddress, $orderBillingAddress, $orderShippingAddress);
     writeLog('Created User object', $fileName, $withDate);
 
     //2. ShoppingCart Object
     writeLog('Creating ShoppingCart object', $fileName, $withDate);
     writeLog('Adding the purchases of the customer, if there are.', $fileName, $withDate);
-    $orderHistory = setOrderHistory();
+    setOrderHistory();
 
     writeLog('Adding cart products. Minimum 1 required', $fileName, $withDate);
     $product = setProduct();
@@ -70,12 +69,10 @@ function createOrder()
     writeLog('Adding channel info', $fileName, $withDate);
     $orderChannel = setOrderChannel();
 
-    $orderConfiguration = setOrderConfiguration($orderChannel,
-        $orderConfigurationUrls);
+    $orderConfiguration = setOrderConfiguration($orderChannel, $orderConfigurationUrls);
     writeLog('Created Configuration object', $fileName, $withDate);
 
-    $order = sendOrder($orderConfiguration, $orderShoppingCart,
-        $orderUser);
+    $order = sendOrder($orderConfiguration, $orderShoppingCart, $orderUser);
 
     writeLog('Creating OrdersApiClient', $fileName, $withDate);
     $orderClient = getClient();
@@ -88,7 +85,6 @@ function createOrder()
 
     processOrder($order);
     $url = getFormURL($order);
-    writeLog("Session " . $_SESSION['order_id'], $fileName, $withDate);
     // You can use our test credit cards to fill the Pagantis form
     writeLog("Redirecting to Pagantis form => $url", $fileName, $withDate);
     header('Location:' . $url);
@@ -127,14 +123,13 @@ function confirmOrder()
         $order = $orderClient->confirmOrder($order->getId());
 
         writeLog('Order confirmed', $fileName, true);
-        writeLog(json_encode(
-            $order->export(),
-            JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
-        ), $fileName, true);
+        writeLog(jsonEncoded($order->export()), $fileName, true);
+
         $message = "The order {$_SESSION['order_id']} has been confirmed successfully";
-    } else {
-        $message = "The order {$_SESSION['order_id']} can't be confirmed";
+        writeLog($message, $fileName, true);
     }
+    $message = "The order {$_SESSION['order_id']} can't be confirmed";
+    writeLog($message, $fileName, true);
 
     /* The order has been marked as paid and confirmed in Pagantis so you will send the product to your customer and
      * Pagantis will pay you in the next 24h.
@@ -165,16 +160,9 @@ function setAddress()
 {
     $userAddress = new \Pagantis\OrdersApiClient\Model\Order\User\Address();
 
-    $userAddress
-        ->setZipCode('28031')
-        ->setFullName('María Sanchez Escudero')
-        ->setCountryCode('ES')
-        ->setCity('Madrid')
-        ->setAddress('Paseo de la Castellana, 95')
-        ->setDni('59661738Z')
-        ->setNationalId('59661738Z')
-        ->setFixPhone('911231234')
-        ->setMobilePhone('600123123');
+    $userAddress->setZipCode('28031')->setFullName('María Sanchez Escudero')->setCountryCode('ES')
+                ->setCity('Madrid')->setAddress('Paseo de la Castellana, 95')->setDni('59661738Z')
+                ->setNationalId('59661738Z')->setFixPhone('911231234')->setMobilePhone('600123123');
     return $userAddress;
 }
 
@@ -185,16 +173,11 @@ function setShippingAddress()
 {
     $orderShippingAddress = new \Pagantis\OrdersApiClient\Model\Order\User\Address();
 
-    $orderShippingAddress
-        ->setZipCode('08029')
-        ->setFullName('Alberto Escudero Sanchez')
-        ->setCountryCode('ES')
-        ->setCity('Barcelona')
-        ->setAddress('Avenida de la diagonal 525')
-        ->setDni('77695544A')
-        ->setNationalId('59661738Z')
-        ->setFixPhone('931232345')
-        ->setMobilePhone('600123124');
+    $orderShippingAddress->setZipCode('08029')->setFullName('Alberto Escudero Sanchez')
+                         ->setCountryCode('ES')->setCity('Barcelona')
+                         ->setAddress('Avenida de la diagonal 525')->setDni('77695544A')
+                         ->setNationalId('59661738Z')->setFixPhone('931232345')
+                         ->setMobilePhone('600123124');
     return $orderShippingAddress;
 }
 
@@ -206,22 +189,14 @@ function setShippingAddress()
  * @return \Pagantis\OrdersApiClient\Model\Order\User
  */
 function setOrder(
-    $userAddress,
-    $orderBillingAddress,
-    $orderShippingAddress
-) {
+    $userAddress, $orderBillingAddress, $orderShippingAddress
+)
+{
     $orderUser = new \Pagantis\OrdersApiClient\Model\Order\User();
-    $orderUser
-        ->setFullName('María Sanchez Escudero')
-        ->setAddress($userAddress)
-        ->setBillingAddress($orderBillingAddress)
-        ->setShippingAddress($orderShippingAddress)
-        ->setDateOfBirth('1985-12-30')
-        ->setEmail('user@my-shop.com')
-        ->setFixPhone('911231234')
-        ->setMobilePhone('600123123')
-        ->setDni('59661738Z')
-        ->setNationalId('59661738Z');
+    $orderUser->setFullName('María Sanchez Escudero')->setAddress($userAddress)
+              ->setBillingAddress($orderBillingAddress)->setShippingAddress($orderShippingAddress)
+              ->setDateOfBirth('1985-12-30')->setEmail('user@my-shop.com')->setFixPhone('911231234')
+              ->setMobilePhone('600123123')->setDni('59661738Z')->setNationalId('59661738Z');
     return $orderUser;
 }
 
@@ -231,10 +206,8 @@ function setOrder(
 function setOrderHistory()
 {
     $orderHistory = new \Pagantis\OrdersApiClient\Model\Order\User\OrderHistory();
-    $orderUser = new \Pagantis\OrdersApiClient\Model\Order\User();
-    $orderHistory
-        ->setAmount('2499')
-        ->setDate('2010-01-31');
+    $orderUser    = new \Pagantis\OrdersApiClient\Model\Order\User();
+    $orderHistory->setAmount('2499')->setDate('2010-01-31');
     $orderUser->addOrderHistory($orderHistory);
     return $orderHistory;
 }
@@ -245,10 +218,7 @@ function setOrderHistory()
 function setProduct()
 {
     $product = new \Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details\Product();
-    $product
-        ->setAmount('59999')
-        ->setQuantity('1')
-        ->setDescription('TV LG UltraPlasma');
+    $product->setAmount('59999')->setQuantity('1')->setDescription('TV LG UltraPlasma');
     return $product;
 }
 
@@ -259,7 +229,8 @@ function setProduct()
  */
 function setProductDetails(
     \Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details\Product $product
-) {
+)
+{
     $details = new \Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details();
     $details->setShippingCost('0');
     $details->addProduct($product);
@@ -276,11 +247,9 @@ function setShoppingCart($details, $orderID)
 {
     $orderShoppingCart = new \Pagantis\OrdersApiClient\Model\Order\ShoppingCart();
 
-    $orderShoppingCart
-        ->setDetails($details)
-        ->setOrderReference($orderID)
-        ->setPromotedAmount(0) // This amount means that the merchant will assume the interests.
-        ->setTotalAmount('59999');
+    $orderShoppingCart->setDetails($details)->setOrderReference($orderID)
+                      ->setPromotedAmount(0) // This amount means that the merchant will assume the interests.
+                      ->setTotalAmount('59999');
     return $orderShoppingCart;
 }
 
@@ -289,18 +258,13 @@ function setShoppingCart($details, $orderID)
  */
 function setConfigurationUrls()
 {
-    $confirmUrl
-        = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=confirmOrder";
-    $errorUrl
-        = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=cancelOrder";
+    $confirmUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=confirmOrder";
+    $errorUrl   = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=cancelOrder";
 
     $orderConfigurationUrls = new \Pagantis\OrdersApiClient\Model\Order\Configuration\Urls();
-    $orderConfigurationUrls
-        ->setCancel($errorUrl)
-        ->setKo($errorUrl)
-        ->setAuthorizedNotificationCallback($confirmUrl)
-        ->setRejectedNotificationCallback($confirmUrl)
-        ->setOk($confirmUrl);
+    $orderConfigurationUrls->setCancel($errorUrl)->setKo($errorUrl)
+                           ->setAuthorizedNotificationCallback($confirmUrl)
+                           ->setRejectedNotificationCallback($confirmUrl)->setOk($confirmUrl);
     return $orderConfigurationUrls;
 }
 
@@ -310,9 +274,8 @@ function setConfigurationUrls()
 function setOrderChannel()
 {
     $orderChannel = new \Pagantis\OrdersApiClient\Model\Order\Configuration\Channel();
-    $orderChannel
-        ->setAssistedSale(false)
-        ->setType(\Pagantis\OrdersApiClient\Model\Order\Configuration\Channel::ONLINE);
+    $orderChannel->setAssistedSale(false)
+                 ->setType(\Pagantis\OrdersApiClient\Model\Order\Configuration\Channel::ONLINE);
     return $orderChannel;
 }
 
@@ -323,14 +286,12 @@ function setOrderChannel()
  * @return \Pagantis\OrdersApiClient\Model\Order\Configuration
  */
 function setOrderConfiguration(
-    $orderChannel,
-    $orderConfigurationUrls
-) {
-    $orderConfiguration
-        = $orderConfiguration = new \Pagantis\OrdersApiClient\Model\Order\Configuration();
-    $orderConfiguration
-        ->setChannel($orderChannel)
-        ->setUrls($orderConfigurationUrls);
+    $orderChannel, $orderConfigurationUrls
+)
+{
+    $orderConfiguration =
+    $orderConfiguration = new \Pagantis\OrdersApiClient\Model\Order\Configuration();
+    $orderConfiguration->setChannel($orderChannel)->setUrls($orderConfigurationUrls);
     return $orderConfiguration;
 }
 
@@ -342,28 +303,15 @@ function setOrderConfiguration(
  * @return \Pagantis\OrdersApiClient\Model\Order
  */
 function sendOrder(
-    $orderConfiguration,
-    $orderShoppingCart,
-    $orderUser
-) {
+    $orderConfiguration, $orderShoppingCart, $orderUser
+)
+{
     $order = new \Pagantis\OrdersApiClient\Model\Order();
-    $order
-        ->setConfiguration($orderConfiguration)
-        ->setShoppingCart($orderShoppingCart)
-        ->setUser($orderUser);
+    $order->setConfiguration($orderConfiguration)->setShoppingCart($orderShoppingCart)
+          ->setUser($orderUser);
     return $order;
 }
 
-/**
- * @param $method
- *
- * @return bool
- */
-
-function isFunctionNameValid($method)
-{
-    return function_exists($method);
-}
 
 /**
  * @param $order
@@ -378,20 +326,6 @@ function isOrderIdValid($order)
     return true;
 }
 
-/**
- * @return \Pagantis\OrdersApiClient\Client
- * @throws \Httpful\Exception\ConnectionErrorException
- * @throws \Pagantis\OrdersApiClient\Exception\ClientException
- * @throws Exception
- */
-function getClient()
-{
-    if (PUBLIC_KEY == '' || PRIVATE_KEY == '') {
-        throw new \Exception('You need set the public and private key');
-    }
-    $orderClient = new \Pagantis\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
-    return $orderClient;
-}
 
 /**
  * @param \Pagantis\OrdersApiClient\Model\Order $order
@@ -438,7 +372,7 @@ function isGetActionValid()
 function get_GetMethod()
 {
     if (!isGetActionValid()) {
-       return 'createOrder';
+        return 'createOrder';
 
     };
     $method = json_decode(json_encode($_GET));

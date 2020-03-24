@@ -1,2 +1,122 @@
 [Tue Mar 24 13:29:58 2020] "\"index.php\"" Session Started.
 [Tue Mar 24 13:33:46 2020] "\"index.php\"" Session Started.
+[Tue Mar 24 13:35:11 2020] "\"index.php\"" Session Started.
+[Tue Mar 24 13:36:58 2020] "index.php" Session Started.
+[Tue Mar 24 15:06:37 2020] "index.php" Session Started.
+[Tue Mar 24 15:06:42 2020] "index.php" Session Started.
+[Tue Mar 24 15:07:15 2020] "index.php" Session Started.
+[Tue Mar 24 15:07:17 2020] "createOrder.php" Creating User object.
+[Tue Mar 24 15:07:17 2020] "createOrder.php" Adding the address of the user.
+[Tue Mar 24 15:07:17 2020] "createOrder.php" Adding the information of the user.
+[Tue Mar 24 15:07:17 2020] "createOrder.php" Created User object.
+[Tue Mar 24 15:07:17 2020] "createOrder.php" Creating ShoppingCart object.
+[Tue Mar 24 15:07:17 2020] "createOrder.php" Adding the purchases of the customer, if there are..
+[Tue Mar 24 15:07:17 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Tue Mar 24 15:07:17 2020] "createOrder.php" Created OrderShoppingCart object.
+[Tue Mar 24 15:07:17 2020] "createOrder.php" Creating Configuration object.
+[Tue Mar 24 15:07:17 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Tue Mar 24 15:07:17 2020] "createOrder.php" Adding channel info.
+[Tue Mar 24 15:07:17 2020] "createOrder.php" Created Configuration object.
+[Tue Mar 24 15:07:17 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 24 15:09:16 2020] "index.php" Session Started.
+[Tue Mar 24 15:09:17 2020] "index.php" Session Started.
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Creating User object.
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Adding the address of the user.
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Adding the information of the user.
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Created User object.
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Creating ShoppingCart object.
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Adding the purchases of the customer, if there are..
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Created OrderShoppingCart object.
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Creating Configuration object.
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Adding channel info.
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Created Configuration object.
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 24 15:09:19 2020] "createOrder.php" Creating Pagantis order.
+[Tue Mar 24 15:09:20 2020] "createOrder.php" Pagantis Order Created ID: "5e7a00b13f1e437c225a7529".
+[Tue Mar 24 15:09:20 2020] "createOrder.php" {
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5e7a22a8ffcf6c418ab4a367"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "created_at": "2020-03-24T03:09:28",
+    "expires_at": "2020-03-24T05:09:28",
+    "id": "5e7a22a8ffcf6c418ab4a367",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 24 15:09:20 2020] "createOrder.php" Redirecting to Pagantis form => https://form.pagamastarde.com/orders/5e7a22a8ffcf6c418ab4a367.

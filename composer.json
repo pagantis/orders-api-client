@@ -18,7 +18,8 @@
         "examples-server": [
             "@putenv COMPOSER_PROCESS_TIMEOUT=0",
             "@putenv PHP_CLI_SERVER_WORKERS=2",
-            "@php -S 0.0.0.0:8000 examples/index.php"            ],
+            "@php -S 0.0.0.0:8000 examples/index.php"
+        ],
         "watch-log": [
             "@putenv COMPOSER_PROCESS_TIMEOUT=0",
             "tail -f examples/logs/pagantis.log\n "

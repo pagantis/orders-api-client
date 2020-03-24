@@ -5,7 +5,7 @@
     <title>Pagantis Order API Client Examples</title>
     <?php
     require_once('../examples/utils/Helpers.php');
-    writeLog('Session Started', jsonEncoded(basename(__FILE__)), true);
+    writeLog('Session Started', basename(__FILE__), true);
     session_start();
     ?>
 </head>
