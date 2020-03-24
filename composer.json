@@ -13,14 +13,15 @@
         "phpunit/phpunit": "^4.8",
         "fzaninotto/faker": "^1.8"
     },
+
     "scripts": {
         "examples-server": [
-            "@putenv COMPOSER_PROCESS_TIMEOUT=5000",
+            "@putenv COMPOSER_PROCESS_TIMEOUT=0",
             "@putenv PHP_CLI_SERVER_WORKERS=2",
             "@php -S 0.0.0.0:8000 -t examples/"
             ],
         "watch-log": [
-            "@putenv COMPOSER_PROCESS_TIMEOUT=5000",
+            "@putenv COMPOSER_PROCESS_TIMEOUT=10800",
             "tail -f examples/logs/pagantis.log\n "
             ]
     },
@@ -28,6 +29,7 @@
         "examples-server": "Runs a built-in local development web server to run examples provided",
         "watch-logs": "Will show live log file changes in terminal"
     },
+
     "autoload": {
         "psr-4": {
             "Pagantis\\OrdersApiClient\\": "src/"

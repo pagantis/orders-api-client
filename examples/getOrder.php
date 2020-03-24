@@ -1,18 +1,24 @@
 <?php
 
 require_once('../vendor/autoload.php');
+require_once ('../examples/utils/Helpers.php');
 
 use Pagantis\OrdersApiClient\Client;
 
 const PUBLIC_KEY = ''; //Set your public key
 const PRIVATE_KEY = ''; //Set your public key
-const ORDER_ID = '';
 
+if (!isset($_POST['getOrderID'])){
+    throw new \Exception('You need to input the Order ID');
+}
 try {
-    $orderApiClient = new Client(PUBLIC_KEY, PRIVATE_KEY);
-    $order = $orderApiClient->getOrder(ORDER_ID);
 
-    print("<pre>" . print_r($order->export(), true) . "</pre>");
+    $orderID = $_POST['getOrderID'];
+    $orderApiClient = new Client(PUBLIC_KEY, PRIVATE_KEY);
+    $order = $orderApiClient->getOrder($orderID);
+    $fileName = basename(__FILE__);
+    writeLog("Order ID: ".$order->getId(),$fileName, true);
+    print("<pre>" . print_r($order, true) . "</pre>");
 
 } catch (Exception $e) {
     echo $e->getMessage();

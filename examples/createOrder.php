@@ -2,7 +2,7 @@
 
 //Require the Client library using composer: composer require pagantis/orders-api-client
 require_once('../vendor/autoload.php');
-
+require_once('../examples/utils/Helpers.php');
 /**
  * PLEASE FILL YOUR PUBLIC KEY AND PRIVATE KEY
  */
@@ -10,9 +10,12 @@ const PUBLIC_KEY = ''; //Set your public key
 const PRIVATE_KEY = ''; //Set your public key
 const ORDER_ID = 'order_4159972708';
 
+
 try {
     session_start();
-    $method = ($_GET['action']) ? ($_GET['action']) : 'createOrder';
+    $withDate = true;
+    $fileName = basename(__FILE__);
+    $method = get_GetMethod();
     call_user_func($method);
 } catch (\Exception $e) {
     echo $e->getMessage();
@@ -33,56 +36,61 @@ function createOrder()
     // There are 3 objects which are mandatory: User object, ShoppingCart object and Configuration object.
     //1. User Object
     $withDate = true;
-    writeLog('Creating User object', $withDate);
+    $fileName = basename(__FILE__);
+    writeLog('Creating User object', $fileName, $withDate);
     $userAddress = setAddress();
     $orderBillingAddress = setAddress();
-    writeLog('Adding the address of the user' . jsonEncoded($orderBillingAddress),
-        $withDate);
+    writeLog('Adding the address of the user', $fileName, $withDate);
     $orderShippingAddress = setShippingAddress();
 
-    writeLog('Adding the information of the user', $withDate);
+    writeLog('Adding the information of the user', $fileName, $withDate);
     $orderUser = setOrder($userAddress, $orderBillingAddress,
         $orderShippingAddress);
-    writeLog('Created User object', $withDate);
+    writeLog('Created User object', $fileName, $withDate);
 
     //2. ShoppingCart Object
-    writeLog('Creating ShoppingCart object', $withDate);
-    writeLog('Adding the purchases of the customer, if there are.', $withDate);
+    writeLog('Creating ShoppingCart object', $fileName, $withDate);
+    writeLog('Adding the purchases of the customer, if there are.', $fileName, $withDate);
     $orderHistory = setOrderHistory();
 
-    writeLog('Adding cart products. Minimum 1 required', $withDate);
+    writeLog('Adding cart products. Minimum 1 required', $fileName, $withDate);
     $product = setProduct();
 
     $details = setProductDetails($product);
 
     $orderShoppingCart = setShoppingCart($details, ORDER_ID);
-    writeLog('Created OrderShoppingCart object', $withDate);
+    writeLog('Created OrderShoppingCart object', $fileName, $withDate);
 
     //3. Configuration Object
-    writeLog('Creating Configuration object', $withDate);
-    writeLog('Adding urls to redirect the user according each case', $withDate);
+    writeLog('Creating Configuration object', $fileName, $withDate);
+    writeLog('Adding urls to redirect the user according each case', $fileName, $withDate);
 
     $orderConfigurationUrls = setConfigurationUrls();
 
-    writeLog('Adding channel info', $withDate);
+    writeLog('Adding channel info', $fileName, $withDate);
     $orderChannel = setOrderChannel();
 
     $orderConfiguration = setOrderConfiguration($orderChannel,
         $orderConfigurationUrls);
-    writeLog('Created Configuration object', $withDate);
+    writeLog('Created Configuration object', $fileName, $withDate);
 
     $order = sendOrder($orderConfiguration, $orderShoppingCart,
         $orderUser);
 
-    writeLog('Creating OrdersApiClient', $withDate);
+    writeLog('Creating OrdersApiClient', $fileName, $withDate);
     $orderClient = getClient();
 
-    writeLog('Creating Pagantis order', $withDate);
+    writeLog('Creating Pagantis order', $fileName, $withDate);
     $order = $orderClient->createOrder($order);
+
+    writeLog("Pagantis Order Created ID: "
+        . jsonEncoded($_SESSION['order_id']), $fileName, $withDate);
+
     processOrder($order);
     $url = getFormURL($order);
+    writeLog("Session " . $_SESSION['order_id'], $fileName, $withDate);
     // You can use our test credit cards to fill the Pagantis form
-    writeLog("Redirecting to Pagantis form => $url", $withDate);
+    writeLog("Redirecting to Pagantis form => $url", $fileName, $withDate);
     header('Location:' . $url);
 }
 
@@ -102,8 +110,9 @@ function confirmOrder()
      * Add this parameters in your database when you create a order and map it to your own order. Or search orders by
      * your own order id. Both options are possible.
      */
-    $withDate = true;
-    writeLog('Creating OrdersApiClient', $withDate);
+
+    $fileName = basename(__FILE__);
+    writeLog('Creating OrdersApiClient', $fileName, true);
     $orderClient = new \Pagantis\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
 
     $order = $orderClient->getOrder($_SESSION['order_id']);
@@ -114,14 +123,14 @@ function confirmOrder()
         //If the order exists, and the status is authorized, means you can mark the order as paid.
 
         //DO WHATEVER YOU NEED TO DO TO MARK THE ORDER AS PAID IN YOUR OWN SYSTEM.
-        writeLog('Confirming order', $withDate);
+        writeLog('Confirming order', $fileName, true);
         $order = $orderClient->confirmOrder($order->getId());
 
-        writeLog('Order confirmed', $withDate);
+        writeLog('Order confirmed', $fileName, true);
         writeLog(json_encode(
             $order->export(),
             JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
-        ), $withDate);
+        ), $fileName, true);
         $message = "The order {$_SESSION['order_id']} has been confirmed successfully";
     } else {
         $message = "The order {$_SESSION['order_id']} can't be confirmed";
@@ -280,7 +289,6 @@ function setShoppingCart($details, $orderID)
  */
 function setConfigurationUrls()
 {
-
     $confirmUrl
         = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=confirmOrder";
     $errorUrl
@@ -347,6 +355,17 @@ function sendOrder(
 }
 
 /**
+ * @param $method
+ *
+ * @return bool
+ */
+
+function isFunctionNameValid($method)
+{
+    return function_exists($method);
+}
+
+/**
  * @param $order
  *
  * @return bool
@@ -381,14 +400,13 @@ function getClient()
  */
 function processOrder(\Pagantis\OrdersApiClient\Model\Order $order)
 {
-    if (isOrderIdValid($order)) {
-        //If the order is correct and created then we have the redirection URL here:
-        // $url = $order->getActionUrls()->getForm();
-        $_SESSION['order_id'] = $order->getId();
-        writeLog(jsonEncoded($order->export()), $withDate);
-    } else {
+    if (!isOrderIdValid($order)) {
         throw new \Exception('Order not valid');
     }
+    //If the order is correct and created then we have the redirection URL here:
+    // $url = $order->getActionUrls()->getForm();
+    $_SESSION['order_id'] = $order->getId();
+    writeLog(jsonEncoded($order->export()), basename(__FILE__), $withDate = true);
 }
 
 /**
@@ -398,71 +416,31 @@ function processOrder(\Pagantis\OrdersApiClient\Model\Order $order)
  */
 function getFormURL(\Pagantis\OrdersApiClient\Model\Order $order)
 {
-
     $url = $order->getActionUrls()->getForm();
     return $url;
 }
 
 /**
- * UTILS
+ * @return bool
  */
+function isGetActionValid()
+{
 
-/**
- * @param $message
- * @param $withDate
- *
- * @return false|int
- */
-
-function writeLog(
-    $message,
-    $withDate
-) {
-    $dateFormat = '[D M j G:i:s o]';
-    if ($withDate) {
-        $date = getCurrentDate($dateFormat);
-        return file_put_contents('logs/pagantis.old.log', "$date - 'CREATE ORDER' - $message.\n",
-            FILE_APPEND);
+    if (!$_GET['action']) {
+        return false;
     }
-    return file_put_contents('logs/pagantis.old.log', "$message.\n",
-        FILE_APPEND);
+    return true;
 }
 
 /**
- * @param $dateFormat
- *
- * @return false|string
+ * @return mixed|string
  */
-function getCurrentDate($dateFormat)
+function get_GetMethod()
 {
-    $currentDate = date($dateFormat);
-    return $currentDate;
-}
+    if (!isGetActionValid()) {
+       return 'createOrder';
 
-/**
- * @param $object
- *
- * @return false|string
- */
-function jsonEncoded($object)
-{
-    return json_encode($object,
-        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
-    );
-}
-
-/**
- * @param array $array
- * @param       $key
- *
- * @return mixed
- */
-function getValueOfKey(array $array, $key)
-{
-    if (!is_string($key)) {
-        new \Exception($key . ' must be a string' . gettype($key)
-            . ' was provided');
-    }
-    $value = $array[$key];
-    return $value;
+    };
+    $method = json_decode(json_encode($_GET));
+    return $method->action;
 }
