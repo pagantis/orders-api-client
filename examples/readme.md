@@ -17,7 +17,7 @@ Then you can run the web application using PHP's built-in server via Composer Sc
 composer run-script examples-server
 ```
 
-The web application is running at [http://localhost:8000/createOrder.php](http://localhost:8000/createOrder.php).
+The web application is running at [http://localhost:8000/index.php](http://localhost:8000/index.php).
 
 To trace the execution in real time, you can open the log file using the following Composer script: 
 ```
