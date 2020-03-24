@@ -44,17 +44,6 @@
     <hr>
 
     <div>
-        <h4>Confirm Order By ID</h4>
-        <form action="confirmOrderByID.php" method="POST">
-            <p><input type="text" name="confirmOrderByID" id="confirmOrderByID"
-                      placeholder="order ID" required><input
-                        type="submit" value="confirm order"></p>
-        </form>
-    </div>
-
-    <hr>
-
-    <div>
         <h4>List all Confirmed Orders</h4>
 
         <p>
