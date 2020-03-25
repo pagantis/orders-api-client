@@ -12,8 +12,7 @@ require_once('../../vendor/autoload.php');
 require_once('../utils/Helpers.php');
 
 
-
-const ORDER_ID      = 'order_4159972708';
+const ORDER_ID = 'order_4159972708';
 
 
 try {
@@ -41,9 +40,9 @@ function createOrder()
     //1. User Object
     $logsWithDate = true;
     $logsFileName = basename(__FILE__);
-    
+
     writeLog('Creating User object', $logsFileName, $logsWithDate);
-    
+
     $userAddress = new \Pagantis\OrdersApiClient\Model\Order\User\Address();
     $userAddress->setZipCode('28031')
                 ->setFullName('María Sanchez Escudero')
@@ -54,7 +53,7 @@ function createOrder()
                 ->setNationalId('59661738Z')
                 ->setFixPhone('911231234')
                 ->setMobilePhone('600123123');
-    
+
     $orderBillingAddress = new \Pagantis\OrdersApiClient\Model\Order\User\Address();
     $orderBillingAddress->setZipCode('28031')
                         ->setFullName('María Sanchez Escudero')
@@ -97,7 +96,7 @@ function createOrder()
     $orderHistory = new \Pagantis\OrdersApiClient\Model\Order\User\OrderHistory();
     $orderHistory->setAmount('2499')
                  ->setDate('2010-01-31');
-    
+
     $orderUser->addOrderHistory($orderHistory);
 
     writeLog('Adding cart products. Minimum 1 required', $logsFileName, $logsWithDate);
@@ -129,7 +128,6 @@ function createOrder()
                            ->setKo($errorUrl)
                            ->setAuthorizedNotificationCallback($confirmUrl)
                            ->setRejectedNotificationCallback($confirmUrl)
-
                            ->setOk($confirmUrl);
     writeLog('Adding channel info', $logsFileName, $logsWithDate);
 
@@ -215,10 +213,11 @@ function confirmOrder()
         writeLog(jsonEncoded($order->export()), $logsFileName, $logsWithDate);
 
         $message = "The order {$_SESSION['order_id']} has been confirmed successfully";
-        writeLog($message, $logsFileName, $logsWithDate);
+    } else {
+        $message = "The order {$_SESSION['order_id']} can't be confirmed";
     }
-    $message = "The order {$_SESSION['order_id']} can't be confirmed";
     writeLog($message, $logsFileName, $logsWithDate);
+
 
     /* The order has been marked as paid and confirmed in Pagantis so you will send the product to your customer and
      * Pagantis will pay you in the next 24h.
@@ -234,7 +233,7 @@ function confirmOrder()
 function cancelOrder()
 {
     $message = "The order {$_SESSION['order_id']} can't be created";
-    writeLog($message, $logsFileName = basename(__FILE__), $logsWithDate =true);
+    writeLog($message, $logsFileName = basename(__FILE__), $logsWithDate = true);
     echo $message;
     exit;
 }
@@ -255,7 +254,6 @@ function getGetAction()
 
 /**
  * @param $order
- *
  * @return bool
  */
 function isOrderIdValid($order)
