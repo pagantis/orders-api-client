@@ -1,16 +1,26 @@
 <?php
 
+
+/**
+ * PLEASE SET YOUR PUBLIC KEY AND PRIVATE KEY
+ */
+const PUBLIC_KEY = ''; //Set your public key
+const PRIVATE_KEY = ''; //Set your public key
+
+
 /**
  * @return \Pagantis\OrdersApiClient\Client
  * @throws \Httpful\Exception\ConnectionErrorException
  * @throws \Pagantis\OrdersApiClient\Exception\ClientException
  */
-function getClient()
+function getOrderApiClient()
 {
-    if (PUBLIC_KEY == '' || PRIVATE_KEY == '') {
-        throw new \Exception('You need set the public and private key');
+    $publicKey = PUBLIC_KEY;
+    $privateKey = PRIVATE_KEY;
+    if ($publicKey == '' || $privateKey == '') {
+        throw new \Exception('You need set the public and private key in examples/utils/Helpers.php');
     }
-    $orderClient = new \Pagantis\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
+    $orderClient = new \Pagantis\OrdersApiClient\Client($publicKey, $privateKey);
     return $orderClient;
 }
 /**
@@ -29,12 +39,18 @@ function writeLog(
     if ($withDate) {
         $path = dirname(__FILE__);
         $date = getCurrentDate($dateFormat);
-        return file_put_contents('../pagantis.log', $date . " " . jsonEncoded($fileName)
+        return file_put_contents(
+            '../pagantis.log',
+            $date . " " . jsonEncoded($fileName)
             . " $message.\n",
-            FILE_APPEND);
+            FILE_APPEND
+        );
     }
-    return file_put_contents('../pagantis.log', " " . jsonEncoded($fileName) . " $message.\n",
-        FILE_APPEND);
+    return file_put_contents(
+        '../pagantis.log',
+        " " . jsonEncoded($fileName) . " $message.\n",
+        FILE_APPEND
+    );
 }
 
 /**
@@ -56,7 +72,8 @@ function getCurrentDate($dateFormat)
  */
 function jsonEncoded($object)
 {
-    return json_encode($object,
+    return json_encode(
+        $object,
         JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
     );
 }
@@ -73,32 +90,27 @@ function jsonToArray($jsonString)
     return $myArray;
 }
 
-/**
- * @param array $array
- * @param       $key
- *
- * @return mixed
- */
-function getValueOfKey(array $array, $key)
-{
-    if (!is_string($key)) {
-        new \Exception($key . ' must be a string' . gettype($key)
-            . ' was provided');
-    }
-    $value = $array[$key];
-    return $value;
-}
 
 /**
  * @param $authorizedOrders
  *
  * @return bool
  */
-function isAuthorizedOrderCountAboveZero($authorizedOrders)
+function isOrderCountAboveZero($authorizedOrders)
 {
-
     if (count($authorizedOrders) >= 1) {
         return true;
     }
     return false;
+}
+
+/**
+ * @return bool
+ */
+function areKeysSet()
+{
+    if (PUBLIC_KEY == '' || PRIVATE_KEY == '') {
+        return false;
+    }
+    return true;
 }
