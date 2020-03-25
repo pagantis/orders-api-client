@@ -27,12 +27,13 @@ function writeLog(
 ) {
     $dateFormat = '[D M j G:i:s o]';
     if ($withDate) {
+        $path = dirname(__FILE__);
         $date = getCurrentDate($dateFormat);
-        return file_put_contents('logs/pagantis.log', $date . " " . jsonEncoded($fileName)
+        return file_put_contents('../pagantis.log', $date . " " . jsonEncoded($fileName)
             . " $message.\n",
             FILE_APPEND);
     }
-    return file_put_contents('logs/pagantis.log', " " . jsonEncoded($fileName) . " $message.\n",
+    return file_put_contents('../pagantis.log', " " . jsonEncoded($fileName) . " $message.\n",
         FILE_APPEND);
 }
 

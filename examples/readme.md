@@ -14,12 +14,12 @@ composer install
 Then you can run the web application using PHP's built-in server via Composer Scripts:
 
 ```
-composer run-script examples-server
+composer run examples-server
 ```
 
 The web application is running at [http://localhost:8000/index.php](http://localhost:8000/index.php).
 
 To trace the execution in real time, you can open the log file using the following Composer script: 
 ```
-composer run-script watch-logs
+composer run watch-log
 ``` 

@@ -3,11 +3,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Pagantis Order API Client Examples</title>
-    <?php
-    require_once('../examples/utils/Helpers.php');
-    writeLog('Session Started', basename(__FILE__), true);
-    session_start();
-    ?>
 </head>
 <body>
 <header class="main">
@@ -34,7 +29,7 @@
     <hr>
 
     <div>
-        <h4>Confirm all authorized orders</h4>
+        <h4>Confirm all Authorized Orders</h4>
         <p>
             <button><a href="confirmOrder.php" target="_blank">Confirm all authorized orders</a>
             </button>
@@ -58,7 +53,7 @@
             <p><input type="text" name="refundOrderID" id="refundOrderID" placeholder="order ID"
                       required><input type="text" name="refundOrderAmount" id="refundOrderAmount"
                                       placeholder="Refund Amount " required><input
-                        type="submit" value="confirm order"></p>
+                        type="submit" value="refund order"></p>
         </form>
     </div>
 </section>

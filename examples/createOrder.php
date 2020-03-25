@@ -2,7 +2,7 @@
 
 //Require the Client library using composer: composer require pagantis/orders-api-client
 require_once('../vendor/autoload.php');
-require_once('../examples/utils/Helpers.php');
+require_once('utils/Helpers.php');
 /**
  * PLEASE FILL YOUR PUBLIC KEY AND PRIVATE KEY
  */
@@ -13,9 +13,7 @@ const ORDER_ID    = 'order_4159972708';
 
 try {
     session_start();
-    $withDate = true;
-    $fileName = basename(__FILE__);
-    $method   = get_GetMethod();
+    $method = getGetAction();
     call_user_func($method);
 } catch (\Exception $e) {
     echo $e->getMessage();
@@ -49,7 +47,7 @@ function createOrder()
 
     //2. ShoppingCart Object
     writeLog('Creating ShoppingCart object', $fileName, $withDate);
-    writeLog('Adding the purchases of the customer, if there are.', $fileName, $withDate);
+    writeLog('Adding the purchases of the customer, if there are any.', $fileName, $withDate);
     setOrderHistory();
 
     writeLog('Adding cart products. Minimum 1 required', $fileName, $withDate);
@@ -145,7 +143,7 @@ function confirmOrder()
 function cancelOrder()
 {
     $message = "The order {$_SESSION['order_id']} can't be created";
-
+    writeLog($message, $fileName = basename(__FILE__), true);
     echo $message;
     exit;
 }
@@ -359,8 +357,7 @@ function getFormURL(\Pagantis\OrdersApiClient\Model\Order $order)
  */
 function isGetActionValid()
 {
-
-    if (!$_GET['action']) {
+    if(!array_key_exists('action', $_GET)){
         return false;
     }
     return true;
@@ -369,12 +366,12 @@ function isGetActionValid()
 /**
  * @return mixed|string
  */
-function get_GetMethod()
+function getGetAction()
 {
     if (!isGetActionValid()) {
         return 'createOrder';
-
     };
     $method = json_decode(json_encode($_GET));
+    writeLog("Method->action ".$method->action, basename(__FILE__), $withDate = true);
     return $method->action;
 }

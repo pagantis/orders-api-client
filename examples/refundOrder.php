@@ -1,7 +1,7 @@
 <?php
 
 require_once('../vendor/autoload.php');
-require_once ('../examples/utils/Helpers.php');
+require_once('../examples/utils/Helpers.php');
 
 
 /**
