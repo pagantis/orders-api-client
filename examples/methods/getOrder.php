@@ -15,6 +15,7 @@ require_once('../utils/Helpers.php');
 if (!isset($_POST['getOrderID'])) {
     throw new \Exception('You need to input the Order ID');
 }
+// TODO IMPROVE UX BY SHOWING RESULT IN INDEX IN A MORE UX FRIENDLY WAY
 try {
     $logsFileName = basename(__FILE__);
     $logsWithDate = true;

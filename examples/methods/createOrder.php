@@ -15,6 +15,8 @@ require_once('../utils/Helpers.php');
 const ORDER_ID = 'order_4159972708';
 
 
+// TODO ADD BUTTON TO GO BACK TO INDEX IF KEYS ARE NOT SET WITH JS
+
 try {
     session_start();
     $method = getGetAction();
@@ -189,8 +191,8 @@ function confirmOrder()
     /* Once the user comes back to the OK url or there is a notification upon callback url, you will have to confirm
      * the reception of the order. If not it will expire  and will never be paid out.
      *
-     * Add these parameters to your database when you create a order and map it to your own order. Alternatively search orders by internal
-     * order id. Both options are possible.
+     * Add these parameters to your database when you create an order and map them together.
+     * Alternatively search orders by internal order id. Both options are possible.
      */
 
     $logsFileName = basename(__FILE__);
@@ -211,20 +213,19 @@ function confirmOrder()
 
         writeLog('Order confirmed', $logsFileName, $logsWithDate);
         writeLog(jsonEncoded($order->export()), $logsFileName, $logsWithDate);
-
+        //TODO IMPROVE UX  BY SHOWING MESSAGE BELOW IN INDEX INSTEAD OF SAME PAGE IN A DIV
         $message = "The order {$_SESSION['order_id']} has been confirmed successfully";
-    } else {
-        $message = "The order {$_SESSION['order_id']} can't be confirmed";
-    }
-    writeLog($message, $logsFileName, $logsWithDate);
-
+        print("<legend>".$message."</legend>");
+        print("<a>" . getPreviousPageFromSession() . "<button>Back to Home</button>". "</a>");
 
     /* The order has been marked as paid and confirmed in Pagantis so you will send the product to your customer and
      * Pagantis will pay you in the next 24h.
      */
-
-    echo $message;
-    exit;
+    } else {
+        $message = "The order {$_SESSION['order_id']} can't be confirmed";
+        print("<legend>".$message."</legend>");
+    }
+    writeLog($message, $logsFileName, $logsWithDate);
 }
 
 /**
@@ -233,9 +234,8 @@ function confirmOrder()
 function cancelOrder()
 {
     $message = "The order {$_SESSION['order_id']} can't be created";
-    writeLog($message, $logsFileName = basename(__FILE__), $logsWithDate = true);
+    writeLog($message, basename(__FILE__), true);
     echo $message;
-    exit;
 }
 
 
@@ -274,4 +274,3 @@ function isGetActionValid()
     }
     return true;
 }
-

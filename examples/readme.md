@@ -14,7 +14,7 @@ composer install
 Then you can run the web application using PHP's built-in server via Composer Scripts:
 
 ```
-composer run examples-server
+composer run examples
 ```
 
 The web application is running at [http://localhost:8000/index.php](http://localhost:8000/index.php).

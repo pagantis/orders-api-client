@@ -1,0 +1,284 @@
+$backgroundColor: #EEEEEE;
+$barSize: 15px;
+
+fieldset {
+  max-width: 40em;
+  padding: 4px;
+  margin: 2em auto;
+
+  border: 0 none;
+}
+input, output, textarea, select, button {
+  box-sizing: border-box;
+
+  padding: 0.2em 0.4em;
+  margin-top: 0.2em;
+  margin-bottom: 15px;
+  outline: 0 none;
+  border: 0 none;
+  box-shadow: none;
+}
+label {
+  float: left;
+  box-sizing: border-box;
+  user-select: none;
+  cursor: pointer;
+}
+input:focus + label, textarea:focus + label, select:focus + label {
+  color: #82c6e3;
+}
+a {
+  text-decoration: none;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: white;;
+}
+
+button {
+  float: right;
+  margin: 0.5em 0.5em 0 30%;
+  width: 50%;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  background-color: #82c6e3;
+  color: white;
+  //padding: 10px 15px;
+  //margin: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.button {
+  alignment: left;
+  width: 15%;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  background-color: #82c6e3;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: default;
+}
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+input[type=text], input[type=number], select {
+  float: left;
+  width: 30%;
+  padding: 10px 15px;
+  margin: 0 5px 0 15px;
+  display: block;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-sizing: border-box;
+  -moz-appearance: textfield;
+}
+
+input[type=submit] {
+
+  max-width: 200px;
+  font-weight: 400;
+  text-transform: uppercase;
+  background-color: #82c6e3;
+  color: white;
+  padding: 10px 15px;
+  margin: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: default;
+}
+
+input[type=submit]:hover {
+  background-color: #27ace3;
+}
+
+h4 {
+  justify-self: left;
+  text-align: left;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+h6 {
+  font-size: 12px;
+  line-height: 20px;
+}
+img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.center {
+  display: inline-block;
+  align-self: center;
+  margin: 0;
+  width: 20%;
+  height: 20%;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: 0 repeat(3, 1fr) 0;
+  grid-template-rows: repeat(5, 0fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  background: $backgroundColor;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 100;
+  color: #696B89;
+  text-indent: 1em;
+  line-height: 1;
+}
+
+.hero {
+  grid-area: 1 / 2 / 2 / 5;
+  max-height: 50%;
+  padding-bottom: 20px;
+}
+
+.main {
+  grid-area: 2 / 2 / 5 / 5;
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+
+}
+
+.footer {
+  grid-area: 5 / 2 / 6 / 5;
+align-content: end;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  color: #27ace3;
+}
+.hr {
+
+  width: 100%;
+  height: 1px;
+  display: block;
+  position: relative;
+  margin-bottom: 0;
+  padding: 2em 0;
+
+  &:after,
+  &:before {
+
+    content: "";
+    position: absolute;
+
+    width: 100%;
+    height: 1px;
+    bottom: 50%;
+    left: 0;
+
+  }
+
+  &:before {
+
+    background-image: linear-gradient(90deg, $backgroundColor 0%, $backgroundColor 50%, transparent 50%, transparent 100%);
+    background-size: $barSize;
+    background-position: center;
+    z-index: 1;
+
+  }
+
+  &:after {
+
+    transition: opacity 0.3s ease, animation 0.3s ease;
+
+    background-size: 200%;
+    background: linear-gradient(
+                    to right,
+                    #10a5e3 5%,
+                    #27ace3 15%,
+                    #3db2e3 25%,
+                    #54b9e3 35%,
+                    #6bc0e3 45%,
+                    #82c6e3 55%,
+                    #98cde3 65%,
+                    #afd4e3 75%,
+                    #c6dae3 85%,
+                    #dce1e3 95%) 0;
+    animation: bar 15s linear infinite;
+
+  }
+
+  @keyframes bar {
+
+    0% {
+      background-position: 0;
+    }
+    100% {
+      background-position: 200%;
+    }
+
+  }
+
+}
+
+.hr.anim {
+  &:before {
+    background-size: $barSize * 10;
+    background: linear-gradient(
+                    90deg,
+                    $backgroundColor 0%, $backgroundColor 5%,
+                    transparent 5%, transparent 10%,
+                    $backgroundColor 10%, $backgroundColor 15%,
+                    transparent 15%, transparent 20%,
+                    $backgroundColor 20%, $backgroundColor 25%,
+                    transparent 25%, transparent 30%,
+                    $backgroundColor 30%, $backgroundColor 35%,
+                    transparent 35%, transparent 40%,
+                    $backgroundColor 40%, $backgroundColor 45%,
+                    transparent 45%, transparent 50%,
+                    $backgroundColor 50%, $backgroundColor 55%,
+                    transparent 55%, transparent 60%,
+                    $backgroundColor 60%, $backgroundColor 65%,
+                    transparent 65%, transparent 70%,
+                    $backgroundColor 70%, $backgroundColor 75%,
+                    transparent 75%, transparent 80%,
+                    $backgroundColor 80%, $backgroundColor 85%,
+                    transparent 85%, transparent 90%,
+                    $backgroundColor 90%, $backgroundColor 95%,
+                    transparent 95%, transparent 100%) center;
+    z-index: 1;
+
+    animation: bar 120s linear infinite;
+
+  }
+
+  &:hover {
+    &:before {
+      animation-duration: 20s;
+    }
+
+    &:after {
+      animation-duration: 2s;
+    }
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');

@@ -15,7 +15,7 @@
     },
 
     "scripts": {
-        "examples-server": [
+        "examples": [
             "php -S 0.0.0.0:8000 -t examples/"
         ],
         "watch-log": [
@@ -23,10 +23,12 @@
             ]
     },
     "scripts-descriptions": {
-        "examples-server": "Runs a built-in local development web server to run examples provided",
+        "examples": "Runs a built-in local development web server to run examples provided",
         "watch-log": "Will show live log file changes in terminal"
     },
-
+    "config": {
+        "process-timeout": 0
+    },
     "autoload": {
         "psr-4": {
             "Pagantis\\OrdersApiClient\\": "src/"

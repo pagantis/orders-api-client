@@ -31,7 +31,7 @@ function confirmOrders()
         $authorizedOrders = $orderApiClient->listOrders(array(
             'status' => \Pagantis\OrdersApiClient\Model\Order::STATUS_AUTHORIZED
         ));
-
+        //TODO REMOVE isOrderCountAboveZero because the function is only used twice in the whole program
         if (!isOrderCountAboveZero($authorizedOrders)) {
             $createdOrders = $orderApiClient->listOrders(array(
                 'status' => \Pagantis\OrdersApiClient\Model\Order::STATUS_CREATED));

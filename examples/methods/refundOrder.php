@@ -20,6 +20,8 @@ try {
     exit;
 }
 
+// ADD WAY TO GO BACK TO INDEX OR SHOW RESULT OF REFUND IN INDEX
+// IF TIME ALLOWS ONLY ALLOW TO REFUND ORDER IF LOGIC ALLOWS REFUND TO BE PROCESSED
 function refundOrder()
 {
     $logsFileName = basename(__FILE__);
@@ -38,10 +40,10 @@ function refundOrder()
             ->setPromotedAmount(0)
             ->setTotalAmount($refundTotalAmount);
         writeLog('Refund Set', $logsFileName, $logsWithDate);
-        $refundCreated = $orderApiClient->refundOrder($refundOrderID, $refund);
+        $orderApiClient->refundOrder($refundOrderID, $refund);
         writeLog('Refund Processed', $logsFileName, $logsWithDate);
 
-        $refundedOrder = $orderApiClient->getOrder($refundOrderID, $asJson = true);
+        $refundedOrder = $orderApiClient->getOrder($refundOrderID, true);
         writeLog('Refunded Order Fetched for Verification', $logsFileName, $logsWithDate);
 
         $orderArray = jsonToArray($refundedOrder);

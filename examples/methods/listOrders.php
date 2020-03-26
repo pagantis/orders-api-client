@@ -30,6 +30,9 @@ try {
  * @throws \Pagantis\OrdersApiClient\Exception\ClientException
  * @throws Exception
  */
+//TODO FETCH ALL ORDERS BY STATUS AND RETURN A QUICK SUMMARY ORDERS : STATUS : COUNT($orders)
+// only show some status and not all because some order statuses are not displayed to merchants
+//TODO  orders by desc to improve ux
 function listMethod()
 {
     $queryString = array(

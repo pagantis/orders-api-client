@@ -4,8 +4,8 @@
 /**
  * PLEASE SET YOUR PUBLIC KEY AND PRIVATE KEY
  */
-const PUBLIC_KEY = ''; //Set your public key
-const PRIVATE_KEY = ''; //Set your public key
+const PUBLIC_KEY = 'eee'; //Set your public key
+const PRIVATE_KEY = 'eeee'; //Set your public key
 
 
 /**
@@ -18,7 +18,7 @@ function getOrderApiClient()
     $publicKey = PUBLIC_KEY;
     $privateKey = PRIVATE_KEY;
     if ($publicKey == '' || $privateKey == '') {
-        throw new \Exception('You need set the public and private key in examples/utils/Helpers.php');
+        throw new \Exception('Please set the public and private key in examples/utils/Helpers.php');
     }
     $orderClient = new \Pagantis\OrdersApiClient\Client($publicKey, $privateKey);
     return $orderClient;
@@ -113,4 +113,23 @@ function areKeysSet()
         return false;
     }
     return true;
+}
+
+/**
+ *
+ */
+function setCurrentPageInSession()
+{
+
+    $url = basename($_SERVER['PHP_SELF']);
+    return $_SESSION['current_page'] = $url;
+}
+
+/**
+ * @return mixed
+ */
+function getPreviousPageFromSession()
+{
+    $previous_page = $_SESSION['current_page'];
+    return $previous_page;
 }
