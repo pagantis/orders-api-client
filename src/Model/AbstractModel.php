@@ -125,7 +125,7 @@ abstract class AbstractModel implements ModelInterface
         }
         try {
             $dateTime = new \DateTime(trim($date));
-            $today = new \DateTime('today');
+            $today = new \DateTime('tomorrow');
             if ($dateTime >= $today) {
                 return null;
             }
