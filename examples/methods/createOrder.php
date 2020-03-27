@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL);
 //Require the Client library using composer: composer require pagantis/orders-api-client
 require_once('../../vendor/autoload.php');
 /**
@@ -10,12 +10,9 @@ require_once('../../vendor/autoload.php');
  * ⚠⚠⚠
  */
 require_once('../utils/Helpers.php');
-
+// TODO https://www.formget.com/how-to-redirect-a-url-php-form/
 
 const ORDER_ID = 'order_4159972708';
-
-
-// TODO ADD BUTTON TO GO BACK TO INDEX IF KEYS ARE NOT SET WITH JS
 
 try {
     session_start();
@@ -148,19 +145,16 @@ function createOrder()
           ->setShoppingCart($orderShoppingCart)
           ->setUser($orderUser);
 
-    writeLog('Creating OrdersApiClient', $logsFileName, $logsWithDate);
+
+
     $orderClient = getOrderApiClient();
+    $order = $orderClient->createOrder($order);
+    writeLog(jsonEncoded($order), $logsFileName, $logsWithDate);
 
     writeLog('Creating Pagantis order', $logsFileName, $logsWithDate);
-    $order = $orderClient->createOrder($order);
 
-    writeLog(
-        "Pagantis Order Created ID: " . jsonEncoded($_SESSION['order_id']),
-        $logsFileName,
-        $logsWithDate
-    );
 
-    writeLog('Processing order' . jsonEncoded($order->getId()), $logsFileName, $logsWithDate);
+    writeLog('Processing order ' . $order->getId(), $logsFileName, $logsWithDate);
 
     if (!isOrderIdValid($order)) {
         throw new \Exception('Order not valid');
@@ -200,6 +194,7 @@ function confirmOrder()
     writeLog('Creating OrdersApiClient', $logsFileName, $logsWithDate);
     $orderClient = getOrderApiClient();
 
+
     $order = $orderClient->getOrder($_SESSION['order_id']);
 
     if ($order instanceof \Pagantis\OrdersApiClient\Model\Order
@@ -213,10 +208,11 @@ function confirmOrder()
 
         writeLog('Order confirmed', $logsFileName, $logsWithDate);
         writeLog(jsonEncoded($order->export()), $logsFileName, $logsWithDate);
-        //TODO IMPROVE UX  BY SHOWING MESSAGE BELOW IN INDEX INSTEAD OF SAME PAGE IN A DIV
         $message = "The order {$_SESSION['order_id']} has been confirmed successfully";
         print("<legend>".$message."</legend>");
-        print("<a>" . getPreviousPageFromSession() . "<button>Back to Home</button>". "</a>");
+
+        //TODO IMPROVE UX  BY SHOWING MESSAGE BELOW IN INDEX INSTEAD OF SAME PAGE IN A DIV
+        echo '<div><button>Back to Home</button> </div>';
 
     /* The order has been marked as paid and confirmed in Pagantis so you will send the product to your customer and
      * Pagantis will pay you in the next 24h.

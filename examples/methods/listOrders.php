@@ -51,7 +51,7 @@ function listMethod()
         writeLog('Fetching Orders', $logsFileName, $logsWithDate);
         $confirmedOrders = $orderApiClient->listOrders($queryString);
 
-        if (isOrderCountAboveZero($confirmedOrders)) {
+        if (count($confirmedOrders) >= 1) {
             writeLog('Orders Fetched', $logsFileName, $logsWithDate);
             writeLog(jsonEncoded($confirmedOrders), $logsFileName, $logsWithDate);
             print("<legend>" . "Number of Confirmed Orders: ". count($confirmedOrders) . "</legend>");

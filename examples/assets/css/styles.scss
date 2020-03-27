@@ -1,29 +1,32 @@
+@use "bootstrap.scss";
+@use "solid.scss";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 $backgroundColor: #EEEEEE;
 $barSize: 15px;
 
-fieldset {
-  max-width: 40em;
-  padding: 4px;
-  margin: 2em auto;
-
-  border: 0 none;
-}
-input, output, textarea, select, button {
-  box-sizing: border-box;
-
-  padding: 0.2em 0.4em;
-  margin-top: 0.2em;
-  margin-bottom: 15px;
-  outline: 0 none;
-  border: 0 none;
-  box-shadow: none;
-}
-label {
-  float: left;
-  box-sizing: border-box;
-  user-select: none;
-  cursor: pointer;
-}
+//fieldset {
+//  max-width: 40em;
+//  padding: 4px;
+//  margin: 2em auto;
+//
+//  border: 0 none;
+//}
+//input, output, textarea, select, button {
+//  box-sizing: border-box;
+//
+//  padding: 0.2em 0.4em;
+//  margin-top: 0.2em;
+//  margin-bottom: 15px;
+//  outline: 0 none;
+//  border: 0 none;
+//  box-shadow: none;
+//}
+//label {
+//  float: left;
+//  box-sizing: border-box;
+//  user-select: none;
+//  cursor: pointer;
+//}
 input:focus + label, textarea:focus + label, select:focus + label {
   color: #82c6e3;
 }
@@ -66,44 +69,44 @@ button {
   border-radius: 4px;
   cursor: default;
 }
-.form-inline {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-}
-.form-inline label {
-  margin: 5px 10px 5px 0;
-}
-
-input[type=text], input[type=number], select {
-  float: left;
-  width: 30%;
-  padding: 10px 15px;
-  margin: 0 5px 0 15px;
-  display: block;
-  border: 1px solid black;
-  border-radius: 4px;
-  box-sizing: border-box;
-  -moz-appearance: textfield;
-}
-
-input[type=submit] {
-
-  max-width: 200px;
-  font-weight: 400;
-  text-transform: uppercase;
-  background-color: #82c6e3;
-  color: white;
-  padding: 10px 15px;
-  margin: 8px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: default;
-}
-
-input[type=submit]:hover {
-  background-color: #27ace3;
-}
+//.form-inline {
+//  display: flex;
+//  flex-flow: row wrap;
+//  align-items: center;
+//}
+//.form-inline label {
+//  margin: 5px 10px 5px 0;
+//}
+//
+//input[type=text], input[type=number], select {
+//  float: left;
+//  width: 30%;
+//  padding: 10px 15px;
+//  margin: 0 5px 0 15px;
+//  display: block;
+//  border: 1px solid black;
+//  border-radius: 4px;
+//  box-sizing: border-box;
+//  -moz-appearance: textfield;
+//}
+//
+//input[type=submit] {
+//
+//  max-width: 200px;
+//  font-weight: 400;
+//  text-transform: uppercase;
+//  background-color: #82c6e3;
+//  color: white;
+//  padding: 10px 15px;
+//  margin: 8px 15px;
+//  border: none;
+//  border-radius: 4px;
+//  cursor: default;
+//}
+//
+//input[type=submit]:hover {
+//  background-color: #27ace3;
+//}
 
 h4 {
   justify-self: left;
@@ -131,10 +134,9 @@ img{
 
 .parent {
   display: grid;
-  grid-template-columns: 0 repeat(3, 1fr) 0;
-  grid-template-rows: repeat(5, 0fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "hero hero hero hero hero" ". main main main ." ". main main main ." ". main main main ." ". main main main ." "footer footer footer footer footer";
   background: $backgroundColor;
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: 100;
@@ -280,5 +282,62 @@ input::-webkit-inner-spin-button {
 }
 
 
+.info-msg,
+.success-msg,
+.warning-msg,
+.error-msg {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 0 0 0 0 rgba(159,96,0,1);
+transform: scale(1);
+  animation: pulse 2s infinite;
+}
+.info-msg {
+  color: #059;
+  background-color: #BEF;
+}
+.success-msg {
+  color: #270;
+  background-color: #DFF2BF;
+}
+.warning-msg {
+  color: #9F6000;
+  background-color: #FEEFB3;
+}
+.error-msg {
+  color: #D8000C;
+  background-color: #FFBABA;
+}
+.closeButton {
+  color: #9F6000;
+  background-color: #FEEFB3;
+  font-weight: bold;
+  float: right;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+.closeButton:hover {
+  color: black;
+}
+.warning-msg-hide{
+  display: none;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(159,96,0,0.4);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
