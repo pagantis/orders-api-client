@@ -1,7 +1,6 @@
 <?php
-
-//Require the Client library using composer: composer require pagantis/orders-api-client
 require_once('../../vendor/autoload.php');
+
 /**
  * Require the helper functions
  * ⚠⚠⚠
@@ -10,20 +9,52 @@ require_once('../../vendor/autoload.php');
  * ⚠⚠⚠
  */
 require_once('../utils/Helpers.php');
+error_reporting(E_ALL);
+//Require the Client library using composer: composer require pagantis/orders-api-client
 
 
-/**
- * PLEASE SET YOUR PUBLIC KEY AND PRIVATE KEY
- * IN examples/utils/Helpers.php
- */
+?>
+    <!DOCTYPE HTML>
+    <html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="../assets/pics/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
+        <script src="../assets/js/script.js"></script>
+        <script src="../assets/js/jquery-slim.min.js"></script>
+        <script src="../assets/js/popper.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <title> Get Order by ID</title>
+    </head>
+<body>
+<div class="container">
+    <div class="col-md-auto">
+        <img src="../assets/pics/Pagantis_Logo_RGB.svg" alt="Pagantis logo">
+        <div>
+            <h5>List Orders Example</h5>
+        </div>
+        <div class="fixed-top">
+            <?php
+            if (!areKeysSet()) {
+                echo showKeysMissingErrorMessage();
+            } ?>
+        </div>
+        <div class="">
+            <button type="button" class="btn btn-primary btn-lg" onclick="redirectHome()">Home</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
 
-
+<?php
 try {
-    call_user_func('listMethod');
-} catch (\Exception $e) {
-    echo $e->getMessage();
-    exit;
-}
+                call_user_func('listMethod');
+            } catch (\Exception $e) {
+                echo $e->getMessage();
+                exit;
+            }
 
 /**
  * @throws \Httpful\Exception\ConnectionErrorException

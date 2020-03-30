@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- PSR-2 but allow closing tags and with some Doc Comment stuff added -->
+<ruleset name="CustomForThisProjectPHP Standard">
+    <description>The coding standard for the examples Project</description>
+    <exclude-pattern>../src/*</exclude-pattern>
+    <exclude-pattern>../test/*</exclude-pattern>
+    <arg name="basepath" value="."/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+    <rule ref="PSR2">
+        <exclude name="PSR2.Files.ClosingTag"/>
+        <exclude name="PSR2.Files.EndFileNewline"/>
+    </rule>
+    <!-- Include rules related to Doc Comment I want -->
+    <rule ref="Generic.Files.LineLength.TooLong">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Generic.Commenting.Todo.CommentFound">
+        <message>Please review this TODO comment: %s</message>
+        <severity>3</severity>
+    </rule>
+</ruleset>

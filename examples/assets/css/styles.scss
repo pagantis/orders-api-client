@@ -1,5 +1,5 @@
 @use 'bootstrap.css';
-@use '../fontawesome/css/all.css';
+@use 'fontawesome/css/all.css';
 
 .grid-container {
 	display: grid;
@@ -19,108 +19,58 @@
 $backGroundColor: #a1c4fd;
 $gradientBarSize: 15px;
 
-
 .hr {
-
 	width: 100%;
 	height: 1px;
 	display: block;
 	position: relative;
 	margin-bottom: 0;
 	padding: 2em 0;
-
-	&:after,
-	&:before {
-
-		content: "";
-		position: absolute;
-
-		width: 100%;
-		height: 1px;
-		bottom: 50%;
-		left: 0;
-
+}
+.hr:after, .hr:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	bottom: 50%;
+	left: 0;
+}
+.hr:before {
+	background-image: linear-gradient(90deg, #EEEEEE 0%, #EEEEEE 50%, transparent 50%, transparent 100%);
+	background-size: 15px;
+	background-position: center;
+	z-index: 1;
+}
+.hr:after {
+	transition: opacity 0.3s ease, animation 0.3s ease;
+	background-size: 200%;
+	background: linear-gradient(to right, #10a5e3 5%, #27ace3 15%, #3db2e3 25%, #54b9e3 35%, #6bc0e3 45%, #82c6e3 55%, #98cde3 65%, #afd4e3 75%, #c6dae3 85%, #dce1e3 95%) 0;
+	animation: bar 15s linear infinite;
+}
+@keyframes bar {
+	0% {
+		background-position: 0;
 	}
-
-	&:before {
-
-		background-size: $gradientBarSize;
-		background: linear-gradient(90deg, $backGroundColor 0%, $backGroundColor 50%, transparent 50%, transparent 100%) center;
-		z-index: 1;
-
+	100% {
+		background-position: 200%;
 	}
-
-	&:after {
-
-		transition: opacity 0.3s ease, animation 0.3s ease;
-
-		background-size: 200%;
-		background: linear-gradient(
-										to right,
-										#a1c4fd 5%,
-										#aac9fd 15%,
-										#b3cffd 25%,
-										#bdd5fd 35%,
-										#c6dbfd 45%,
-										#d0e1fe 55%,
-										#d9e7fe 65%,
-										#e2edfe 75%,
-										#ecf3fe 85%,
-										#f5f9fe 95%) 0;
-
-		animation: bar 15s linear infinite;
-
-	}
-
-	@keyframes bar {
-
-		0% { background-position: 0%; }
-		100% { background-position: 200%; }
-
-	}
-
 }
 
+.hr.anim:before {
+	background-size: 150px;
+	background: linear-gradient(90deg, #EEEEEE 0%, #EEEEEE 5%, transparent 5%, transparent 10%, #EEEEEE 10%, #EEEEEE 15%, transparent 15%, transparent 20%, #EEEEEE 20%, #EEEEEE 25%, transparent 25%, transparent 30%, #EEEEEE 30%, #EEEEEE 35%, transparent 35%, transparent 40%, #EEEEEE 40%, #EEEEEE 45%, transparent 45%, transparent 50%, #EEEEEE 50%, #EEEEEE 55%, transparent 55%, transparent 60%, #EEEEEE 60%, #EEEEEE 65%, transparent 65%, transparent 70%, #EEEEEE 70%, #EEEEEE 75%, transparent 75%, transparent 80%, #EEEEEE 80%, #EEEEEE 85%, transparent 85%, transparent 90%, #EEEEEE 90%, #EEEEEE 95%, transparent 95%, transparent 100%) center;
+	z-index: 1;
+	animation: bar 120s linear infinite;
+}
+.hr.anim:hover:before {
+	animation-duration: 20s;
+}
+.hr.anim:hover:after {
+	animation-duration: 2s;
+}
 
-
-
-.hr.anim {
-	&:before {
-		background-size: $gradientBarSize * 10;
-		background: linear-gradient(
-										90deg,
-										$backGroundColor 0%, $backGroundColor 5%,
-										transparent 5%, transparent 10%,
-										$backGroundColor 10%, $backGroundColor 15%,
-										transparent 15%, transparent 20%,
-										$backGroundColor 20%, $backGroundColor 25%,
-										transparent 25%, transparent 30%,
-										$backGroundColor 30%, $backGroundColor 35%,
-										transparent 35%, transparent 40%,
-										$backGroundColor 40%, $backGroundColor 45%,
-										transparent 45%, transparent 50%,
-										$backGroundColor 50%, $backGroundColor 55%,
-										transparent 55%, transparent 60%,
-										$backGroundColor 60%, $backGroundColor 65%,
-										transparent 65%, transparent 70%,
-										$backGroundColor 70%, $backGroundColor 75%,
-										transparent 75%, transparent 80%,
-										$backGroundColor 80%, $backGroundColor 85%,
-										transparent 85%, transparent 90%,
-										$backGroundColor 90%, $backGroundColor 95%,
-										transparent 95%, transparent 100%) center;
-		z-index: 1;
-
-		animation: bar 120s linear infinite;
-
-	}
-
-	&:hover {
-		&:before {
-			animation-duration: 20s;
-		}
-		&:after {
-			animation-duration: 2s;
-		}
-	}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }

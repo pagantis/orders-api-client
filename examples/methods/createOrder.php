@@ -1,8 +1,7 @@
 <?php
-require_once('../utils/Helpers.php');
-error_reporting(E_ALL);
-//Require the Client library using composer: composer require pagantis/orders-api-client
 require_once('../../vendor/autoload.php');
+error_reporting(E_ALL);
+session_start();
 /**
  * Require the helper functions
  * ⚠⚠⚠
@@ -11,44 +10,54 @@ require_once('../../vendor/autoload.php');
  * ⚠⚠⚠
  */
 require_once('../utils/Helpers.php');
-// TODO https://www.formget.com/how-to-redirect-a-url-php-form/
+error_reporting(E_ALL);
+//Require the Client library using composer: composer require pagantis/orders-api-client
+
+
 ?>
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="../assets/pics/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/styles.scss" type="text/css">
-    <script src="../assets/js/script.js"></script>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <title>Pagantis Order API Client Examples</title>
-</head>
-<body>
-<div class="parent">
-    <div class="hero">
-        <img src="../assets/pics/Pagantis_Logo_RGB.svg" alt="Pagantis logo">
-        <div>
-            <h4>Order API Client Examples</h4>
+    <!DOCTYPE HTML>
+    <html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="../assets/pics/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
+        <script src="../assets/js/script.js"></script>
+        <script src="../assets/js/jquery-slim.min.js"></script>
+        <script src="../assets/js/popper.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <title> Get Order by ID</title>
+    </head>
+    <body>
+    <div class="container">
+        <div class="col-md-auto">
+            <img src="../assets/pics/Pagantis_Logo_RGB.svg" alt="Pagantis logo">
+            <div>
+                <h5>Create Order Example</h5>
+            </div>
+            <div class="fixed-top">
+                <?php
+                if (!areKeysSet()) {
+                    echo showKeysMissingErrorMessage();
+                    echo "<div><button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"redirectHome()\">Home</button></div>";
+                } ?>
+            </div>
+
         </div>
         <?php
-        if (!areKeysSet()) {
-            $keysNotSetErrorMessage = '<div class="warning-msg" id="warningBox" onclick="setDisplayNone()">  <i class="fas fa-exclamation-triangle"></i> Please set the public and private key in examples/utils/Helpers.php <span class="closeButton"><i class="fas fa-window-close"></i></span></div>';
-            echo $keysNotSetErrorMessage;
-        } ?>
+        if ($_SESSION['order_status'] == \Pagantis\OrdersApiClient\Model\Order::STATUS_AUTHORIZED) {
+            echo getSuccessOrderDetailCard($order);
+        }
+        ?>
+
     </div>
-</div>
-</body>
-</html>
+    </body>
+    </html>
 <?php
 
 const ORDER_ID = 'order_4159972708';
 
 try {
-    error_reporting(E_ALL);
-    session_start();
-    setCurrentPageInSession();
-
     $method = getGetAction();
     call_user_func($method);
 } catch (\Exception $e) {
@@ -176,16 +185,11 @@ function createOrder()
     $order->setConfiguration($orderConfiguration)
           ->setShoppingCart($orderShoppingCart)
           ->setUser($orderUser);
-
-
-
     $orderClient = getOrderApiClient();
     $order = $orderClient->createOrder($order);
     writeLog(jsonEncoded($order), $logsFileName, $logsWithDate);
 
     writeLog('Creating Pagantis order', $logsFileName, $logsWithDate);
-
-
     writeLog('Processing order ' . $order->getId(), $logsFileName, $logsWithDate);
 
     if (!isOrderIdValid($order)) {
@@ -226,12 +230,9 @@ function confirmOrder()
     writeLog('Creating OrdersApiClient', $logsFileName, $logsWithDate);
     $orderClient = getOrderApiClient();
 
-
     $order = $orderClient->getOrder($_SESSION['order_id']);
 
-    if ($order instanceof \Pagantis\OrdersApiClient\Model\Order
-        && $order->getStatus() == \Pagantis\OrdersApiClient\Model\Order::STATUS_AUTHORIZED
-    ) {
+    if ($order instanceof \Pagantis\OrdersApiClient\Model\Order && $order->getStatus() == \Pagantis\OrdersApiClient\Model\Order::STATUS_AUTHORIZED) {
         //If the order exists, and the status is authorized, means you can mark the order as paid.
 
         //DO WHATEVER YOU NEED TO DO TO MARK THE ORDER AS PAID IN YOUR OWN SYSTEM.
@@ -240,20 +241,20 @@ function confirmOrder()
 
         writeLog('Order confirmed', $logsFileName, $logsWithDate);
         writeLog(jsonEncoded($order->export()), $logsFileName, $logsWithDate);
-        $message = "The order {$_SESSION['order_id']} has been confirmed successfully";
-        print("<legend>".$message."</legend>");
+        $_SESSION['order_status'] = array();
+        array_push($_SESSION['order_status'], $order->getStatus());
+        echo getSuccessOrderDetailCard($order->getId());
+        echo getHomeButton();
 
-        //TODO IMPROVE UX  BY SHOWING MESSAGE BELOW IN INDEX INSTEAD OF SAME PAGE IN A DIV
-        echo '<div><button>Back to Home</button> </div>';
-
-    /* The order has been marked as paid and confirmed in Pagantis so you will send the product to your customer and
-     * Pagantis will pay you in the next 24h.
-     */
+        /* The order has been marked as paid and confirmed in Pagantis so you will send the product to your customer and
+         * Pagantis will pay you in the next 24h.
+         */
     } else {
-        $message = "The order {$_SESSION['order_id']} can't be confirmed";
-        print("<legend>".$message."</legend>");
+        echo getFailureOrderDetailCard($_SESSION['order_id']);
+        echo getHomeButton();
     }
-    writeLog($message, $logsFileName, $logsWithDate);
+
+    writeLog($message = "The order {$_SESSION['order_id']} can't be confirmed", $logsFileName, $logsWithDate);
 }
 
 /**
@@ -301,4 +302,73 @@ function isGetActionValid()
         return false;
     }
     return true;
+}
+
+/**
+ * @param $orderID
+ * @return string
+ * @throws \Httpful\Exception\ConnectionErrorException
+ * @throws \Pagantis\OrdersApiClient\Exception\ClientException
+ * @throws Exception
+ */
+function getSuccessOrderDetailCard($orderID)
+{
+    $orderApiClient = getOrderApiClient();
+    $order = $orderApiClient->getOrder($orderID, $asJson = true);
+    $orderObject = json_decode($order);
+    $successCard = "<div class=\"card text-white bg-success mb-3   h-100 justify-content-center \" style=\"max-width: 30rem;\">
+  <div class=\"card-header\">Order $orderObject->id Found</div>
+  <div class=\"card-body\">
+         <p class=\"card-text\"> Order status: $orderObject->status </p>
+         <p class=\"card-text\"> Order created at:  $orderObject->created_at </p>
+         <p class=\"card-text\"> Order confirmed at: $orderObject->confirmed_at </p>
+  </div>
+  </div>";
+
+    return $successCard;
+}
+/**
+ * @param $orderID
+ * @return string
+ * @throws \Httpful\Exception\ConnectionErrorException
+ * @throws \Pagantis\OrdersApiClient\Exception\ClientException
+ * @throws Exception
+ */
+function getFailureOrderDetailCard($orderID)
+{
+
+    $orderApiClient = getOrderApiClient();
+    $order = $orderApiClient->getOrder($orderID, $asJson = true);
+    $orderObject = json_decode($order);
+    $failureCard = "<div class=\"alert alert-warning\" role=\"alert\"> Order : $orderObject->id couldn't be confirmed</div>";
+
+    return $failureCard;
+}
+
+function isJson($string)
+{
+    json_decode($string);
+    return (json_last_error() == JSON_ERROR_NONE);
+}
+
+
+/**
+ * @param      $message
+ * @param bool $isError
+ * @return string
+ */
+function showResultMessage($message, $isError = false)
+{
+    if ($isError) {
+        $styledErrorMessage = "<div class=\"alert alert - warning\" role=\"alert\"> $message</div>";
+        return $styledErrorMessage;
+    }
+    $styledNormalMessage = "<div class=\"alert alert - success\" role=\"alert\"> $message</div>";
+    return $styledNormalMessage;
+}
+
+
+function getHomeButton()
+{
+    return "<div><button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"redirectHome()\">Home</button></div>";
 }
