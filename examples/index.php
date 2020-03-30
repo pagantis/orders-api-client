@@ -18,34 +18,58 @@ setCurrentPageInSession();
 ?>
 
 
-<div class="parent">
-    <div class="hero">
-        <img src="assets/pics/Pagantis_Logo_RGB.svg" alt="Pagantis logo">
-        <div>
+<div class="container">
+    <div class="col-md-auto">
+        <div class="row">
+            <img src="assets/pics/Pagantis_Logo_RGB.svg" alt="Pagantis logo">
+        </div>
+        <div class="row">
             <h4>Order API Client Examples</h4>
         </div>
+    </div>
+    <div class="hero">
         <?php
         if (!areKeysSet()) {
-            $keysNotSetErrorMessage = '<div class="warning-msg" id="warningBox" onclick="setDisplayNone()">  <i class="fas fa-exclamation-triangle"></i> Please set the public and private key in examples/utils/Helpers.php <span class="closeButton"><i class="fas fa-window-close"></i></span></div>';
+            $keysNotSetErrorMessage = '<div class="row" id="warningBox" onclick="setDisplayNone()">
+<div class="col-md-auto">
+            <div class="alert alert-warning">  
+            <i class="fas fa-exclamation-triangle"></i> 
+                Please set the public and private key in examples/utils/Helpers.php 
+                <span class="closeButton">
+                    <i class="fas fa-window-close" ></i>
+                </span>
+            </div>
+            </div>
+            </div>
+            ';
             echo $keysNotSetErrorMessage;
         } ?>
     </div>
-
-    <div class="main">
-        <div class="formgrid">
-            <b class="hr"></b>
-
-            <form class="form-inline">
-                <label for="getOrderID">Create an Order</label>
-                <input type="submit" value="submit" class="button" formmethod="get"
-                       formaction="methods/createOrder.php">
-        </div>
+    <div class="col-md-auto">
         <b class="hr"></b>
 
-        <form action="methods/getOrder.php" method="POST" class="form-inline">
-            <label for="getOrderID">Get Order By ID</label>
-            <input type="text" name="getOrderID" id="getOrderID" placeholder="order ID" required>
-            <input type="submit" value="get order" class="button">
+        <form>
+            <div class="row">
+                <label for="getOrderID">Create an Order</label>
+            </div>
+            <div class="row">
+                <input type="submit" value="submit" class="btn btn-primary" formmethod="get"
+                       formaction="methods/createOrder.php">
+            </div>
+        </form>
+
+        <b class="hr"></b>
+
+        <form action="methods/getOrder.php" method="POST">
+            <div class="row">
+                <label for="getOrderID">Get Order By ID</label>
+            </div>
+            <div class="row">
+                <input type="text" name="getOrderID" id="getOrderID" placeholder="order ID" required>
+            </div>
+            <div class="row">
+                <input type="submit" value="get order" class="btn btn-primary">
+            </div>
         </form>
 
         <b class="hr"></b>
@@ -67,17 +91,18 @@ setCurrentPageInSession();
 
         <form action="methods/refundOrder.php" method="POST">
 
-                <div class="col">
-                    <div class="row">
-                        <div class="col">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
 
                         <h4>Refund Order By ID</h4>
                     </div>
                     <div class="row">
-                            <input type="text" name="refundOrderID" class="form-control" id="refundOrderID" placeholder="Order ID" required></div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
+                        <input type="text" name="refundOrderID" class="form-control" id="refundOrderID"
+                               placeholder="Order ID" required></div>
+                </div>
+                <div class="row">
+                    <div class="col">
 
                         <label for="refundOrderAmount">Refund Quantity</label>
                     </div>
@@ -85,11 +110,11 @@ setCurrentPageInSession();
                         <input type="number" class="form-control" name="refundOrderAmount" id="refundOrderAmount"
                                placeholder="refund amounts in cents" required>
                     </div>
-                    </div>
-                    <div class="row">
-                        <input type="submit" value="submit" class="button">
-                    </div>
                 </div>
+                <div class="row">
+                    <input type="submit" value="submit" class="button">
+                </div>
+            </div>
         </form>
     </div>
 </div>

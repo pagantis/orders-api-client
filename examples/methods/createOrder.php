@@ -1,4 +1,5 @@
 <?php
+require_once('../utils/Helpers.php');
 error_reporting(E_ALL);
 //Require the Client library using composer: composer require pagantis/orders-api-client
 require_once('../../vendor/autoload.php');
@@ -11,11 +12,43 @@ require_once('../../vendor/autoload.php');
  */
 require_once('../utils/Helpers.php');
 // TODO https://www.formget.com/how-to-redirect-a-url-php-form/
+?>
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="../assets/pics/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/styles.scss" type="text/css">
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <title>Pagantis Order API Client Examples</title>
+</head>
+<body>
+<div class="parent">
+    <div class="hero">
+        <img src="../assets/pics/Pagantis_Logo_RGB.svg" alt="Pagantis logo">
+        <div>
+            <h4>Order API Client Examples</h4>
+        </div>
+        <?php
+        if (!areKeysSet()) {
+            $keysNotSetErrorMessage = '<div class="warning-msg" id="warningBox" onclick="setDisplayNone()">  <i class="fas fa-exclamation-triangle"></i> Please set the public and private key in examples/utils/Helpers.php <span class="closeButton"><i class="fas fa-window-close"></i></span></div>';
+            echo $keysNotSetErrorMessage;
+        } ?>
+    </div>
+</div>
+</body>
+</html>
+<?php
 
 const ORDER_ID = 'order_4159972708';
 
 try {
+    error_reporting(E_ALL);
     session_start();
+    setCurrentPageInSession();
+
     $method = getGetAction();
     call_user_func($method);
 } catch (\Exception $e) {
@@ -29,8 +62,7 @@ try {
  *
  * @throws \Httpful\Exception\ConnectionErrorException
  * @throws \Pagantis\OrdersApiClient\Exception\ClientException
- * @throws \Pagantis\OrdersApiClient\Exception\HttpException
- * @throws \Exception
+ * @throws Exception
  */
 function createOrder()
 {

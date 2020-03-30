@@ -1,7 +1,8 @@
 function setDisplayNone() {
     let div = document.getElementById("warningBox");
-     div.classList.remove("warning-msg");
-     div.classList.add("warning-msg-hide");
+    //div.classList.remove("warningBox");
+    div.classList.add(".d-none");
+     //div.classList.add(".d-none");
 }
 
 function redirectHome() {

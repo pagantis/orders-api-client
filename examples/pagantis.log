@@ -454,3 +454,87 @@
 [Fri Mar 27 14:08:31 2020] "createOrder.php" Adding urls to redirect the user according each case.
 [Fri Mar 27 14:08:31 2020] "createOrder.php" Adding channel info.
 [Fri Mar 27 14:08:31 2020] "createOrder.php" Created Configuration object.
+[Mon Mar 30 5:55:01 2020] "createOrder.php" Creating User object.
+[Mon Mar 30 5:55:01 2020] "createOrder.php" Adding the address of the user.
+[Mon Mar 30 5:55:01 2020] "createOrder.php" Adding the information of the user.
+[Mon Mar 30 5:55:01 2020] "createOrder.php" User object created.
+[Mon Mar 30 5:55:01 2020] "createOrder.php" Creating ShoppingCart object.
+[Mon Mar 30 5:55:01 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Mon Mar 30 5:55:01 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Mon Mar 30 5:55:01 2020] "createOrder.php" Created OrderShoppingCart object.
+[Mon Mar 30 5:55:01 2020] "createOrder.php" Creating Configuration object.
+[Mon Mar 30 5:55:01 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Mon Mar 30 5:55:01 2020] "createOrder.php" Adding channel info.
+[Mon Mar 30 5:55:01 2020] "createOrder.php" Created Configuration object.
+[Mon Mar 30 5:55:23 2020] "createOrder.php" Creating User object.
+[Mon Mar 30 5:55:23 2020] "createOrder.php" Adding the address of the user.
+[Mon Mar 30 5:55:23 2020] "createOrder.php" Adding the information of the user.
+[Mon Mar 30 5:55:23 2020] "createOrder.php" User object created.
+[Mon Mar 30 5:55:23 2020] "createOrder.php" Creating ShoppingCart object.
+[Mon Mar 30 5:55:23 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Mon Mar 30 5:55:23 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Mon Mar 30 5:55:23 2020] "createOrder.php" Created OrderShoppingCart object.
+[Mon Mar 30 5:55:23 2020] "createOrder.php" Creating Configuration object.
+[Mon Mar 30 5:55:23 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Mon Mar 30 5:55:23 2020] "createOrder.php" Adding channel info.
+[Mon Mar 30 5:55:23 2020] "createOrder.php" Created Configuration object.
+[Mon Mar 30 5:55:42 2020] "createOrder.php" Creating User object.
+[Mon Mar 30 5:55:42 2020] "createOrder.php" Adding the address of the user.
+[Mon Mar 30 5:55:42 2020] "createOrder.php" Adding the information of the user.
+[Mon Mar 30 5:55:42 2020] "createOrder.php" User object created.
+[Mon Mar 30 5:55:42 2020] "createOrder.php" Creating ShoppingCart object.
+[Mon Mar 30 5:55:42 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Mon Mar 30 5:55:42 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Mon Mar 30 5:55:42 2020] "createOrder.php" Created OrderShoppingCart object.
+[Mon Mar 30 5:55:42 2020] "createOrder.php" Creating Configuration object.
+[Mon Mar 30 5:55:42 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Mon Mar 30 5:55:42 2020] "createOrder.php" Adding channel info.
+[Mon Mar 30 5:55:42 2020] "createOrder.php" Created Configuration object.
+[Mon Mar 30 5:56:43 2020] "createOrder.php" Creating User object.
+[Mon Mar 30 5:56:43 2020] "createOrder.php" Adding the address of the user.
+[Mon Mar 30 5:56:43 2020] "createOrder.php" Adding the information of the user.
+[Mon Mar 30 5:56:43 2020] "createOrder.php" User object created.
+[Mon Mar 30 5:56:43 2020] "createOrder.php" Creating ShoppingCart object.
+[Mon Mar 30 5:56:43 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Mon Mar 30 5:56:43 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Mon Mar 30 5:56:43 2020] "createOrder.php" Created OrderShoppingCart object.
+[Mon Mar 30 5:56:43 2020] "createOrder.php" Creating Configuration object.
+[Mon Mar 30 5:56:43 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Mon Mar 30 5:56:43 2020] "createOrder.php" Adding channel info.
+[Mon Mar 30 5:56:43 2020] "createOrder.php" Created Configuration object.
+[Mon Mar 30 5:59:24 2020] "createOrder.php" Creating User object.
+[Mon Mar 30 5:59:24 2020] "createOrder.php" Adding the address of the user.
+[Mon Mar 30 5:59:24 2020] "createOrder.php" Adding the information of the user.
+[Mon Mar 30 5:59:24 2020] "createOrder.php" User object created.
+[Mon Mar 30 5:59:24 2020] "createOrder.php" Creating ShoppingCart object.
+[Mon Mar 30 5:59:24 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Mon Mar 30 5:59:24 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Mon Mar 30 5:59:24 2020] "createOrder.php" Created OrderShoppingCart object.
+[Mon Mar 30 5:59:24 2020] "createOrder.php" Creating Configuration object.
+[Mon Mar 30 5:59:24 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Mon Mar 30 5:59:24 2020] "createOrder.php" Adding channel info.
+[Mon Mar 30 5:59:24 2020] "createOrder.php" Created Configuration object.
+[Mon Mar 30 6:02:01 2020] "createOrder.php" Creating User object.
+[Mon Mar 30 6:02:01 2020] "createOrder.php" Adding the address of the user.
+[Mon Mar 30 6:02:01 2020] "createOrder.php" Adding the information of the user.
+[Mon Mar 30 6:02:01 2020] "createOrder.php" User object created.
+[Mon Mar 30 6:02:01 2020] "createOrder.php" Creating ShoppingCart object.
+[Mon Mar 30 6:02:01 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Mon Mar 30 6:02:01 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Mon Mar 30 6:02:01 2020] "createOrder.php" Created OrderShoppingCart object.
+[Mon Mar 30 6:02:01 2020] "createOrder.php" Creating Configuration object.
+[Mon Mar 30 6:02:01 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Mon Mar 30 6:02:01 2020] "createOrder.php" Adding channel info.
+[Mon Mar 30 6:02:01 2020] "createOrder.php" Created Configuration object.
+[Mon Mar 30 6:02:06 2020] "createOrder.php" Creating User object.
+[Mon Mar 30 6:02:06 2020] "createOrder.php" Adding the address of the user.
+[Mon Mar 30 6:02:06 2020] "createOrder.php" Adding the information of the user.
+[Mon Mar 30 6:02:06 2020] "createOrder.php" User object created.
+[Mon Mar 30 6:02:06 2020] "createOrder.php" Creating ShoppingCart object.
+[Mon Mar 30 6:02:06 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Mon Mar 30 6:02:06 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Mon Mar 30 6:02:06 2020] "createOrder.php" Created OrderShoppingCart object.
+[Mon Mar 30 6:02:06 2020] "createOrder.php" Creating Configuration object.
+[Mon Mar 30 6:02:06 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Mon Mar 30 6:02:06 2020] "createOrder.php" Adding channel info.
+[Mon Mar 30 6:02:06 2020] "createOrder.php" Created Configuration object.
