@@ -947,3 +947,153 @@
     }
 }.
 [Tue Mar 31 10:16:44 2020] "createOrder.php" The order 5e83187d3f1e437c225aa6a8 can't be confirmed.
+[Tue Mar 31 11:11:09 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:11:09 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:11:09 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:28:10 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:28:10 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:28:11 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:28:31 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:28:31 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:28:31 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:29:31 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:29:31 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:29:32 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:30:15 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:30:15 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:30:15 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:30:29 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:30:29 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:30:30 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:30:54 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:30:54 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:30:59 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:31:49 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:31:49 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:31:49 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:32:05 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:32:05 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:32:05 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:32:45 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:32:45 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:32:45 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:33:08 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:33:08 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:33:09 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:33:32 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:33:32 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:33:32 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:34:11 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:34:11 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:34:11 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:34:33 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:34:33 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:34:33 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:34:41 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:34:41 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:34:42 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:35:05 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:35:05 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:35:05 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:37:03 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:37:03 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:37:03 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:37:21 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:37:21 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:37:21 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:40:06 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:40:06 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:40:06 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:40:34 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:40:34 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:40:34 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:41:29 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:41:29 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:41:29 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:42:39 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:42:39 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:42:40 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:43:19 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:43:19 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:43:19 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:44:10 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:44:10 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:44:10 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:44:36 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:44:36 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:44:36 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:49:40 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:49:40 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:49:40 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:49:50 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:49:50 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:49:50 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:50:46 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:50:46 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:50:46 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:51:13 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:51:13 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:51:13 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:51:51 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:51:51 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:51:51 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:52:25 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:52:25 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:52:26 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:52:40 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:52:40 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:52:40 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:52:55 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:52:55 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:52:55 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:53:16 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:53:16 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:53:16 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:54:31 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:54:31 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:54:32 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:54:51 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:54:51 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:54:51 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:56:43 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:56:43 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:56:43 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:56:52 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:56:52 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:56:52 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 11:59:50 2020] "getOrder.php" Client Created.
+[Tue Mar 31 11:59:50 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 11:59:50 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 12:00:26 2020] "getOrder.php" Client Created.
+[Tue Mar 31 12:00:26 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 12:00:26 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 12:01:04 2020] "getOrder.php" Client Created.
+[Tue Mar 31 12:01:04 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 12:01:04 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 12:01:15 2020] "getOrder.php" Client Created.
+[Tue Mar 31 12:01:15 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 12:01:15 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 12:01:35 2020] "getOrder.php" Client Created.
+[Tue Mar 31 12:01:35 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 12:01:35 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 12:01:46 2020] "getOrder.php" Client Created.
+[Tue Mar 31 12:01:46 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 12:01:46 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 12:01:57 2020] "getOrder.php" Client Created.
+[Tue Mar 31 12:01:57 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 12:01:57 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 12:03:13 2020] "getOrder.php" Client Created.
+[Tue Mar 31 12:03:13 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 12:03:13 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 12:03:39 2020] "getOrder.php" Client Created.
+[Tue Mar 31 12:03:39 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 12:03:40 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 12:04:14 2020] "getOrder.php" Client Created.
+[Tue Mar 31 12:04:14 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 12:04:14 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 12:04:22 2020] "getOrder.php" Client Created.
+[Tue Mar 31 12:04:22 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 12:04:23 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 12:05:06 2020] "getOrder.php" Client Created.
+[Tue Mar 31 12:05:06 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 12:05:08 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.

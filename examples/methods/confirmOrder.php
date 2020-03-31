@@ -149,6 +149,7 @@ function getInvalidatedOrders(\Pagantis\OrdersApiClient\Client $orderApiClient, 
                 $orderApiClient = getOrderApiClient();
                 $confirmedOrders = getConfirmedOrders($orderApiClient, $asJson = true);
             } catch (\Exception $e) {
+                $e->getMessage();
             }
             $confirmedOrdersArray = json_decode($confirmedOrders, true);
             ?>
@@ -160,7 +161,7 @@ function getInvalidatedOrders(\Pagantis\OrdersApiClient\Client $orderApiClient, 
             </div>
         <div class="card-columns">
         <?php if ($confirmedOrdersArray >= 1) : ?>
-        <?php foreach ($confirmedOrdersArray as $order) : ?>
+            <?php foreach ($confirmedOrdersArray as $order) : ?>
             <div class="card bg-light mt-2 mb-2">
                 <div class="card-body">
                     <p class="card-title"> Order ID: <?php echo $id = $order['id']; ?></p>
@@ -169,23 +170,24 @@ function getInvalidatedOrders(\Pagantis\OrdersApiClient\Client $orderApiClient, 
                         Reference: <?php echo $shopOrderID = $order['shopping_cart']['order_reference']; ?> </p>
                 </div>
             </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
 </div>
 
 </orderCards>
 
-<?php else : ?>
-<?php
-try {
-    $orderApiClient = getOrderApiClient();
-    $createdOrders = getCreatedOrders($orderApiClient, $asJson = true);
-    $invalidatedOrders = getInvalidatedOrders($orderApiClient, $asJson = true);
-} catch (\Exception $e) {
-}
-?>
+        <?php else : ?>
+            <?php
+            try {
+                $orderApiClient = getOrderApiClient();
+                $createdOrders = getCreatedOrders($orderApiClient, $asJson = true);
+                $invalidatedOrders = getInvalidatedOrders($orderApiClient, $asJson = true);
+            } catch (\Exception $e) {
+                $e->getMessage();
+            }
+            ?>
 
-<?php $createdOrdersArray = json_decode($createdOrders, true); ?>
-<?php $invalidatedOrdersArray = json_decode($invalidatedOrders, true); ?>
+            <?php $createdOrdersArray = json_decode($createdOrders, true); ?>
+            <?php $invalidatedOrdersArray = json_decode($invalidatedOrders, true); ?>
 <alertBoxes>
     <div class="container-fluid align-content-center">
 
