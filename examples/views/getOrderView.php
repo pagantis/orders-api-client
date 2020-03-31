@@ -6,9 +6,6 @@
             <link rel="icon" href="../assets/pics/favicon.ico" type="image/x-icon">
             <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
             <script src="../assets/js/script.js"></script>
-            <script src="../assets/js/jquery-slim.min.js"></script>
-            <script src="../assets/js/popper.min.js"></script>
-            <script src="../assets/js/bootstrap.min.js"></script>
             <title> Get Order by ID</title>
         </head>
 <body>
