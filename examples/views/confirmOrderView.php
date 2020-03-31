@@ -50,9 +50,9 @@
                         <?php echo count($confirmedOrdersArray) . ' Confirmed orders found' ?>
                     </div>
                 </div>
-                <div class="card-columns-fluid">
-                    <div class="card bg-light mt-2 mb-2">
+                <div class="card-columns">
                         <?php foreach ($confirmedOrdersArray as $order) : ?>
+                    <div class="card bg-light mt-2 mb-2">
                         <div class="card-body">
                             <p class="card-title"> Order ID: <?php echo $id = $order['id']; ?></p>
                             <p class="card-text"> Order Status : <?php echo $status = $order['status']; ?> </p>

@@ -70,9 +70,9 @@
                     <?php echo $_SESSION['order_not_found_message'] ?></div>';
             <?php endif; ?>
     </results>
-    <footer>
+
         <?php include('../views/footer.php') ?>
-    </footer>
+
 </div>
 </body>
 </html>
