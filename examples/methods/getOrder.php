@@ -1,9 +1,7 @@
 <?php
+//Require the Client library using composer: composer require pagantis/orders-api-client
 require_once('../../vendor/autoload.php');
-?>
 
-<?php
-error_reporting(E_ALL);
 /**
  * Require the helper functions
  * ⚠⚠⚠
@@ -12,12 +10,8 @@ error_reporting(E_ALL);
  * ⚠⚠⚠
  */
 require_once('../utils/Helpers.php');
-//Require the Client library using composer: composer require pagantis/orders-api-client
+error_reporting(E_ALL);
 session_start();
-setCurrentPageInSession();
-?>
-
-<?php
 
 if (!isset($_POST['getOrderID'])) {
     throw new \Exception('You need to input the Order ID');
@@ -78,33 +72,36 @@ function getObjectFromArray($object)
     <title> Get Order by ID</title>
 </head>
 <body>
-<div class="container">
-    <div class="fixed-top">
-        <?php
-        if (!areKeysSet()) {
-            echo showKeysMissingErrorMessage();
-            echo showHomeButton();
-        } ?>
-    </div>
-    <div class="col-md-auto">
-        <div class="text-center">
-            <img src="../assets/pics/Pagantis_Logo_RGB.svg" class="rounded" alt="Pagantis logo">
-            <h5>Get Order by ID Example</h5>
-        </div>
-    </div>
-    <div class="row align-items-center">
-        <div class="col-6">
-            <?php
-            if ($orderID >= 1) {
-                $orderObject = json_decode($order);
-                echo showSuccessMessage($orderObject);
-            } else {
-                echo '<div class="alert alert-danger" role="alert">Order not found</div>';
-            }
-            ?>
-        </div>
+<div
+<div class="fixed-top">
 
+    <?php
+    if (!areKeysSet()) {
+        echo showKeysMissingErrorMessage();
+    } ?>
+</div>
+<?php include('../views/navBar.php') ?>
+
+<div class="col-md-auto">
+    <div class="row justify-content-center">
+        <h5>Get Order by ID Example</h5>
     </div>
 </div>
+<div class="row align-items-center">
+    <div class="col-6">
+        <?php
+        if ($orderID >= 1) {
+            $orderObject = json_decode($order);
+            echo showSuccessMessage($orderObject);
+        } else {
+            echo '<div class="alert alert-danger" role="alert">Order not found</div>';
+        }
+        ?>
+    </div>
+
+</div>
+</div>
+<?php include('../views/footer.php') ?>
+
 </body>
 </html>

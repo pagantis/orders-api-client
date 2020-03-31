@@ -9,7 +9,9 @@
     <script src="assets/js/jquery-slim.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-    <title> Get Order by ID</title>
+    <title>
+        Pagantis Order API Client Examples
+    </title>
 </head>
 <body>
 <?php
@@ -19,21 +21,21 @@ session_start();
 setCurrentPageInSession();
 ?>
 <div class="container">
-    <div class="col-md-auto">
-        <div class="row">
-            <img src="assets/pics/Pagantis_Logo_RGB.svg" alt="Pagantis logo">
-        </div>
-        <div class="row">
-            <h5>Order API Client Examples</h5>
-        </div>
-    </div>
-        <div class="fixed-top">
+    <div class="fixed-top">
 
         <?php
         if (!areKeysSet()) {
             echo showKeysMissingErrorMessage();
         } ?>
+    </div>
+    <?php include('views/navBar.php') ?>
+
+    <div class="col-md-auto">
+        <div class="row justify-content-center">
+            <h5>Order API Client Examples</h5>
         </div>
+    </div>
+
 
     <div class="col-md-auto">
         <b class="hr"></b>
@@ -115,12 +117,8 @@ setCurrentPageInSession();
         <b class="hr"></b>
     </div>
 </div>
-<!--    <div class="footer">-->
-<!--        <p>-->
-<!--            "Pagantis" is a brand owned by the entity Pagantis, S.A.U. dedicated to the provision of payment services.-->
-<!--            Pagantis, S.A.U. authorizes the use of its brand to the entity Pagamastarde, S.L.U., who makes use of it in-->
-<!--            the provision of its consumer finance services.-->
-<!--        </p>-->
-<!--    </div>-->
+<?php include('views/footer.php') ?>
+
+
 </body>
 </html>

@@ -1,0 +1,949 @@
+[Tue Mar 31 6:22:24 2020] "createOrder.php" Creating User object.
+[Tue Mar 31 6:22:24 2020] "createOrder.php" Adding the address of the user.
+[Tue Mar 31 6:22:24 2020] "createOrder.php" Adding the information of the user.
+[Tue Mar 31 6:22:24 2020] "createOrder.php" User object created.
+[Tue Mar 31 6:22:24 2020] "createOrder.php" Creating ShoppingCart object.
+[Tue Mar 31 6:22:24 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Tue Mar 31 6:22:24 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Tue Mar 31 6:22:24 2020] "createOrder.php" Created OrderShoppingCart object.
+[Tue Mar 31 6:22:24 2020] "createOrder.php" Creating Configuration object.
+[Tue Mar 31 6:22:24 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Tue Mar 31 6:22:24 2020] "createOrder.php" Adding channel info.
+[Tue Mar 31 6:22:24 2020] "createOrder.php" Created Configuration object.
+[Tue Mar 31 6:22:25 2020] "createOrder.php" {}.
+[Tue Mar 31 6:22:25 2020] "createOrder.php" Creating Pagantis order.
+[Tue Mar 31 6:22:25 2020] "createOrder.php" Processing order 5e82e1a13f1e437c225aa530.
+[Tue Mar 31 6:22:25 2020] "createOrder.php" {
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5e82e1a13f1e437c225aa530"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "created_at": "2020-03-31T06:22:25",
+    "expires_at": "2020-03-31T08:22:25",
+    "id": "5e82e1a13f1e437c225aa530",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 6:22:25 2020] "createOrder.php" Redirecting to Pagantis form => https://form.pagamastarde.com/orders/5e82e1a13f1e437c225aa530.
+[Tue Mar 31 6:32:24 2020] "getOrder.php" Client Created.
+[Tue Mar 31 6:32:24 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 6:32:24 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 6:34:13 2020] "confirmOrder.php" Creating Client.
+[Tue Mar 31 6:34:13 2020] "confirmOrder.php" Client Created.
+[Tue Mar 31 6:34:13 2020] "confirmOrder.php" Fetching Authorized Orders.
+[Tue Mar 31 6:34:14 2020] "confirmOrder.php" $createdOrders :"[{\"shopping_cart\":{\"order_reference\":\"order_4159972708\",\"deprecated_order_description\":null,\"total_amount\":59999,\"promoted_amount\":0,\"details\":{\"shipping_cost\":0,\"products\":[{\"description\":\"TV LG UltraPlasma\",\"quantity\":1,\"amount\":59999}]}},\"user\":{\"full_name\":\"María Sanchez Escudero\",\"email\":\"user@my-shop.com\",\"dni\":\"59661738Z\",\"national_id\":\"59661738Z\",\"tax_id\":\"59661738Z\",\"fix_phone\":\"911231234\",\"mobile_phone\":\"600123123\",\"address\":{\"full_name\":\"María Sanchez Escudero\",\"address\":\"Paseo de la Castellana, 95\",\"city\":\"Madrid\",\"zip_code\":\"28031\",\"country_code\":\"ES\"},\"date_of_birth\":\"1985-12-30\",\"billing_address\":{\"full_name\":\"María Sanchez Escudero\",\"address\":\"Paseo de la Castellana, 95\",\"city\":\"Madrid\",\"zip_code\":\"28031\",\"country_code\":\"ES\",\"dni\":\"59661738Z\",\"national_id\":\"59661738Z\",\"tax_id\":\"59661738Z\",\"fix_phone\":\"911231234\",\"mobile_phone\":\"600123123\"},\"shipping_address\":{\"full_name\":\"Alberto Escudero Sanchez\",\"address\":\"Avenida de la diagonal 525\",\"city\":\"Barcelona\",\"zip_code\":\"08029\",\"country_code\":\"ES\",\"dni\":\"77695544A\",\"national_id\":\"59661738Z\",\"tax_id\":\"77695544A\",\"fix_phone\":\"931232345\",\"mobile_phone\":\"600123124\"},\"truncated\":false,\"order_history\":[{\"date\":\"2010-01-31\",\"amount\":2499}]},\"configuration\":{\"channel\":{\"type\":\"ONLINE\",\"assisted_sale\":false},\"urls\":{\"ok\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"ko\":\"http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder\",\"cancel\":\"http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder\",\"notification_callback\":null,\"authorized_notification_callback\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"rejected_notification_callback\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"invalidated_notification_callback\":null},\"purchase_country\":\"ES\"},\"grace_period\":null,\"grace_period_month\":null,\"metadata\":{},\"id\":\"5e82e1a13f1e437c225aa530\",\"api_version\":\"v2\",\"status\":\"CREATED\",\"created_at\":\"2020-03-31T06:22:25.126\",\"confirmed_at\":null,\"expires_at\":\"2020-03-31T08:22:25.126\",\"unconfirmed_at\":null,\"action_urls\":{\"form\":\"https://form.pagamastarde.com/orders/5e82e1a13f1e437c225aa530\"},\"refunds\":[]}]".
+[Tue Mar 31 6:34:14 2020] "confirmOrder.php" $createdOrdersOrderObject :[
+    {
+        "shopping_cart": {
+            "order_reference": "order_4159972708",
+            "deprecated_order_description": null,
+            "total_amount": 59999,
+            "promoted_amount": 0,
+            "details": {
+                "shipping_cost": 0,
+                "products": [
+                    {
+                        "description": "TV LG UltraPlasma",
+                        "quantity": 1,
+                        "amount": 59999
+                    }
+                ]
+            }
+        },
+        "user": {
+            "full_name": "María Sanchez Escudero",
+            "email": "user@my-shop.com",
+            "dni": "59661738Z",
+            "national_id": "59661738Z",
+            "tax_id": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "address": {
+                "full_name": "María Sanchez Escudero",
+                "address": "Paseo de la Castellana, 95",
+                "city": "Madrid",
+                "zip_code": "28031",
+                "country_code": "ES"
+            },
+            "date_of_birth": "1985-12-30",
+            "billing_address": {
+                "full_name": "María Sanchez Escudero",
+                "address": "Paseo de la Castellana, 95",
+                "city": "Madrid",
+                "zip_code": "28031",
+                "country_code": "ES",
+                "dni": "59661738Z",
+                "national_id": "59661738Z",
+                "tax_id": "59661738Z",
+                "fix_phone": "911231234",
+                "mobile_phone": "600123123"
+            },
+            "shipping_address": {
+                "full_name": "Alberto Escudero Sanchez",
+                "address": "Avenida de la diagonal 525",
+                "city": "Barcelona",
+                "zip_code": "08029",
+                "country_code": "ES",
+                "dni": "77695544A",
+                "national_id": "59661738Z",
+                "tax_id": "77695544A",
+                "fix_phone": "931232345",
+                "mobile_phone": "600123124"
+            },
+            "truncated": false,
+            "order_history": [
+                {
+                    "date": "2010-01-31",
+                    "amount": 2499
+                }
+            ]
+        },
+        "configuration": {
+            "channel": {
+                "type": "ONLINE",
+                "assisted_sale": false
+            },
+            "urls": {
+                "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+                "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+                "notification_callback": null,
+                "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "invalidated_notification_callback": null
+            },
+            "purchase_country": "ES"
+        },
+        "grace_period": null,
+        "grace_period_month": null,
+        "metadata": [],
+        "id": "5e82e1a13f1e437c225aa530",
+        "api_version": "v2",
+        "status": "CREATED",
+        "created_at": "2020-03-31T06:22:25.126",
+        "confirmed_at": null,
+        "expires_at": "2020-03-31T08:22:25.126",
+        "unconfirmed_at": null,
+        "action_urls": {
+            "form": "https://form.pagamastarde.com/orders/5e82e1a13f1e437c225aa530"
+        },
+        "refunds": []
+    }
+].
+[Tue Mar 31 6:34:14 2020] "confirmOrder.php" Confirming all Authorized Orders.
+[Tue Mar 31 6:34:14 2020] "confirmOrder.php" Orders Confirmed.
+[Tue Mar 31 6:34:14 2020] "confirmOrder.php" Confirmed Orders: [].
+[Tue Mar 31 6:34:45 2020] "confirmOrder.php" Creating Client.
+[Tue Mar 31 6:34:45 2020] "confirmOrder.php" Client Created.
+[Tue Mar 31 6:34:45 2020] "confirmOrder.php" Fetching Authorized Orders.
+[Tue Mar 31 6:34:46 2020] "confirmOrder.php" $createdOrders :"[{\"shopping_cart\":{\"order_reference\":\"order_4159972708\",\"deprecated_order_description\":null,\"total_amount\":59999,\"promoted_amount\":0,\"details\":{\"shipping_cost\":0,\"products\":[{\"description\":\"TV LG UltraPlasma\",\"quantity\":1,\"amount\":59999}]}},\"user\":{\"full_name\":\"María Sanchez Escudero\",\"email\":\"user@my-shop.com\",\"dni\":\"59661738Z\",\"national_id\":\"59661738Z\",\"tax_id\":\"59661738Z\",\"fix_phone\":\"911231234\",\"mobile_phone\":\"600123123\",\"address\":{\"full_name\":\"María Sanchez Escudero\",\"address\":\"Paseo de la Castellana, 95\",\"city\":\"Madrid\",\"zip_code\":\"28031\",\"country_code\":\"ES\"},\"date_of_birth\":\"1985-12-30\",\"billing_address\":{\"full_name\":\"María Sanchez Escudero\",\"address\":\"Paseo de la Castellana, 95\",\"city\":\"Madrid\",\"zip_code\":\"28031\",\"country_code\":\"ES\",\"dni\":\"59661738Z\",\"national_id\":\"59661738Z\",\"tax_id\":\"59661738Z\",\"fix_phone\":\"911231234\",\"mobile_phone\":\"600123123\"},\"shipping_address\":{\"full_name\":\"Alberto Escudero Sanchez\",\"address\":\"Avenida de la diagonal 525\",\"city\":\"Barcelona\",\"zip_code\":\"08029\",\"country_code\":\"ES\",\"dni\":\"77695544A\",\"national_id\":\"59661738Z\",\"tax_id\":\"77695544A\",\"fix_phone\":\"931232345\",\"mobile_phone\":\"600123124\"},\"truncated\":false,\"order_history\":[{\"date\":\"2010-01-31\",\"amount\":2499}]},\"configuration\":{\"channel\":{\"type\":\"ONLINE\",\"assisted_sale\":false},\"urls\":{\"ok\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"ko\":\"http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder\",\"cancel\":\"http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder\",\"notification_callback\":null,\"authorized_notification_callback\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"rejected_notification_callback\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"invalidated_notification_callback\":null},\"purchase_country\":\"ES\"},\"grace_period\":null,\"grace_period_month\":null,\"metadata\":{},\"id\":\"5e82e1a13f1e437c225aa530\",\"api_version\":\"v2\",\"status\":\"CREATED\",\"created_at\":\"2020-03-31T06:22:25.126\",\"confirmed_at\":null,\"expires_at\":\"2020-03-31T08:22:25.126\",\"unconfirmed_at\":null,\"action_urls\":{\"form\":\"https://form.pagamastarde.com/orders/5e82e1a13f1e437c225aa530\"},\"refunds\":[]}]".
+[Tue Mar 31 6:34:46 2020] "confirmOrder.php" $createdOrdersOrderObject :[
+    {
+        "shopping_cart": {
+            "order_reference": "order_4159972708",
+            "deprecated_order_description": null,
+            "total_amount": 59999,
+            "promoted_amount": 0,
+            "details": {
+                "shipping_cost": 0,
+                "products": [
+                    {
+                        "description": "TV LG UltraPlasma",
+                        "quantity": 1,
+                        "amount": 59999
+                    }
+                ]
+            }
+        },
+        "user": {
+            "full_name": "María Sanchez Escudero",
+            "email": "user@my-shop.com",
+            "dni": "59661738Z",
+            "national_id": "59661738Z",
+            "tax_id": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "address": {
+                "full_name": "María Sanchez Escudero",
+                "address": "Paseo de la Castellana, 95",
+                "city": "Madrid",
+                "zip_code": "28031",
+                "country_code": "ES"
+            },
+            "date_of_birth": "1985-12-30",
+            "billing_address": {
+                "full_name": "María Sanchez Escudero",
+                "address": "Paseo de la Castellana, 95",
+                "city": "Madrid",
+                "zip_code": "28031",
+                "country_code": "ES",
+                "dni": "59661738Z",
+                "national_id": "59661738Z",
+                "tax_id": "59661738Z",
+                "fix_phone": "911231234",
+                "mobile_phone": "600123123"
+            },
+            "shipping_address": {
+                "full_name": "Alberto Escudero Sanchez",
+                "address": "Avenida de la diagonal 525",
+                "city": "Barcelona",
+                "zip_code": "08029",
+                "country_code": "ES",
+                "dni": "77695544A",
+                "national_id": "59661738Z",
+                "tax_id": "77695544A",
+                "fix_phone": "931232345",
+                "mobile_phone": "600123124"
+            },
+            "truncated": false,
+            "order_history": [
+                {
+                    "date": "2010-01-31",
+                    "amount": 2499
+                }
+            ]
+        },
+        "configuration": {
+            "channel": {
+                "type": "ONLINE",
+                "assisted_sale": false
+            },
+            "urls": {
+                "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+                "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+                "notification_callback": null,
+                "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "invalidated_notification_callback": null
+            },
+            "purchase_country": "ES"
+        },
+        "grace_period": null,
+        "grace_period_month": null,
+        "metadata": [],
+        "id": "5e82e1a13f1e437c225aa530",
+        "api_version": "v2",
+        "status": "CREATED",
+        "created_at": "2020-03-31T06:22:25.126",
+        "confirmed_at": null,
+        "expires_at": "2020-03-31T08:22:25.126",
+        "unconfirmed_at": null,
+        "action_urls": {
+            "form": "https://form.pagamastarde.com/orders/5e82e1a13f1e437c225aa530"
+        },
+        "refunds": []
+    }
+].
+[Tue Mar 31 6:34:46 2020] "confirmOrder.php" Confirming all Authorized Orders.
+[Tue Mar 31 6:34:46 2020] "confirmOrder.php" Orders Confirmed.
+[Tue Mar 31 6:34:46 2020] "confirmOrder.php" Confirmed Orders: [].
+[Tue Mar 31 6:35:01 2020] "confirmOrder.php" Creating Client.
+[Tue Mar 31 6:35:01 2020] "confirmOrder.php" Client Created.
+[Tue Mar 31 6:35:01 2020] "confirmOrder.php" Fetching Authorized Orders.
+[Tue Mar 31 6:35:02 2020] "confirmOrder.php" $createdOrders :"[{\"shopping_cart\":{\"order_reference\":\"order_4159972708\",\"deprecated_order_description\":null,\"total_amount\":59999,\"promoted_amount\":0,\"details\":{\"shipping_cost\":0,\"products\":[{\"description\":\"TV LG UltraPlasma\",\"quantity\":1,\"amount\":59999}]}},\"user\":{\"full_name\":\"María Sanchez Escudero\",\"email\":\"user@my-shop.com\",\"dni\":\"59661738Z\",\"national_id\":\"59661738Z\",\"tax_id\":\"59661738Z\",\"fix_phone\":\"911231234\",\"mobile_phone\":\"600123123\",\"address\":{\"full_name\":\"María Sanchez Escudero\",\"address\":\"Paseo de la Castellana, 95\",\"city\":\"Madrid\",\"zip_code\":\"28031\",\"country_code\":\"ES\"},\"date_of_birth\":\"1985-12-30\",\"billing_address\":{\"full_name\":\"María Sanchez Escudero\",\"address\":\"Paseo de la Castellana, 95\",\"city\":\"Madrid\",\"zip_code\":\"28031\",\"country_code\":\"ES\",\"dni\":\"59661738Z\",\"national_id\":\"59661738Z\",\"tax_id\":\"59661738Z\",\"fix_phone\":\"911231234\",\"mobile_phone\":\"600123123\"},\"shipping_address\":{\"full_name\":\"Alberto Escudero Sanchez\",\"address\":\"Avenida de la diagonal 525\",\"city\":\"Barcelona\",\"zip_code\":\"08029\",\"country_code\":\"ES\",\"dni\":\"77695544A\",\"national_id\":\"59661738Z\",\"tax_id\":\"77695544A\",\"fix_phone\":\"931232345\",\"mobile_phone\":\"600123124\"},\"truncated\":false,\"order_history\":[{\"date\":\"2010-01-31\",\"amount\":2499}]},\"configuration\":{\"channel\":{\"type\":\"ONLINE\",\"assisted_sale\":false},\"urls\":{\"ok\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"ko\":\"http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder\",\"cancel\":\"http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder\",\"notification_callback\":null,\"authorized_notification_callback\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"rejected_notification_callback\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"invalidated_notification_callback\":null},\"purchase_country\":\"ES\"},\"grace_period\":null,\"grace_period_month\":null,\"metadata\":{},\"id\":\"5e82e1a13f1e437c225aa530\",\"api_version\":\"v2\",\"status\":\"CREATED\",\"created_at\":\"2020-03-31T06:22:25.126\",\"confirmed_at\":null,\"expires_at\":\"2020-03-31T08:22:25.126\",\"unconfirmed_at\":null,\"action_urls\":{\"form\":\"https://form.pagamastarde.com/orders/5e82e1a13f1e437c225aa530\"},\"refunds\":[]}]".
+[Tue Mar 31 6:35:02 2020] "confirmOrder.php" $createdOrdersOrderObject :[
+    {
+        "shopping_cart": {
+            "order_reference": "order_4159972708",
+            "deprecated_order_description": null,
+            "total_amount": 59999,
+            "promoted_amount": 0,
+            "details": {
+                "shipping_cost": 0,
+                "products": [
+                    {
+                        "description": "TV LG UltraPlasma",
+                        "quantity": 1,
+                        "amount": 59999
+                    }
+                ]
+            }
+        },
+        "user": {
+            "full_name": "María Sanchez Escudero",
+            "email": "user@my-shop.com",
+            "dni": "59661738Z",
+            "national_id": "59661738Z",
+            "tax_id": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "address": {
+                "full_name": "María Sanchez Escudero",
+                "address": "Paseo de la Castellana, 95",
+                "city": "Madrid",
+                "zip_code": "28031",
+                "country_code": "ES"
+            },
+            "date_of_birth": "1985-12-30",
+            "billing_address": {
+                "full_name": "María Sanchez Escudero",
+                "address": "Paseo de la Castellana, 95",
+                "city": "Madrid",
+                "zip_code": "28031",
+                "country_code": "ES",
+                "dni": "59661738Z",
+                "national_id": "59661738Z",
+                "tax_id": "59661738Z",
+                "fix_phone": "911231234",
+                "mobile_phone": "600123123"
+            },
+            "shipping_address": {
+                "full_name": "Alberto Escudero Sanchez",
+                "address": "Avenida de la diagonal 525",
+                "city": "Barcelona",
+                "zip_code": "08029",
+                "country_code": "ES",
+                "dni": "77695544A",
+                "national_id": "59661738Z",
+                "tax_id": "77695544A",
+                "fix_phone": "931232345",
+                "mobile_phone": "600123124"
+            },
+            "truncated": false,
+            "order_history": [
+                {
+                    "date": "2010-01-31",
+                    "amount": 2499
+                }
+            ]
+        },
+        "configuration": {
+            "channel": {
+                "type": "ONLINE",
+                "assisted_sale": false
+            },
+            "urls": {
+                "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+                "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+                "notification_callback": null,
+                "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "invalidated_notification_callback": null
+            },
+            "purchase_country": "ES"
+        },
+        "grace_period": null,
+        "grace_period_month": null,
+        "metadata": [],
+        "id": "5e82e1a13f1e437c225aa530",
+        "api_version": "v2",
+        "status": "CREATED",
+        "created_at": "2020-03-31T06:22:25.126",
+        "confirmed_at": null,
+        "expires_at": "2020-03-31T08:22:25.126",
+        "unconfirmed_at": null,
+        "action_urls": {
+            "form": "https://form.pagamastarde.com/orders/5e82e1a13f1e437c225aa530"
+        },
+        "refunds": []
+    }
+].
+[Tue Mar 31 6:35:02 2020] "confirmOrder.php" Confirming all Authorized Orders.
+[Tue Mar 31 6:35:02 2020] "confirmOrder.php" Orders Confirmed.
+[Tue Mar 31 6:35:02 2020] "confirmOrder.php" Confirmed Orders: [].
+[Tue Mar 31 6:35:21 2020] "confirmOrder.php" Creating Client.
+[Tue Mar 31 6:35:21 2020] "confirmOrder.php" Client Created.
+[Tue Mar 31 6:35:21 2020] "confirmOrder.php" Fetching Authorized Orders.
+[Tue Mar 31 6:35:22 2020] "confirmOrder.php" $createdOrders :"[{\"shopping_cart\":{\"order_reference\":\"order_4159972708\",\"deprecated_order_description\":null,\"total_amount\":59999,\"promoted_amount\":0,\"details\":{\"shipping_cost\":0,\"products\":[{\"description\":\"TV LG UltraPlasma\",\"quantity\":1,\"amount\":59999}]}},\"user\":{\"full_name\":\"María Sanchez Escudero\",\"email\":\"user@my-shop.com\",\"dni\":\"59661738Z\",\"national_id\":\"59661738Z\",\"tax_id\":\"59661738Z\",\"fix_phone\":\"911231234\",\"mobile_phone\":\"600123123\",\"address\":{\"full_name\":\"María Sanchez Escudero\",\"address\":\"Paseo de la Castellana, 95\",\"city\":\"Madrid\",\"zip_code\":\"28031\",\"country_code\":\"ES\"},\"date_of_birth\":\"1985-12-30\",\"billing_address\":{\"full_name\":\"María Sanchez Escudero\",\"address\":\"Paseo de la Castellana, 95\",\"city\":\"Madrid\",\"zip_code\":\"28031\",\"country_code\":\"ES\",\"dni\":\"59661738Z\",\"national_id\":\"59661738Z\",\"tax_id\":\"59661738Z\",\"fix_phone\":\"911231234\",\"mobile_phone\":\"600123123\"},\"shipping_address\":{\"full_name\":\"Alberto Escudero Sanchez\",\"address\":\"Avenida de la diagonal 525\",\"city\":\"Barcelona\",\"zip_code\":\"08029\",\"country_code\":\"ES\",\"dni\":\"77695544A\",\"national_id\":\"59661738Z\",\"tax_id\":\"77695544A\",\"fix_phone\":\"931232345\",\"mobile_phone\":\"600123124\"},\"truncated\":false,\"order_history\":[{\"date\":\"2010-01-31\",\"amount\":2499}]},\"configuration\":{\"channel\":{\"type\":\"ONLINE\",\"assisted_sale\":false},\"urls\":{\"ok\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"ko\":\"http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder\",\"cancel\":\"http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder\",\"notification_callback\":null,\"authorized_notification_callback\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"rejected_notification_callback\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"invalidated_notification_callback\":null},\"purchase_country\":\"ES\"},\"grace_period\":null,\"grace_period_month\":null,\"metadata\":{},\"id\":\"5e82e1a13f1e437c225aa530\",\"api_version\":\"v2\",\"status\":\"CREATED\",\"created_at\":\"2020-03-31T06:22:25.126\",\"confirmed_at\":null,\"expires_at\":\"2020-03-31T08:22:25.126\",\"unconfirmed_at\":null,\"action_urls\":{\"form\":\"https://form.pagamastarde.com/orders/5e82e1a13f1e437c225aa530\"},\"refunds\":[]}]".
+[Tue Mar 31 6:35:23 2020] "confirmOrder.php" $createdOrdersOrderObject :[
+    {
+        "shopping_cart": {
+            "order_reference": "order_4159972708",
+            "deprecated_order_description": null,
+            "total_amount": 59999,
+            "promoted_amount": 0,
+            "details": {
+                "shipping_cost": 0,
+                "products": [
+                    {
+                        "description": "TV LG UltraPlasma",
+                        "quantity": 1,
+                        "amount": 59999
+                    }
+                ]
+            }
+        },
+        "user": {
+            "full_name": "María Sanchez Escudero",
+            "email": "user@my-shop.com",
+            "dni": "59661738Z",
+            "national_id": "59661738Z",
+            "tax_id": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "address": {
+                "full_name": "María Sanchez Escudero",
+                "address": "Paseo de la Castellana, 95",
+                "city": "Madrid",
+                "zip_code": "28031",
+                "country_code": "ES"
+            },
+            "date_of_birth": "1985-12-30",
+            "billing_address": {
+                "full_name": "María Sanchez Escudero",
+                "address": "Paseo de la Castellana, 95",
+                "city": "Madrid",
+                "zip_code": "28031",
+                "country_code": "ES",
+                "dni": "59661738Z",
+                "national_id": "59661738Z",
+                "tax_id": "59661738Z",
+                "fix_phone": "911231234",
+                "mobile_phone": "600123123"
+            },
+            "shipping_address": {
+                "full_name": "Alberto Escudero Sanchez",
+                "address": "Avenida de la diagonal 525",
+                "city": "Barcelona",
+                "zip_code": "08029",
+                "country_code": "ES",
+                "dni": "77695544A",
+                "national_id": "59661738Z",
+                "tax_id": "77695544A",
+                "fix_phone": "931232345",
+                "mobile_phone": "600123124"
+            },
+            "truncated": false,
+            "order_history": [
+                {
+                    "date": "2010-01-31",
+                    "amount": 2499
+                }
+            ]
+        },
+        "configuration": {
+            "channel": {
+                "type": "ONLINE",
+                "assisted_sale": false
+            },
+            "urls": {
+                "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+                "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+                "notification_callback": null,
+                "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "invalidated_notification_callback": null
+            },
+            "purchase_country": "ES"
+        },
+        "grace_period": null,
+        "grace_period_month": null,
+        "metadata": [],
+        "id": "5e82e1a13f1e437c225aa530",
+        "api_version": "v2",
+        "status": "CREATED",
+        "created_at": "2020-03-31T06:22:25.126",
+        "confirmed_at": null,
+        "expires_at": "2020-03-31T08:22:25.126",
+        "unconfirmed_at": null,
+        "action_urls": {
+            "form": "https://form.pagamastarde.com/orders/5e82e1a13f1e437c225aa530"
+        },
+        "refunds": []
+    }
+].
+[Tue Mar 31 6:35:23 2020] "confirmOrder.php" Confirming all Authorized Orders.
+[Tue Mar 31 6:35:23 2020] "confirmOrder.php" Orders Confirmed.
+[Tue Mar 31 6:35:23 2020] "confirmOrder.php" Confirmed Orders: [].
+[Tue Mar 31 6:37:27 2020] "confirmOrder.php" Creating Client.
+[Tue Mar 31 6:37:27 2020] "confirmOrder.php" Client Created.
+[Tue Mar 31 6:37:27 2020] "confirmOrder.php" Fetching Authorized Orders.
+[Tue Mar 31 6:37:28 2020] "confirmOrder.php" $createdOrders :"[{\"shopping_cart\":{\"order_reference\":\"order_4159972708\",\"deprecated_order_description\":null,\"total_amount\":59999,\"promoted_amount\":0,\"details\":{\"shipping_cost\":0,\"products\":[{\"description\":\"TV LG UltraPlasma\",\"quantity\":1,\"amount\":59999}]}},\"user\":{\"full_name\":\"María Sanchez Escudero\",\"email\":\"user@my-shop.com\",\"dni\":\"59661738Z\",\"national_id\":\"59661738Z\",\"tax_id\":\"59661738Z\",\"fix_phone\":\"911231234\",\"mobile_phone\":\"600123123\",\"address\":{\"full_name\":\"María Sanchez Escudero\",\"address\":\"Paseo de la Castellana, 95\",\"city\":\"Madrid\",\"zip_code\":\"28031\",\"country_code\":\"ES\"},\"date_of_birth\":\"1985-12-30\",\"billing_address\":{\"full_name\":\"María Sanchez Escudero\",\"address\":\"Paseo de la Castellana, 95\",\"city\":\"Madrid\",\"zip_code\":\"28031\",\"country_code\":\"ES\",\"dni\":\"59661738Z\",\"national_id\":\"59661738Z\",\"tax_id\":\"59661738Z\",\"fix_phone\":\"911231234\",\"mobile_phone\":\"600123123\"},\"shipping_address\":{\"full_name\":\"Alberto Escudero Sanchez\",\"address\":\"Avenida de la diagonal 525\",\"city\":\"Barcelona\",\"zip_code\":\"08029\",\"country_code\":\"ES\",\"dni\":\"77695544A\",\"national_id\":\"59661738Z\",\"tax_id\":\"77695544A\",\"fix_phone\":\"931232345\",\"mobile_phone\":\"600123124\"},\"truncated\":false,\"order_history\":[{\"date\":\"2010-01-31\",\"amount\":2499}]},\"configuration\":{\"channel\":{\"type\":\"ONLINE\",\"assisted_sale\":false},\"urls\":{\"ok\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"ko\":\"http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder\",\"cancel\":\"http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder\",\"notification_callback\":null,\"authorized_notification_callback\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"rejected_notification_callback\":\"http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder\",\"invalidated_notification_callback\":null},\"purchase_country\":\"ES\"},\"grace_period\":null,\"grace_period_month\":null,\"metadata\":{},\"id\":\"5e82e1a13f1e437c225aa530\",\"api_version\":\"v2\",\"status\":\"CREATED\",\"created_at\":\"2020-03-31T06:22:25.126\",\"confirmed_at\":null,\"expires_at\":\"2020-03-31T08:22:25.126\",\"unconfirmed_at\":null,\"action_urls\":{\"form\":\"https://form.pagamastarde.com/orders/5e82e1a13f1e437c225aa530\"},\"refunds\":[]}]".
+[Tue Mar 31 6:37:28 2020] "confirmOrder.php" $createdOrdersOrderObject :[
+    {
+        "shopping_cart": {
+            "order_reference": "order_4159972708",
+            "deprecated_order_description": null,
+            "total_amount": 59999,
+            "promoted_amount": 0,
+            "details": {
+                "shipping_cost": 0,
+                "products": [
+                    {
+                        "description": "TV LG UltraPlasma",
+                        "quantity": 1,
+                        "amount": 59999
+                    }
+                ]
+            }
+        },
+        "user": {
+            "full_name": "María Sanchez Escudero",
+            "email": "user@my-shop.com",
+            "dni": "59661738Z",
+            "national_id": "59661738Z",
+            "tax_id": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "address": {
+                "full_name": "María Sanchez Escudero",
+                "address": "Paseo de la Castellana, 95",
+                "city": "Madrid",
+                "zip_code": "28031",
+                "country_code": "ES"
+            },
+            "date_of_birth": "1985-12-30",
+            "billing_address": {
+                "full_name": "María Sanchez Escudero",
+                "address": "Paseo de la Castellana, 95",
+                "city": "Madrid",
+                "zip_code": "28031",
+                "country_code": "ES",
+                "dni": "59661738Z",
+                "national_id": "59661738Z",
+                "tax_id": "59661738Z",
+                "fix_phone": "911231234",
+                "mobile_phone": "600123123"
+            },
+            "shipping_address": {
+                "full_name": "Alberto Escudero Sanchez",
+                "address": "Avenida de la diagonal 525",
+                "city": "Barcelona",
+                "zip_code": "08029",
+                "country_code": "ES",
+                "dni": "77695544A",
+                "national_id": "59661738Z",
+                "tax_id": "77695544A",
+                "fix_phone": "931232345",
+                "mobile_phone": "600123124"
+            },
+            "truncated": false,
+            "order_history": [
+                {
+                    "date": "2010-01-31",
+                    "amount": 2499
+                }
+            ]
+        },
+        "configuration": {
+            "channel": {
+                "type": "ONLINE",
+                "assisted_sale": false
+            },
+            "urls": {
+                "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+                "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+                "notification_callback": null,
+                "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+                "invalidated_notification_callback": null
+            },
+            "purchase_country": "ES"
+        },
+        "grace_period": null,
+        "grace_period_month": null,
+        "metadata": [],
+        "id": "5e82e1a13f1e437c225aa530",
+        "api_version": "v2",
+        "status": "CREATED",
+        "created_at": "2020-03-31T06:22:25.126",
+        "confirmed_at": null,
+        "expires_at": "2020-03-31T08:22:25.126",
+        "unconfirmed_at": null,
+        "action_urls": {
+            "form": "https://form.pagamastarde.com/orders/5e82e1a13f1e437c225aa530"
+        },
+        "refunds": []
+    }
+].
+[Tue Mar 31 6:37:28 2020] "confirmOrder.php" Confirming all Authorized Orders.
+[Tue Mar 31 6:37:28 2020] "confirmOrder.php" Orders Confirmed.
+[Tue Mar 31 6:37:28 2020] "confirmOrder.php" Confirmed Orders: [].
+[Tue Mar 31 6:37:37 2020] "getOrder.php" Client Created.
+[Tue Mar 31 6:37:37 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 6:37:37 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 6:53:33 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 6:53:33 2020] "listOrders.php" Client Created.
+[Tue Mar 31 6:53:33 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 6:53:34 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 6:53:34 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 6:53:34 2020] "listOrders.php" 13 Confirmed orders found .
+[Tue Mar 31 6:54:19 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 6:54:19 2020] "listOrders.php" Client Created.
+[Tue Mar 31 6:54:19 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 6:54:19 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 6:54:19 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 6:54:19 2020] "listOrders.php" 13 Confirmed orders found .
+[Tue Mar 31 8:31:31 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:35:45 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:41:51 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:42:11 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:42:44 2020] "confirmOrder.php" {}.
+[Tue Mar 31 8:48:26 2020] "confirmOrder.php" null.
+[Tue Mar 31 8:49:21 2020] "confirmOrder.php" null.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Creating User object.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Adding the address of the user.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Adding the information of the user.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" User object created.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Creating ShoppingCart object.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Created OrderShoppingCart object.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Creating Configuration object.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Adding channel info.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Created Configuration object.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" {}.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Creating Pagantis order.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Processing order 5e83187d3f1e437c225aa6a8.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" {
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5e83187d3f1e437c225aa6a8"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "created_at": "2020-03-31T10:16:29",
+    "expires_at": "2020-03-31T12:16:29",
+    "id": "5e83187d3f1e437c225aa6a8",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 10:16:29 2020] "createOrder.php" Redirecting to Pagantis form => https://form.pagamastarde.com/orders/5e83187d3f1e437c225aa6a8.
+[Tue Mar 31 10:16:44 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 10:16:44 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 10:16:44 2020] "createOrder.php" Confirming order.
+[Tue Mar 31 10:16:44 2020] "createOrder.php" Order confirmed.
+[Tue Mar 31 10:16:44 2020] "createOrder.php" {
+    "action_urls": {
+        "confirm": "https://api.pagamastarde.com/v2/orders/5e83187d3f1e437c225aa6a8/confirm",
+        "form": "https://form.pagamastarde.com/orders/5e83187d3f1e437c225aa6a8",
+        "refund": "https://api.pagamastarde.com/v2/orders/5e83187d3f1e437c225aa6a8/refund",
+        "upsell": "https://api.pagamastarde.com/v2/orders/5e83187d3f1e437c225aa6a8/upsell"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "confirmed_at": "2020-03-31T10:16:44",
+    "created_at": "2020-03-31T10:16:29",
+    "id": "5e83187d3f1e437c225aa6a8",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CONFIRMED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 10:16:44 2020] "createOrder.php" The order 5e83187d3f1e437c225aa6a8 can't be confirmed.

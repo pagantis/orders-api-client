@@ -25,36 +25,37 @@ error_reporting(E_ALL);
         <script src="../assets/js/jquery-slim.min.js"></script>
         <script src="../assets/js/popper.min.js"></script>
         <script src="../assets/js/bootstrap.min.js"></script>
-        <title> Get Order by ID</title>
+        <title> List Orders </title>
     </head>
 <body>
 <div class="container">
+    <div class="fixed-top">
+
+        <?php
+        if (!areKeysSet()) {
+            echo showKeysMissingErrorMessage();
+        } ?>
+    </div>
+    <?php include('../views/navBar.php') ?>
+
     <div class="col-md-auto">
-        <img src="../assets/pics/Pagantis_Logo_RGB.svg" alt="Pagantis logo">
-        <div>
+        <div class="row justify-content-center">
             <h5>List Orders Example</h5>
-        </div>
-        <div class="fixed-top">
-            <?php
-            if (!areKeysSet()) {
-                echo showKeysMissingErrorMessage();
-            } ?>
-        </div>
-        <div class="">
-            <button type="button" class="btn btn-primary btn-lg" onclick="redirectHome()">Home</button>
         </div>
     </div>
 </div>
+<?php include('../views/footer.php') ?>
+
 </body>
 </html>
 
 <?php
 try {
                 call_user_func('listMethod');
-            } catch (\Exception $e) {
-                echo $e->getMessage();
-                exit;
-            }
+} catch (\Exception $e) {
+    echo $e->getMessage();
+    exit;
+}
 
 /**
  * @throws \Httpful\Exception\ConnectionErrorException

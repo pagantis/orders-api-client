@@ -1,7 +1,6 @@
 <?php
+//Require the Client library using composer: composer require pagantis/orders-api-client
 require_once('../../vendor/autoload.php');
-error_reporting(E_ALL);
-session_start();
 /**
  * Require the helper functions
  * ⚠⚠⚠
@@ -11,49 +10,7 @@ session_start();
  */
 require_once('../utils/Helpers.php');
 error_reporting(E_ALL);
-//Require the Client library using composer: composer require pagantis/orders-api-client
-
-
-?>
-    <!DOCTYPE HTML>
-    <html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="../assets/pics/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
-        <script src="../assets/js/script.js"></script>
-        <script src="../assets/js/jquery-slim.min.js"></script>
-        <script src="../assets/js/popper.min.js"></script>
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <title> Get Order by ID</title>
-    </head>
-    <body>
-    <div class="container">
-        <div class="col-md-auto">
-            <img src="../assets/pics/Pagantis_Logo_RGB.svg" alt="Pagantis logo">
-            <div>
-                <h5>Create Order Example</h5>
-            </div>
-            <div class="fixed-top">
-                <?php
-                if (!areKeysSet()) {
-                    echo showKeysMissingErrorMessage();
-                    echo "<div><button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"redirectHome()\">Home</button></div>";
-                } ?>
-            </div>
-
-        </div>
-        <?php
-        if ($_SESSION['order_status'] == \Pagantis\OrdersApiClient\Model\Order::STATUS_AUTHORIZED) {
-            echo getSuccessOrderDetailCard($order);
-        }
-        ?>
-
-    </div>
-    </body>
-    </html>
-<?php
+session_start();
 
 const ORDER_ID = 'order_4159972708';
 
@@ -372,3 +329,47 @@ function getHomeButton()
 {
     return "<div><button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"redirectHome()\">Home</button></div>";
 }
+
+?>
+    <!DOCTYPE HTML>
+    <html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="../assets/pics/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
+        <script src="../assets/js/script.js"></script>
+        <script src="../assets/js/jquery-slim.min.js"></script>
+        <script src="../assets/js/popper.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <title> Get Order by ID</title>
+    </head>
+    <body>
+    <div class="container">
+        <div class="fixed-top">
+            <?php
+            if (!areKeysSet()) {
+                echo showKeysMissingErrorMessage();
+            } ?>
+        </div>
+        <?php include('../views/navBar.php') ?>
+
+        <div class="col-md-auto">
+            <div class="row justify-content-center">
+                <h5>Create Order Example</h5>
+            </div>
+        </div>
+
+        </div>
+        <?php
+        if ($_SESSION['order_status'] == \Pagantis\OrdersApiClient\Model\Order::STATUS_AUTHORIZED) {
+            echo getSuccessOrderDetailCard($order);
+        }
+        ?>
+
+    </div>
+    <?php include('../views/footer.php') ?>
+
+    </body>
+    </html>
+<?php

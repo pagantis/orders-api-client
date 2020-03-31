@@ -1,6 +1,4 @@
 <?php
-
-
 //Require the Client library using composer: composer require pagantis/orders-api-client
 require_once('../../vendor/autoload.php');
 /**
@@ -12,84 +10,53 @@ require_once('../../vendor/autoload.php');
  */
 require_once('../utils/Helpers.php');
 try {
-    call_user_func('confirmOrders');
+    call_user_func('confirmAuthorizedOrders');
 } catch (\Exception $e) {
     echo $e->getMessage();
     exit;
 }
 
-function confirmOrders()
-{
-    $logsFileName = basename(__FILE__);
-    $logsWithDate = true;
-    writeLog('Creating Client', $logsFileName, $logsWithDate);
-    $orderApiClient = getOrderApiClient();
-    writeLog('Client Created', $logsFileName, $logsWithDate);
-    writeLog('Fetching Authorized Orders', $logsFileName, $logsWithDate);
-    $createdOrders = getCreatedOrders($orderApiClient, $asJson = false);
-    $previousConfirmedOrders = getConfirmedOrders($orderApiClient, $asJson = true);
-    writeLog('$createdOrders :' . jsonEncoded($createdOrders), $logsFileName, $logsWithDate);
-    $authorizedOrders = getAuthorizedOrders($orderApiClient, $asJson = true);
-    $createdOrdersOrderObject = json_decode($createdOrders, true);
-    print("<pre>" . print_r($authorizedOrders, true)."\n"."</pre>");
-
-    writeLog('$createdOrdersOrderObject :' .jsonEncoded($createdOrdersOrderObject), $logsFileName, $logsWithDate);
-
-    writeLog('Confirming all Authorized Orders', $logsFileName, $logsWithDate);
-
-    $confirmedOrders = array();
-    foreach ($authorizedOrders as $order) {
-        $confirmedOrder = $orderApiClient->confirmOrder($order->getId());
-        array_push($confirmedOrders, $confirmedOrder);
-        return $confirmedOrders;
-    }
-    //$confirmedOrdersDifference = count($previousConfirmedOrders) - count($confirmedOrders);
-    $dd = getConfirmedOrdersIDsArray($authorizedOrders);
-
-    writeLog('Orders Confirmed', $logsFileName, $logsWithDate);
-    writeLog('Confirmed Orders: ' . jsonEncoded($confirmedOrders), $logsFileName, $logsWithDate);
-}
 
 /**
- * @return array
  * @throws \Httpful\Exception\ConnectionErrorException
  * @throws \Pagantis\OrdersApiClient\Exception\ClientException
  * @throws Exception
  */
-function pushOrderIdToArray()
+function confirmAuthorizedOrders()
 {
-    $confirmedOrders = array();
-    $authorizedOrders = getAuthorizedOrders();
-    foreach ($authorizedOrders as $order) {
-        array_push($confirmedOrders, $order->getId());
-    }
-    return $confirmedOrders;
+    $logsFileName = basename(__FILE__);
+    $logsWithDate = true;
+    writeLog('Creating Client', $logsFileName, $logsWithDate);
+
+    $orderApiClient = getOrderApiClient();
+    writeLog('Client Created', $logsFileName, $logsWithDate);
+
+    writeLog('Fetching Authorized Orders', $logsFileName, $logsWithDate);
+
+    $authorizedOrders = $orderApiClient->listOrders(array('status' => \Pagantis\OrdersApiClient\Model\Order::STATUS_AUTHORIZED));
+    writeLog('Authorized Orders Fetched', $logsFileName, $logsWithDate);
+
+    writeLog('Confirming Authorized Orders', $logsFileName, $logsWithDate);
+
+    $confirmedOrders = getConfirmedAuthorizedOrders($orderApiClient, $authorizedOrders);
+    writeLog('Authorized Orders Confirmed', $logsFileName, $logsWithDate);
+    writeLog(jsonEncoded($confirmedOrders), $logsFileName, $logsWithDate);
 }
 
-
-function showOrdersMessage($confirmedOrders)
-{
-    $message = "<div class=\"panel panel-default\">
-  <div class=\"panel-body\">$confirmedOrders->id</div>
-</div>";
-
-    return $message;
-}
 
 /**
- * @param \Pagantis\OrdersApiClient\Client $orderApiClient
- * @param bool                             $asJson
- * @return array|bool|string
+ * @param $authorizedOrders
+ * @return array
  * @throws Exception
  */
-function getAuthorizedOrders(\Pagantis\OrdersApiClient\Client $orderApiClient, $asJson = false)
+function getConfirmedAuthorizedOrders(\Pagantis\OrdersApiClient\Client $orderApiClient, $authorizedOrders)
 {
-    if ($asJson) {
-        $authorizedOrdersAsJson = $orderApiClient->listOrders(array('status' => \Pagantis\OrdersApiClient\Model\Order::STATUS_AUTHORIZED));
-        return $authorizedOrdersAsJson;
+    $confirmedOrders = array();
+    foreach ($authorizedOrders as $order) {
+        $confirmedOrder = $orderApiClient->confirmOrder($order->getId());
+        array_push($confirmedOrders, $confirmedOrder);
     }
-    $authorizedOrders = $orderApiClient->listOrders(array('status' => \Pagantis\OrdersApiClient\Model\Order::STATUS_AUTHORIZED));
-    return $authorizedOrders;
+    return $confirmedOrders;
 }
 
 /**
@@ -104,7 +71,7 @@ function getCreatedOrders(\Pagantis\OrdersApiClient\Client $orderApiClient, $asJ
         $createdOrdersAsJson = $orderApiClient->listOrders(array('status' => \Pagantis\OrdersApiClient\Model\Order::STATUS_CREATED), $asJson = true);
         return $createdOrdersAsJson;
     }
-    $createdOrders = $orderApiClient->listOrders(array('status' => \Pagantis\OrdersApiClient\Model\Order::STATUS_CREATED), $asJson = true);
+    $createdOrders = $orderApiClient->listOrders(array('status' => \Pagantis\OrdersApiClient\Model\Order::STATUS_CREATED));
     return $createdOrders;
 }
 
@@ -130,28 +97,16 @@ function getConfirmedOrders(\Pagantis\OrdersApiClient\Client $orderApiClient, $a
  * @return array|bool|string
  * @throws Exception
  */
-function getUnconfirmedOrders(\Pagantis\OrdersApiClient\Client $orderApiClient, $asJson = false)
+function getInvalidatedOrders(\Pagantis\OrdersApiClient\Client $orderApiClient, $asJson = false)
 {
     if ($asJson) {
-        $unconfirmedOrdersAsJson = $orderApiClient->listOrders(array('status' => \Pagantis\OrdersApiClient\Model\Order::STATUS_UNCONFIRMED), $asJson = true);
+        $unconfirmedOrdersAsJson = $orderApiClient->listOrders(array('status' => \Pagantis\OrdersApiClient\Model\Order::STATUS_INVALIDATED), $asJson = true);
         return $unconfirmedOrdersAsJson;
     }
-    $unconfirmedOrders = $orderApiClient->listOrders(array('status' => \Pagantis\OrdersApiClient\Model\Order::STATUS_UNCONFIRMED));
+    $unconfirmedOrders = $orderApiClient->listOrders(array('status' => \Pagantis\OrdersApiClient\Model\Order::STATUS_INVALIDATED));
     return $unconfirmedOrders;
 }
 
-/**
- * @param $authorizedOrders
- * @return array
- */
-function getConfirmedOrdersIDsArray($authorizedOrders)
-{
-    $confirmedOrdersIDs = array();
-    foreach ($authorizedOrders as $order) {
-        array_push($confirmedOrdersIDs, $order['id']);
-    }
-    return $confirmedOrdersIDs;
-}
 
 ?>
 <!DOCTYPE HTML>
@@ -169,39 +124,95 @@ function getConfirmedOrdersIDsArray($authorizedOrders)
 </head>
 <body>
 <div class="container">
-    <div class="fixed-top">
-        <?php
-        if (!areKeysSet()) {
-            echo showKeysMissingErrorMessage();
-            echo "<div><button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"redirectHome()\">Home</button></div>";
-        }
-        ?>
-    </div>
-    <div class="col-md-auto">
-        <img src="../assets/pics/Pagantis_Logo_RGB.svg" alt="Pagantis logo">
-        <div>
-            <h5>Confirm Order Example</h5>
+    <nav>
+        <div class="fixed-top">
+
+            <?php
+            if (!areKeysSet()) {
+                echo showKeysMissingErrorMessage();
+            } ?>
         </div>
+        <?php include('../views/navBar.php') ?>
 
+        <div class="col-md-auto">
+            <div class="row justify-content-center">
+                <h5>Confirm Order Example</h5>
+            </div>
+        </div>
+    </nav>
+    <orderCards>
+
+            <?php
+            try {
+                $logsWithDate = true;
+                $logsFileName = basename(__FILE__);
+                $orderApiClient = getOrderApiClient();
+                $confirmedOrders = getConfirmedOrders($orderApiClient, $asJson = true);
+            } catch (\Exception $e) {
+            }
+            $confirmedOrdersArray = json_decode($confirmedOrders, true);
+            ?>
+            <div class="col-md-auto">
+                <div class="row"></div>
+                <div class="alert alert-success" role="alert">
+                    <?php echo count($confirmedOrdersArray) . ' Confirmed orders found' ?>
+                </div>
+            </div>
+        <div class="card-columns">
+        <?php if ($confirmedOrdersArray >= 1) : ?>
+        <?php foreach ($confirmedOrdersArray as $order) : ?>
+            <div class="card bg-light mt-2 mb-2">
+                <div class="card-body">
+                    <p class="card-title"> Order ID: <?php echo $id = $order['id']; ?></p>
+                    <p class="card-text"> Order Status : <?php echo $status = $order['status']; ?> </p>
+                    <p class="card-text"> Shop Order
+                        Reference: <?php echo $shopOrderID = $order['shopping_cart']['order_reference']; ?> </p>
+                </div>
+            </div>
+        <?php endforeach; ?>
+</div>
+
+</orderCards>
+
+<?php else : ?>
+<?php
+try {
+    $orderApiClient = getOrderApiClient();
+    $createdOrders = getCreatedOrders($orderApiClient, $asJson = true);
+    $invalidatedOrders = getInvalidatedOrders($orderApiClient, $asJson = true);
+} catch (\Exception $e) {
+}
+?>
+
+<?php $createdOrdersArray = json_decode($createdOrders, true); ?>
+<?php $invalidatedOrdersArray = json_decode($invalidatedOrders, true); ?>
+<alertBoxes>
+    <div class="container-fluid align-content-center">
+
+        <!--First row-->
+        <div class="row align-content-center">
+            <!--First column-->
+            <div class="col-lg-auto mb-4">
+                <div class="alert alert-info"
+                     role="alert">  <?php echo count($invalidatedOrdersArray) . ' Invalidated Orders Found' ?></div>
+            </div>
+            <!--First column-->
+            <!--Second column-->
+            <div class="col-lg-auto mb-4">
+                <div class="alert alert-info"
+                     role="alert">  <?php echo count($confirmedOrdersArray) . ' Confirmed Orders Found' ?>
+                </div>
+            </div>
+            <!--Second column-->
+        </div>
+        <!--First row-->
+
+        <?php endif; ?>
     </div>
-
-    <ul class="list-group">
-        <?php
-        $confirmedOrdersArr = getConfirmedOrders($orderApiClient = getOrderApiClient(), $asJson = false);
-        $confirmedOrders = array_shift($confirmedOrdersArr);
-        foreach ($confirmedOrders as $order) {
-            $id = $order['id'];
-            print("<pre>" . $id."</pre>");
-
-
-            echo "<li class=\"list-group-item\"> $id </li>";
-        }
-        ?>
-        <li class="list-group-item">First item</li>
-        <li class="list-group-item">Second item</li>
-        <li class="list-group-item">Third item</li>
-    </ul>
-
+</alertBoxes>
+<footer>
+    <?php include('../views/footer.php') ?>
+</footer>
 </div>
 </body>
 </html>
