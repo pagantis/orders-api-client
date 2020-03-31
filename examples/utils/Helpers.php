@@ -4,11 +4,9 @@
 /**
  * PLEASE SET YOUR PUBLIC KEY AND PRIVATE KEY
  */
-//const PK = 'tk_45fe164c88c646a8a993d755';   //Set your public key
-//const PRIK = '4efe623438e14e3d'; //Set your public key
 
-const PUBLIC_KEY = 'tk_45fe164c88c646a8a993d755';   //Set your public key
-const PRIVATE_KEY = '4efe623438e14e3d';             //Set your public key
+const PUBLIC_KEY = '';   //Set your public key
+const PRIVATE_KEY = '';             //Set your public key
 
 
 /**
@@ -65,15 +63,6 @@ function jsonEncoded($object)
 }
 
 
-/**
- * @param $jsonString
- * @return mixed
- */
-function jsonToArray($jsonString)
-{
-    $myArray = json_decode($jsonString, true);
-    return $myArray;
-}
 
 
 /**
@@ -87,23 +76,6 @@ function areKeysSet()
     return true;
 }
 
-/**
- *
- */
-function setCurrentPageInSession()
-{
-    $url = basename($_SERVER['PHP_SELF']);
-    return $_SESSION['current_page'] = $url;
-}
-
-/**
- * @return mixed
- */
-function getPreviousPageFromSession()
-{
-    $previous_page = $_SESSION['current_page'];
-    return $previous_page;
-}
 
 /**
  * @return string
@@ -118,30 +90,4 @@ function showKeysMissingErrorMessage()
   </button>
 </div>';
     return $keysNotSetErrorMessage;
-}
-
-/**
- * @return string
- */
-
-function showHomeButton()
-{
-    $button = '<button type="button" class="btn btn-link" id="homeRedirect" onclick="redirectHome()">Home</button>';
-    return $button;
-}
-
-
-function dot($array, $prepend = '')
-{
-    $results = array();
-
-    foreach ($array as $key => $value) {
-        if (is_array($value) && !empty($value)) {
-            $results = array_merge($results, dot($value, $prepend . $key . '.'));
-        } else {
-            $results[$prepend . $key] = $value;
-        }
-    }
-
-    return $results;
 }

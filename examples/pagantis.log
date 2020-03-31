@@ -1097,3 +1097,3239 @@
 [Tue Mar 31 12:05:06 2020] "getOrder.php" Client Created.
 [Tue Mar 31 12:05:06 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
 [Tue Mar 31 12:05:08 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 12:30:00 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:30:00 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:30:00 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:30:00 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:30:00 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:30:00 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:31:09 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:31:09 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:31:09 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:31:09 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:31:09 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:31:09 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:31:25 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:31:25 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:31:25 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:31:26 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:31:26 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:31:26 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:32:37 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:32:37 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:32:37 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:32:37 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:32:37 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:32:37 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:34:01 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:34:01 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:34:01 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:34:01 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:34:01 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:34:01 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:35:18 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:35:18 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:35:18 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:35:18 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:35:18 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:35:18 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:36:03 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:36:03 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:36:03 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:36:04 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:36:04 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:36:04 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:36:24 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:36:24 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:36:24 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:36:25 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:36:25 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:36:25 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:36:53 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:36:53 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:36:53 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:36:53 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:36:53 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:36:53 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:37:08 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:37:08 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:37:08 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:37:08 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:37:08 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:37:08 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:37:18 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:37:18 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:37:18 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:37:19 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:37:19 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:37:19 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:37:34 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:37:34 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:37:34 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:37:34 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:37:34 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:37:34 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:39:53 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:39:53 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:39:53 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:39:54 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:39:54 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:39:54 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:40:10 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:40:10 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:40:10 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:40:10 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:40:10 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:40:10 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:40:18 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:40:18 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:40:18 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:40:19 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:40:19 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:40:19 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:40:34 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:40:34 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:40:34 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:40:34 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:40:34 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:40:34 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:41:42 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:41:42 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:41:42 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:41:42 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:41:42 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:41:43 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:41:59 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:41:59 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:41:59 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:41:59 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:41:59 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:41:59 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:42:45 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:42:45 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:42:45 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:42:45 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:42:45 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:42:45 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:43:37 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:43:37 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:43:37 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:43:38 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:43:38 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:43:38 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:44:29 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:44:29 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:44:29 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:44:30 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:44:30 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:44:30 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:47:39 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:47:39 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:47:39 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:47:40 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:47:40 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:47:40 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:50:05 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:50:05 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:50:05 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:50:06 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:50:06 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:50:06 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:54:27 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:54:27 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:54:27 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:54:28 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:54:28 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:54:28 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:55:32 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 12:55:32 2020] "listOrders.php" Client Created.
+[Tue Mar 31 12:55:32 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 12:55:32 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 12:55:32 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 12:55:32 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 12:56:55 2020] "confirmOrder.php" Creating Client.
+[Tue Mar 31 12:56:55 2020] "confirmOrder.php" Client Created.
+[Tue Mar 31 12:56:55 2020] "confirmOrder.php" Fetching Authorized Orders.
+[Tue Mar 31 12:56:55 2020] "confirmOrder.php" Authorized Orders Fetched.
+[Tue Mar 31 12:56:55 2020] "confirmOrder.php" Confirming Authorized Orders.
+[Tue Mar 31 12:56:55 2020] "confirmOrder.php" Authorized Orders Confirmed.
+[Tue Mar 31 12:56:55 2020] "confirmOrder.php" [].
+[Tue Mar 31 12:57:02 2020] "confirmOrder.php" Creating Client.
+[Tue Mar 31 12:57:02 2020] "confirmOrder.php" Client Created.
+[Tue Mar 31 12:57:02 2020] "confirmOrder.php" Fetching Authorized Orders.
+[Tue Mar 31 12:57:02 2020] "confirmOrder.php" Authorized Orders Fetched.
+[Tue Mar 31 12:57:02 2020] "confirmOrder.php" Confirming Authorized Orders.
+[Tue Mar 31 12:57:02 2020] "confirmOrder.php" Authorized Orders Confirmed.
+[Tue Mar 31 12:57:02 2020] "confirmOrder.php" [].
+[Tue Mar 31 12:59:57 2020] "confirmOrder.php" Creating Client.
+[Tue Mar 31 12:59:57 2020] "confirmOrder.php" Client Created.
+[Tue Mar 31 12:59:57 2020] "confirmOrder.php" Fetching Authorized Orders.
+[Tue Mar 31 12:59:57 2020] "confirmOrder.php" Authorized Orders Fetched.
+[Tue Mar 31 12:59:57 2020] "confirmOrder.php" Confirming Authorized Orders.
+[Tue Mar 31 12:59:57 2020] "confirmOrder.php" Authorized Orders Confirmed.
+[Tue Mar 31 12:59:57 2020] "confirmOrder.php" [].
+[Tue Mar 31 13:00:13 2020] "createOrder.php" Creating User object.
+[Tue Mar 31 13:00:13 2020] "createOrder.php" Adding the address of the user.
+[Tue Mar 31 13:00:13 2020] "createOrder.php" Adding the information of the user.
+[Tue Mar 31 13:00:13 2020] "createOrder.php" User object created.
+[Tue Mar 31 13:00:13 2020] "createOrder.php" Creating ShoppingCart object.
+[Tue Mar 31 13:00:13 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Tue Mar 31 13:00:13 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Tue Mar 31 13:00:13 2020] "createOrder.php" Created OrderShoppingCart object.
+[Tue Mar 31 13:00:13 2020] "createOrder.php" Creating Configuration object.
+[Tue Mar 31 13:00:13 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Tue Mar 31 13:00:13 2020] "createOrder.php" Adding channel info.
+[Tue Mar 31 13:00:13 2020] "createOrder.php" Created Configuration object.
+[Tue Mar 31 13:00:14 2020] "createOrder.php" {}.
+[Tue Mar 31 13:00:14 2020] "createOrder.php" Creating Pagantis order.
+[Tue Mar 31 13:00:14 2020] "createOrder.php" Processing order 5e833edeffcf6c418ab4ca6e.
+[Tue Mar 31 13:00:14 2020] "createOrder.php" {
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5e833edeffcf6c418ab4ca6e"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "created_at": "2020-03-31T01:00:14",
+    "expires_at": "2020-03-31T03:00:14",
+    "id": "5e833edeffcf6c418ab4ca6e",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 13:00:14 2020] "createOrder.php" Redirecting to Pagantis form => https://form.pagamastarde.com/orders/5e833edeffcf6c418ab4ca6e.
+[Tue Mar 31 13:00:23 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:00:23 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:00:23 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:00:23 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:00:23 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:00:23 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:00:39 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:00:39 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:00:39 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:00:40 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:00:40 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:00:40 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:01:11 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:01:11 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:01:11 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:01:15 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:01:15 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:01:15 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:02:26 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:02:26 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:02:26 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:02:26 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:02:26 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:02:26 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:02:54 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:02:54 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:02:54 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:02:54 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:02:54 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:02:54 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:03:41 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:03:41 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:03:41 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:03:41 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:03:41 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:03:41 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:04:22 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:04:22 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:04:22 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:04:24 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:04:24 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:04:24 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:04:48 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:04:48 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:04:48 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:04:48 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:04:48 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:04:48 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:05:28 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:05:28 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:05:28 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:05:29 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:05:29 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:05:29 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:07:07 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:07:07 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:07:07 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:07:08 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:07:08 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:07:08 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:08:18 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:08:18 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:08:18 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:08:19 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:08:19 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:08:19 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:09:13 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:09:13 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:09:13 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:09:13 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:09:13 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:09:13 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:09:41 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:09:41 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:09:41 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:09:42 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:09:42 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:09:42 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:10:21 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:10:21 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:10:21 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:10:21 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:10:21 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:10:21 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:11:02 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:11:02 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:11:02 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:11:02 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:11:02 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:11:02 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:11:47 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:11:47 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:11:47 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:11:48 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:11:48 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:11:48 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:12:07 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:12:07 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:12:07 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:12:08 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:12:08 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:12:08 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:13:31 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:13:31 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:13:31 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:13:32 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:13:32 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:13:32 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:16:07 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:16:07 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:16:07 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:16:08 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:16:08 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:16:08 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:16:33 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:16:33 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:16:33 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:16:33 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:16:33 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:16:33 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:20:28 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 13:20:28 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 13:20:28 2020] "createOrder.php" The order 5e833edeffcf6c418ab4ca6e can't be confirmed.
+[Tue Mar 31 13:20:46 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 13:20:46 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 13:20:47 2020] "createOrder.php" The order 5e833edeffcf6c418ab4ca6e can't be confirmed.
+[Tue Mar 31 13:26:04 2020] "confirmOrder.php" Creating Client.
+[Tue Mar 31 13:26:04 2020] "confirmOrder.php" Client Created.
+[Tue Mar 31 13:26:04 2020] "confirmOrder.php" Fetching Authorized Orders.
+[Tue Mar 31 13:26:04 2020] "confirmOrder.php" Authorized Orders Fetched.
+[Tue Mar 31 13:26:04 2020] "confirmOrder.php" Confirming Authorized Orders.
+[Tue Mar 31 13:26:04 2020] "confirmOrder.php" Authorized Orders Confirmed.
+[Tue Mar 31 13:26:04 2020] "confirmOrder.php" [].
+[Tue Mar 31 13:43:17 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 13:43:17 2020] "listOrders.php" Client Created.
+[Tue Mar 31 13:43:17 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 13:43:17 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 13:43:17 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 13:43:17 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Creating User object.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Adding the address of the user.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Adding the information of the user.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" User object created.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Creating ShoppingCart object.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Created OrderShoppingCart object.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Creating Configuration object.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Adding channel info.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Created Configuration object.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" {}.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Creating Pagantis order.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Processing order 5e834909ffcf6c418ab4cab2.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" {
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5e834909ffcf6c418ab4cab2"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "created_at": "2020-03-31T01:43:37",
+    "expires_at": "2020-03-31T03:43:37",
+    "id": "5e834909ffcf6c418ab4cab2",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 13:43:37 2020] "createOrder.php" Redirecting to Pagantis form => https://form.pagamastarde.com/orders/5e834909ffcf6c418ab4cab2.
+[Tue Mar 31 13:43:58 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 13:43:58 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 13:43:58 2020] "createOrder.php" Confirming order.
+[Tue Mar 31 13:43:58 2020] "createOrder.php" Order confirmed.
+[Tue Mar 31 13:43:58 2020] "createOrder.php" {
+    "action_urls": {
+        "confirm": "https://api.pagamastarde.com/v2/orders/5e834909ffcf6c418ab4cab2/confirm",
+        "form": "https://form.pagamastarde.com/orders/5e834909ffcf6c418ab4cab2",
+        "refund": "https://api.pagamastarde.com/v2/orders/5e834909ffcf6c418ab4cab2/refund",
+        "upsell": "https://api.pagamastarde.com/v2/orders/5e834909ffcf6c418ab4cab2/upsell"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "confirmed_at": "2020-03-31T01:43:58",
+    "created_at": "2020-03-31T01:43:37",
+    "id": "5e834909ffcf6c418ab4cab2",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CONFIRMED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 13:43:58 2020] "createOrder.php" The order 5e834909ffcf6c418ab4cab2 can't be confirmed.
+[Tue Mar 31 13:59:50 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 13:59:50 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 13:59:50 2020] "createOrder.php" {
+    "current_page": "index.php",
+    "order_id": "5e834909ffcf6c418ab4cab2",
+    "order_status": [
+        "CONFIRMED"
+    ]
+}.
+[Tue Mar 31 13:59:50 2020] "createOrder.php" The order 5e834909ffcf6c418ab4cab2 can't be confirmed.
+[Tue Mar 31 13:59:51 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 13:59:51 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 13:59:52 2020] "createOrder.php" {
+    "current_page": "index.php",
+    "order_id": "5e834909ffcf6c418ab4cab2",
+    "order_status": [
+        "CONFIRMED"
+    ]
+}.
+[Tue Mar 31 13:59:52 2020] "createOrder.php" The order 5e834909ffcf6c418ab4cab2 can't be confirmed.
+[Tue Mar 31 13:59:56 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 13:59:56 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 13:59:56 2020] "createOrder.php" {
+    "current_page": "index.php",
+    "order_id": "5e834909ffcf6c418ab4cab2",
+    "order_status": [
+        "CONFIRMED"
+    ]
+}.
+[Tue Mar 31 13:59:56 2020] "createOrder.php" The order 5e834909ffcf6c418ab4cab2 can't be confirmed.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Creating User object.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Adding the address of the user.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Adding the information of the user.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" User object created.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Creating ShoppingCart object.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Created OrderShoppingCart object.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Creating Configuration object.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Adding channel info.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Created Configuration object.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" {}.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Creating Pagantis order.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Processing order 5e834ce7ffcf6c418ab4cac9.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" {
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5e834ce7ffcf6c418ab4cac9"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "created_at": "2020-03-31T02:00:07",
+    "expires_at": "2020-03-31T04:00:07",
+    "id": "5e834ce7ffcf6c418ab4cac9",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 14:00:07 2020] "createOrder.php" Redirecting to Pagantis form => https://form.pagamastarde.com/orders/5e834ce7ffcf6c418ab4cac9.
+[Tue Mar 31 14:00:28 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 14:00:28 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 14:00:28 2020] "createOrder.php" Confirming order.
+[Tue Mar 31 14:00:29 2020] "createOrder.php" Order confirmed.
+[Tue Mar 31 14:00:29 2020] "createOrder.php" {
+    "action_urls": {
+        "confirm": "https://api.pagamastarde.com/v2/orders/5e834ce7ffcf6c418ab4cac9/confirm",
+        "form": "https://form.pagamastarde.com/orders/5e834ce7ffcf6c418ab4cac9",
+        "refund": "https://api.pagamastarde.com/v2/orders/5e834ce7ffcf6c418ab4cac9/refund",
+        "upsell": "https://api.pagamastarde.com/v2/orders/5e834ce7ffcf6c418ab4cac9/upsell"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "confirmed_at": "2020-03-31T02:00:29",
+    "created_at": "2020-03-31T02:00:07",
+    "id": "5e834ce7ffcf6c418ab4cac9",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CONFIRMED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 14:03:45 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 14:03:45 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 14:03:47 2020] "createOrder.php" {
+    "current_page": "index.php",
+    "order_id": "5e834ce7ffcf6c418ab4cac9",
+    "order_status": [
+        "CONFIRMED"
+    ]
+}.
+[Tue Mar 31 14:03:47 2020] "createOrder.php" The order 5e834ce7ffcf6c418ab4cac9 can't be confirmed.
+[Tue Mar 31 14:04:34 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 14:04:34 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 14:04:35 2020] "createOrder.php" {
+    "current_page": "index.php",
+    "order_id": "5e834ce7ffcf6c418ab4cac9",
+    "order_status": [
+        "CONFIRMED"
+    ]
+}.
+[Tue Mar 31 14:04:35 2020] "createOrder.php" The order 5e834ce7ffcf6c418ab4cac9 can't be confirmed.
+[Tue Mar 31 14:05:28 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 14:05:28 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 14:05:29 2020] "createOrder.php" {
+    "current_page": "index.php",
+    "order_id": "5e834ce7ffcf6c418ab4cac9",
+    "order_status": [
+        "CONFIRMED"
+    ]
+}.
+[Tue Mar 31 14:05:29 2020] "createOrder.php" The order 5e834ce7ffcf6c418ab4cac9 can't be confirmed.
+[Tue Mar 31 14:06:27 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 14:06:27 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 14:06:27 2020] "createOrder.php" {
+    "current_page": "index.php",
+    "order_id": "5e834ce7ffcf6c418ab4cac9",
+    "order_status": [
+        "CONFIRMED"
+    ]
+}.
+[Tue Mar 31 14:06:27 2020] "createOrder.php" The order 5e834ce7ffcf6c418ab4cac9 can't be confirmed.
+[Tue Mar 31 14:07:11 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 14:07:11 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 14:07:11 2020] "createOrder.php" {
+    "current_page": "index.php",
+    "order_id": "5e834ce7ffcf6c418ab4cac9",
+    "order_status": [
+        "CONFIRMED"
+    ]
+}.
+[Tue Mar 31 14:07:11 2020] "createOrder.php" The order 5e834ce7ffcf6c418ab4cac9 can't be confirmed.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Creating User object.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Adding the address of the user.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Adding the information of the user.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" User object created.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Creating ShoppingCart object.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Created OrderShoppingCart object.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Creating Configuration object.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Adding channel info.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Created Configuration object.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" {}.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Creating Pagantis order.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Processing order 5e834e94ffcf6c418ab4cad2.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" {
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5e834e94ffcf6c418ab4cad2"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "created_at": "2020-03-31T02:07:16",
+    "expires_at": "2020-03-31T04:07:16",
+    "id": "5e834e94ffcf6c418ab4cad2",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 14:07:16 2020] "createOrder.php" Redirecting to Pagantis form => https://form.pagamastarde.com/orders/5e834e94ffcf6c418ab4cad2.
+[Tue Mar 31 14:07:42 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 14:07:42 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 14:07:42 2020] "createOrder.php" Confirming order.
+[Tue Mar 31 14:07:42 2020] "createOrder.php" Order confirmed.
+[Tue Mar 31 14:07:42 2020] "createOrder.php" {
+    "action_urls": {
+        "confirm": "https://api.pagamastarde.com/v2/orders/5e834e94ffcf6c418ab4cad2/confirm",
+        "form": "https://form.pagamastarde.com/orders/5e834e94ffcf6c418ab4cad2",
+        "refund": "https://api.pagamastarde.com/v2/orders/5e834e94ffcf6c418ab4cad2/refund",
+        "upsell": "https://api.pagamastarde.com/v2/orders/5e834e94ffcf6c418ab4cad2/upsell"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "confirmed_at": "2020-03-31T02:07:42",
+    "created_at": "2020-03-31T02:07:16",
+    "id": "5e834e94ffcf6c418ab4cad2",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CONFIRMED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 14:11:25 2020] "createOrder.php" Creating User object.
+[Tue Mar 31 14:11:25 2020] "createOrder.php" Adding the address of the user.
+[Tue Mar 31 14:11:25 2020] "createOrder.php" Adding the information of the user.
+[Tue Mar 31 14:11:25 2020] "createOrder.php" User object created.
+[Tue Mar 31 14:11:25 2020] "createOrder.php" Creating ShoppingCart object.
+[Tue Mar 31 14:11:25 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Tue Mar 31 14:11:25 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Tue Mar 31 14:11:25 2020] "createOrder.php" Created OrderShoppingCart object.
+[Tue Mar 31 14:11:25 2020] "createOrder.php" Creating Configuration object.
+[Tue Mar 31 14:11:25 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Tue Mar 31 14:11:25 2020] "createOrder.php" Adding channel info.
+[Tue Mar 31 14:11:25 2020] "createOrder.php" Created Configuration object.
+[Tue Mar 31 14:11:26 2020] "createOrder.php" {}.
+[Tue Mar 31 14:11:26 2020] "createOrder.php" Creating Pagantis order.
+[Tue Mar 31 14:11:26 2020] "createOrder.php" Processing order 5e834f8e3f1e437c225aa882.
+[Tue Mar 31 14:11:26 2020] "createOrder.php" {
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5e834f8e3f1e437c225aa882"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "created_at": "2020-03-31T02:11:26",
+    "expires_at": "2020-03-31T04:11:26",
+    "id": "5e834f8e3f1e437c225aa882",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 14:11:26 2020] "createOrder.php" Redirecting to Pagantis form => https://form.pagamastarde.com/orders/5e834f8e3f1e437c225aa882.
+[Tue Mar 31 14:11:52 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 14:11:52 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 14:11:52 2020] "createOrder.php" Confirming order.
+[Tue Mar 31 14:11:52 2020] "createOrder.php" Order confirmed.
+[Tue Mar 31 14:11:52 2020] "createOrder.php" {
+    "action_urls": {
+        "confirm": "https://api.pagamastarde.com/v2/orders/5e834f8e3f1e437c225aa882/confirm",
+        "form": "https://form.pagamastarde.com/orders/5e834f8e3f1e437c225aa882",
+        "refund": "https://api.pagamastarde.com/v2/orders/5e834f8e3f1e437c225aa882/refund",
+        "upsell": "https://api.pagamastarde.com/v2/orders/5e834f8e3f1e437c225aa882/upsell"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "confirmed_at": "2020-03-31T02:11:52",
+    "created_at": "2020-03-31T02:11:26",
+    "id": "5e834f8e3f1e437c225aa882",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CONFIRMED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 14:15:40 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 14:15:40 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 14:15:40 2020] "createOrder.php" {
+    "current_page": "index.php",
+    "order_id": "5e834f8e3f1e437c225aa882",
+    "order_status": [
+        "CONFIRMED"
+    ],
+    "success_message": "Order 5e834f8e3f1e437c225aa882 has been confirmed",
+    "confirmed_order_id": "5e834f8e3f1e437c225aa882"
+}.
+[Tue Mar 31 14:15:40 2020] "createOrder.php" The order 5e834f8e3f1e437c225aa882 can't be confirmed.
+[Tue Mar 31 14:20:24 2020] "createOrder.php" Creating User object.
+[Tue Mar 31 14:20:24 2020] "createOrder.php" Adding the address of the user.
+[Tue Mar 31 14:20:24 2020] "createOrder.php" Adding the information of the user.
+[Tue Mar 31 14:20:24 2020] "createOrder.php" User object created.
+[Tue Mar 31 14:20:24 2020] "createOrder.php" Creating ShoppingCart object.
+[Tue Mar 31 14:20:24 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Tue Mar 31 14:20:24 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Tue Mar 31 14:20:24 2020] "createOrder.php" Created OrderShoppingCart object.
+[Tue Mar 31 14:20:24 2020] "createOrder.php" Creating Configuration object.
+[Tue Mar 31 14:20:24 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Tue Mar 31 14:20:24 2020] "createOrder.php" Adding channel info.
+[Tue Mar 31 14:20:24 2020] "createOrder.php" Created Configuration object.
+[Tue Mar 31 14:20:25 2020] "createOrder.php" {}.
+[Tue Mar 31 14:20:25 2020] "createOrder.php" Creating Pagantis order.
+[Tue Mar 31 14:20:25 2020] "createOrder.php" Processing order 5e8351a93f1e437c225aa899.
+[Tue Mar 31 14:20:25 2020] "createOrder.php" {
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5e8351a93f1e437c225aa899"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "created_at": "2020-03-31T02:20:25",
+    "expires_at": "2020-03-31T04:20:25",
+    "id": "5e8351a93f1e437c225aa899",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 14:20:25 2020] "createOrder.php" Redirecting to Pagantis form => https://form.pagamastarde.com/orders/5e8351a93f1e437c225aa899.
+[Tue Mar 31 14:20:57 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 14:20:57 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 14:20:57 2020] "createOrder.php" Confirming order.
+[Tue Mar 31 14:20:58 2020] "createOrder.php" Order confirmed.
+[Tue Mar 31 14:20:58 2020] "createOrder.php" {
+    "action_urls": {
+        "confirm": "https://api.pagamastarde.com/v2/orders/5e8351a93f1e437c225aa899/confirm",
+        "form": "https://form.pagamastarde.com/orders/5e8351a93f1e437c225aa899",
+        "refund": "https://api.pagamastarde.com/v2/orders/5e8351a93f1e437c225aa899/refund",
+        "upsell": "https://api.pagamastarde.com/v2/orders/5e8351a93f1e437c225aa899/upsell"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "confirmed_at": "2020-03-31T02:20:58",
+    "created_at": "2020-03-31T02:20:25",
+    "id": "5e8351a93f1e437c225aa899",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CONFIRMED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Creating User object.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Adding the address of the user.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Adding the information of the user.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" User object created.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Creating ShoppingCart object.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Created OrderShoppingCart object.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Creating Configuration object.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Adding channel info.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Created Configuration object.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" {}.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Creating Pagantis order.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Processing order 5e8353a93f1e437c225aa8ae.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" {
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5e8353a93f1e437c225aa8ae"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "created_at": "2020-03-31T02:28:57",
+    "expires_at": "2020-03-31T04:28:57",
+    "id": "5e8353a93f1e437c225aa8ae",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 14:28:57 2020] "createOrder.php" Redirecting to Pagantis form => https://form.pagamastarde.com/orders/5e8353a93f1e437c225aa8ae.
+[Tue Mar 31 14:29:17 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 14:29:17 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 14:29:17 2020] "createOrder.php" Confirming order.
+[Tue Mar 31 14:29:17 2020] "createOrder.php" Order confirmed.
+[Tue Mar 31 14:29:17 2020] "createOrder.php" {
+    "action_urls": {
+        "confirm": "https://api.pagamastarde.com/v2/orders/5e8353a93f1e437c225aa8ae/confirm",
+        "form": "https://form.pagamastarde.com/orders/5e8353a93f1e437c225aa8ae",
+        "refund": "https://api.pagamastarde.com/v2/orders/5e8353a93f1e437c225aa8ae/refund",
+        "upsell": "https://api.pagamastarde.com/v2/orders/5e8353a93f1e437c225aa8ae/upsell"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "confirmed_at": "2020-03-31T02:29:17",
+    "created_at": "2020-03-31T02:28:57",
+    "id": "5e8353a93f1e437c225aa8ae",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CONFIRMED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Creating User object.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Adding the address of the user.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Adding the information of the user.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" User object created.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Creating ShoppingCart object.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Created OrderShoppingCart object.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Creating Configuration object.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Adding channel info.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Created Configuration object.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" {}.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Creating Pagantis order.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Processing order 5e8354253f1e437c225aa8b2.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" {
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5e8354253f1e437c225aa8b2"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "created_at": "2020-03-31T02:31:01",
+    "expires_at": "2020-03-31T04:31:01",
+    "id": "5e8354253f1e437c225aa8b2",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 14:31:01 2020] "createOrder.php" Redirecting to Pagantis form => https://form.pagamastarde.com/orders/5e8354253f1e437c225aa8b2.
+[Tue Mar 31 14:31:15 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 14:31:15 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 14:31:16 2020] "createOrder.php" Confirming order.
+[Tue Mar 31 14:31:16 2020] "createOrder.php" Order confirmed.
+[Tue Mar 31 14:31:16 2020] "createOrder.php" {
+    "action_urls": {
+        "confirm": "https://api.pagamastarde.com/v2/orders/5e8354253f1e437c225aa8b2/confirm",
+        "form": "https://form.pagamastarde.com/orders/5e8354253f1e437c225aa8b2",
+        "refund": "https://api.pagamastarde.com/v2/orders/5e8354253f1e437c225aa8b2/refund",
+        "upsell": "https://api.pagamastarde.com/v2/orders/5e8354253f1e437c225aa8b2/upsell"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "confirmed_at": "2020-03-31T02:31:16",
+    "created_at": "2020-03-31T02:31:01",
+    "id": "5e8354253f1e437c225aa8b2",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CONFIRMED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 14:37:51 2020] "confirmOrder.php" Creating Client.
+[Tue Mar 31 14:37:51 2020] "confirmOrder.php" Client Created.
+[Tue Mar 31 14:37:51 2020] "confirmOrder.php" Fetching Authorized Orders.
+[Tue Mar 31 14:37:51 2020] "confirmOrder.php" Authorized Orders Fetched.
+[Tue Mar 31 14:37:51 2020] "confirmOrder.php" Confirming Authorized Orders.
+[Tue Mar 31 14:37:51 2020] "confirmOrder.php" Authorized Orders Confirmed.
+[Tue Mar 31 14:37:51 2020] "confirmOrder.php" [].
+[Tue Mar 31 15:04:19 2020] "refundOrder.php" Creating Client.
+[Tue Mar 31 15:04:19 2020] "refundOrder.php" Client Created.
+[Tue Mar 31 15:04:19 2020] "refundOrder.php" Setting Refund.
+[Tue Mar 31 15:04:19 2020] "refundOrder.php" Refund Set.
+[Tue Mar 31 15:04:19 2020] "refundOrder.php" Refund Processed.
+[Tue Mar 31 15:04:19 2020] "refundOrder.php" Refunded Order Fetched for Verification.
+[Tue Mar 31 15:04:19 2020] "refundOrder.php" 1 refunds found .
+[Tue Mar 31 15:06:24 2020] "refundOrder.php" Creating Client.
+[Tue Mar 31 15:06:24 2020] "refundOrder.php" Client Created.
+[Tue Mar 31 15:06:24 2020] "refundOrder.php" Setting Refund.
+[Tue Mar 31 15:06:24 2020] "refundOrder.php" Refund Set.
+[Tue Mar 31 15:06:26 2020] "refundOrder.php" Refund Processed.
+[Tue Mar 31 15:06:27 2020] "refundOrder.php" Refunded Order Fetched for Verification.
+[Tue Mar 31 15:06:27 2020] "refundOrder.php" 2 refunds found .
+[Tue Mar 31 15:07:12 2020] "refundOrder.php" Creating Client.
+[Tue Mar 31 15:07:12 2020] "refundOrder.php" Client Created.
+[Tue Mar 31 15:07:12 2020] "refundOrder.php" Setting Refund.
+[Tue Mar 31 15:07:12 2020] "refundOrder.php" Refund Set.
+[Tue Mar 31 15:07:12 2020] "refundOrder.php" Refund Processed.
+[Tue Mar 31 15:07:12 2020] "refundOrder.php" Refunded Order Fetched for Verification.
+[Tue Mar 31 15:07:12 2020] "refundOrder.php" 3 refunds found .
+[Tue Mar 31 15:08:08 2020] "refundOrder.php" Creating Client.
+[Tue Mar 31 15:08:08 2020] "refundOrder.php" Client Created.
+[Tue Mar 31 15:08:08 2020] "refundOrder.php" Setting Refund.
+[Tue Mar 31 15:08:08 2020] "refundOrder.php" Refund Set.
+[Tue Mar 31 15:08:08 2020] "refundOrder.php" Refund Processed.
+[Tue Mar 31 15:08:08 2020] "refundOrder.php" Refunded Order Fetched for Verification.
+[Tue Mar 31 15:08:08 2020] "refundOrder.php" 5 refunds found .
+[Tue Mar 31 15:08:47 2020] "refundOrder.php" Creating Client.
+[Tue Mar 31 15:08:47 2020] "refundOrder.php" Client Created.
+[Tue Mar 31 15:08:47 2020] "refundOrder.php" Setting Refund.
+[Tue Mar 31 15:08:47 2020] "refundOrder.php" Refund Set.
+[Tue Mar 31 15:08:47 2020] "refundOrder.php" Refund Processed.
+[Tue Mar 31 15:08:47 2020] "refundOrder.php" Refunded Order Fetched for Verification.
+[Tue Mar 31 15:08:47 2020] "refundOrder.php" 7 refunds found .
+[Tue Mar 31 15:09:11 2020] "refundOrder.php" Creating Client.
+[Tue Mar 31 15:09:11 2020] "refundOrder.php" Client Created.
+[Tue Mar 31 15:09:11 2020] "refundOrder.php" Setting Refund.
+[Tue Mar 31 15:09:11 2020] "refundOrder.php" Refund Set.
+[Tue Mar 31 15:09:11 2020] "refundOrder.php" Refund Processed.
+[Tue Mar 31 15:09:11 2020] "refundOrder.php" Refunded Order Fetched for Verification.
+[Tue Mar 31 15:09:11 2020] "refundOrder.php" 9 refunds found .
+[Tue Mar 31 15:10:24 2020] "refundOrder.php" Creating Client.
+[Tue Mar 31 15:10:24 2020] "refundOrder.php" Client Created.
+[Tue Mar 31 15:10:24 2020] "refundOrder.php" Setting Refund.
+[Tue Mar 31 15:10:24 2020] "refundOrder.php" Refund Set.
+[Tue Mar 31 15:10:24 2020] "refundOrder.php" Refund Processed.
+[Tue Mar 31 15:10:24 2020] "refundOrder.php" Refunded Order Fetched for Verification.
+[Tue Mar 31 15:10:24 2020] "refundOrder.php" 11 refunds found .
+[Tue Mar 31 15:12:10 2020] "refundOrder.php" Creating Client.
+[Tue Mar 31 15:12:10 2020] "refundOrder.php" Client Created.
+[Tue Mar 31 15:12:10 2020] "refundOrder.php" Setting Refund.
+[Tue Mar 31 15:12:10 2020] "refundOrder.php" Refund Set.
+[Tue Mar 31 15:12:10 2020] "refundOrder.php" Refund Processed.
+[Tue Mar 31 15:12:10 2020] "refundOrder.php" Refunded Order Fetched for Verification.
+[Tue Mar 31 15:12:10 2020] "refundOrder.php" 13 refunds found .
+[Tue Mar 31 15:12:31 2020] "refundOrder.php" Creating Client.
+[Tue Mar 31 15:12:31 2020] "refundOrder.php" Client Created.
+[Tue Mar 31 15:12:31 2020] "refundOrder.php" Setting Refund.
+[Tue Mar 31 15:12:31 2020] "refundOrder.php" Refund Set.
+[Tue Mar 31 15:12:50 2020] "refundOrder.php" Creating Client.
+[Tue Mar 31 15:12:50 2020] "refundOrder.php" Client Created.
+[Tue Mar 31 15:12:50 2020] "refundOrder.php" Setting Refund.
+[Tue Mar 31 15:12:50 2020] "refundOrder.php" Refund Set.
+[Tue Mar 31 15:15:36 2020] "refundOrder.php" Creating Client.
+[Tue Mar 31 15:15:36 2020] "refundOrder.php" Client Created.
+[Tue Mar 31 15:15:36 2020] "refundOrder.php" Setting Refund.
+[Tue Mar 31 15:15:36 2020] "refundOrder.php" Refund Set.
+[Tue Mar 31 15:16:33 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 15:16:33 2020] "listOrders.php" Client Created.
+[Tue Mar 31 15:16:33 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 15:16:33 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 15:16:33 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 15:16:33 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 15:16:39 2020] "listOrders.php" Creating Client.
+[Tue Mar 31 15:16:39 2020] "listOrders.php" Client Created.
+[Tue Mar 31 15:16:39 2020] "listOrders.php" Fetching Orders.
+[Tue Mar 31 15:16:39 2020] "listOrders.php" Orders Fetched.
+[Tue Mar 31 15:16:39 2020] "listOrders.php" [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {}
+].
+[Tue Mar 31 15:16:39 2020] "listOrders.php" 20 Confirmed orders found .
+[Tue Mar 31 15:16:42 2020] "confirmOrder.php" Creating Client.
+[Tue Mar 31 15:16:42 2020] "confirmOrder.php" Client Created.
+[Tue Mar 31 15:16:42 2020] "confirmOrder.php" Fetching Authorized Orders.
+[Tue Mar 31 15:16:43 2020] "confirmOrder.php" Authorized Orders Fetched.
+[Tue Mar 31 15:16:43 2020] "confirmOrder.php" Confirming Authorized Orders.
+[Tue Mar 31 15:16:43 2020] "confirmOrder.php" Authorized Orders Confirmed.
+[Tue Mar 31 15:16:43 2020] "confirmOrder.php" [].
+[Tue Mar 31 15:16:59 2020] "getOrder.php" Client Created.
+[Tue Mar 31 15:16:59 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 15:17:00 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 15:17:03 2020] "createOrder.php" Creating User object.
+[Tue Mar 31 15:17:03 2020] "createOrder.php" Adding the address of the user.
+[Tue Mar 31 15:17:03 2020] "createOrder.php" Adding the information of the user.
+[Tue Mar 31 15:17:03 2020] "createOrder.php" User object created.
+[Tue Mar 31 15:17:03 2020] "createOrder.php" Creating ShoppingCart object.
+[Tue Mar 31 15:17:03 2020] "createOrder.php" Adding the purchases of the customer, if there are any..
+[Tue Mar 31 15:17:03 2020] "createOrder.php" Adding cart products. Minimum 1 required.
+[Tue Mar 31 15:17:03 2020] "createOrder.php" Created OrderShoppingCart object.
+[Tue Mar 31 15:17:03 2020] "createOrder.php" Creating Configuration object.
+[Tue Mar 31 15:17:03 2020] "createOrder.php" Adding urls to redirect the user according each case.
+[Tue Mar 31 15:17:03 2020] "createOrder.php" Adding channel info.
+[Tue Mar 31 15:17:03 2020] "createOrder.php" Created Configuration object.
+[Tue Mar 31 15:17:04 2020] "createOrder.php" {}.
+[Tue Mar 31 15:17:04 2020] "createOrder.php" Creating Pagantis order.
+[Tue Mar 31 15:17:04 2020] "createOrder.php" Processing order 5e835eef929d29591bd8ae9b.
+[Tue Mar 31 15:17:04 2020] "createOrder.php" {
+    "action_urls": {
+        "form": "https://form.pagamastarde.com/orders/5e835eef929d29591bd8ae9b"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "created_at": "2020-03-31T03:17:03",
+    "expires_at": "2020-03-31T05:17:03",
+    "id": "5e835eef929d29591bd8ae9b",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CREATED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 15:17:04 2020] "createOrder.php" Redirecting to Pagantis form => https://form.pagamastarde.com/orders/5e835eef929d29591bd8ae9b.
+[Tue Mar 31 15:17:26 2020] "createOrder.php" Method->action confirmOrder.
+[Tue Mar 31 15:17:26 2020] "createOrder.php" Creating OrdersApiClient.
+[Tue Mar 31 15:17:26 2020] "createOrder.php" Confirming order.
+[Tue Mar 31 15:17:26 2020] "createOrder.php" Order confirmed.
+[Tue Mar 31 15:17:26 2020] "createOrder.php" {
+    "action_urls": {
+        "confirm": "https://api.pagamastarde.com/v2/orders/5e835eef929d29591bd8ae9b/confirm",
+        "form": "https://form.pagamastarde.com/orders/5e835eef929d29591bd8ae9b",
+        "refund": "https://api.pagamastarde.com/v2/orders/5e835eef929d29591bd8ae9b/refund",
+        "upsell": "https://api.pagamastarde.com/v2/orders/5e835eef929d29591bd8ae9b/upsell"
+    },
+    "api_version": "v2",
+    "configuration": {
+        "channel": {
+            "type": "ONLINE",
+            "assisted_sale": false
+        },
+        "urls": {
+            "cancel": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "ko": "http://0.0.0.0:8000/methods/createOrder.php?action=cancelOrder",
+            "authorized_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "rejected_notification_callback": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder",
+            "ok": "http://0.0.0.0:8000/methods/createOrder.php?action=confirmOrder"
+        },
+        "purchase_country": "ES"
+    },
+    "confirmed_at": "2020-03-31T03:17:26",
+    "created_at": "2020-03-31T03:17:03",
+    "id": "5e835eef929d29591bd8ae9b",
+    "metadata": {},
+    "refunds": [],
+    "shopping_cart": {
+        "details": {
+            "products": [
+                {
+                    "amount": 59999,
+                    "description": "TV LG UltraPlasma",
+                    "quantity": 1
+                }
+            ],
+            "shipping_cost": 0
+        },
+        "order_reference": "order_4159972708",
+        "promoted_amount": 0,
+        "total_amount": 59999
+    },
+    "status": "CONFIRMED",
+    "user": {
+        "address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031"
+        },
+        "billing_address": {
+            "address": "Paseo de la Castellana, 95",
+            "city": "Madrid",
+            "country_code": "ES",
+            "full_name": "María Sanchez Escudero",
+            "zip_code": "28031",
+            "dni": "59661738Z",
+            "fix_phone": "911231234",
+            "mobile_phone": "600123123",
+            "tax_id": "59661738Z",
+            "national_id": "59661738Z"
+        },
+        "date_of_birth": "1985-12-30",
+        "dni": "59661738Z",
+        "email": "user@my-shop.com",
+        "fix_phone": "911231234",
+        "full_name": "María Sanchez Escudero",
+        "mobile_phone": "600123123",
+        "tax_id": "59661738Z",
+        "national_id": "59661738Z",
+        "order_history": [
+            {
+                "amount": 2499,
+                "date": "2010-01-31"
+            }
+        ],
+        "shipping_address": {
+            "address": "Avenida de la diagonal 525",
+            "city": "Barcelona",
+            "country_code": "ES",
+            "full_name": "Alberto Escudero Sanchez",
+            "zip_code": "08029",
+            "dni": "77695544A",
+            "fix_phone": "931232345",
+            "mobile_phone": "600123124",
+            "tax_id": "77695544A",
+            "national_id": "59661738Z"
+        },
+        "truncated": false
+    }
+}.
+[Tue Mar 31 15:17:35 2020] "getOrder.php" Client Created.
+[Tue Mar 31 15:17:35 2020] "getOrder.php" Fetching Order with ID: "32424242".
+[Tue Mar 31 15:22:32 2020] "getOrder.php" Client Created.
+[Tue Mar 31 15:22:32 2020] "getOrder.php" Fetching Order with ID: "1232131".
+[Tue Mar 31 15:22:59 2020] "getOrder.php" Client Created.
+[Tue Mar 31 15:22:59 2020] "getOrder.php" Fetching Order with ID: "1232131".
+[Tue Mar 31 15:23:06 2020] "getOrder.php" Client Created.
+[Tue Mar 31 15:23:06 2020] "getOrder.php" Fetching Order with ID: "1232131".
+[Tue Mar 31 15:23:23 2020] "getOrder.php" Client Created.
+[Tue Mar 31 15:23:23 2020] "getOrder.php" Fetching Order with ID: "5e82e1a13f1e437c225aa530".
+[Tue Mar 31 15:23:24 2020] "getOrder.php" Order with ID "5e82e1a13f1e437c225aa530"found.
+[Tue Mar 31 15:25:03 2020] "getOrder.php" Client Created.
+[Tue Mar 31 15:25:03 2020] "getOrder.php" Fetching Order with ID: "3242342".
+[Tue Mar 31 15:26:12 2020] "getOrder.php" Client Created.
+[Tue Mar 31 15:26:12 2020] "getOrder.php" Fetching Order with ID: "3242342".

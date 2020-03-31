@@ -20,8 +20,6 @@ try {
     exit;
 }
 
-// ADD WAY TO GO BACK TO INDEX OR SHOW RESULT OF REFUND IN INDEX
-// IF TIME ALLOWS ONLY ALLOW TO REFUND ORDER IF LOGIC ALLOWS REFUND TO BE PROCESSED
 function refundOrder()
 {
     $logsFileName = basename(__FILE__);
@@ -46,7 +44,7 @@ function refundOrder()
         $refundedOrder = $orderApiClient->getOrder($refundOrderID, true);
         writeLog('Refunded Order Fetched for Verification', $logsFileName, $logsWithDate);
 
-        $orderArray = jsonToArray($refundedOrder);
+        $orderArray = json_decode($refundedOrder, true);
 
         writeLog(count($orderArray['refunds']) . ' refunds found ', $logsFileName, $logsWithDate);
         print("<legend>" . count($orderArray['refunds']) . ' refund(s) found '. "</legend>");
@@ -58,35 +56,5 @@ function refundOrder()
 }
 
 ?>
-    <!DOCTYPE HTML>
-    <html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="../assets/pics/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
-        <script src="../assets/js/script.js"></script>
-        <script src="../assets/js/jquery-slim.min.js"></script>
-        <script src="../assets/js/popper.min.js"></script>
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <title> Refund Order</title>
-    </head>
-    <body>
-    <div class="container">
-        <div class="fixed-top">
-            <?php
-            if (!areKeysSet()) {
-                echo showKeysMissingErrorMessage();
-            } ?>
-        </div>
-        <?php include('../views/navBar.php') ?>
+<?php include('../views/refundOrderView.php') ?>
 
-        <div class="col-md-auto">
-            <div class="row justify-content-center">
-                <h5>Refund Order Example</h5>
-            </div>
-        </div>
-    </div>
-    <?php include('../views/footer.php') ?>
-    </body>
-    </html>

@@ -186,7 +186,6 @@ function confirmOrder()
     $logsWithDate = true;
     writeLog('Creating OrdersApiClient', $logsFileName, $logsWithDate);
     $orderClient = getOrderApiClient();
-
     $order = $orderClient->getOrder($_SESSION['order_id']);
 
     if ($order instanceof \Pagantis\OrdersApiClient\Model\Order && $order->getStatus() == \Pagantis\OrdersApiClient\Model\Order::STATUS_AUTHORIZED) {
@@ -198,20 +197,21 @@ function confirmOrder()
 
         writeLog('Order confirmed', $logsFileName, $logsWithDate);
         writeLog(jsonEncoded($order->export()), $logsFileName, $logsWithDate);
-        $_SESSION['order_status'] = array();
-        array_push($_SESSION['order_status'], $order->getStatus());
-        echo getSuccessOrderDetailCard($order->getId());
-        echo getHomeButton();
-
         /* The order has been marked as paid and confirmed in Pagantis so you will send the product to your customer and
          * Pagantis will pay you in the next 24h.
          */
+        $_SESSION['success_message'] = 'Order ' . $order->getId() .' has been confirmed';
+        $_SESSION['confirmed_order_id'] = $order->getId();
+        header('Location:' . 'http://0.0.0.0:8000');
     } else {
-        echo getFailureOrderDetailCard($_SESSION['order_id']);
-        echo getHomeButton();
-    }
+        $message = "The order {$_SESSION['order_id']} can't be confirmed";
+        writeLog(jsonEncoded($_SESSION), $logsFileName, $logsWithDate);
+        writeLog($message, $logsFileName, $logsWithDate);
+        $_SESSION['failure_message'] = $message;
+        $_SESSION['failed_order_id'] = $_SESSION['order_id'];
+        header('Location:' . 'http://0.0.0.0:8000');
 
-    writeLog($message = "The order {$_SESSION['order_id']} can't be confirmed", $logsFileName, $logsWithDate);
+    }
 }
 
 /**
@@ -221,6 +221,8 @@ function cancelOrder()
 {
     $message = "The order {$_SESSION['order_id']} can't be created";
     writeLog($message, basename(__FILE__), true);
+    $_SESSION['failure_message'] = $message;
+    $_SESSION['failed_order_id'] = $_SESSION['order_id'];
     echo $message;
 }
 
@@ -261,115 +263,9 @@ function isGetActionValid()
     return true;
 }
 
-/**
- * @param $orderID
- * @return string
- * @throws \Httpful\Exception\ConnectionErrorException
- * @throws \Pagantis\OrdersApiClient\Exception\ClientException
- * @throws Exception
- */
-function getSuccessOrderDetailCard($orderID)
-{
-    $orderApiClient = getOrderApiClient();
-    $order = $orderApiClient->getOrder($orderID, $asJson = true);
-    $orderObject = json_decode($order);
-    $successCard = "<div class=\"card text-white bg-success mb-3   h-100 justify-content-center \" style=\"max-width: 30rem;\">
-  <div class=\"card-header\">Order $orderObject->id Found</div>
-  <div class=\"card-body\">
-         <p class=\"card-text\"> Order status: $orderObject->status </p>
-         <p class=\"card-text\"> Order created at:  $orderObject->created_at </p>
-         <p class=\"card-text\"> Order confirmed at: $orderObject->confirmed_at </p>
-  </div>
-  </div>";
 
-    return $successCard;
-}
-/**
- * @param $orderID
- * @return string
- * @throws \Httpful\Exception\ConnectionErrorException
- * @throws \Pagantis\OrdersApiClient\Exception\ClientException
- * @throws Exception
- */
-function getFailureOrderDetailCard($orderID)
-{
-
-    $orderApiClient = getOrderApiClient();
-    $order = $orderApiClient->getOrder($orderID, $asJson = true);
-    $orderObject = json_decode($order);
-    $failureCard = "<div class=\"alert alert-warning\" role=\"alert\"> Order : $orderObject->id couldn't be confirmed</div>";
-
-    return $failureCard;
-}
-
-function isJson($string)
-{
-    json_decode($string);
-    return (json_last_error() == JSON_ERROR_NONE);
-}
-
-
-/**
- * @param      $message
- * @param bool $isError
- * @return string
- */
-function showResultMessage($message, $isError = false)
-{
-    if ($isError) {
-        $styledErrorMessage = "<div class=\"alert alert - warning\" role=\"alert\"> $message</div>";
-        return $styledErrorMessage;
-    }
-    $styledNormalMessage = "<div class=\"alert alert - success\" role=\"alert\"> $message</div>";
-    return $styledNormalMessage;
-}
-
-
-function getHomeButton()
-{
-    return "<div><button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"redirectHome()\">Home</button></div>";
-}
 
 ?>
-    <!DOCTYPE HTML>
-    <html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="../assets/pics/favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
-        <script src="../assets/js/script.js"></script>
-        <script src="../assets/js/jquery-slim.min.js"></script>
-        <script src="../assets/js/popper.min.js"></script>
-        <script src="../assets/js/bootstrap.min.js"></script>
-        <title> Get Order by ID</title>
-    </head>
-    <body>
-    <div class="container">
-        <div class="fixed-top">
-            <?php
-            if (!areKeysSet()) {
-                echo showKeysMissingErrorMessage();
-            } ?>
-        </div>
-        <?php include('../views/navBar.php') ?>
+<?php //include('../views/createOrderView.php') ?>
 
-        <div class="col-md-auto">
-            <div class="row justify-content-center">
-                <h5>Create Order Example</h5>
-            </div>
-        </div>
 
-        </div>
-        <?php
-        if ($_SESSION['order_status'] == \Pagantis\OrdersApiClient\Model\Order::STATUS_AUTHORIZED) {
-            echo getSuccessOrderDetailCard($order);
-        }
-        ?>
-
-    </div>
-    <?php include('../views/footer.php') ?>
-
-    </body>
-    </html>
-<?php
