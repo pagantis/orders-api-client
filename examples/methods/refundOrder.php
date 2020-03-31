@@ -47,9 +47,6 @@ function refundOrder()
         $orderArray = json_decode($refundedOrder, true);
 
         writeLog(count($orderArray['refunds']) . ' refunds found ', $logsFileName, $logsWithDate);
-        print("<legend>" . count($orderArray['refunds']) . ' refund(s) found '. "</legend>");
-
-        print("<pre>" . jsonEncoded($orderArray['refunds']) . "</pre>");
     } catch (\Exception $exception) {
         $exception->getMessage();
     }
