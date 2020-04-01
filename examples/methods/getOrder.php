@@ -36,7 +36,7 @@ try {
         $_SESSION['order_not_found_id'] = $_POST['getOrderID'];
         header('Location:' . 'http://0.0.0.0:8000');
     }
-} catch (Exception $e) {
+} catch (\Exception $e) {
     echo $e->getMessage();
     exit;
 }

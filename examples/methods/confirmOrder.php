@@ -38,25 +38,13 @@ function confirmAuthorizedOrders()
 
     writeLog('Confirming Authorized Orders', $logsFileName, $logsWithDate);
 
-    $confirmedOrders = getConfirmedAuthorizedOrders($orderApiClient, $authorizedOrders);
-    writeLog('Authorized Orders Confirmed', $logsFileName, $logsWithDate);
-    writeLog(jsonEncoded($confirmedOrders), $logsFileName, $logsWithDate);
-}
-
-
-/**
- * @param $authorizedOrders
- * @return array
- * @throws Exception
- */
-function getConfirmedAuthorizedOrders(\Pagantis\OrdersApiClient\Client $orderApiClient, $authorizedOrders)
-{
     $confirmedOrders = array();
     foreach ($authorizedOrders as $order) {
         $confirmedOrder = $orderApiClient->confirmOrder($order->getId());
         array_push($confirmedOrders, $confirmedOrder);
     }
-    return $confirmedOrders;
+    writeLog('Authorized Orders Confirmed', $logsFileName, $logsWithDate);
+    writeLog(jsonEncoded($confirmedOrders), $logsFileName, $logsWithDate);
 }
 
 /**

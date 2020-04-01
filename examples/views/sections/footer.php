@@ -1,3 +1,4 @@
+<b class="hr"></b>
 <footer class="page-footer font-small">
         <div class="container">
 
