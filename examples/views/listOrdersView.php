@@ -1,11 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="../assets/pics/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../assets/css/styles.css" type="text/css">
-    <script src="../assets/js/script.js"></script>
+    <?php include(__DIR__.'/sections/header.php')?>
     <title> List orders by Status</title>
 </head>
 <body>
@@ -17,7 +13,7 @@
                 echo showKeysMissingErrorMessage();
             } ?>
         </div>
-        <?php include('../views/navBar.php') ?>
+        <?php include(__DIR__.'/sections/navBar.php') ?>
         <div class="col-md-auto">
             <div class="row justify-content-center">
                 <h5>List Orders Example</h5>
@@ -30,9 +26,9 @@
             $orderApiClient = getOrderApiClient();
             $orderStatus = $_POST['orderStatusInput'];
             $queryString = array('channel' => 'ONLINE', 'pageSize' => 20, 'page' => 1, 'status' => $orderStatus);
-        $orders = $orderApiClient->listOrders($queryString, $asJson = true);
+            $orders = $orderApiClient->listOrders($queryString, $asJson = true);
         } catch (\Exception $e) {
-        $e->getMessage();
+            $e->getMessage();
         }
         ?>
         <?php $ordersArray = json_decode($orders, true); ?>
@@ -63,7 +59,7 @@
             </div>
         </div>
     </ordersList>
-    <?php elseif ($orderArray < 1) : ?>
+        <?php elseif ($orderArray < 1) : ?>
     <alertBoxes>
         <div class="container-fluid align-content-center">
             <!--First row-->
@@ -74,11 +70,11 @@
                          role="alert">  <?php echo count($ordersArray) . 'orders with status ' . $orderStatus . ' found'; ?>
                     </div>
                 </div>
-                <?php endif; ?>
+        <?php endif; ?>
             </div>
     </alertBoxes>
 
-        <?php include('../views/footer.php') ?>
+        <?php include(__DIR__.'/sections/footer.php') ?>
 
 </div>
 </body>
