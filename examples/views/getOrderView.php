@@ -1,10 +1,11 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <?php include (__DIR__.'/sections/header.php')?>
+    <?php include(__DIR__.'/sections/header.php')?>
             <title> Get Order by ID</title>
         </head>
 <body>
+<results>
 <div class="container">
     <nav class="mb-3">
         <div class="fixed-top">
@@ -29,9 +30,9 @@
                 $orderID = $_POST['getOrderID'];
                 $orderApiClient = getOrderApiClient();
                 $order = $orderApiClient->getOrder($orderID, $asJson = true);
-            $orderArray = json_decode($order, true);
+                $orderArray = json_decode($order, true);
             } catch (Exception $e) {
-            $e->getMessage();
+                $e->getMessage();
             }
 
             ?>
@@ -42,15 +43,15 @@
             </div>
         </div>
 
-        <?php
+                <?php
                 try {
                     $orderApiClient = getOrderApiClient();
                     $order = $orderApiClient->getOrder($orderID, $asJson = true);
-        } catch (\Exception $e) {
-        $e->getMessage();
-        }
-        ?>
-        <?php $orderArr = json_decode($order, true); ?>
+                } catch (\Exception $e) {
+                    $e->getMessage();
+                }
+                ?>
+                <?php $orderArr = json_decode($order, true); ?>
         <div class="card bg-light">
             <div class="card-header">Order : <?php echo $orderArr['id'] ?></div>
             <div class="card-body">
@@ -59,10 +60,10 @@
                 <p class="card-text"> Order expires(d) at : <?php echo $orderArr['expires_at'] ?></p>
             </div>
         </div>
-        <?php elseif ($orderID < 1) : ?>
+            <?php elseif ($orderID < 1) : ?>
         <div class="alert alert-danger" role="alert">
-            <?php echo 'Order ' . $orderID . ' not found.' ?></div>';
-        <?php endif; ?>
+                <?php echo 'Order ' . $orderID . ' not found.' ?></div>';
+            <?php endif; ?>
 </div>
 </results>
 

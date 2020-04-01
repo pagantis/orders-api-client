@@ -4,9 +4,8 @@
 /**
  * PLEASE SET YOUR PUBLIC KEY AND PRIVATE KEY
  */
-
-const PUBLIC_KEY = 'tk_45fe164c88c646a8a993d755';   //Set your public key
-const PRIVATE_KEY = '4efe623438e14e3d';             //Set your public key
+const PUBLIC_KEY = '';   //Set your public key
+const PRIVATE_KEY = '';             //Set your public key
 
 
 /**
