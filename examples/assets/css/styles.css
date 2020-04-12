@@ -3835,7 +3835,7 @@ tbody.collapse.show {
     bottom: 100%;
   }
 }
-@media (max-width: 991.98px) {
+@media (max-width: 992px) {
   .navbar-expand-lg > .container,
 .navbar-expand-lg > .container-fluid {
     padding-right: 0;
@@ -3885,7 +3885,7 @@ tbody.collapse.show {
     bottom: 100%;
   }
 }
-@media (max-width: 1199.98px) {
+@media (max-width: 1200px) {
   .navbar-expand-xl > .container,
 .navbar-expand-xl > .container-fluid {
     padding-right: 0;
@@ -14816,5 +14816,3 @@ input::-webkit-inner-spin-button {
 .footer li + li {
   margin-left: 1rem;
 }
-
-/*# sourceMappingURL=styles.css.map */

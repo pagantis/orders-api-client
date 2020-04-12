@@ -1,0 +1,211 @@
+body {
+  padding: 2em;
+  background: #fafafa;
+  font-size: 16px;
+}
+
+h1 {
+  margin-bottom: 2em;
+}
+
+.content-col {
+  float: none;
+  margin: auto;
+}
+
+code[class*=language-],
+pre[class*=language-] {
+  font-weight: 500;
+  border: none;
+  color: #8C79EE;
+  font-size: 0.9em;
+  letter-spacing: 1.2px;
+  text-shadow: none;
+  font-family: "Roboto Mono", sans-serif;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*=language-]::-moz-selection, pre[class*=language-] ::-moz-selection,
+code[class*=language-]::-moz-selection, code[class*=language-] ::-moz-selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+pre[class*=language-]::selection, pre[class*=language-] ::selection,
+code[class*=language-]::selection, code[class*=language-] ::selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+@media print {
+  code[class*=language-],
+pre[class*=language-] {
+    text-shadow: none;
+  }
+}
+/* Code blocks */
+pre[class*=language-] {
+  padding: 2em 1em 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*=language-],
+pre[class*=language-] {
+  background: #f0f0f0;
+  border-radius: 6px;
+  border-bottom: 4px solid #dbdbdb;
+}
+
+/* Inline code */
+:not(pre) > code[class*=language-] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: gray;
+}
+
+.token.punctuation {
+  color: #7b7b7b;
+  font-weight: 500;
+}
+
+.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #3188BF;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #10BA00;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #a67f59;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #D30082;
+}
+
+.token.function,
+.token.delimiter {
+  color: #616161;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #E3762D;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+pre[class*=language-] {
+  position: relative;
+}
+
+pre[class*=language-][data-language]::before {
+  content: attr(data-language);
+  color: black;
+  background-color: #cfcfcf;
+  display: inline-block;
+  position: absolute;
+  bottom: auto;
+  left: auto;
+  top: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+  font-size: 0.9em;
+  border-radius: 0 0 0 5px;
+  padding: 0 0.5em;
+  text-shadow: none;
+  z-index: 1;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+
+.code-modal-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0 0 6px 0;
+  border-top: none;
+  border-left: none;
+}
+
+.code-modal .modal-dialog {
+  width: 96%;
+}
+.code-modal .modal-dialog pre {
+  border: none;
+  margin: 0;
+}
+.code-modal .modal-dialog .code-modal-btn {
+  display: none;
+}
+.code-modal .modal-dialog .code-modal-close {
+  position: absolute;
+  float: none;
+  bottom: 8px;
+  right: 10px;
+  z-index: 1100;
+  font-size: 2em;
+}
+
+/*# sourceMappingURL=prismcode.css.map */

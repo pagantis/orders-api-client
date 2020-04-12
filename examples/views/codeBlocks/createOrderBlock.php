@@ -4,7 +4,7 @@
             <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                            aria-controls="collapseOne">
+                            aria-controls="collapseOne" onclick="scrollToDiv()">
                         Code Example
                     </button>
                 </h5>
@@ -134,7 +134,11 @@ header('Location:' . $formUrl);
             </div>
         </div>
     </div>
-    <footer class="footer"><a href="https://developer.pagantis.com/index.html#create-order" target="_blank">for more information see </a></footer>
-
+    <footer class="footer">
+        <button class="btn-link p-0 border-0" type="button">
+            <i class="fas fa-link"></i>
+            <a href="https://developer.pagantis.com/index.html#create-order" target="_blank">Docs</a>
+        </button>
+    </footer>
 </div>
 

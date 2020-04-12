@@ -24,7 +24,11 @@ $order = $orderApiClient->getOrder($orderID, $asJson = true);
             </div>
         </div>
     </div>
-    <footer class="footer"><a href="https://developer.pagantis.com/index.html#get-order" target="_blank">for more
-            information see </a></footer>
+    <footer class="footer">
+        <button class="btn-link p-0 border-0" type="button">
+            <i class="fas fa-link"></i>
+            <a href="https://developer.pagantis.com/index.html#get-order" target="_blank">Docs</a>
+        </button>
+    </footer>
 </div>
 
