@@ -1,128 +1,81 @@
 {
-    "action_urls": {
-        "confirm": "http://docker-ext-stg.digitalorigin.com:20010//orders/5b1906b4e659900006a7c623/confirm",
-        "form": "https://ppcobranded-form-staging.pagamastarde.com/orders/5b1906b4e659900006a7c623",
-        "refund": "http://docker-ext-stg.digitalorigin.com:20010//orders/5b1906b4e659900006a7c623/refund",
-        "upsell": "http://docker-ext-stg.digitalorigin.com:20010//orders/5b1906b4e659900006a7c623/upsell"
+    "totalAmount": {
+        "amount": "33,99",
+        "currency": "EUR"
     },
-    "api_version": "v1",
-    "configuration": {
-        "channel": {
-            "type": "ONLINE",
-            "assisted_sale": false
-        },
-        "urls": {
-            "cancel": "https://my-store.com/order-cancelled",
-            "ko": "https://my-store.com/order-rejected",
-            "authorized_notification_callback": "https://my-store.com/orders/notify",
-            "rejected_notification_callback": "https://my-store.com/orders/notify",
-            "ok": "https://my-store.com/order-approved"
-        },
-        "purchase_country": "ES"
+    "consumer": {
+        "givenNames": "Raul Marin",
+        "surname": "Leal",
+        "email": "rmarin@pagantis.com",
+        "phoneNumber": "636363636"
     },
-    "confirmed_at": null,
-    "created_at": "2020-01-31T11:22:12",
-    "expires_at": "2022-01-31T11:22:12",
-    "unconfirmed_at": null,
-    "grace_period": "2020-01-31",
-    "grace_period_month": 0,
-    "id": "5b1906b4e659900006a7c623",
-    "metadata": {
-        "additionalProp1": "string",
-        "additionalProp2": "string",
-        "additionalProp3": "string"
+    "billing": {
+        "name": "Raul bulling",
+        "line1": "123 Fake Street",
+        "postcode": "28288",
+        "line2": "secondline if needed",
+        "suburb": "Coslada",
+        "state": "Madrid",
+        "countryCode": "GB",
+        "phoneNumber": "644332211"
     },
-    "refunds": [
+    "shipping": {
+        "name": "Raul Shipping",
+        "line1": "lalala lelele",
+        "postcode": "24424",
+        "line2": "second shipping line",
+        "suburb": "albufera",
+        "state": "Maadrid",
+        "countryCode": "GB",
+        "phoneNumber": "677889900"
+    },
+    "courier": {
+        "shippedAt": "2020-04-19",
+        "name": "Correos",
+        "tracking": "dsfeqrigfuhq348th7qer980fh348",
+        "priority": "STANDARD"
+    },
+    "items": [
         {
-            "id": "string",
-            "promoted_amount": 0,
-            "created_at": "2018-07-09T09:51:03",
-            "total_amount": 5,
-            "refunded_merchant_cost": 0,
-            "payment_processor_cost": 0
+            "price": {
+                "amount": "25.00",
+                "currency": "EUR"
+            },
+            "name": "prod 1",
+            "sku": "1234itemref",
+            "quantity": 1
         },
         {
-            "id": "string",
-            "promoted_amount": 0,
-            "created_at": "2018-07-09T09:51:04",
-            "total_amount": 5,
-            "refunded_merchant_cost": 0,
-            "payment_processor_cost": 0
+            "price": {
+                "amount": "5.00",
+                "currency": "EUR"
+            },
+            "name": "product 2",
+            "sku": "34543535sdfdg",
+            "quantity": -4
         }
     ],
-    "shopping_cart": {
-        "details": {
-            "products": [
-                {
-                    "amount": 99,
-                    "description": "small",
-                    "quantity": 5
-                },
-                {
-                    "amount": 999,
-                    "description": "medium",
-                    "quantity": 10
-                },
-                {
-                    "amount": 9999,
-                    "description": "huge",
-                    "quantity": 100
-                }
-            ],
-            "shipping_cost": 555
-        },
-        "order_reference": "string",
-        "promoted_amount": 0,
-        "total_amount": 20400,
-        "deprecated_order_description": "string"
+    "discounts": [
+        {
+            "amount": {
+                "amount": "1.00",
+                "currency": "EUR"
+            },
+            "displayName": "1€ discount"
+        }
+    ],
+    "merchant": {
+        "redirectConfirmUrl": "https://example.com/checkout/confirm",
+        "redirectCancelUrl": "https://example.com/checkout/cancel"
     },
-    "status": "AUTHORIZED",
-    "user": {
-        "address": {
-            "address": "My House, in the middle of the street, 55",
-            "city": "Madrid",
-            "country_code": "ES",
-            "full_name": "Jöhn Dōė Ramirez",
-            "zip_code": "28008",
-            "tax_id": "A123456789B",
-            "national_id": "A123456789B"
-        },
-        "billing_address": {
-            "address": "My House, in the middle of the street, 55",
-            "city": "Madrid",
-            "country_code": "ES",
-            "full_name": "Jöhn Dōė Ramirez",
-            "zip_code": "28008"
-        },
-        "date_of_birth": "1987-01-31",
-        "dni": "68178726X",
-        "email": "john.doe@email.com",
-        "fix_phone": "915556677",
-        "full_name": "Jöhn Dōė Ramirez",
-        "mobile_phone": "A123456789B",
-        "tax_id": "A123456789B",
-        "national_id": "BC555000G",
-        "order_history": [
-            {
-                "amount": 989,
-                "date": "2020-01-31T11:20:12"
-            },
-            {
-                "amount": 898,
-                "date": "2020-01-31T11:21:12"
-            },
-            {
-                "amount": 909,
-                "date": "2020-01-31T11:22:12"
-            }
-        ],
-        "shipping_address": {
-            "address": "My House, in the middle of the street, 55",
-            "city": "Madrid",
-            "country_code": "ES",
-            "full_name": "Jöhn Dōė Ramirez",
-            "zip_code": "28008"
-        },
-        "truncated": false
-    }
+    "taxAmount": {
+        "amount": "3,99",
+        "currency": "EUR"
+    },
+    "shippingAmount": {
+        "amount": "0.00",
+        "currency": "EUR"
+    },
+    "merchantReference": "1234rr554ref",
+    "description": "ORDER DESCRIPTION Y TAL"
 }

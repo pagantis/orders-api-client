@@ -14,12 +14,12 @@ class ApiConfiguration extends AbstractModel
     /**
      * Base Production URL for API calls
      */
-    const BASE_URI = 'https://api.pagamastarde.com/v2';
+    const BASE_URI = 'https://api.eu.afterpay.com/v1';
 
     /**
      * Base Sandbox URL for API calls
      */
-    const SANDBOX_BASE_URI = 'https://api-stg.pagamastarde.com/v2';
+    const SANDBOX_BASE_URI = 'https://api.eu-sandbox.afterpay.com/v1';
 
     /**
      * Private key for API calls

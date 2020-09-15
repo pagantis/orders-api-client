@@ -131,7 +131,7 @@ class Client
     /**
      * @param              $orderId
      * @param Order\Refund $refund
-     * @param bool         $asJson
+     * @param bool $asJson
      *
      * @return bool|false|Order\Refund|string
      *

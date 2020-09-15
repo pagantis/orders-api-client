@@ -2,12 +2,13 @@
 
 namespace Pagantis\OrdersApiClient\Model;
 
-use Pagantis\OrdersApiClient\Model\Order\ActionUrls;
-use Pagantis\OrdersApiClient\Model\Order\Configuration;
-use Pagantis\OrdersApiClient\Model\Order\Metadata;
-use Pagantis\OrdersApiClient\Model\Order\Refund;
-use Pagantis\OrdersApiClient\Model\Order\ShoppingCart;
-use Pagantis\OrdersApiClient\Model\Order\User;
+use Pagantis\OrdersApiClient\Model\Order\Discounts;
+use Pagantis\OrdersApiClient\Model\Order\Items;
+use Pagantis\OrdersApiClient\Model\Order\Merchant;
+use Pagantis\OrdersApiClient\Model\Order\Address;
+use Pagantis\OrdersApiClient\Model\Order\Consumer;
+use Pagantis\OrdersApiClient\Model\Order\Courier;
+use Pagantis\OrdersApiClient\Model\Order\Amount;
 
 /**
  * Class Order
@@ -17,109 +18,44 @@ use Pagantis\OrdersApiClient\Model\Order\User;
 class Order extends AbstractModel
 {
     /**
-     * Initial status of a order.
+     * @var string $token
      */
-    const STATUS_CREATED = 'CREATED';
+    protected $token = null;
 
     /**
-     * Order has been authorized and initial payment has been approved. For finalizing the order
-     * it's mandatory to confirm it.
+     * @var string $merchantReference
      */
-    const STATUS_AUTHORIZED = 'AUTHORIZED';
+    protected $merchantReference = null;
 
     /**
-     * Order confirmed has been paid by customer and merchant has confirmed it. Payment is completed
-     * and settlement will be created.
+     * @var string $description
      */
-    const STATUS_CONFIRMED = 'CONFIRMED';
+    protected $description = null;
 
     /**
-     * Rejected by the risk engine, the transaction has been rejected and payment is no longer
-     * expected nor possible.
+     * @var string $expires
      */
-    const STATUS_REJECTED = 'REJECTED';
+    protected $expires = null;
 
     /**
-     * The order has been invalidated due to the expiration limit. If no action happens during the
-     * defined time, the order could turn to invalidated.
+     * @var Amount $totalAmount
      */
-    const STATUS_INVALIDATED = 'INVALIDATED';
+    protected $totalAmount;
 
     /**
-     * Undefined ERROR has occurred, please double check with the account manager or Pagantis support channels.
+     * @var Merchant $merchant
      */
-    const STATUS_ERROR = 'ERROR';
+    protected $merchant;
 
     /**
-     * If a order is not confirmed given the default confirmation time, defined previously, it will turn to
-     * unconfirmed and this will refund any possible payment taken from the customer. The loan shall not be created.
+     * @var Address $shipping
      */
-    const STATUS_UNCONFIRMED = 'UNCONFIRMED';
+    protected $shipping;
 
     /**
-     * @var ActionUrls $actionUrls
+     * @var Address $billing
      */
-    protected $actionUrls;
-
-    /**
-     * @var string $apiVersion
-     */
-    protected $apiVersion;
-
-    /**
-     * @var Configuration $configuration
-     */
-    protected $configuration;
-
-    /**
-     * @var \DateTime $confirmedAt
-     */
-    protected $confirmedAt;
-
-    /**
-     * @var \DateTime $createdAt
-     */
-    protected $createdAt;
-
-    /**
-     * @var \DateTime $expiresAt
-     */
-    protected $expiresAt;
-
-    /**
-     * @var \DateTime $unconfirmedAt
-     */
-    protected $unconfirmedAt;
-
-    /**
-     * @var string $gracePeriod
-     */
-    protected $gracePeriod;
-
-    /**
-     * @var string $gracePeriodMonth
-     */
-    protected $gracePeriodMonth;
-
-    /**
-     * @var string $id
-     */
-    protected $id;
-
-    /**
-     * @var Metadata $metadata
-     */
-    protected $metadata;
-
-    /**
-     * @var Refund[] $refunds
-     */
-    protected $refunds;
-
-    /**
-     * @var ShoppingCart $shoppingCart
-     */
-    protected $shoppingCart;
+    protected $billing;
 
     /**
      * @var string $status
@@ -127,37 +63,99 @@ class Order extends AbstractModel
     protected $status;
 
     /**
-     * @var User $user
+     * @var Consumer $consumer
      */
-    protected $user;
+    protected $consumer;
+
+    /**
+     * @var Courier $courier
+     */
+    protected $courier;
+
+    /**
+     * @var Items $items
+     */
+    protected $items;
+
+    /**
+     * @var Discounts $discounts
+     */
+    protected $discounts;
+
+    /**
+     * @var Amount $taxAmount
+     */
+    protected $taxAmount;
+
+    /**
+     * @var Amount $shippingAmount
+     */
+    protected $shippingAmount;
+
 
     /**
      * Order constructor.
      */
     public function __construct()
     {
-        $this->configuration = new Configuration();
-        $this->metadata = new Metadata();
-        $this->shoppingCart = new ShoppingCart();
-        $this->user = new User();
+        $this->totalAmount = new Amount();
+        $this->consumer = new Consumer();
+        $this->billing = new Address();
+        $this->shipping = new Address();
+        $this->merchant = new Merchant();
+        $this->courier = new Courier();
+        $this->items = new Items();
+        $this->discounts = new Discounts();
     }
 
     /**
-     * @return ActionUrls
+     * @return Amount
      */
-    public function getActionUrls()
+    public function getTotalAmount()
     {
-        return $this->actionUrls;
+        return $this->totalAmount;
     }
 
     /**
-     * @param ActionUrls $actionUrls
+     * @param Amount $totalAmount
      *
      * @return Order
      */
-    public function setActionUrls($actionUrls)
+    public function setTotalAmount($totalAmount)
     {
-        $this->actionUrls = $actionUrls;
+        $this->totalAmount = $totalAmount;
+
+        return $this;
+    }
+
+    /**
+     * @return Courier
+     */
+    public function getCourier()
+    {
+        return $this->courier;
+    }
+
+    /**
+     * @param Courier $courier
+     *
+     * @return Order
+     */
+    public function setCourier($courier)
+    {
+        $this->courier = $courier;
+
+        return $this;
+    }
+
+    /**
+     * @param String $token
+     *
+     * @return Order
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
 
         return $this;
     }
@@ -165,119 +163,19 @@ class Order extends AbstractModel
     /**
      * @return string
      */
-    public function getApiVersion()
+    public function getToken()
     {
-        return $this->apiVersion;
+        return $this->token;
     }
 
     /**
-     * @param string $apiVersion
+     * @param String $expires
      *
      * @return Order
      */
-    public function setApiVersion($apiVersion)
+    public function setExpires($expires)
     {
-        $this->apiVersion = $apiVersion;
-
-        return $this;
-    }
-
-    /**
-     * @return Configuration
-     */
-    public function getConfiguration()
-    {
-        return $this->configuration;
-    }
-
-    /**
-     * @param Configuration $configuration
-     *
-     * @return Order
-     */
-    public function setConfiguration($configuration)
-    {
-        $this->configuration = $configuration;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getConfirmedAt()
-    {
-        return $this->confirmedAt;
-    }
-
-    /**
-     * @param \DateTime $confirmedAt
-     *
-     * @return Order
-     */
-    public function setConfirmedAt($confirmedAt)
-    {
-        $this->confirmedAt = $confirmedAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * @param \DateTime $createdAt
-     *
-     * @return Order
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getExpiresAt()
-    {
-        return $this->expiresAt;
-    }
-
-    /**
-     * @param \DateTime $expiresAt
-     *
-     * @return Order
-     */
-    public function setExpiresAt($expiresAt)
-    {
-        $this->expiresAt = $expiresAt;
-
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getUnconfirmedAt()
-    {
-        return $this->unconfirmedAt;
-    }
-
-    /**
-     * @param \DateTime $unconfirmedAt
-     *
-     * @return Order
-     */
-    public function setUnconfirmedAt($unconfirmedAt)
-    {
-        $this->unconfirmedAt = $unconfirmedAt;
+        $this->expires = $expires;
 
         return $this;
     }
@@ -285,190 +183,148 @@ class Order extends AbstractModel
     /**
      * @return string
      */
-    public function getGracePeriod()
+    public function getExpires()
     {
-        return $this->gracePeriod;
+        return $this->expires;
     }
 
     /**
-     * @param string $gracePeriod
+     * @return Address
+     */
+    public function getShippingAddress()
+    {
+        return $this->shipping;
+    }
+
+    /**
+     * @param Address $shipping
      *
      * @return Order
      */
-    public function setGracePeriod($gracePeriod)
+    public function setShippingAddress($shipping)
     {
-        $this->gracePeriod = $gracePeriod;
+        $this->shipping = $shipping;
 
         return $this;
     }
 
     /**
-     * @return string
+     * @return Address
      */
-    public function getGracePeriodMonth()
+    public function getBillingAddress()
     {
-        return $this->gracePeriodMonth;
+        return $this->billing;
     }
 
     /**
-     * @param string $gracePeriodMonth
+     * @param Address $billing
      *
      * @return Order
      */
-    public function setGracePeriodMonth($gracePeriodMonth)
+    public function setBillingAddress($billing)
     {
-        $this->gracePeriodMonth = $gracePeriodMonth;
+        $this->billing = $billing;
 
         return $this;
     }
 
     /**
-     * @return string
+     * @return Consumer()
      */
-    public function getId()
+    public function getConsumer()
     {
-        return $this->id;
+        return $this->consumer;
     }
 
     /**
-     * @param string $id
+     * @param Consumer() $consumer
      *
      * @return Order
      */
-    public function setId($id)
+    public function setConsumer($consumer)
     {
-        $this->id = $id;
+        $this->consumer = $consumer;
 
         return $this;
     }
 
     /**
-     * @return Metadata
+     * @return Items()
      */
-    public function getMetadata()
+    public function getItems()
     {
-        return $this->metadata;
+        return $this->items;
     }
 
     /**
-     * @param Metadata $metadata
+     * @param Items() $consumer
      *
      * @return Order
      */
-    public function setMetadata($metadata)
+    public function setItems($items)
     {
-        $this->metadata = $metadata;
+        $this->items = $items;
 
         return $this;
     }
 
     /**
-     * @return Refund[]
+     * @return Discounts()
      */
-    public function getRefunds()
+    public function getDiscounts()
     {
-        return $this->refunds;
+        return $this->discounts;
     }
 
     /**
-     * @param Refund $refund
-     *
-     * @return $this
-     */
-    public function addRefund(Refund $refund)
-    {
-        $this->refunds[] = $refund;
-
-        return $this;
-    }
-
-    /**
-     * @return ShoppingCart
-     */
-    public function getShoppingCart()
-    {
-        return $this->shoppingCart;
-    }
-
-    /**
-     * @param ShoppingCart $shoppingCart
+     * @param Discounts() $consumer
      *
      * @return Order
      */
-    public function setShoppingCart($shoppingCart)
+    public function setDiscounts($discounts)
     {
-        $this->shoppingCart = $shoppingCart;
+        $this->discounts = $discounts;
 
         return $this;
     }
 
     /**
-     * @return string
+     * @return Amount
      */
-    public function getStatus()
+    public function getTaxAmount()
     {
-        return $this->status;
+        return $this->taxAmount;
     }
 
     /**
-     * @param string $status
+     * @param Amount $taxAmount
      *
      * @return Order
      */
-    public function setStatus($status)
+    public function setTaxAmount($taxAmount)
     {
-        $this->status = $status;
+        $this->taxAmount = $taxAmount;
 
         return $this;
     }
 
     /**
-     * @return User
+     * @return Amount
      */
-    public function getUser()
+    public function getShippingAmount()
     {
-        return $this->user;
+        return $this->shippingAmount;
     }
 
     /**
-     * @param User $user
+     * @param Amount $shippingAmount
      *
      * @return Order
      */
-    public function setUser($user)
+    public function setShippingAmount($shippingAmount)
     {
-        $this->user = $user;
+        $this->shippingAmount = $shippingAmount;
 
         return $this;
-    }
-
-    /**
-     * @param \stdClass $object
-     *
-     * @throws \Exception
-     */
-    public function import($object)
-    {
-        $this->actionUrls = new ActionUrls();
-        $this->configuration = new Configuration();
-        $this->metadata = new Metadata();
-        $this->refunds = array();
-        $this->shoppingCart = new ShoppingCart();
-        $this->user = new User();
-
-        parent::import($object);
-        $properties = get_object_vars($object);
-        foreach ($properties as $key => $value) {
-            if (is_array($value)) {
-                if (is_array($this->{$key}) && $key == 'refunds') {
-                    $this->refunds = array();
-                    foreach ($value as $refund) {
-                        $refundObject = new Refund();
-                        $refundObject->import($refund);
-                        $this->addRefund($refundObject);
-                    }
-                }
-            }
-        }
     }
 }
