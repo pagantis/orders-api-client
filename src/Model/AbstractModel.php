@@ -23,7 +23,7 @@ abstract class AbstractModel implements ModelInterface
         $result = new \StdClass();
         foreach ($this as $key => $value) {
             if (!is_null($value)) {
-                $result->{Str::toSnakeCase($key)} = $this->parseValue($value, $validation);
+                $result->{$key} = $this->parseValue($value, $validation);
             }
         }
 
@@ -44,9 +44,9 @@ abstract class AbstractModel implements ModelInterface
             $valueArray = array();
             foreach ($value as $subKey => $subValue) {
                 if (is_object($subValue) && $subValue instanceof AbstractModel) {
-                    $valueArray[Str::toSnakeCase($subKey)] = $subValue->export($validation);
+                    $valueArray[$subKey] = $subValue->export($validation);
                 } else {
-                    $valueArray[Str::toSnakeCase($subKey)] = $subValue;
+                    $valueArray[$subKey] = $subValue;
                 }
             }
             return $valueArray;

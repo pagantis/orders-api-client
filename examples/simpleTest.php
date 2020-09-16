@@ -6,13 +6,13 @@ require_once('../vendor/autoload.php');
 /**
  * PLEASE FILL YOUR PUBLIC KEY AND PRIVATE KEY
  */
-const PUBLIC_KEY = ''; //Set your public key
-const PRIVATE_KEY = ''; //Set your private key
+const MERCHANT_ID = '400124024'; //Set your public key
+const SECRET_KEY = 'b9d0c0e5bfcab220b3ccea5d56ce02e336ccd5d7ad664cd662a33ae2fdaf282b4fe46e3a1b0a65077e278d179935d3e7e62063d32cd619dd4e8bd65bf7b76820'; //Set your private key
 const ORDER_ID = 'order_4159972708';
 
 try {
     session_start();
-    $method = ($_GET['action']) ? ($_GET['action']) : 'createOrder';
+    $method = (isset($_GET['action'])) ? ($_GET['action']) : 'createOrder';
     call_user_func($method);
 } catch (Exception $e) {
     echo $e->getMessage();
@@ -29,124 +29,164 @@ try {
  */
 function createOrder()
 {
-    // There are 3 objects which are mandatory: User object, ShoppingCart object and Configuration object.
     //1. User Object
-    writeLog('Creating User object');
-    writeLog('Adding the address of the user');
-    $userAddress =  new \Pagantis\OrdersApiClient\Model\Order\User\Address();
-    $userAddress
-        ->setZipCode('28031')
-        ->setFullName('María Sanchez Escudero')
-        ->setCountryCode('ES')
-        ->setCity('Madrid')
-        ->setAddress('Paseo de la Castellana, 95')
-        ->setDni('59661738Z')
-        ->setNationalId('59661738Z')
-        ->setFixPhone('911231234')
-        ->setMobilePhone('600123123');
+    writeLog('Creating Total Amount object');
+    $totalAmount =  new \Pagantis\OrdersApiClient\Model\Order\Amount();
+    $totalAmount
+        ->setAmount('40.99')
+        ->setCurrency('GBP')
+    ;
 
-    $orderBillingAddress = $userAddress;
+    //2. Consumer Object
+    writeLog('Creating Consumer object');
+    $consumer =  new \Pagantis\OrdersApiClient\Model\Order\Consumer();
+    $consumer
+        ->setGivenNames('Anthony Peter')
+        ->setSurname('Jackson')
+        ->setEmail('anthony@yourbrand.com')
+        ->setPhoneNumber('+34699696969')
+    ;
 
-    $orderShippingAddress =  new \Pagantis\OrdersApiClient\Model\Order\User\Address();
-    $orderShippingAddress
-        ->setZipCode('08029')
-        ->setFullName('Alberto Escudero Sanchez')
-        ->setCountryCode('ES')
-        ->setCity('Barcelona')
-        ->setAddress('Avenida de la diagonal 525')
-        ->setDni('77695544A')
-        ->setNationalId('59661738Z')
-        ->setFixPhone('931232345')
-        ->setMobilePhone('600123124');
+    //3. Billing address Object
+    writeLog('Creating Billing address object');
+    $billingAddress =  new \Pagantis\OrdersApiClient\Model\Order\Address();
+    $billingAddress
+        ->setName('Shara Mary Clepton')
+        ->setLine1('Av Michigan 11')
+        ->setLine2('P03, 8-4')
+        ->setPostCode('28765')
+        ->setSuburb('Leganés')
+        ->setState('Madrid')
+        ->setCountryCode('GB')
+        ->setPhoneNumber('+34688776655')
+    ;
 
-    writeLog('Adding the information of the user');
-    $orderUser = new \Pagantis\OrdersApiClient\Model\Order\User();
-    $orderUser
-        ->setFullName('María Sanchez Escudero')
-        ->setAddress($userAddress)
-        ->setBillingAddress($orderBillingAddress)
-        ->setShippingAddress($orderShippingAddress)
-        ->setDateOfBirth('1985-12-30')
-        ->setEmail('user@my-shop.com')
-        ->setFixPhone('911231234')
-        ->setMobilePhone('600123123')
-        ->setDni('59661738Z')
-        ->setNationalId('59661738Z');
-    writeLog('Created User object');
+    //4. Shipping address Object
+    writeLog('Creating Shipping address object');
+    $shippingAddress =  new \Pagantis\OrdersApiClient\Model\Order\Address();
+    $shippingAddress
+        ->setName('Ana Victoria Lauper')
+        ->setLine1('Cl Portobello 34')
+        ->setLine2('10-B')
+        ->setPostCode('28888')
+        ->setSuburb('Alcalá de Henares')
+        ->setState('Madrid')
+        ->setCountryCode('GB')
+        ->setPhoneNumber('+34911919191')
+    ;
 
-    //2. ShoppingCart Object
-    writeLog('Creating ShoppingCart object');
-    writeLog('Adding the purchases of the customer, if there are.');
-    $orderHistory = new \Pagantis\OrdersApiClient\Model\Order\User\OrderHistory();
-    $orderHistory
-        ->setAmount('2499')
-        ->setDate('2010-01-31');
-    $orderUser->addOrderHistory($orderHistory);
+    //5. Courier Object
+    writeLog('Creating Courier object');
+    $courier =  new \Pagantis\OrdersApiClient\Model\Order\Courier();
+    $courier
+        ->setShippedAt('')
+        ->setName('MRW')
+        ->setTracking('926e27eecdbc7a18858b3798ba99bddd')
+        ->setPriority('STANDARD')
+    ;
 
-    writeLog('Adding cart products. Minimum 1 required');
-    $product = new \Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details\Product();
-    $product
-        ->setAmount('59999')
-        ->setQuantity('1')
-        ->setDescription('TV LG UltraPlana');
+    //6. Items and Product Objects
+    writeLog('Creating Items and Product Objects');
+    $productA = new \Pagantis\OrdersApiClient\Model\Order\Items\Product();
+    $priceA = new \Pagantis\OrdersApiClient\Model\Order\Amount();
+    $priceA
+        ->setAmount('9.99')
+        ->setCurrency('GBP')
+    ;
+    $productA
+        ->setPrice($priceA)
+        ->setName('Collection brilliants')
+        ->setSku('sku77998')
+        ->setQuantity(1)
+    ;
+    $productB = new \Pagantis\OrdersApiClient\Model\Order\Items\Product();
+    $priceB = new \Pagantis\OrdersApiClient\Model\Order\Amount();
+    $priceB
+        ->setAmount('5')
+        ->setCurrency('GBP')
+    ;
+    $productB
+        ->setPrice($priceA)
+        ->setName('pendants')
+        ->setSku('sku66765')
+        ->setQuantity(6)
+    ;
 
-    $details = new \Pagantis\OrdersApiClient\Model\Order\ShoppingCart\Details();
-    $details->setShippingCost('0');
-    $details->addProduct($product);
+    //7. Discounts
+    writeLog('Creating Discounts Objects');
+    $discount = new \Pagantis\OrdersApiClient\Model\Order\Discounts\Discount();
+    $discountPrice = new \Pagantis\OrdersApiClient\Model\Order\Amount();
+    $discountPrice
+        ->setAmount('1.00')
+        ->setCurrency('GBP')
+    ;
+    $discount
+        ->setAmount($discountPrice)
+        ->setDisplayName('1€ discount')
+    ;
 
-    $orderShoppingCart = new \Pagantis\OrdersApiClient\Model\Order\ShoppingCart();
-    $orderShoppingCart
-        ->setDetails($details)
-        ->setOrderReference(ORDER_ID)
-        ->setPromotedAmount(0) // This amount means that the merchant will asume the interests.
-        ->setTotalAmount('59999');
-    writeLog('Created OrderShoppingCart object');
+    //8. Merchant Object
+    writeLog('Creating Merchant object');
+    $merchant =  new \Pagantis\OrdersApiClient\Model\Order\Merchant();
+    $merchant
+        ->setRedirectConfirmUrl('https://example.com/checkout/confirm')
+        ->setRedirectCancelUrl('https://example.com/checkout/cancel')
+    ;
 
-    //3. Configuration Object
-    writeLog('Creating Configuration object');
-    writeLog('Adding urls to redirect the user according each case');
-    $confirmUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=confirmOrder";
-    $errorUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=cancelOrder";
-    $orderConfigurationUrls = new \Pagantis\OrdersApiClient\Model\Order\Configuration\Urls();
-    $orderConfigurationUrls
-        ->setCancel($errorUrl)
-        ->setKo($errorUrl)
-        ->setAuthorizedNotificationCallback($confirmUrl)
-        ->setRejectedNotificationCallback($confirmUrl)
-        ->setOk($confirmUrl);
+    //9. Tax Amount Object
+    writeLog('Creating Tax Amount object');
+    $taxAmount = new \Pagantis\OrdersApiClient\Model\Order\Amount();
+    $taxAmount
+        ->setAmount('5.00')
+        ->setCurrency('GBP')
+    ;
 
-    writeLog('Adding channel info');
-    $orderChannel = new \Pagantis\OrdersApiClient\Model\Order\Configuration\Channel();
-    $orderChannel
-        ->setAssistedSale(false)
-        ->setType(\Pagantis\OrdersApiClient\Model\Order\Configuration\Channel::ONLINE);
+    //10. Shipping Amount Object
+    writeLog('Creating Shipping Amount object');
+    $shippingAmount = new \Pagantis\OrdersApiClient\Model\Order\Amount();
+    $shippingAmount
+        ->setAmount('10.00')
+        ->setCurrency('GBP')
+    ;
 
-    $orderConfiguration = new \Pagantis\OrdersApiClient\Model\Order\Configuration();
-    $orderConfiguration
-        ->setChannel($orderChannel)
-        ->setUrls($orderConfigurationUrls);
-    writeLog('Created Configuration object');
-
+    //11. Order Object
     $order = new \Pagantis\OrdersApiClient\Model\Order();
     $order
-        ->setConfiguration($orderConfiguration)
-        ->setShoppingCart($orderShoppingCart)
-        ->setUser($orderUser);
+        ->setTotalAmount($totalAmount)
+        ->setConsumer($consumer)
+        ->setShippingAddress($shippingAddress)
+        ->setBillingAddress($billingAddress)
+        ->setCourier($courier)
+        ->addItem($productA)
+        ->addItem($productB)
+        ->addDiscount($discount)
+        ->setMerchant($merchant)
+        ->setTaxAmount($taxAmount)
+        ->setShippingAmount($shippingAmount)
+        ->setMerchantReference(ORDER_ID)
+        ->setDescription('Test order to check ClearPay integration')
+    ;
 
     writeLog('Creating OrdersApiClient');
-    if (PUBLIC_KEY=='' || PRIVATE_KEY == '') {
-        throw new \Exception('You need set the public and private key');
+    if (MERCHANT_ID=='' || SECRET_KEY == '') {
+        throw new \Exception('You need set the merchant_id and private key');
     }
-    $orderClient = new \Pagantis\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
+    $orderClient = new \Pagantis\OrdersApiClient\Client(MERCHANT_ID, SECRET_KEY, 'https://api.eu-sandbox.afterpay.com/v1');
 
     writeLog('Creating Pagantis order');
-    $order = $orderClient->createOrder($order);
-    if ($order instanceof \Pagantis\OrdersApiClient\Model\Order) {
+    try {
+        $response = $orderClient->createOrder($order);
+    } catch (\Exception $exception) {
+        writeLog($exception->getMessage());
+    }
+    if ($response instanceof \Pagantis\OrdersApiClient\Model\Order) {
         //If the order is correct and created then we have the redirection URL here:
-        $url = $order->getActionUrls()->getForm();
-        $_SESSION['order_id'] = $order->getId();
+        $token = $response->getToken();
         writeLog(json_encode(
             $order->export(),
+            JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
+        )); writeLog(json_encode(
+            response->export(),
             JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT
         ));
     } else {
@@ -154,8 +194,9 @@ function createOrder()
     }
 
     // You can use our test credit cards to fill the Pagantis form
-    writeLog("Redirecting to Pagantis form => $url");
-    header('Location:'. $url);
+    writeLog("Generating ClearPay form Url by token => $token");
+    die;
+    //header('Location:'. $url);
 }
 
 /**
@@ -175,7 +216,7 @@ function confirmOrder()
      */
 
     writeLog('Creating OrdersApiClient');
-    $orderClient = new \Pagantis\OrdersApiClient\Client(PUBLIC_KEY, PRIVATE_KEY);
+    $orderClient = new \Pagantis\OrdersApiClient\Client(MERCHANT_ID, SECRET_KEY);
 
     $order = $orderClient->getOrder($_SESSION['order_id']);
 

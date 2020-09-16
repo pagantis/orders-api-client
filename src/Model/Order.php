@@ -2,8 +2,8 @@
 
 namespace Pagantis\OrdersApiClient\Model;
 
-use Pagantis\OrdersApiClient\Model\Order\Discounts;
-use Pagantis\OrdersApiClient\Model\Order\Items;
+use Pagantis\OrdersApiClient\Model\Order\Discounts\Discount;
+use Pagantis\OrdersApiClient\Model\Order\Items\Product;
 use Pagantis\OrdersApiClient\Model\Order\Merchant;
 use Pagantis\OrdersApiClient\Model\Order\Address;
 use Pagantis\OrdersApiClient\Model\Order\Consumer;
@@ -23,6 +23,11 @@ class Order extends AbstractModel
     protected $token = null;
 
     /**
+     * @var string $expires
+     */
+    protected $expires = null;
+
+    /**
      * @var string $merchantReference
      */
     protected $merchantReference = null;
@@ -31,11 +36,6 @@ class Order extends AbstractModel
      * @var string $description
      */
     protected $description = null;
-
-    /**
-     * @var string $expires
-     */
-    protected $expires = null;
 
     /**
      * @var Amount $totalAmount
@@ -73,12 +73,12 @@ class Order extends AbstractModel
     protected $courier;
 
     /**
-     * @var Items $items
+     * @var Product[] $items
      */
     protected $items;
 
     /**
-     * @var Discounts $discounts
+     * @var Discount[] $discounts
      */
     protected $discounts;
 
@@ -104,8 +104,8 @@ class Order extends AbstractModel
         $this->shipping = new Address();
         $this->merchant = new Merchant();
         $this->courier = new Courier();
-        $this->items = new Items();
-        $this->discounts = new Discounts();
+        $this->items = array();
+        $this->discounts = array();
     }
 
     /**
@@ -229,6 +229,26 @@ class Order extends AbstractModel
     }
 
     /**
+     * @return Merchant()
+     */
+    public function getMerchant()
+    {
+        return $this->merchant;
+    }
+
+    /**
+     * @param Merchant() $merchant
+     *
+     * @return Order
+     */
+    public function setMerchant($merchant)
+    {
+        $this->merchant = $merchant;
+
+        return $this;
+    }
+
+    /**
      * @return Consumer()
      */
     public function getConsumer()
@@ -249,7 +269,7 @@ class Order extends AbstractModel
     }
 
     /**
-     * @return Items()
+     * @return Product[]
      */
     public function getItems()
     {
@@ -257,19 +277,19 @@ class Order extends AbstractModel
     }
 
     /**
-     * @param Items() $consumer
+     * @param Product() $product
      *
      * @return Order
      */
-    public function setItems($items)
+    public function addItem(Product $product)
     {
-        $this->items = $items;
+        $this->items[] = $product;
 
         return $this;
     }
 
     /**
-     * @return Discounts()
+     * @return Discount[]
      */
     public function getDiscounts()
     {
@@ -277,13 +297,13 @@ class Order extends AbstractModel
     }
 
     /**
-     * @param Discounts() $consumer
+     * @param Discount() $discount
      *
      * @return Order
      */
-    public function setDiscounts($discounts)
+    public function addDiscount($discount)
     {
-        $this->discounts = $discounts;
+        $this->discounts[] = $discount;
 
         return $this;
     }
@@ -324,6 +344,46 @@ class Order extends AbstractModel
     public function setShippingAmount($shippingAmount)
     {
         $this->shippingAmount = $shippingAmount;
+
+        return $this;
+    }
+
+    /**
+     * @return String
+     */
+    public function getMerchantReference()
+    {
+        return $this->merchantReference;
+    }
+
+    /**
+     * @param Amount $merchantReference
+     *
+     * @return Order
+     */
+    public function setMerchantReference($merchantReference)
+    {
+        $this->merchantReference = $merchantReference;
+
+        return $this;
+    }
+
+    /**
+     * @return String
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param Amount $description
+     *
+     * @return Order
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
 
         return $this;
     }

@@ -26,9 +26,9 @@ class Address extends AbstractModel
     protected $line2;
 
     /**
-     * @var string $postCode $the postCode of the address.
+     * @var string $postcode $the postcode of the address.
      */
-    protected $postCode;
+    protected $postcode;
 
     /**
      * @var string $suburb the suburb name
@@ -46,7 +46,7 @@ class Address extends AbstractModel
     protected $countryCode;
 
     /**
-     * @var string $phoneNumber Fix Phone of the user
+     * @var string $phoneNumber The phone number, in E.123 format. Limited to 32 characters.
      */
     protected $phoneNumber;
 
@@ -174,17 +174,37 @@ class Address extends AbstractModel
      */
     public function getPostCode()
     {
-        return $this->postCode;
+        return $this->postcode;
     }
 
     /**
-     * @param string $postCode
+     * @param string $postcode
      *
      * @return Address
      */
-    public function setPostCode($postCode)
+    public function setPostCode($postcode)
     {
-        $this->postCode = $postCode;
+        $this->postcode = $postcode;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    /**
+     * @param string $phoneNumber
+     *
+     * @return Address
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
 
         return $this;
     }

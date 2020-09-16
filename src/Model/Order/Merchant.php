@@ -11,14 +11,14 @@ use Pagantis\OrdersApiClient\Model\AbstractModel;
 class Merchant extends AbstractModel
 {
     /**
-     * @var string cancel URL
+     * @var string redirectConfirmUrl URL
      */
-    protected $cancel = null;
+    protected $redirectConfirmUrl = null;
 
     /**
-     * @var string confirm URL
+     * @var string redirectCancelUrl URL
      */
-    protected $confirm = null;
+    protected $redirectCancelUrl = null;
 
     /**
      * @param $url
@@ -33,19 +33,19 @@ class Merchant extends AbstractModel
     /**
      * @return string
      */
-    public function getCancel()
+    public function getRedirectConfirmUrl()
     {
-        return $this->cancel;
+        return $this->redirectConfirmUrl;
     }
 
     /**
-     * @param string $cancel
+     * @param string $redirectConfirmUrl
      *
      * @return Merchant
      */
-    public function setCancel($cancel)
+    public function setRedirectConfirmUrl($redirectConfirmUrl)
     {
-        $this->cancel = $cancel;
+        $this->redirectConfirmUrl = $redirectConfirmUrl;
 
         return $this;
     }
@@ -53,19 +53,19 @@ class Merchant extends AbstractModel
     /**
      * @return string
      */
-    public function getConfirm()
+    public function getRedirectCancelUrl()
     {
-        return $this->confirm;
+        return $this->redirectCancelUrl;
     }
 
     /**
-     * @param string $confirm
+     * @param string $redirectCancelUrl
      *
      * @return Merchant
      */
-    public function setConfirm($confirm)
+    public function setRedirectCancelUrl($redirectCancelUrl)
     {
-        $this->confirm = $confirm;
+        $this->redirectCancelUrl = $redirectCancelUrl;
 
         return $this;
     }

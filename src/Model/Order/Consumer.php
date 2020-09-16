@@ -31,13 +31,6 @@ class Consumer extends AbstractModel
     protected $surname;
 
     /**
-     * Not adding getters nor setters
-     *
-     * @deprecated
-     */
-    protected $truncated = false;
-
-    /**
      * Configuration constructor.
      */
     public function __construct()

@@ -3,7 +3,7 @@
 namespace Pagantis\OrdersApiClient\Model;
 
 use Pagantis\OrdersApiClient\Exception\ClientException;
-use Pagantis\OrdersApiClient\Model\Order\Configuration\Urls;
+use Pagantis\OrdersApiClient\Model\Order\Merchant;
 
 /**
  * Class ApiConfiguration
@@ -105,7 +105,7 @@ class ApiConfiguration extends AbstractModel
      */
     public function setBaseUri($baseUri)
     {
-        if (Urls::urlValidate($baseUri)) {
+        if (Merchant::urlValidate($baseUri)) {
             $this->baseUri = $baseUri;
             return $this;
         }

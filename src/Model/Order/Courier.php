@@ -31,13 +31,6 @@ class Courier extends AbstractModel
     protected $priority;
 
     /**
-     * Not adding getters nor setters
-     *
-     * @deprecated
-     */
-    protected $truncated = false;
-
-    /**
      * Configuration constructor.
      */
     public function __construct()
@@ -94,6 +87,18 @@ class Courier extends AbstractModel
     }
 
     /**
+     * @param $priority
+     *
+     * @return $this
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
+
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getShippedAt()
@@ -102,15 +107,14 @@ class Courier extends AbstractModel
     }
 
     /**
-     * @param string $shippedAt
+     * @param $shippedAt
      *
-     * @return Courier
+     * @return $this
      */
     public function setShippedAt($shippedAt)
     {
-        $this->shippedAt = $this->checkDateFormat($shippedAt);
+        $this->shippedAt = $shippedAt;
 
         return $this;
     }
-
 }

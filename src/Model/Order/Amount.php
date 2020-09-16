@@ -16,23 +16,16 @@ class Amount extends AbstractModel
     protected $amount;
 
     /**
-     * @var string $currency The currency in ISO 4217 format. Only "GBP, EUR" is supported.
+     * @var string $currency The currency in ISO 4217 format. Only "GBP, EUR" is supported. Default 'EUR'
      */
     protected $currency;
-
-    /**
-     * Not adding getters nor setters
-     *
-     * @deprecated
-     */
-    protected $truncated = false;
 
     /**
      * Configuration constructor.
      */
     public function __construct()
     {
-        //No dependencies
+        $this->setCurrency('EUR');
     }
 
     /**
