@@ -106,7 +106,7 @@ function createOrder()
     $errorUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]?action=cancelOrder";
 
     $orderConfigurationUrls = array();
-    $orderConfigurationUrls['cancel_url'] = $errorUrl;
+    $orderConfigurationUrls['cancel'] = $errorUrl;
     $orderConfigurationUrls['ko'] = $errorUrl;
     $orderConfigurationUrls['authorized_notification_callback'] = $confirmUrl;
     $orderConfigurationUrls['rejected_notification_callback'] = $confirmUrl;
